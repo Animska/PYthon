@@ -94,15 +94,47 @@
 
 # print("has ganado")
 
-"""
-Pide una palabra al usuario y muestra cuantas letras tiene pero sin contar las vocales
-"""
+# """
+# Pide una palabra al usuario y muestra cuantas letras tiene pero sin contar las vocales
+# """
 
-palabra=input("introduzca una palabra : ")
-cont=0
-for letra in palabra:
-    if letra in "aeiouAEIOU":
-        continue
-    cont+=1
-    print(letra,end=" ")
-print(f"\ncontiene {cont} letras sin contar vocales")
+# palabra=input("introduzca una palabra : ")
+# cont=0
+# for letra in palabra:
+#     if letra in "aeiouAEIOU":
+#         continue
+#     cont+=1
+#     print(letra,end=" ")
+# print(f"\ncontiene {cont} letras sin contar vocales")
+
+# print(f"El precio completo es:{15.5765:.2f}")
+
+#imprime sin tener en cuenta \n o \t
+# print(r"C:\documentos\nombres")
+
+# Devuelve false si es 0, 0.0, "" o None
+# numero=" "
+# if numero:
+#     print("a")
+# else:
+#     print("o")
+
+
+# frase = "Python es divertido"
+# print("Python" in frase) # True
+# print("python" in frase) # False (distingue mayúsculas/minúsculas)
+# print("diver" in frase) # True (aparece dentro de la palabra)
+# print("Java" not in frase) # True
+
+# colores = ["rojo", "verde", "azul"]
+# print("rojo" in colores) # True
+# print("negro" in colores) # False
+# print("amarillo" not in colores) # True
+
+
+# animales = ["perro", "gato", "pez", "loro", "canario", "hamster", "tortuga"]
+# animales_mayusculas = [animal.upper() for animal in animales]
+# print(animales_mayusculas)
+
+# pares = [num for num in [1,2,3,4,5,6] if num % 2 == 0]
+# print(pares)

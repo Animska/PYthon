@@ -1,0 +1,19 @@
+"Print con decimales": {
+		"scope": "python",
+		"prefix": "SGR_Print_Decimales",
+		"body": [
+			"#1º es la string, 2º es el numero decimal y 3º es la cantidad de decimales",
+			"print(f\"$1{$2:.$3f}\")"
+		],
+		"description": "imprime un valor con un numero especifico de decimales, "
+	},
+
+	"ternaria": {
+		"scope": "python",
+		"prefix": "SGR_ternaria",
+		"body": [
+			"#1.-salida de true, 2.-Condicion, 3.-salida de else",
+			"$1 if $2 else $3"
+		],
+		"description": "if en una sola linea"
+	}
