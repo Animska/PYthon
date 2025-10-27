@@ -138,3 +138,54 @@
 
 # pares = [num for num in [1,2,3,4,5,6] if num % 2 == 0]
 # print(pares)
+
+# linea = input("Escribe algo: ")
+# while linea != "salir":
+#     print("Has escrito:", linea)
+#     linea = input("Escribe algo: ")
+
+# while (linea := input("Escribe algo: ")) != "salir":
+#     print("Has escrito:", linea)
+
+# """
+# Ejemplo de uso en un while:
+# """
+# secreto = random.randint(1, 10)
+# while (intento := int(input("Adivina el número (1–10): "))) != secreto:
+#     if intento < secreto:
+#         print("Demasiado bajo.")
+#     else:
+#         print("Demasiado alto.")
+# print("¡Correcto!")
+
+# """
+# Ejemplo de uso en un if:
+# """
+# if (nombre := input("Introduce tu nombre: ")):
+#     print(f"Hola, {nombre}!")
+# else:
+#     print("No has escrito nada.")
+
+
+# Para evitarlo, Python ofrece el bloque try...except.
+# try:
+# # Código que podría causar un error
+# except:
+# # Código que se ejecuta si ocurre un error
+
+# Ejemplo para controlar un error simple:
+# try:
+#     numero = int(input("Introduce un número: "))
+#     print(f"El doble es: {numero * 2}")
+# except:
+#     print("Debes introducir un número válido.")
+
+# Ejemplo capturando tipos de error
+# try:
+#     a = int(input("Introduce el primer número: "))
+#     b = int(input("Introduce el segundo número: "))
+#     print(a / b)
+# except ValueError:
+#     print("Debes introducir solo números.")
+# except ZeroDivisionError:
+#     print("No puedes dividir entre cero.")
