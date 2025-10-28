@@ -3,4 +3,4 @@
 
 tupla=("Sergio","Paula","Irene")
 
-print(tupla[2])
+print(tupla[1])

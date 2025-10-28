@@ -7,7 +7,7 @@
 def contar_pares_impares(lista):
     pares = len([num for num in lista if num%2==0])
     impares = len(lista) - pares
-    return pares,impares
+    return (pares,impares)
 
 lista = list(range(1,21))
 
