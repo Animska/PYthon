@@ -4,14 +4,14 @@
 # - El número más alto.
 # - El número más bajo.
 
-N = int(input("¿Cuántos números vas a introducir?: "))
+n = int(input("¿Cuántos números vas a introducir?: "))
 numeros = []
 
-for i in range(N):
+for i in range(n):
     num = float(input(f"Introduce el número {i+1}: "))
     numeros.append(num)
 
-media = sum(numeros) / N
+media = sum(numeros)/n
 maximo = max(numeros)
 minimo = min(numeros)
 print("Media aritmética:", media)

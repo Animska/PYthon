@@ -19,7 +19,7 @@ while repetir!="n":
                         print("apunta mas abajo") if intento>numero else print("apunta mas arriba")
                 except ValueError:
                     print("¡ERROR!:debe introducir un numero")
-            if acierto!=True:
+            if acierto is not True:
                 print("Lo siento no lo has adivinado ¡Mas suerte la proxima!")
 
             while True:

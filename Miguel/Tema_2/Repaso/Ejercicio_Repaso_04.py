@@ -2,7 +2,7 @@
 # patrón de asteriscos con N filas
 
 def asteriscos(numero):
-    for i in range(numero):
-        print("*" * i)
-
+        for i in range(numero):
+            print("*" * i)
+            
 asteriscos(17)
