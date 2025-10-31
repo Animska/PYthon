@@ -6,16 +6,16 @@
 # diccionario con un for.
 
 def contar_palabras(texto):
-    signos=set(".,;:?¡!()[]{}«»\"'-—…")
-    string_limpio ="".join(char for char in texto if char not in signos).lower()
-    array_string=string_limpio.split(" ")
-    recuento={}
-    
-    for palabra in array_string:
-            recuento[palabra] = recuento.get(palabra, 0) + 1
+        signos=set(".,;:?¡!()[]{}«»\"'-—…")
+        string_limpio ="".join(char for char in texto if char not in signos).lower()
+        array_string=string_limpio.split(" ")
+        recuento={}
 
-    for palabra, cuenta in recuento.items():
-        print(f"{palabra}: {cuenta}")
+        for palabra in array_string:
+                recuento[palabra] = recuento.get(palabra, 0) + 1
+
+        for palabra, cuenta in recuento.items():
+                print(f"{palabra.title()}: {cuenta}")
 
 
 contar_palabras("¡El Mitsubishi EVO VI tiene un turbo muy gordo, el Mitsubishi EVO VI es muy buen coche, el Mitsubishi EVO VI es muy rapido!")

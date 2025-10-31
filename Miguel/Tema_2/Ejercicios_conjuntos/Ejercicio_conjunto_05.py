@@ -14,14 +14,14 @@ import random
 def premios():
     tiradas =set()
     while len(tiradas)<20:
-        tiradas.add(random.randint(1,25))    
+        tiradas.add(random.randint(1,50))    
     return tiradas
 
 def apuesta():
-    tiradas_jugador=[]
-    for _ in range(5):
+    tiradas_jugador=set()
+    while len(tiradas_jugador)<5:
         try:
-            tiradas_jugador.append(int(input("introduce un numero: ")))
+            tiradas_jugador.add(int(input("introduce un numero entre 1 y 50: ")))
         except ValueError as e:
             print("ERROR!",e)
     return tiradas_jugador
