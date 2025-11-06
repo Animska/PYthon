@@ -1,0 +1,26 @@
+Crea una clase llamada Producto que represente un artículo en un inventario.
+Requisitos de la Clase:
+1. Atributos de Instancia:
+o _nombre (string): Nombre del producto.
+o _precio (float): Precio de venta del producto.
+o _stock (int): Cantidad disponible en el inventario.
+2. Atributo de Clase:
+o total_inventario (int): Debe llevar la cuenta total de unidades en stock
+de todos los productos.
+3. Encapsulación y Validación (@property):
+o Implementa el getter y setter para precio. El setter debe asegurar que el
+precio sea siempre mayor que 0.0. Si se intenta asignar un precio no
+válido, debe lanzar una excepción ValueError: raise ValueError("El
+precio debe ser mayor que cero.")
+o Implementa el getter y setter para stock. El setter debe asegurar que el
+stock sea mayor o igual a 0. Además, cada vez que se modifique el stock,
+el atributo de clase total_inventario debe actualizarse.
+4. Método de Clase:
+o @classmethod mostrar_total_inventario(): Un método que imprima el
+valor actual de total_inventario.
+5. Método de Instancia:
+o vender(cantidad): Un método que descuente cantidad del stock actual si
+hay suficiente. Si no hay suficiente stock, debe lanzar una
+excepción ValueError.
+Mejora la representación del objeto para la salida usando __repr__, el precio con 2
+decimales

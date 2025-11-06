@@ -17,3 +17,13 @@
 		],
 		"description": "if en una sola linea"
 	}
+
+	"ternaria": {
+		"scope": "python",
+		"prefix": "SGR_ternaria",
+		"body": [
+			"#1.-salida de true, 2.-Condicion, 3.-salida de else",
+			"$1 if $2 else $3"
+		],
+		"description": "if en una sola linea"
+	}
