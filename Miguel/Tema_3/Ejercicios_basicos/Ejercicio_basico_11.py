@@ -44,3 +44,25 @@ class Empleado:
     def salario(self, valor):
     #Setter: valida antes de asignar el valor.
         self.__salario = valor
+
+    def __eq__(self, otro):
+        if isinstance(otro, Empleado):
+            return self.__salario == otro.__salario
+        return False
+    def __str__(self):
+        return (f"ID: {self.identificador}, Nombre: {self.nombre}, "
+                f"Departamento: {self.departamento}, Salario: {self.__salario}")
+
+
+empleado1 = Empleado(1, "Ana", "Contabilidad", 2500)
+empleado2 = Empleado(2, "Luis", "Ventas", 2500)
+empleado3 = Empleado(3, "Marta", "IT", 3000)
+
+
+print(empleado1)
+print(empleado2)
+print(empleado3)
+
+
+print("empleado1 == empleado2:", empleado1 == empleado2)  # True
+print("empleado2 == empleado3:", empleado2 == empleado3)  # False
