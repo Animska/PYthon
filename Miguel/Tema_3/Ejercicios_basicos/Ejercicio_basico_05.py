@@ -9,4 +9,4 @@ productos = [Producto("tomate", "fruta", 2.3, 100),
 verduras = [producto for producto in productos if producto.categoria=="verdura"]
 
 for verdura in verduras:
-    print(str(verdura))
+    print(verdura)

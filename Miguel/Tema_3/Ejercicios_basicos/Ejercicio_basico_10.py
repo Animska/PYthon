@@ -11,6 +11,6 @@ class Mates:
     def potencia(num1,exponente):
         return num1**exponente
 
-# print(Mates.mayor(5,6))
-# print(Mates.producto(5,6,2))
+print(Mates.mayor(5,6))
+print(Mates.producto(5,6,2))
 print(Mates.potencia(2,3))

@@ -72,6 +72,62 @@ class Producto:
         self.__cantidad += valor
         print("Cantidad añadida satisfactoriamente")
 
+class Empleado:
+    def __init__(self,nombre,identificador,departamento,salario):
+        self.nombre = nombre # usa el setter
+        self.identificador = identificador # usa el setter
+        self.departamento = departamento # usa el setter
+        self.salario = salario # usa el setter
+        
+    @property
+    def nombre(self):
+    #Getter: devuelve el valor de _nombre.
+        return self.__nombre
+        
+    @nombre.setter
+    def nombre(self, valor):
+    #Setter: valida antes de asignar el valor.
+        self.__nombre = valor
+        
+    @property
+    def identificador(self):
+    #Getter: devuelve el valor de _identificador.
+        return self.__identificador
+        
+    @identificador.setter
+    def identificador(self, valor):
+    #Setter: valida antes de asignar el valor.
+        self.__identificador = valor
+        
+    @property
+    def departamento(self):
+    #Getter: devuelve el valor de _departamento.
+        return self.__departamento
+        
+    @departamento.setter
+    def departamento(self, valor):
+    #Setter: valida antes de asignar el valor.
+        self.__departamento = valor
+        
+    @property
+    def salario(self):
+    #Getter: devuelve el valor de _salario.
+        return self.__salario
+        
+    @salario.setter
+    def salario(self, valor):
+    #Setter: valida antes de asignar el valor.
+        self.__salario = valor
+
+    def __eq__(self, otro):
+        if isinstance(otro, Empleado):
+            return self.__salario == otro.__salario
+        return False
+    def __str__(self):
+        return (f"ID: {self.identificador}, Nombre: {self.nombre}, "
+                f"Departamento: {self.departamento}, Salario: {self.__salario}")
+
+
 class Vehiculo:
     def __init__(self, matricula, marca, modelo, color, anio, kilometros, potencia):
         self.matricula = matricula
@@ -430,3 +486,49 @@ class Movie:
     
     def __lt__(self, otra):
         return self.minutos < otra.minutos
+
+class Vehiculo_basic:
+    def __init__(self, marca, modelo,anio, precio):
+        self.marca = marca
+        self.modelo = modelo
+        self.anio = anio
+        self.precio = precio
+        
+    @property
+    def marca(self):
+        return self.__marca
+
+    @marca.setter
+    def marca(self, valor):
+        self.__marca = valor
+
+    @property
+    def modelo(self):
+        return self.__modelo
+
+    @modelo.setter
+    def modelo(self, valor):
+        self.__modelo = valor
+
+    @property
+    def precio(self):
+        return self.__precio
+
+    @precio.setter
+    def precio(self, valor):
+        self.__precio = valor
+
+    @property
+    def anio(self):
+        return self.__anio
+
+    @anio.setter
+    def anio(self, valor):
+        self.__anio = valor
+
+    def nombre_completo(self):
+        return(f"{self.marca} {self.modelo}")
+
+    def __str__(self):
+        return (f"{self.marca} {self.modelo} del año {self.anio} por {self.precio}€")
+    

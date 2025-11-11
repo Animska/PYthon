@@ -23,7 +23,7 @@ class GestionPartidos:
         filtrados = []
         for p in cls.partidos:
             try:
-                dia, mes, anio_p = map(int, p.fecha.split(":"))
+                anio_p = int(p.fecha.split(":")[2])
                 if anio_p == anio:
                     filtrados.append(p)
             except ValueError:
@@ -53,12 +53,12 @@ GestionPartidos.agregar_partido(p3)
 print("Partidos con Raimon como local:")
 GestionPartidos.filtrar_por_local("Barcelona")
 
-print("\nPartidos ganados por Barcelona:", GestionPartidos.ganados_del_equipo("Raimon"))
+print("\nPartidos ganados por el Raimon:", GestionPartidos.ganados_del_equipo("Raimon"))
 
 print("\nPartidos del año 2013:")
 GestionPartidos.mostrar_partidos_por_anio(2013)
 
-print("\nPartidos del 2023-05-21:")
+print("\nPartidos del 17-07-2013:")
 GestionPartidos.mostrar_por_fecha("17:7:2013")
 
 print("\nNúmero total de partidos:", GestionPartidos.contar_partidos())
