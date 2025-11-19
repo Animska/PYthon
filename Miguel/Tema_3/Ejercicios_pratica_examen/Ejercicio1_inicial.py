@@ -16,7 +16,7 @@ PEDIDOS = [
 
 def procesar_pedidos(stock: dict, pedidos: list) -> tuple:
     productos_faltantes = []
-    costo_total_pedidos = 0
+    costo_total_pedidos = 0.0
     for pedido in pedidos:
         producto = pedido['producto']
         cantidad = pedido['cantidad']

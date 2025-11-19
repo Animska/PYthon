@@ -1,11 +1,11 @@
 DATOS_SUCIOS = [
     "Juan", "Maria", "juan", None, "Ana", 
     "Maria", "Luis", "Ana", "PEDRO", None, 
-    "luis", "ana", "Juan"
+    "luis", "ana", "Juan",1
 ]
 
 def analizar_datos(data: list) -> tuple:
-    lista_limpia = [a.upper() for a in data if a is not None]
+    lista_limpia = [a.upper() for a in data if a is not None and isinstance(a,str)]
     conjunto_unicos = set(lista_limpia)
     # Total original y total únicos para cálculo de porcentaje duplicados
     total_original = len(lista_limpia)
