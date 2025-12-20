@@ -2,7 +2,7 @@
 TOKEN_BOT = '8296694350:AAE6K_YazctVFDG4JD3VKxMjzueTYCGTI9M' 
 
 # API KEY GEMINI
-GEMINI_API_KEY = 'AIzaSyB6sVz_spiuK6xe40Qd_xBG8DMOopKxydw'
+GEMINI_API_KEY = ''
 
 # DATOS CONEXIÓN INFLUXDB 
 # Requiere conexión local desde redes del departamento

@@ -93,6 +93,30 @@ def controlador_gemini(temperatura,humedad,planta)->str:
             return f"Aspersores apagados ❌"
     except Exception as e:
         return f"Error de API de Gemini: {e}"
+
+def plantar_gemini(temperatura,humedad)->str:
+    client=genai.Client(api_key = GEMINI_API_KEY)
+    prompt = (
+        f"Segun estos parametros:" 
+        f"Humedad: {humedad}% y temperatura: {temperatura}ºC"
+        f"Devuelveme una lista con 5 plantas, con emojis si los encuentras"
+        f"De plantas que serian optimas para plantar ahora"
+
+    )
+
+    try:
+        response = client.models.generate_content(
+            model='gemini-2.5-flash',
+            contents=prompt
+        )
+        if response.text:
+            encender_aspersores()
+            return f"Aspersores encendidos ✅"
+        else:
+            apagar_aspersores()
+            return f"Aspersores apagados ❌"
+    except Exception as e:
+        return f"Error de API de Gemini: {e}"
 # =================================================================
 # VALIDACIÓN DE ARGUMENTO UBICACIÓN
 # =================================================================
@@ -277,6 +301,33 @@ async def control_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Enviar la respuesta
         await context.bot.send_message(chat_id=chat_id, text=mensaje)
 
+async def plantar_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Maneja el comando /plantar [ubicacion]."""
+    # SIGUE ESTRUCTURA SIMILAR AL MANEJADOR FACILITADO
+    # Guardar el chat_id
+    chat_id = update.effective_chat.id
+    ubicacion = validar_ubicacion(context.args)
+    # Validar Ubicación
+    if not ubicacion:
+        error = f"❌ Ubicación no válida. Usa 'huerto' o 'invernadero'.\nEj: /actual huerto"
+        await context.bot.send_message(chat_id=chat_id, text=error)
+    
+    else:
+    # Obtenemos los datos según ubicación
+        planta=context.args[1]
+        if ubicacion == 'huerto':
+            humedad = acceso_datos.actual_huerto_humedad()
+            temp = acceso_datos.actual_huerto_temperatura()
+        else: 
+            # Solo hay opcion de que sea invernadero
+            humedad = acceso_datos.actual_invernadero_humedad()
+            temp = acceso_datos.actual_invernadero_temperatura()
+            
+        
+    # Formateamos el mensaje
+        mensaje=plantar_gemini(temp,humedad,planta)
+    # Enviar la respuesta
+        await context.bot.send_message(chat_id=chat_id, text=mensaje)
 # =================================================================
 # FUNCIÓN PRINCIPAL Y REGISTRO DE MANEJADORES
 # =================================================================
@@ -295,6 +346,7 @@ def main():
     appbot.add_handler(CommandHandler("actual", actual_handler))
     appbot.add_handler(CommandHandler("consejo", consejo_handler))
     appbot.add_handler(CommandHandler("control", control_handler))
+    appbot.add_handler(CommandHandler("plantar", control_handler))
 
     # Se inicia el sondeo de comandos a servidores de Telegram
     print("El bot de monitoreo está corriendo...")
