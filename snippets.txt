@@ -1,4 +1,4 @@
-"Print con decimales": {
+	"Print con decimales": {
 		"scope": "python",
 		"prefix": "SGR_Print_Decimales",
 		"body": [
@@ -27,3 +27,22 @@
 		],
 		"description": "if en una sola linea"
 	}
+
+	"leer archivo": {
+		"scope": "python",
+		"prefix": "SGR_archivo",
+		"body": [
+			"from pathlib import Path"
+			"fichero = Path("datos/mensaje.txt")"
+			"try:"
+				"# Leer TODO el contenido"
+				"contenido = fichero.read_text(encoding="utf-8")"
+				"print("Contenido del archivo:")"
+				"print(contenido)"
+				"# Limpiar espacios/saltos de línea finales"
+				"contenido_limpio = contenido.rstrip()"
+				"print(f"\nLongitud: {len(contenido_limpio)} caracteres")"
+			"except FileNotFoundError:"
+				"print(f"■ Error: El archivo '{fichero.name}' no existe")"
+		],
+		"description": "leer archivo"
