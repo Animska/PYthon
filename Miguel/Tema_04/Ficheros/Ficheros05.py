@@ -3,10 +3,10 @@ from pathlib import Path
 def crear_y_filtrar_log():
     # 1. Crear log_acceso.txt con write_text
     log_original = """[2024-11-20 10:05:01] ERROR: Fichero no encontrado en /data/a/fichero.txt
-[2024-11-20 10:05:30] INFO: Usuario 'user_001' ha iniciado sesion.
-[2024-11-20 10:06:15] WARN: Disco al 80%.
-[2024-11-20 10:06:40] INFO: Usuario 'user_002' ha iniciado sesion.
-[2024-11-20 10:07:05] ERROR: Conexión perdida con base de datos."""
+                    [2024-11-20 10:05:30] INFO: Usuario 'user_001' ha iniciado sesion.
+                    [2024-11-20 10:06:15] WARN: Disco al 80%.
+                    [2024-11-20 10:06:40] INFO: Usuario 'user_002' ha iniciado sesion.
+                    [2024-11-20 10:07:05] ERROR: Conexión perdida con base de datos."""
     
     archivo_log = Path("log_acceso.txt")
     archivo_log.write_text(log_original)
