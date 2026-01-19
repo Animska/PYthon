@@ -6,18 +6,17 @@ Incidencia = namedtuple('Incidencia', ['prioridad', 'tipo', 'descripcion'])
 
 class GestorIncidencias:
     def __init__(self):
-
         self._software = []
         self._hardware = []     
-        heapq.heapify(self._software)
-        heapq.heapify(self._hardware)
-        
-
         self._incidencias_pendientes = set()
         self._historico = defaultdict(int)
     
     def agregar_incidencia(self, prioridad, tipo, descripcion):
-        incidencia = Incidencia(prioridad, tipo, descripcion)
+        incidencia = Incidencia(prioridad, tipo.lower(), descripcion)
+        if incidencia in self._incidencias_pendientes:
+            print('Esta incidencia ya esta en pendientes')
+            return None
+        
         if tipo == 'software':
             heapq.heappush(self._software, incidencia)
         elif tipo == 'hardware':
@@ -26,6 +25,7 @@ class GestorIncidencias:
             print("Tipo inválido")
             return False
         
+        self._incidencias_pendientes.add(incidencia)
         print(f"✓ Añadida {tipo}: {descripcion} (prioridad {prioridad})")
         return True
     
