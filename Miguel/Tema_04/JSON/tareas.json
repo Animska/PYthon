@@ -1,0 +1,22 @@
+[
+  {
+    "titulo": "Revisar tema JSON",
+    "estado": true,
+    "prioridad": 1
+  },
+  {
+    "titulo": "Preparar informe de ventas",
+    "estado": false,
+    "prioridad": 2
+  },
+  {
+    "titulo": "Enviar correo al cliente",
+    "estado": false,
+    "prioridad": 3
+  },
+  {
+    "titulo": "Planificar examen",
+    "estado": false,
+    "prioridad": 3
+  }
+]
