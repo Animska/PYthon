@@ -34,11 +34,10 @@ def agregar_persona(
         dict_personas[1111] = tupla_persona
         print("Persona añadida satisfactoriamente")
         return True
-    else:
-        ultima_clave = max(dict_personas.keys())
-        dict_personas[ultima_clave + 1] = tupla_persona
-        print("Persona añadida satisfactoriamente")
-        return True
+    ultima_clave = max(dict_personas.keys())
+    dict_personas[ultima_clave + 1] = tupla_persona
+    print("Persona añadida satisfactoriamente")
+    return True
 
 def obtener_persona(
     dict_personas: Dict[int, Tuple[str, str, str]],
