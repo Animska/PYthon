@@ -1,0 +1,12 @@
+:root {
+--primary-green: #17cf17;
+--dark-green: #0d8f0d;
+--light-green: #e7f3e7;
+--sidebar-bg: #f8fcf8;
+--card-border: #d0e7d0;
+}
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f6f8f6;
+}
+
