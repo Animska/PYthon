@@ -1,0 +1,53 @@
+<div class="cabecera-dashboard d-flex justify-content-between align-items-center">
+    <div>
+        <h2 class="mb-1">Inventario de Plantas</h2>
+        <small class="text-body-secondary">Gestiona tu colección de Plantas</small>
+    </div>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevaPlanta">
+        <i class="bi bi-plus-circle me-2"></i>
+        Añadir Planta
+    </button>
+</div>
+<div class="search-container p-3 bg-white rounded-5 shadow-sm mb-4" style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);">
+  <div class="row">
+    <!-- Primeras 6 columnas: Input Group con icono @ -->
+    <div class="col-6">
+      <div class="input-group">
+        <span class="input-group-text bg-white border-end-0" id="basic-addon1">@</span>
+        <input type="text" class="form-control border-start-0 ps-0" id="searchInput" 
+               placeholder="Buscar plantas..." aria-label="Buscar plantas" 
+               aria-describedby="basic-addon1">
+      </div>
+    </div>
+    
+    <!-- Últimas 6 columnas: Button Group -->
+    <div class="col-6 d-flex justify-content-end">
+      <div class="btn-group" role="group" aria-label="Filtros de búsqueda">
+        <button type="button" class="btn btn-outline-secondary active" data-filter="todas">
+          Todas
+        </button>
+        <button type="button" class="btn btn-outline-secondary" data-filter="sin-ubicacion">
+          Sin ubicación
+        </button>
+      </div>
+    </div>
+</div>
+</div>
+<div id="grid-cartas" class="row">
+
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="card h-100">
+          <img src="https://www.compo.de/dam/jcr:5e382c1a-8128-4670-9f96-a75044fe31b2/Kaktus%20Blumentopf.jpg?x=46&amp;y=41" 
+               class="card-img-top" style="height: 200px; object-fit: cover;" alt="Monstera">
+          
+        <div class="card-body p-3">
+            <h6 class="nombre-planta">Nombre Planta</h6>
+            <p class="nombre-cientifico">Nombre Cientifico</p>
+            <span class="badge badge-recinto py-1 px-2"><i class="bi bi-house-door-fill me-1"></i>Invernadero</span>
+            
+
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,17 @@
+{
+  "monstera_deliciosa_20260202213230": {
+    "nombre": "Monstera Deliciosa",
+    "nombre_cientifico": "Monstera deliciosa",
+    "descripcion": "Planta tropical con hojas grandes y agujereadas.",
+    "recinto_id": "salon_principal",
+    "cantidad": 1,
+    "imagen_url": "https://ejemplo.com/monstera.jpg",
+    "fecha_adquisicion": "2024-05-15",
+    "ultimo_riego": "2024-05-20",
+    "necesita_trasplante": false,
+    "notas": "Le gusta la luz indirecta y mucha humedad.",
+    "created_at": "2026-02-02T21:32:30.975148",
+    "updated_at": "2026-02-02T21:32:30.975154",
+    "id": "monstera_deliciosa_20260202213230"
+  }
+}

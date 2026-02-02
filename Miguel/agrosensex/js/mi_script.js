@@ -1,6 +1,6 @@
 async function loadHTML(url, element) {
     const respuesta = await fetch(url);
-    objetivo.innerHTML = await respuesta.text()
+    element.innerHTML = await respuesta.text()
 }
 
 const contenido = document.querySelector("#contenido");

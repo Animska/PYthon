@@ -1,12 +1,156 @@
 :root {
---primary-green: #17cf17;
---dark-green: #0d8f0d;
---light-green: #e7f3e7;
---sidebar-bg: #f8fcf8;
---card-border: #d0e7d0;
-}
-body {
-font-family: 'Inter', sans-serif;
-background-color: #f6f8f6;
+    --primary-green: #17cf17;
+    --dark-green: #0d8f0d;
+    --light-green: #e7f3e7;
+    --sidebar-bg: #f8fcf8;
+    --card-border: #d0e7d0;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f6f8f6;
+}
+
+/* SIDEBAR */
+.sidebar {
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--card-border);
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 1.5rem;
+    width: 260px;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.sidebar .logo i {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+}
+
+/* NAV-LINKS */
+.sidebar .nav-link {
+    color: #0e1b0e;
+    padding: 0.75rem 1rem !important;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .nav-link i {
+    margin-right: 0.75rem;
+}
+
+.sidebar .nav-link:hover {
+    background-color: rgba(23, 207, 23, 0.1);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--light-green);
+    color: var(--dark-green);
+    font-weight: 500;
+}
+
+/* BOTÓN PRIMARIO */
+.btn-primary {
+    background-color: var(--primary-green);
+    border-color: var(--primary-green);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+}
+
+/* CONTENIDO PRINCIPAL */
+.contenido-principal {
+    margin-left: 260px;
+    padding: 1.5rem;
+    min-height: 100vh;
+}
+
+/* CABECERA DASHBOARD */
+.cabecera-dashboard {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-estadisticas {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--card-border);
+    transition: all 0.3s;
+}
+
+.tarjeta-estadisticas:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-estadisticas .icono {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.75rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--light-green);
+    margin-top: 1rem;
+}
+
+.tarjeta-estadisticas .icono i {
+    color: var(--primary-green);
+}
+
+.modal-header{
+    background-color: var(--sidebar-bg);
+}
+
+
+.card:hover {
+        transform: translateY(-5px);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+.card .nombre-planta{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #0e1b0e;
+}
+
+.card .nombre-cientifico{
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 0.75rem;
+}
+
+.card .badge{
+    font-size: 0.85rem;
+    color: darkgreen;
+    background-color: lightgreen;
+}
+
+.card .necesita-riego{
+    font-size: 0.75rem;
+    font-weight: 600;
+    background-color: #fff3cd;
+    color: #856404;
+
+}
