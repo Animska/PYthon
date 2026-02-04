@@ -16,11 +16,7 @@ body {
     height: 100vh;
     background-color: var(--sidebar-bg);
     border-right: 1px solid var(--card-border);
-    position: fixed;
-    left: 0;
-    top: 0;
     padding: 1.5rem;
-    width: 260px;
 }
 
 .sidebar .logo {
@@ -73,7 +69,6 @@ body {
 
 /* CONTENIDO PRINCIPAL */
 .contenido-principal {
-    margin-left: 260px;
     padding: 1.5rem;
     min-height: 100vh;
 }
@@ -153,4 +148,20 @@ body {
     background-color: #fff3cd;
     color: #856404;
 
+}
+
+.card .medidas{
+    border-top:1px solid #f0f0f0
+}
+
+.card .medidas p{
+    color:var(--dark-green);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin:auto
+}
+
+card .medidas small{
+    color:#6c757d;
+    font-size: 0.75rem;
 }
