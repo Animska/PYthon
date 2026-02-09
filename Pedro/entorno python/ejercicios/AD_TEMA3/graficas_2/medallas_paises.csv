@@ -1,0 +1,1179 @@
+Anio	Host Pais	Host Ciudad	Pais	Oro	Plata	Bronce	Continente	Region	Poblacion	PIB
+1896	Greece	Athens	Hungary	2	1	3	Europe	Eastern Europe	9981334	13900.0
+1896	Greece	Athens	France	5	4	2	Europe	Western Europe	60876136	27600.0
+1896	Greece	Athens	United States	11	7	2	Americas	Northern America	298444215	37800.0
+1896	Greece	Athens	Germany	6	5	2	Europe	Western Europe	82422299	27600.0
+1896	Greece	Athens	Austria	2	1	2	Europe	Western Europe	8192880	30000.0
+1896	Greece	Athens	Greece	10	18	19	Europe	Southern Europe	10688058	20000.0
+1896	Greece	Athens	Switzerland	1	2	0	Europe	Western Europe	7523934	32700.0
+1896	Greece	Athens	Australia	2	0	0	Oceania	Australia and New Zealand	20264082	29000.0
+1896	Greece	Athens	Denmark	1	2	3	Europe	Northern Europe	5450661	31100.0
+1900	France	Paris	Italy	3	2	0	Europe	Southern Europe	58133509	26700.0
+1900	France	Paris	Germany	4	3	2	Europe	Western Europe	82422299	27600.0
+1900	France	Paris	Australia	2	0	3	Oceania	Australia and New Zealand	20264082	29000.0
+1900	France	Paris	Hungary	1	2	2	Europe	Eastern Europe	9981334	13900.0
+1900	France	Paris	Denmark	1	3	2	Europe	Northern Europe	5450661	31100.0
+1900	France	Paris	France	27	38	37	Europe	Western Europe	60876136	27600.0
+1900	France	Paris	Switzerland	6	2	1	Europe	Western Europe	7523934	32700.0
+1900	France	Paris	United States	19	14	15	Americas	Northern America	298444215	37800.0
+1900	France	Paris	Cuba	1	1	0	Americas	Latin America and the Caribbean	11382820	2900.0
+1900	France	Paris	India	0	2	0	Asia	Southern Asia	1095351995	2900.0
+1900	France	Paris	Netherlands	0	2	3	Europe	Western Europe	16491461	28600.0
+1900	France	Paris	Belgium	6	7	4	Europe	Western Europe	10379067	29100.0
+1900	France	Paris	Sweden	0	0	1	Europe	Northern Europe	9016596	26800.0
+1900	France	Paris	Spain	1	0	0	Europe	Southern Europe	40397842	22000.0
+1900	France	Paris	Canada	1	0	1	Americas	Northern America	33098932	29800.0
+1900	France	Paris	Luxembourg	1	0	0	Europe	Western Europe	474413	55100.0
+1900	France	Paris	Norway	0	2	3	Europe	Northern Europe	4610820	37800.0
+1900	France	Paris	Austria	0	3	3	Europe	Western Europe	8192880	30000.0
+1904	United States	St. Louis	Cuba	3	0	0	Americas	Latin America and the Caribbean	11382820	2900.0
+1904	United States	St. Louis	Hungary	2	1	1	Europe	Eastern Europe	9981334	13900.0
+1904	United States	St. Louis	United States	76	78	77	Americas	Northern America	298444215	37800.0
+1904	United States	St. Louis	Germany	4	5	6	Europe	Western Europe	82422299	27600.0
+1904	United States	St. Louis	Canada	4	1	1	Americas	Northern America	33098932	29800.0
+1904	United States	St. Louis	Greece	1	0	1	Europe	Southern Europe	10688058	20000.0
+1904	United States	St. Louis	Australia	0	3	1	Oceania	Australia and New Zealand	20264082	29000.0
+1904	United States	St. Louis	France	0	1	0	Europe	Western Europe	60876136	27600.0
+1904	United States	St. Louis	Switzerland	1	0	2	Europe	Western Europe	7523934	32700.0
+1904	United States	St. Louis	Norway	2	0	0	Europe	Northern Europe	4610820	37800.0
+1904	United States	St. Louis	Austria	1	1	1	Europe	Western Europe	8192880	30000.0
+1908	Great Britain	London	Canada	3	3	10	Americas	Northern America	33098932	29800.0
+1908	Great Britain	London	Hungary	3	4	2	Europe	Eastern Europe	9981334	13900.0
+1908	Great Britain	London	Italy	2	2	0	Europe	Southern Europe	58133509	26700.0
+1908	Great Britain	London	Norway	2	3	3	Europe	Northern Europe	4610820	37800.0
+1908	Great Britain	London	Germany	3	5	5	Europe	Western Europe	82422299	27600.0
+1908	Great Britain	London	United States	23	12	12	Americas	Northern America	298444215	37800.0
+1908	Great Britain	London	France	5	5	9	Europe	Western Europe	60876136	27600.0
+1908	Great Britain	London	Sweden	8	6	11	Europe	Northern Europe	9016596	26800.0
+1908	Great Britain	London	Denmark	0	2	3	Europe	Northern Europe	5450661	31100.0
+1908	Great Britain	London	Greece	0	3	1	Europe	Southern Europe	10688058	20000.0
+1908	Great Britain	London	Austria	0	0	1	Europe	Western Europe	8192880	30000.0
+1908	Great Britain	London	Netherlands	0	0	2	Europe	Western Europe	16491461	28600.0
+1908	Great Britain	London	Belgium	1	5	2	Europe	Western Europe	10379067	29100.0
+1908	Great Britain	London	South Africa	1	1	0	Africa	Sub-Saharan Africa	44187637	10700.0
+1908	Great Britain	London	Finland	1	1	3	Europe	Northern Europe	5231372	27400.0
+1912	Sweden	Stockholm	Germany	6	13	7	Europe	Western Europe	82422299	27600.0
+1912	Sweden	Stockholm	Italy	5	1	2	Europe	Southern Europe	58133509	26700.0
+1912	Sweden	Stockholm	Norway	4	1	5	Europe	Northern Europe	4610820	37800.0
+1912	Sweden	Stockholm	South Africa	4	2	0	Africa	Sub-Saharan Africa	44187637	10700.0
+1912	Sweden	Stockholm	Sweden	24	24	17	Europe	Northern Europe	9016596	26800.0
+1912	Sweden	Stockholm	United States	26	19	19	Americas	Northern America	298444215	37800.0
+1912	Sweden	Stockholm	France	7	5	3	Europe	Western Europe	60876136	27600.0
+1912	Sweden	Stockholm	Finland	9	8	9	Europe	Northern Europe	5231372	27400.0
+1912	Sweden	Stockholm	Canada	3	2	3	Americas	Northern America	33098932	29800.0
+1912	Sweden	Stockholm	Switzerland	1	0	0	Europe	Western Europe	7523934	32700.0
+1912	Sweden	Stockholm	Netherlands	0	0	3	Europe	Western Europe	16491461	28600.0
+1912	Sweden	Stockholm	Austria	0	2	2	Europe	Western Europe	8192880	30000.0
+1912	Sweden	Stockholm	Greece	1	0	1	Europe	Southern Europe	10688058	20000.0
+1912	Sweden	Stockholm	Hungary	3	2	3	Europe	Eastern Europe	9981334	13900.0
+1912	Sweden	Stockholm	Denmark	1	6	5	Europe	Northern Europe	5450661	31100.0
+1912	Sweden	Stockholm	Belgium	2	1	3	Europe	Western Europe	10379067	29100.0
+1920	Belgium	Antwerp	Switzerland	2	2	7	Europe	Western Europe	7523934	32700.0
+1920	Belgium	Antwerp	Brazil	1	1	1	Americas	Latin America and the Caribbean	188078227	7600.0
+1920	Belgium	Antwerp	Australia	0	2	1	Oceania	Australia and New Zealand	20264082	29000.0
+1920	Belgium	Antwerp	Denmark	3	9	1	Europe	Northern Europe	5450661	31100.0
+1920	Belgium	Antwerp	South Africa	3	4	3	Africa	Sub-Saharan Africa	44187637	10700.0
+1920	Belgium	Antwerp	Canada	3	3	3	Americas	Northern America	33098932	29800.0
+1920	Belgium	Antwerp	Luxembourg	0	1	0	Europe	Western Europe	474413	55100.0
+1920	Belgium	Antwerp	New Zealand	0	0	1	Oceania	Australia and New Zealand	4076140	21600.0
+1920	Belgium	Antwerp	Japan	0	2	0	Asia	Eastern Asia	127463611	28200.0
+1920	Belgium	Antwerp	Spain	0	2	0	Europe	Southern Europe	40397842	22000.0
+1920	Belgium	Antwerp	Greece	0	1	0	Europe	Southern Europe	10688058	20000.0
+1920	Belgium	Antwerp	Netherlands	4	2	5	Europe	Western Europe	16491461	28600.0
+1920	Belgium	Antwerp	Belgium	16	12	14	Europe	Western Europe	10379067	29100.0
+1920	Belgium	Antwerp	Finland	15	10	9	Europe	Northern Europe	5231372	27400.0
+1920	Belgium	Antwerp	Sweden	19	20	25	Europe	Northern Europe	9016596	26800.0
+1920	Belgium	Antwerp	Estonia	1	2	0	Europe	Northern Europe	1324333	12300.0
+1920	Belgium	Antwerp	United States	41	27	27	Americas	Northern America	298444215	37800.0
+1920	Belgium	Antwerp	France	9	19	13	Europe	Western Europe	60876136	27600.0
+1920	Belgium	Antwerp	Italy	13	5	5	Europe	Southern Europe	58133509	26700.0
+1920	Belgium	Antwerp	Norway	13	9	9	Europe	Northern Europe	4610820	37800.0
+1924	France	Paris	Norway	5	2	3	Europe	Northern Europe	4610820	37800.0
+1924	France	Paris	Sweden	4	13	12	Europe	Northern Europe	9016596	26800.0
+1924	France	Paris	Denmark	2	5	2	Europe	Northern Europe	5450661	31100.0
+1924	France	Paris	Netherlands	4	1	5	Europe	Western Europe	16491461	28600.0
+1924	France	Paris	Belgium	3	7	3	Europe	Western Europe	10379067	29100.0
+1924	France	Paris	Australia	3	1	2	Oceania	Australia and New Zealand	20264082	29000.0
+1924	France	Paris	Switzerland	7	8	10	Europe	Western Europe	7523934	32700.0
+1924	France	Paris	France	13	15	10	Europe	Western Europe	60876136	27600.0
+1924	France	Paris	Finland	14	13	10	Europe	Northern Europe	5231372	27400.0
+1924	France	Paris	United States	45	27	27	Americas	Northern America	298444215	37800.0
+1924	France	Paris	Italy	8	3	5	Europe	Southern Europe	58133509	26700.0
+1924	France	Paris	Haiti	0	0	1	Americas	Latin America and the Caribbean	8308504	1600.0
+1924	France	Paris	Hungary	2	3	4	Europe	Eastern Europe	9981334	13900.0
+1924	France	Paris	Romania	0	0	1	Europe	Eastern Europe	22303552	7000.0
+1924	France	Paris	Poland	0	1	1	Europe	Eastern Europe	38536869	11100.0
+1924	France	Paris	Canada	0	3	1	Americas	Northern America	33098932	29800.0
+1924	France	Paris	Japan	0	0	1	Asia	Eastern Asia	127463611	28200.0
+1924	France	Paris	New Zealand	0	0	1	Oceania	Australia and New Zealand	4076140	21600.0
+1924	France	Paris	Portugal	0	0	1	Europe	Southern Europe	10605870	18000.0
+1924	France	Paris	Austria	0	3	1	Europe	Western Europe	8192880	30000.0
+1924	France	Paris	Argentina	1	3	2	Americas	Latin America and the Caribbean	39921833	11200.0
+1924	France	Paris	Uruguay	1	0	0	Americas	Latin America and the Caribbean	3431932	12800.0
+1924	France	Paris	South Africa	1	1	1	Africa	Sub-Saharan Africa	44187637	10700.0
+1924	France	Paris	Estonia	1	1	4	Europe	Northern Europe	1324333	12300.0
+1928	Netherlands	Amsterdam	Canada	4	4	7	Americas	Northern America	33098932	29800.0
+1928	Netherlands	Amsterdam	Hungary	4	5	0	Europe	Eastern Europe	9981334	13900.0
+1928	Netherlands	Amsterdam	Japan	2	2	1	Asia	Eastern Asia	127463611	28200.0
+1928	Netherlands	Amsterdam	Argentina	3	3	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1928	Netherlands	Amsterdam	Denmark	3	1	2	Europe	Northern Europe	5450661	31100.0
+1928	Netherlands	Amsterdam	Netherlands	6	9	4	Europe	Western Europe	16491461	28600.0
+1928	Netherlands	Amsterdam	Germany	10	7	14	Europe	Western Europe	82422299	27600.0
+1928	Netherlands	Amsterdam	Finland	8	8	9	Europe	Northern Europe	5231372	27400.0
+1928	Netherlands	Amsterdam	South Africa	1	0	2	Africa	Sub-Saharan Africa	44187637	10700.0
+1928	Netherlands	Amsterdam	United States	22	18	16	Americas	Northern America	298444215	37800.0
+1928	Netherlands	Amsterdam	Switzerland	7	4	4	Europe	Western Europe	7523934	32700.0
+1928	Netherlands	Amsterdam	France	6	10	5	Europe	Western Europe	60876136	27600.0
+1928	Netherlands	Amsterdam	Sweden	7	6	12	Europe	Northern Europe	9016596	26800.0
+1928	Netherlands	Amsterdam	Italy	7	5	7	Europe	Southern Europe	58133509	26700.0
+1928	Netherlands	Amsterdam	Estonia	2	1	2	Europe	Northern Europe	1324333	12300.0
+1928	Netherlands	Amsterdam	Uruguay	1	0	0	Americas	Latin America and the Caribbean	3431932	12800.0
+1928	Netherlands	Amsterdam	Belgium	0	1	2	Europe	Western Europe	10379067	29100.0
+1928	Netherlands	Amsterdam	New Zealand	1	0	0	Oceania	Australia and New Zealand	4076140	21600.0
+1928	Netherlands	Amsterdam	Spain	1	0	0	Europe	Southern Europe	40397842	22000.0
+1928	Netherlands	Amsterdam	Philippines	0	0	1	Asia	South-eastern Asia	89468677	4600.0
+1928	Netherlands	Amsterdam	Portugal	0	0	1	Europe	Southern Europe	10605870	18000.0
+1928	Netherlands	Amsterdam	Chile	0	1	0	Americas	Latin America and the Caribbean	16134219	9900.0
+1928	Netherlands	Amsterdam	Haiti	0	1	0	Americas	Latin America and the Caribbean	8308504	1600.0
+1928	Netherlands	Amsterdam	Australia	1	2	1	Oceania	Australia and New Zealand	20264082	29000.0
+1928	Netherlands	Amsterdam	Norway	1	2	1	Europe	Northern Europe	4610820	37800.0
+1928	Netherlands	Amsterdam	Egypt	2	1	1	Africa	Northern Africa	78887007	4000.0
+1928	Netherlands	Amsterdam	Austria	2	0	1	Europe	Western Europe	8192880	30000.0
+1928	Netherlands	Amsterdam	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1928	Netherlands	Amsterdam	Ireland	1	0	0	Europe	Northern Europe	4062235	29600.0
+1928	Netherlands	Amsterdam	Poland	1	1	3	Europe	Eastern Europe	38536869	11100.0
+1932	United States	Los Angeles	Argentina	3	1	0	Americas	Latin America and the Caribbean	39921833	11200.0
+1932	United States	Los Angeles	Australia	3	1	1	Oceania	Australia and New Zealand	20264082	29000.0
+1932	United States	Los Angeles	Germany	3	12	5	Europe	Western Europe	82422299	27600.0
+1932	United States	Los Angeles	Poland	2	1	4	Europe	Eastern Europe	38536869	11100.0
+1932	United States	Los Angeles	Netherlands	2	5	0	Europe	Western Europe	16491461	28600.0
+1932	United States	Los Angeles	Canada	2	5	8	Americas	Northern America	33098932	29800.0
+1932	United States	Los Angeles	Sweden	9	5	9	Europe	Northern Europe	9016596	26800.0
+1932	United States	Los Angeles	France	10	5	4	Europe	Western Europe	60876136	27600.0
+1932	United States	Los Angeles	Italy	12	12	12	Europe	Southern Europe	58133509	26700.0
+1932	United States	Los Angeles	Finland	5	8	12	Europe	Northern Europe	5231372	27400.0
+1932	United States	Los Angeles	Hungary	6	4	5	Europe	Eastern Europe	9981334	13900.0
+1932	United States	Los Angeles	Japan	7	7	4	Asia	Eastern Asia	127463611	28200.0
+1932	United States	Los Angeles	South Africa	2	0	3	Africa	Sub-Saharan Africa	44187637	10700.0
+1932	United States	Los Angeles	Philippines	0	0	3	Asia	South-eastern Asia	89468677	4600.0
+1932	United States	Los Angeles	Switzerland	0	1	0	Europe	Western Europe	7523934	32700.0
+1932	United States	Los Angeles	New Zealand	0	1	0	Oceania	Australia and New Zealand	4076140	21600.0
+1932	United States	Los Angeles	United States	41	32	30	Americas	Northern America	298444215	37800.0
+1932	United States	Los Angeles	Uruguay	0	0	1	Americas	Latin America and the Caribbean	3431932	12800.0
+1932	United States	Los Angeles	Spain	0	0	1	Europe	Southern Europe	40397842	22000.0
+1932	United States	Los Angeles	Latvia	0	1	0	Europe	Northern Europe	2274735	10200.0
+1932	United States	Los Angeles	Austria	1	1	3	Europe	Western Europe	8192880	30000.0
+1932	United States	Los Angeles	Ireland	2	0	0	Europe	Northern Europe	4062235	29600.0
+1932	United States	Los Angeles	Mexico	0	2	0	Americas	Latin America and the Caribbean	107449525	9000.0
+1932	United States	Los Angeles	Denmark	0	3	3	Europe	Northern Europe	5450661	31100.0
+1932	United States	Los Angeles	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1936	Germany	Berlin	Austria	4	6	3	Europe	Western Europe	8192880	30000.0
+1936	Germany	Berlin	Japan	6	4	8	Asia	Eastern Asia	127463611	28200.0
+1936	Germany	Berlin	Netherlands	6	4	7	Europe	Western Europe	16491461	28600.0
+1936	Germany	Berlin	Estonia	2	2	3	Europe	Northern Europe	1324333	12300.0
+1936	Germany	Berlin	Egypt	2	1	2	Africa	Northern Africa	78887007	4000.0
+1936	Germany	Berlin	Argentina	2	2	3	Americas	Latin America and the Caribbean	39921833	11200.0
+1936	Germany	Berlin	United States	24	20	12	Americas	Northern America	298444215	37800.0
+1936	Germany	Berlin	Hungary	10	1	5	Europe	Eastern Europe	9981334	13900.0
+1936	Germany	Berlin	Portugal	0	0	1	Europe	Southern Europe	10605870	18000.0
+1936	Germany	Berlin	Germany	33	26	30	Europe	Western Europe	82422299	27600.0
+1936	Germany	Berlin	France	7	6	6	Europe	Western Europe	60876136	27600.0
+1936	Germany	Berlin	Sweden	6	5	9	Europe	Northern Europe	9016596	26800.0
+1936	Germany	Berlin	Italy	8	9	5	Europe	Southern Europe	58133509	26700.0
+1936	Germany	Berlin	Finland	7	6	6	Europe	Northern Europe	5231372	27400.0
+1936	Germany	Berlin	South Africa	0	1	0	Africa	Sub-Saharan Africa	44187637	10700.0
+1936	Germany	Berlin	Latvia	0	1	1	Europe	Northern Europe	2274735	10200.0
+1936	Germany	Berlin	Romania	0	1	0	Europe	Eastern Europe	22303552	7000.0
+1936	Germany	Berlin	Australia	0	0	1	Oceania	Australia and New Zealand	20264082	29000.0
+1936	Germany	Berlin	Philippines	0	0	1	Asia	South-eastern Asia	89468677	4600.0
+1936	Germany	Berlin	Mexico	0	0	3	Americas	Latin America and the Caribbean	107449525	9000.0
+1936	Germany	Berlin	Belgium	0	0	2	Europe	Western Europe	10379067	29100.0
+1936	Germany	Berlin	Norway	1	3	2	Europe	Northern Europe	4610820	37800.0
+1936	Germany	Berlin	Turkey	1	0	1	Asia	Western Asia	70413958	6700.0
+1936	Germany	Berlin	Switzerland	1	9	5	Europe	Western Europe	7523934	32700.0
+1936	Germany	Berlin	Canada	1	3	5	Americas	Northern America	33098932	29800.0
+1936	Germany	Berlin	Poland	0	3	3	Europe	Eastern Europe	38536869	11100.0
+1936	Germany	Berlin	Denmark	0	2	3	Europe	Northern Europe	5450661	31100.0
+1936	Germany	Berlin	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1936	Germany	Berlin	New Zealand	1	0	0	Oceania	Australia and New Zealand	4076140	21600.0
+1948	Great Britain	London	Belgium	2	2	3	Europe	Western Europe	10379067	29100.0
+1948	Great Britain	London	Mexico	2	1	2	Americas	Latin America and the Caribbean	107449525	9000.0
+1948	Great Britain	London	Australia	2	6	5	Oceania	Australia and New Zealand	20264082	29000.0
+1948	Great Britain	London	Argentina	3	3	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1948	Great Britain	London	Austria	1	0	3	Europe	Western Europe	8192880	30000.0
+1948	Great Britain	London	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1948	Great Britain	London	Jamaica	1	2	0	Americas	Latin America and the Caribbean	2758124	3900.0
+1948	Great Britain	London	South Africa	2	1	1	Africa	Sub-Saharan Africa	44187637	10700.0
+1948	Great Britain	London	Norway	1	3	3	Europe	Northern Europe	4610820	37800.0
+1948	Great Britain	London	Netherlands	5	2	9	Europe	Western Europe	16491461	28600.0
+1948	Great Britain	London	Hungary	10	5	12	Europe	Eastern Europe	9981334	13900.0
+1948	Great Britain	London	France	10	6	13	Europe	Western Europe	60876136	27600.0
+1948	Great Britain	London	Italy	8	11	8	Europe	Southern Europe	58133509	26700.0
+1948	Great Britain	London	Turkey	6	4	2	Asia	Western Asia	70413958	6700.0
+1948	Great Britain	London	Finland	8	7	5	Europe	Northern Europe	5231372	27400.0
+1948	Great Britain	London	Switzerland	5	10	5	Europe	Western Europe	7523934	32700.0
+1948	Great Britain	London	Denmark	5	7	8	Europe	Northern Europe	5450661	31100.0
+1948	Great Britain	London	Sweden	16	11	17	Europe	Northern Europe	9016596	26800.0
+1948	Great Britain	London	United States	38	27	19	Americas	Northern America	298444215	37800.0
+1948	Great Britain	London	Peru	1	0	0	Americas	Latin America and the Caribbean	28302603	5100.0
+1948	Great Britain	London	Brazil	0	0	1	Americas	Latin America and the Caribbean	188078227	7600.0
+1948	Great Britain	London	Panama	0	0	2	Americas	Latin America and the Caribbean	3191319	6300.0
+1948	Great Britain	London	Puerto Rico	0	0	1	Americas	Latin America and the Caribbean	3927188	16800.0
+1948	Great Britain	London	Egypt	2	2	1	Africa	Northern Africa	78887007	4000.0
+1948	Great Britain	London	Iran	0	0	1	Asia	Southern Asia	68688433	7000.0
+1948	Great Britain	London	Poland	0	0	1	Europe	Eastern Europe	38536869	11100.0
+1948	Great Britain	London	Portugal	0	1	1	Europe	Southern Europe	10605870	18000.0
+1948	Great Britain	London	Uruguay	0	1	1	Americas	Latin America and the Caribbean	3431932	12800.0
+1948	Great Britain	London	Canada	0	1	2	Americas	Northern America	33098932	29800.0
+1948	Great Britain	London	Spain	0	1	0	Europe	Southern Europe	40397842	22000.0
+1948	Great Britain	London	Cuba	0	1	0	Americas	Latin America and the Caribbean	11382820	2900.0
+1952	Finland	Helsinki	Italy	8	9	4	Europe	Southern Europe	58133509	26700.0
+1952	Finland	Helsinki	United States	40	19	17	Americas	Northern America	298444215	37800.0
+1952	Finland	Helsinki	Hungary	16	10	16	Europe	Eastern Europe	9981334	13900.0
+1952	Finland	Helsinki	France	6	6	6	Europe	Western Europe	60876136	27600.0
+1952	Finland	Helsinki	Sweden	12	13	10	Europe	Northern Europe	9016596	26800.0
+1952	Finland	Helsinki	Argentina	1	2	2	Americas	Latin America and the Caribbean	39921833	11200.0
+1952	Finland	Helsinki	Poland	1	2	1	Europe	Eastern Europe	38536869	11100.0
+1952	Finland	Helsinki	Japan	1	6	2	Asia	Eastern Asia	127463611	28200.0
+1952	Finland	Helsinki	Canada	1	2	0	Americas	Northern America	33098932	29800.0
+1952	Finland	Helsinki	Brazil	1	0	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1952	Finland	Helsinki	New Zealand	1	0	2	Oceania	Australia and New Zealand	4076140	21600.0
+1952	Finland	Helsinki	Romania	1	1	2	Europe	Eastern Europe	22303552	7000.0
+1952	Finland	Helsinki	Norway	3	2	0	Europe	Northern Europe	4610820	37800.0
+1952	Finland	Helsinki	Switzerland	2	6	6	Europe	Western Europe	7523934	32700.0
+1952	Finland	Helsinki	Finland	6	3	13	Europe	Northern Europe	5231372	27400.0
+1952	Finland	Helsinki	Australia	6	2	3	Oceania	Australia and New Zealand	20264082	29000.0
+1952	Finland	Helsinki	South Africa	2	4	4	Africa	Sub-Saharan Africa	44187637	10700.0
+1952	Finland	Helsinki	Denmark	2	1	3	Europe	Northern Europe	5450661	31100.0
+1952	Finland	Helsinki	Turkey	2	0	1	Asia	Western Asia	70413958	6700.0
+1952	Finland	Helsinki	Jamaica	2	3	0	Americas	Latin America and the Caribbean	2758124	3900.0
+1952	Finland	Helsinki	Belgium	2	2	0	Europe	Western Europe	10379067	29100.0
+1952	Finland	Helsinki	Mexico	0	1	0	Americas	Latin America and the Caribbean	107449525	9000.0
+1952	Finland	Helsinki	Spain	0	1	0	Europe	Southern Europe	40397842	22000.0
+1952	Finland	Helsinki	Uruguay	0	0	2	Americas	Latin America and the Caribbean	3431932	12800.0
+1952	Finland	Helsinki	Portugal	0	0	1	Europe	Southern Europe	10605870	18000.0
+1952	Finland	Helsinki	Venezuela	0	0	1	Americas	Latin America and the Caribbean	25730435	4800.0
+1952	Finland	Helsinki	Bulgaria	0	0	1	Europe	Eastern Europe	7385367	7600.0
+1952	Finland	Helsinki	Egypt	0	0	1	Africa	Northern Africa	78887007	4000.0
+1952	Finland	Helsinki	Germany	0	7	17	Europe	Western Europe	82422299	27600.0
+1952	Finland	Helsinki	Netherlands	0	5	0	Europe	Western Europe	16491461	28600.0
+1952	Finland	Helsinki	India	1	0	1	Asia	Southern Asia	1095351995	2900.0
+1952	Finland	Helsinki	Luxembourg	1	0	0	Europe	Western Europe	474413	55100.0
+1952	Finland	Helsinki	Iran	0	3	4	Asia	Southern Asia	68688433	7000.0
+1952	Finland	Helsinki	Lebanon	0	1	1	Asia	Western Asia	3874050	4800.0
+1952	Finland	Helsinki	Ireland	0	1	0	Europe	Northern Europe	4062235	29600.0
+1952	Finland	Helsinki	Chile	0	2	0	Americas	Latin America and the Caribbean	16134219	9900.0
+1952	Finland	Helsinki	Austria	0	1	1	Europe	Western Europe	8192880	30000.0
+1956	Australia/Sweden	Melbourne/Stockholm	Ireland	1	1	3	Europe	Northern Europe	4062235	29600.0
+1956	Australia/Sweden	Melbourne/Stockholm	Denmark	1	2	1	Europe	Northern Europe	5450661	31100.0
+1956	Australia/Sweden	Melbourne/Stockholm	Bulgaria	1	3	1	Europe	Eastern Europe	7385367	7600.0
+1956	Australia/Sweden	Melbourne/Stockholm	Brazil	1	0	0	Americas	Latin America and the Caribbean	188078227	7600.0
+1956	Australia/Sweden	Melbourne/Stockholm	Mexico	1	0	1	Americas	Latin America and the Caribbean	107449525	9000.0
+1956	Australia/Sweden	Melbourne/Stockholm	Norway	1	0	2	Europe	Northern Europe	4610820	37800.0
+1956	Australia/Sweden	Melbourne/Stockholm	Canada	2	1	3	Americas	Northern America	33098932	29800.0
+1956	Australia/Sweden	Melbourne/Stockholm	Iran	2	2	1	Asia	Southern Asia	68688433	7000.0
+1956	Australia/Sweden	Melbourne/Stockholm	Poland	1	4	4	Europe	Eastern Europe	38536869	11100.0
+1956	Australia/Sweden	Melbourne/Stockholm	New Zealand	2	0	0	Oceania	Australia and New Zealand	4076140	21600.0
+1956	Australia/Sweden	Melbourne/Stockholm	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1956	Australia/Sweden	Melbourne/Stockholm	Austria	0	0	2	Europe	Western Europe	8192880	30000.0
+1956	Australia/Sweden	Melbourne/Stockholm	South Africa	0	0	4	Africa	Sub-Saharan Africa	44187637	10700.0
+1956	Australia/Sweden	Melbourne/Stockholm	Pakistan	0	1	0	Asia	Southern Asia	165803560	2100.0
+1956	Australia/Sweden	Melbourne/Stockholm	Uruguay	0	0	1	Americas	Latin America and the Caribbean	3431932	12800.0
+1956	Australia/Sweden	Melbourne/Stockholm	Switzerland	0	0	1	Europe	Western Europe	7523934	32700.0
+1956	Australia/Sweden	Melbourne/Stockholm	Greece	0	0	1	Europe	Southern Europe	10688058	20000.0
+1956	Australia/Sweden	Melbourne/Stockholm	Belgium	0	2	0	Europe	Western Europe	10379067	29100.0
+1956	Australia/Sweden	Melbourne/Stockholm	Chile	0	2	2	Americas	Latin America and the Caribbean	16134219	9900.0
+1956	Australia/Sweden	Melbourne/Stockholm	Iceland	0	1	0	Europe	Northern Europe	299388	30900.0
+1956	Australia/Sweden	Melbourne/Stockholm	Argentina	0	1	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1956	Australia/Sweden	Melbourne/Stockholm	Romania	5	3	5	Europe	Eastern Europe	22303552	7000.0
+1956	Australia/Sweden	Melbourne/Stockholm	Finland	3	1	11	Europe	Northern Europe	5231372	27400.0
+1956	Australia/Sweden	Melbourne/Stockholm	Turkey	3	2	2	Asia	Western Asia	70413958	6700.0
+1956	Australia/Sweden	Melbourne/Stockholm	Japan	4	10	5	Asia	Eastern Asia	127463611	28200.0
+1956	Australia/Sweden	Melbourne/Stockholm	Sweden	8	5	6	Europe	Northern Europe	9016596	26800.0
+1956	Australia/Sweden	Melbourne/Stockholm	United States	32	25	17	Americas	Northern America	298444215	37800.0
+1956	Australia/Sweden	Melbourne/Stockholm	France	4	4	6	Europe	Western Europe	60876136	27600.0
+1956	Australia/Sweden	Melbourne/Stockholm	Hungary	9	10	7	Europe	Eastern Europe	9981334	13900.0
+1956	Australia/Sweden	Melbourne/Stockholm	Italy	8	8	9	Europe	Southern Europe	58133509	26700.0
+1956	Australia/Sweden	Melbourne/Stockholm	Australia	13	8	14	Oceania	Australia and New Zealand	20264082	29000.0
+1960	Italy	Rome	Sweden	1	2	3	Europe	Northern Europe	9016596	26800.0
+1960	Italy	Rome	Finland	1	1	3	Europe	Northern Europe	5231372	27400.0
+1960	Italy	Rome	New Zealand	2	0	1	Oceania	Australia and New Zealand	4076140	21600.0
+1960	Italy	Rome	Denmark	2	3	1	Europe	Northern Europe	5450661	31100.0
+1960	Italy	Rome	Austria	1	1	0	Europe	Western Europe	8192880	30000.0
+1960	Italy	Rome	Greece	1	0	0	Europe	Southern Europe	10688058	20000.0
+1960	Italy	Rome	Norway	1	0	0	Europe	Northern Europe	4610820	37800.0
+1960	Italy	Rome	Ethiopia	1	0	0	Africa	Sub-Saharan Africa	74777981	700.0
+1960	Italy	Rome	Pakistan	1	0	1	Asia	Southern Asia	165803560	2100.0
+1960	Italy	Rome	Australia	8	8	6	Oceania	Australia and New Zealand	20264082	29000.0
+1960	Italy	Rome	Italy	13	10	13	Europe	Southern Europe	58133509	26700.0
+1960	Italy	Rome	United States	34	21	16	Americas	Northern America	298444215	37800.0
+1960	Italy	Rome	Turkey	7	2	0	Asia	Western Asia	70413958	6700.0
+1960	Italy	Rome	Romania	3	1	6	Europe	Eastern Europe	22303552	7000.0
+1960	Italy	Rome	Poland	4	6	11	Europe	Eastern Europe	38536869	11100.0
+1960	Italy	Rome	Hungary	6	8	7	Europe	Eastern Europe	9981334	13900.0
+1960	Italy	Rome	Japan	4	7	7	Asia	Eastern Asia	127463611	28200.0
+1960	Italy	Rome	Singapore	0	1	0	Asia	South-eastern Asia	4492150	23700.0
+1960	Italy	Rome	Brazil	0	0	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1960	Italy	Rome	Morocco	0	1	0	Africa	Northern Africa	33241259	4000.0
+1960	Italy	Rome	Portugal	0	1	0	Europe	Southern Europe	10605870	18000.0
+1960	Italy	Rome	Venezuela	0	0	1	Americas	Latin America and the Caribbean	25730435	4800.0
+1960	Italy	Rome	Bulgaria	1	3	3	Europe	Eastern Europe	7385367	7600.0
+1960	Italy	Rome	Spain	0	0	1	Europe	Southern Europe	40397842	22000.0
+1960	Italy	Rome	Iraq	0	0	1	Asia	Western Asia	26783383	1500.0
+1960	Italy	Rome	Mexico	0	0	1	Americas	Latin America and the Caribbean	107449525	9000.0
+1960	Italy	Rome	India	0	1	0	Asia	Southern Asia	1095351995	2900.0
+1960	Italy	Rome	Iran	0	1	3	Asia	Southern Asia	68688433	7000.0
+1960	Italy	Rome	Netherlands	0	1	2	Europe	Western Europe	16491461	28600.0
+1960	Italy	Rome	Belgium	0	2	2	Europe	Western Europe	10379067	29100.0
+1960	Italy	Rome	Switzerland	0	3	3	Europe	Western Europe	7523934	32700.0
+1960	Italy	Rome	France	0	2	3	Europe	Western Europe	60876136	27600.0
+1960	Italy	Rome	South Africa	0	1	2	Africa	Sub-Saharan Africa	44187637	10700.0
+1960	Italy	Rome	Canada	0	1	0	Americas	Northern America	33098932	29800.0
+1960	Italy	Rome	Ghana	0	1	0	Africa	Sub-Saharan Africa	22409572	2200.0
+1960	Italy	Rome	Egypt	0	1	1	Africa	Northern Africa	78887007	4000.0
+1960	Italy	Rome	Argentina	0	1	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1964	Japan	Tokyo	France	1	8	6	Europe	Western Europe	60876136	27600.0
+1964	Japan	Tokyo	Canada	1	2	1	Americas	Northern America	33098932	29800.0
+1964	Japan	Tokyo	Belgium	2	0	1	Europe	Western Europe	10379067	29100.0
+1964	Japan	Tokyo	Ethiopia	1	0	0	Africa	Sub-Saharan Africa	74777981	700.0
+1964	Japan	Tokyo	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1964	Japan	Tokyo	Switzerland	1	2	1	Europe	Western Europe	7523934	32700.0
+1964	Japan	Tokyo	New Zealand	3	0	2	Oceania	Australia and New Zealand	4076140	21600.0
+1964	Japan	Tokyo	Romania	2	4	6	Europe	Eastern Europe	22303552	7000.0
+1964	Japan	Tokyo	Bulgaria	3	5	2	Europe	Eastern Europe	7385367	7600.0
+1964	Japan	Tokyo	Finland	3	0	2	Europe	Northern Europe	5231372	27400.0
+1964	Japan	Tokyo	Sweden	2	2	4	Europe	Northern Europe	9016596	26800.0
+1964	Japan	Tokyo	Denmark	2	1	3	Europe	Northern Europe	5450661	31100.0
+1964	Japan	Tokyo	Netherlands	2	4	4	Europe	Western Europe	16491461	28600.0
+1964	Japan	Tokyo	Turkey	2	3	1	Asia	Western Asia	70413958	6700.0
+1964	Japan	Tokyo	Ireland	0	0	1	Europe	Northern Europe	4062235	29600.0
+1964	Japan	Tokyo	Kenya	0	0	1	Africa	Sub-Saharan Africa	34707817	1000.0
+1964	Japan	Tokyo	Brazil	0	0	1	Americas	Latin America and the Caribbean	188078227	7600.0
+1964	Japan	Tokyo	Ghana	0	0	1	Africa	Sub-Saharan Africa	22409572	2200.0
+1964	Japan	Tokyo	Uruguay	0	0	1	Americas	Latin America and the Caribbean	3431932	12800.0
+1964	Japan	Tokyo	Japan	16	5	8	Asia	Eastern Asia	127463611	28200.0
+1964	Japan	Tokyo	Mexico	0	0	1	Americas	Latin America and the Caribbean	107449525	9000.0
+1964	Japan	Tokyo	Nigeria	0	0	1	Africa	Sub-Saharan Africa	131859731	900.0
+1964	Japan	Tokyo	Tunisia	0	1	1	Africa	Northern Africa	10175014	6900.0
+1964	Japan	Tokyo	Argentina	0	1	0	Americas	Latin America and the Caribbean	39921833	11200.0
+1964	Japan	Tokyo	Philippines	0	1	0	Asia	South-eastern Asia	89468677	4600.0
+1964	Japan	Tokyo	Iran	0	0	2	Asia	Southern Asia	68688433	7000.0
+1964	Japan	Tokyo	Cuba	0	1	0	Americas	Latin America and the Caribbean	11382820	2900.0
+1964	Japan	Tokyo	Pakistan	0	1	0	Asia	Southern Asia	165803560	2100.0
+1964	Japan	Tokyo	Italy	10	10	7	Europe	Southern Europe	58133509	26700.0
+1964	Japan	Tokyo	United States	36	26	28	Americas	Northern America	298444215	37800.0
+1964	Japan	Tokyo	Hungary	10	7	5	Europe	Eastern Europe	9981334	13900.0
+1964	Japan	Tokyo	Poland	7	6	10	Europe	Eastern Europe	38536869	11100.0
+1964	Japan	Tokyo	Australia	6	2	10	Oceania	Australia and New Zealand	20264082	29000.0
+1968	Mexico	Mexico City	Mexico	3	3	3	Americas	Latin America and the Caribbean	107449525	9000.0
+1968	Mexico	Mexico City	Kenya	3	4	2	Africa	Sub-Saharan Africa	34707817	1000.0
+1968	Mexico	Mexico City	Romania	4	6	5	Europe	Eastern Europe	22303552	7000.0
+1968	Mexico	Mexico City	Italy	3	4	9	Europe	Southern Europe	58133509	26700.0
+1968	Mexico	Mexico City	Netherlands	3	3	1	Europe	Western Europe	16491461	28600.0
+1968	Mexico	Mexico City	Turkey	2	0	0	Asia	Western Asia	70413958	6700.0
+1968	Mexico	Mexico City	Denmark	1	4	3	Europe	Northern Europe	5450661	31100.0
+1968	Mexico	Mexico City	Sweden	2	1	1	Europe	Northern Europe	9016596	26800.0
+1968	Mexico	Mexico City	Bulgaria	2	4	3	Europe	Eastern Europe	7385367	7600.0
+1968	Mexico	Mexico City	Iran	2	1	2	Asia	Southern Asia	68688433	7000.0
+1968	Mexico	Mexico City	Hungary	10	10	12	Europe	Eastern Europe	9981334	13900.0
+1968	Mexico	Mexico City	Japan	11	7	7	Asia	Eastern Asia	127463611	28200.0
+1968	Mexico	Mexico City	United States	45	28	34	Americas	Northern America	298444215	37800.0
+1968	Mexico	Mexico City	France	7	3	5	Europe	Western Europe	60876136	27600.0
+1968	Mexico	Mexico City	Poland	5	2	11	Europe	Eastern Europe	38536869	11100.0
+1968	Mexico	Mexico City	Australia	5	7	5	Oceania	Australia and New Zealand	20264082	29000.0
+1968	Mexico	Mexico City	Canada	1	3	1	Americas	Northern America	33098932	29800.0
+1968	Mexico	Mexico City	Uganda	0	1	1	Africa	Sub-Saharan Africa	28195754	1400.0
+1968	Mexico	Mexico City	Cameroon	0	1	0	Africa	Sub-Saharan Africa	17340702	1800.0
+1968	Mexico	Mexico City	Brazil	0	1	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1968	Mexico	Mexico City	Belgium	0	1	1	Europe	Western Europe	10379067	29100.0
+1968	Mexico	Mexico City	India	0	0	1	Asia	Southern Asia	1095351995	2900.0
+1968	Mexico	Mexico City	Greece	0	0	1	Europe	Southern Europe	10688058	20000.0
+1968	Mexico	Mexico City	Jamaica	0	1	0	Americas	Latin America and the Caribbean	2758124	3900.0
+1968	Mexico	Mexico City	Argentina	0	0	2	Americas	Latin America and the Caribbean	39921833	11200.0
+1968	Mexico	Mexico City	Mongolia	0	1	3	Asia	Eastern Asia	2832224	1800.0
+1968	Mexico	Mexico City	New Zealand	1	0	2	Oceania	Australia and New Zealand	4076140	21600.0
+1968	Mexico	Mexico City	Tunisia	1	0	1	Africa	Northern Africa	10175014	6900.0
+1968	Mexico	Mexico City	Norway	1	1	0	Europe	Northern Europe	4610820	37800.0
+1968	Mexico	Mexico City	Finland	1	2	1	Europe	Northern Europe	5231372	27400.0
+1968	Mexico	Mexico City	Ethiopia	1	1	0	Africa	Sub-Saharan Africa	74777981	700.0
+1968	Mexico	Mexico City	Austria	0	2	2	Europe	Western Europe	8192880	30000.0
+1968	Mexico	Mexico City	Switzerland	0	1	4	Europe	Western Europe	7523934	32700.0
+1968	Mexico	Mexico City	Cuba	0	4	0	Americas	Latin America and the Caribbean	11382820	2900.0
+1968	Mexico	Mexico City	Pakistan	1	0	0	Asia	Southern Asia	165803560	2100.0
+1968	Mexico	Mexico City	Venezuela	1	0	0	Americas	Latin America and the Caribbean	25730435	4800.0
+1972	West Germany	Munich	United States	33	31	30	Americas	Northern America	298444215	37800.0
+1972	West Germany	Munich	Canada	0	2	3	Americas	Northern America	33098932	29800.0
+1972	West Germany	Munich	Cuba	3	1	4	Americas	Latin America and the Caribbean	11382820	2900.0
+1972	West Germany	Munich	Hungary	6	13	16	Europe	Eastern Europe	9981334	13900.0
+1972	West Germany	Munich	Bulgaria	6	10	5	Europe	Eastern Europe	7385367	7600.0
+1972	West Germany	Munich	Italy	5	3	10	Europe	Southern Europe	58133509	26700.0
+1972	West Germany	Munich	Japan	13	8	8	Asia	Eastern Asia	127463611	28200.0
+1972	West Germany	Munich	Australia	8	7	2	Oceania	Australia and New Zealand	20264082	29000.0
+1972	West Germany	Munich	Poland	7	5	9	Europe	Eastern Europe	38536869	11100.0
+1972	West Germany	Munich	Kenya	2	3	4	Africa	Sub-Saharan Africa	34707817	1000.0
+1972	West Germany	Munich	Finland	3	1	4	Europe	Northern Europe	5231372	27400.0
+1972	West Germany	Munich	Netherlands	3	1	1	Europe	Western Europe	16491461	28600.0
+1972	West Germany	Munich	France	2	4	7	Europe	Western Europe	60876136	27600.0
+1972	West Germany	Munich	Uganda	1	1	0	Africa	Sub-Saharan Africa	28195754	1400.0
+1972	West Germany	Munich	Denmark	1	0	0	Europe	Northern Europe	5450661	31100.0
+1972	West Germany	Munich	Switzerland	0	3	0	Europe	Western Europe	7523934	32700.0
+1972	West Germany	Munich	Norway	2	1	1	Europe	Northern Europe	4610820	37800.0
+1972	West Germany	Munich	New Zealand	1	1	1	Oceania	Australia and New Zealand	4076140	21600.0
+1972	West Germany	Munich	Jamaica	0	0	1	Americas	Latin America and the Caribbean	2758124	3900.0
+1972	West Germany	Munich	India	0	0	1	Asia	Southern Asia	1095351995	2900.0
+1972	West Germany	Munich	Ghana	0	0	1	Africa	Sub-Saharan Africa	22409572	2200.0
+1972	West Germany	Munich	Spain	0	0	1	Europe	Southern Europe	40397842	22000.0
+1972	West Germany	Munich	Nigeria	0	0	1	Africa	Sub-Saharan Africa	131859731	900.0
+1972	West Germany	Munich	Niger	0	0	1	Africa	Sub-Saharan Africa	12525094	800.0
+1972	West Germany	Munich	Tunisia	0	1	0	Africa	Northern Africa	10175014	6900.0
+1972	West Germany	Munich	Pakistan	0	1	0	Asia	Southern Asia	165803560	2100.0
+1972	West Germany	Munich	Ethiopia	0	0	2	Africa	Sub-Saharan Africa	74777981	700.0
+1972	West Germany	Munich	Brazil	0	0	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1972	West Germany	Munich	Turkey	0	1	0	Asia	Western Asia	70413958	6700.0
+1972	West Germany	Munich	Mongolia	0	1	0	Asia	Eastern Asia	2832224	1800.0
+1972	West Germany	Munich	Belgium	0	2	0	Europe	Western Europe	10379067	29100.0
+1972	West Germany	Munich	Greece	0	2	0	Europe	Southern Europe	10688058	20000.0
+1972	West Germany	Munich	Austria	0	1	2	Europe	Western Europe	8192880	30000.0
+1972	West Germany	Munich	Sweden	4	6	6	Europe	Northern Europe	9016596	26800.0
+1972	West Germany	Munich	Iran	0	2	1	Asia	Southern Asia	68688433	7000.0
+1972	West Germany	Munich	Mexico	0	1	0	Americas	Latin America and the Caribbean	107449525	9000.0
+1972	West Germany	Munich	Romania	3	6	7	Europe	Eastern Europe	22303552	7000.0
+1972	West Germany	Munich	Lebanon	0	1	0	Asia	Western Asia	3874050	4800.0
+1972	West Germany	Munich	Colombia	0	1	2	Americas	Latin America and the Caribbean	43593035	6300.0
+1972	West Germany	Munich	Argentina	0	1	0	Americas	Latin America and the Caribbean	39921833	11200.0
+1976	Canada	Montreal	Romania	4	9	14	Europe	Eastern Europe	22303552	7000.0
+1976	Canada	Montreal	Cuba	6	4	3	Americas	Latin America and the Caribbean	11382820	2900.0
+1976	Canada	Montreal	Bulgaria	6	9	7	Europe	Eastern Europe	7385367	7600.0
+1976	Canada	Montreal	Hungary	4	5	13	Europe	Eastern Europe	9981334	13900.0
+1976	Canada	Montreal	Sweden	4	1	0	Europe	Northern Europe	9016596	26800.0
+1976	Canada	Montreal	Finland	4	2	0	Europe	Northern Europe	5231372	27400.0
+1976	Canada	Montreal	Pakistan	0	0	1	Asia	Southern Asia	165803560	2100.0
+1976	Canada	Montreal	United States	34	35	25	Americas	Northern America	298444215	37800.0
+1976	Canada	Montreal	Poland	7	6	13	Europe	Eastern Europe	38536869	11100.0
+1976	Canada	Montreal	Japan	9	6	10	Asia	Eastern Asia	127463611	28200.0
+1976	Canada	Montreal	Italy	2	7	4	Europe	Southern Europe	58133509	26700.0
+1976	Canada	Montreal	Portugal	0	2	0	Europe	Southern Europe	10605870	18000.0
+1976	Canada	Montreal	Spain	0	2	0	Europe	Southern Europe	40397842	22000.0
+1976	Canada	Montreal	Australia	0	1	4	Oceania	Australia and New Zealand	20264082	29000.0
+1976	Canada	Montreal	Thailand	0	0	1	Asia	South-eastern Asia	64631595	7400.0
+1976	Canada	Montreal	Belgium	0	3	3	Europe	Western Europe	10379067	29100.0
+1976	Canada	Montreal	Netherlands	0	2	3	Europe	Western Europe	16491461	28600.0
+1976	Canada	Montreal	Iran	0	1	1	Asia	Southern Asia	68688433	7000.0
+1976	Canada	Montreal	Austria	0	0	1	Europe	Western Europe	8192880	30000.0
+1976	Canada	Montreal	Bermuda	0	0	1	Americas	Northern America	65773	36000.0
+1976	Canada	Montreal	Puerto Rico	0	0	1	Americas	Latin America and the Caribbean	3927188	16800.0
+1976	Canada	Montreal	Mongolia	0	1	0	Asia	Eastern Asia	2832224	1800.0
+1976	Canada	Montreal	Venezuela	0	1	0	Americas	Latin America and the Caribbean	25730435	4800.0
+1976	Canada	Montreal	Brazil	0	0	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1976	Canada	Montreal	Norway	1	1	0	Europe	Northern Europe	4610820	37800.0
+1976	Canada	Montreal	Jamaica	1	1	0	Americas	Latin America and the Caribbean	2758124	3900.0
+1976	Canada	Montreal	Canada	0	5	6	Americas	Northern America	33098932	29800.0
+1976	Canada	Montreal	Mexico	1	0	1	Americas	Latin America and the Caribbean	107449525	9000.0
+1976	Canada	Montreal	Denmark	1	0	2	Europe	Northern Europe	5450661	31100.0
+1976	Canada	Montreal	Switzerland	1	1	2	Europe	Western Europe	7523934	32700.0
+1976	Canada	Montreal	France	2	3	4	Europe	Western Europe	60876136	27600.0
+1976	Canada	Montreal	New Zealand	2	1	1	Oceania	Australia and New Zealand	4076140	21600.0
+1980	Soviet Union	Moscow	Romania	6	6	13	Europe	Eastern Europe	22303552	7000.0
+1980	Soviet Union	Moscow	Hungary	7	10	15	Europe	Eastern Europe	9981334	13900.0
+1980	Soviet Union	Moscow	Sweden	3	3	6	Europe	Northern Europe	9016596	26800.0
+1980	Soviet Union	Moscow	Poland	3	14	15	Europe	Eastern Europe	38536869	11100.0
+1980	Soviet Union	Moscow	France	6	5	3	Europe	Western Europe	60876136	27600.0
+1980	Soviet Union	Moscow	Ethiopia	2	0	2	Africa	Sub-Saharan Africa	74777981	700.0
+1980	Soviet Union	Moscow	Italy	8	3	4	Europe	Southern Europe	58133509	26700.0
+1980	Soviet Union	Moscow	Cuba	8	7	5	Americas	Latin America and the Caribbean	11382820	2900.0
+1980	Soviet Union	Moscow	Bulgaria	8	16	17	Europe	Eastern Europe	7385367	7600.0
+1980	Soviet Union	Moscow	Tanzania	0	2	0	Africa	Sub-Saharan Africa	37445392	600.0
+1980	Soviet Union	Moscow	Mexico	0	1	3	Americas	Latin America and the Caribbean	107449525	9000.0
+1980	Soviet Union	Moscow	Netherlands	0	1	2	Europe	Western Europe	16491461	28600.0
+1980	Soviet Union	Moscow	Zimbabwe	1	0	0	Africa	Sub-Saharan Africa	12236805	1900.0
+1980	Soviet Union	Moscow	Mongolia	0	2	2	Asia	Eastern Asia	2832224	1800.0
+1980	Soviet Union	Moscow	Jamaica	0	0	3	Americas	Latin America and the Caribbean	2758124	3900.0
+1980	Soviet Union	Moscow	Guyana	0	0	1	Americas	Latin America and the Caribbean	767245	4000.0
+1980	Soviet Union	Moscow	Lebanon	0	0	1	Asia	Western Asia	3874050	4800.0
+1980	Soviet Union	Moscow	Ireland	0	1	1	Europe	Northern Europe	4062235	29600.0
+1980	Soviet Union	Moscow	Uganda	0	1	0	Africa	Sub-Saharan Africa	28195754	1400.0
+1980	Soviet Union	Moscow	Venezuela	0	1	0	Americas	Latin America and the Caribbean	25730435	4800.0
+1980	Soviet Union	Moscow	Australia	2	2	5	Oceania	Australia and New Zealand	20264082	29000.0
+1980	Soviet Union	Moscow	Denmark	2	1	2	Europe	Northern Europe	5450661	31100.0
+1980	Soviet Union	Moscow	Brazil	2	0	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1980	Soviet Union	Moscow	Finland	3	1	4	Europe	Northern Europe	5231372	27400.0
+1980	Soviet Union	Moscow	Switzerland	2	0	0	Europe	Western Europe	7523934	32700.0
+1980	Soviet Union	Moscow	Greece	1	0	2	Europe	Southern Europe	10688058	20000.0
+1980	Soviet Union	Moscow	Belgium	1	0	0	Europe	Western Europe	10379067	29100.0
+1980	Soviet Union	Moscow	India	1	0	0	Asia	Southern Asia	1095351995	2900.0
+1980	Soviet Union	Moscow	Spain	1	3	2	Europe	Southern Europe	40397842	22000.0
+1980	Soviet Union	Moscow	Austria	1	2	1	Europe	Western Europe	8192880	30000.0
+1984	United States	Los Angeles	Colombia	0	1	0	Americas	Latin America and the Caribbean	43593035	6300.0
+1984	United States	Los Angeles	Puerto Rico	0	1	1	Americas	Latin America and the Caribbean	3927188	16800.0
+1984	United States	Los Angeles	United States	83	61	30	Americas	Northern America	298444215	37800.0
+1984	United States	Los Angeles	Romania	20	16	17	Europe	Eastern Europe	22303552	7000.0
+1984	United States	Los Angeles	Zambia	0	0	1	Africa	Sub-Saharan Africa	11502010	800.0
+1984	United States	Los Angeles	Dominican Republic	0	0	1	Americas	Latin America and the Caribbean	9183984	6000.0
+1984	United States	Los Angeles	Iceland	0	0	1	Europe	Northern Europe	299388	30900.0
+1984	United States	Los Angeles	Japan	10	8	14	Asia	Eastern Asia	127463611	28200.0
+1984	United States	Los Angeles	New Zealand	8	1	2	Oceania	Australia and New Zealand	4076140	21600.0
+1984	United States	Los Angeles	Canada	10	18	16	Americas	Northern America	33098932	29800.0
+1984	United States	Los Angeles	China	15	8	9	Asia	Eastern Asia	1313973713	5000.0
+1984	United States	Los Angeles	Italy	14	6	12	Europe	Southern Europe	58133509	26700.0
+1984	United States	Los Angeles	Peru	0	1	0	Americas	Latin America and the Caribbean	28302603	5100.0
+1984	United States	Los Angeles	Syria	0	1	0	Asia	Western Asia	18881361	3300.0
+1984	United States	Los Angeles	Egypt	0	1	0	Africa	Northern Africa	78887007	4000.0
+1984	United States	Los Angeles	Ireland	0	1	0	Europe	Northern Europe	4062235	29600.0
+1984	United States	Los Angeles	Thailand	0	1	0	Asia	South-eastern Asia	64631595	7400.0
+1984	United States	Los Angeles	Cameroon	0	0	1	Africa	Sub-Saharan Africa	17340702	1800.0
+1984	United States	Los Angeles	Algeria	0	0	2	Africa	Northern Africa	32930091	6000.0
+1984	United States	Los Angeles	Turkey	0	0	3	Asia	Western Asia	70413958	6700.0
+1984	United States	Los Angeles	Venezuela	0	0	3	Americas	Latin America and the Caribbean	25730435	4800.0
+1984	United States	Los Angeles	Portugal	1	0	2	Europe	Southern Europe	10605870	18000.0
+1984	United States	Los Angeles	Pakistan	1	0	0	Asia	Southern Asia	165803560	2100.0
+1984	United States	Los Angeles	Kenya	1	0	2	Africa	Sub-Saharan Africa	34707817	1000.0
+1984	United States	Los Angeles	Belgium	1	1	2	Europe	Western Europe	10379067	29100.0
+1984	United States	Los Angeles	Austria	1	1	1	Europe	Western Europe	8192880	30000.0
+1984	United States	Los Angeles	Switzerland	0	4	4	Europe	Western Europe	7523934	32700.0
+1984	United States	Los Angeles	Greece	0	1	1	Europe	Southern Europe	10688058	20000.0
+1984	United States	Los Angeles	Nigeria	0	1	1	Africa	Sub-Saharan Africa	131859731	900.0
+1984	United States	Los Angeles	Norway	0	1	2	Europe	Northern Europe	4610820	37800.0
+1984	United States	Los Angeles	Denmark	0	3	3	Europe	Northern Europe	5450661	31100.0
+1984	United States	Los Angeles	Jamaica	0	1	2	Americas	Latin America and the Caribbean	2758124	3900.0
+1984	United States	Los Angeles	Netherlands	5	2	6	Europe	Western Europe	16491461	28600.0
+1984	United States	Los Angeles	Australia	4	8	12	Oceania	Australia and New Zealand	20264082	29000.0
+1984	United States	Los Angeles	France	5	7	16	Europe	Western Europe	60876136	27600.0
+1984	United States	Los Angeles	Finland	4	2	6	Europe	Northern Europe	5231372	27400.0
+1984	United States	Los Angeles	Brazil	1	5	2	Americas	Latin America and the Caribbean	188078227	7600.0
+1984	United States	Los Angeles	Spain	1	2	2	Europe	Southern Europe	40397842	22000.0
+1984	United States	Los Angeles	Morocco	2	0	0	Africa	Northern Africa	33241259	4000.0
+1984	United States	Los Angeles	Sweden	2	11	6	Europe	Northern Europe	9016596	26800.0
+1984	United States	Los Angeles	Mexico	2	3	1	Americas	Latin America and the Caribbean	107449525	9000.0
+1988	South Korea	Seoul	Canada	3	2	5	Americas	Northern America	33098932	29800.0
+1988	South Korea	Seoul	New Zealand	3	2	8	Oceania	Australia and New Zealand	4076140	21600.0
+1988	South Korea	Seoul	Japan	4	3	7	Asia	Eastern Asia	127463611	28200.0
+1988	South Korea	Seoul	Australia	3	6	5	Oceania	Australia and New Zealand	20264082	29000.0
+1988	South Korea	Seoul	Denmark	2	1	1	Europe	Northern Europe	5450661	31100.0
+1988	South Korea	Seoul	Brazil	1	2	3	Americas	Latin America and the Caribbean	188078227	7600.0
+1988	South Korea	Seoul	Finland	1	1	2	Europe	Northern Europe	5231372	27400.0
+1988	South Korea	Seoul	Poland	2	5	9	Europe	Eastern Europe	38536869	11100.0
+1988	South Korea	Seoul	Norway	2	3	0	Europe	Northern Europe	4610820	37800.0
+1988	South Korea	Seoul	Netherlands	2	2	5	Europe	Western Europe	16491461	28600.0
+1988	South Korea	Seoul	Hungary	11	6	6	Europe	Eastern Europe	9981334	13900.0
+1988	South Korea	Seoul	United States	36	31	27	Americas	Northern America	298444215	37800.0
+1988	South Korea	Seoul	Bulgaria	10	12	13	Europe	Eastern Europe	7385367	7600.0
+1988	South Korea	Seoul	China	5	11	12	Asia	Eastern Asia	1313973713	5000.0
+1988	South Korea	Seoul	Kenya	5	2	2	Africa	Sub-Saharan Africa	34707817	1000.0
+1988	South Korea	Seoul	Romania	7	11	6	Europe	Eastern Europe	22303552	7000.0
+1988	South Korea	Seoul	France	6	4	6	Europe	Western Europe	60876136	27600.0
+1988	South Korea	Seoul	Italy	6	4	4	Europe	Southern Europe	58133509	26700.0
+1988	South Korea	Seoul	Spain	1	1	2	Europe	Southern Europe	40397842	22000.0
+1988	South Korea	Seoul	Belgium	0	0	2	Europe	Western Europe	10379067	29100.0
+1988	South Korea	Seoul	Mexico	0	0	2	Americas	Latin America and the Caribbean	107449525	9000.0
+1988	South Korea	Seoul	Peru	0	1	0	Americas	Latin America and the Caribbean	28302603	5100.0
+1988	South Korea	Seoul	Senegal	0	1	0	Africa	Sub-Saharan Africa	11987121	1600.0
+1988	South Korea	Seoul	Colombia	0	0	1	Americas	Latin America and the Caribbean	43593035	6300.0
+1988	South Korea	Seoul	Pakistan	0	0	1	Asia	Southern Asia	165803560	2100.0
+1988	South Korea	Seoul	Philippines	0	0	1	Asia	South-eastern Asia	89468677	4600.0
+1988	South Korea	Seoul	Thailand	0	0	1	Asia	South-eastern Asia	64631595	7400.0
+1988	South Korea	Seoul	Djibouti	0	0	1	Africa	Sub-Saharan Africa	486530	1300.0
+1988	South Korea	Seoul	Greece	0	0	1	Europe	Southern Europe	10688058	20000.0
+1988	South Korea	Seoul	Mongolia	0	0	1	Asia	Eastern Asia	2832224	1800.0
+1988	South Korea	Seoul	Portugal	1	0	0	Europe	Southern Europe	10605870	18000.0
+1988	South Korea	Seoul	Suriname	1	0	0	Americas	Latin America and the Caribbean	439117	4000.0
+1988	South Korea	Seoul	Sweden	0	4	7	Europe	Northern Europe	9016596	26800.0
+1988	South Korea	Seoul	Turkey	1	1	0	Asia	Western Asia	70413958	6700.0
+1988	South Korea	Seoul	Morocco	1	0	2	Africa	Northern Africa	33241259	4000.0
+1988	South Korea	Seoul	Austria	1	0	0	Europe	Western Europe	8192880	30000.0
+1988	South Korea	Seoul	Switzerland	0	2	2	Europe	Western Europe	7523934	32700.0
+1988	South Korea	Seoul	Costa Rica	0	1	0	Americas	Latin America and the Caribbean	4075261	9100.0
+1988	South Korea	Seoul	Indonesia	0	1	0	Asia	South-eastern Asia	245452739	3200.0
+1988	South Korea	Seoul	Iran	0	1	0	Asia	Southern Asia	68688433	7000.0
+1988	South Korea	Seoul	Jamaica	0	2	0	Americas	Latin America and the Caribbean	2758124	3900.0
+1988	South Korea	Seoul	Argentina	0	1	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1988	South Korea	Seoul	Chile	0	1	0	Americas	Latin America and the Caribbean	16134219	9900.0
+1992	Spain	Barcelona	Norway	2	4	1	Europe	Northern Europe	4610820	37800.0
+1992	Spain	Barcelona	Kenya	2	4	2	Africa	Sub-Saharan Africa	34707817	1000.0
+1992	Spain	Barcelona	Indonesia	2	2	1	Asia	South-eastern Asia	245452739	3200.0
+1992	Spain	Barcelona	Turkey	2	2	2	Asia	Western Asia	70413958	6700.0
+1992	Spain	Barcelona	Bulgaria	3	7	6	Europe	Eastern Europe	7385367	7600.0
+1992	Spain	Barcelona	Japan	3	8	11	Asia	Eastern Asia	127463611	28200.0
+1992	Spain	Barcelona	Netherlands	2	6	7	Europe	Western Europe	16491461	28600.0
+1992	Spain	Barcelona	Poland	3	6	10	Europe	Eastern Europe	38536869	11100.0
+1992	Spain	Barcelona	Denmark	1	1	4	Europe	Northern Europe	5450661	31100.0
+1992	Spain	Barcelona	Finland	1	2	2	Europe	Northern Europe	5231372	27400.0
+1992	Spain	Barcelona	Ireland	1	1	0	Europe	Northern Europe	4062235	29600.0
+1992	Spain	Barcelona	Morocco	1	1	1	Africa	Northern Africa	33241259	4000.0
+1992	Spain	Barcelona	Greece	2	0	0	Europe	Southern Europe	10688058	20000.0
+1992	Spain	Barcelona	Brazil	2	1	0	Americas	Latin America and the Caribbean	188078227	7600.0
+1992	Spain	Barcelona	New Zealand	1	4	5	Oceania	Australia and New Zealand	4076140	21600.0
+1992	Spain	Barcelona	Sweden	1	7	4	Europe	Northern Europe	9016596	26800.0
+1992	Spain	Barcelona	Spain	13	7	2	Europe	Southern Europe	40397842	22000.0
+1992	Spain	Barcelona	Cuba	14	6	11	Americas	Latin America and the Caribbean	11382820	2900.0
+1992	Spain	Barcelona	Hungary	11	12	7	Europe	Eastern Europe	9981334	13900.0
+1992	Spain	Barcelona	United States	37	34	37	Americas	Northern America	298444215	37800.0
+1992	Spain	Barcelona	China	16	22	16	Asia	Eastern Asia	1313973713	5000.0
+1992	Spain	Barcelona	Germany	33	21	28	Europe	Western Europe	82422299	27600.0
+1992	Spain	Barcelona	Romania	4	6	8	Europe	Eastern Europe	22303552	7000.0
+1992	Spain	Barcelona	Australia	7	9	11	Oceania	Australia and New Zealand	20264082	29000.0
+1992	Spain	Barcelona	France	8	5	16	Europe	Western Europe	60876136	27600.0
+1992	Spain	Barcelona	Italy	6	5	8	Europe	Southern Europe	58133509	26700.0
+1992	Spain	Barcelona	Canada	7	4	7	Americas	Northern America	33098932	29800.0
+1992	Spain	Barcelona	Argentina	0	0	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1992	Spain	Barcelona	Slovenia	0	0	2	Europe	Southern Europe	2010347	19000.0
+1992	Spain	Barcelona	Colombia	0	0	1	Americas	Latin America and the Caribbean	43593035	6300.0
+1992	Spain	Barcelona	Mexico	0	1	0	Americas	Latin America and the Caribbean	107449525	9000.0
+1992	Spain	Barcelona	Mongolia	0	0	2	Asia	Eastern Asia	2832224	1800.0
+1992	Spain	Barcelona	Peru	0	1	0	Americas	Latin America and the Caribbean	28302603	5100.0
+1992	Spain	Barcelona	Qatar	0	0	1	Asia	Western Asia	885359	21500.0
+1992	Spain	Barcelona	Puerto Rico	0	0	1	Americas	Latin America and the Caribbean	3927188	16800.0
+1992	Spain	Barcelona	Thailand	0	0	1	Asia	South-eastern Asia	64631595	7400.0
+1992	Spain	Barcelona	Suriname	0	0	1	Americas	Latin America and the Caribbean	439117	4000.0
+1992	Spain	Barcelona	Malaysia	0	0	1	Asia	South-eastern Asia	24385858	9000.0
+1992	Spain	Barcelona	Ghana	0	0	1	Africa	Sub-Saharan Africa	22409572	2200.0
+1992	Spain	Barcelona	Philippines	0	0	1	Asia	South-eastern Asia	89468677	4600.0
+1992	Spain	Barcelona	Pakistan	0	0	1	Asia	Southern Asia	165803560	2100.0
+1992	Spain	Barcelona	Jamaica	0	3	1	Americas	Latin America and the Caribbean	2758124	3900.0
+1992	Spain	Barcelona	Switzerland	1	0	0	Europe	Western Europe	7523934	32700.0
+1992	Spain	Barcelona	Latvia	0	2	1	Europe	Northern Europe	2274735	10200.0
+1992	Spain	Barcelona	Nigeria	0	3	1	Africa	Sub-Saharan Africa	131859731	900.0
+1992	Spain	Barcelona	Algeria	1	0	1	Africa	Northern Africa	32930091	6000.0
+1992	Spain	Barcelona	Ethiopia	1	0	2	Africa	Sub-Saharan Africa	74777981	700.0
+1992	Spain	Barcelona	Lithuania	1	0	1	Europe	Northern Europe	3585906	11400.0
+1992	Spain	Barcelona	Estonia	1	0	1	Europe	Northern Europe	1324333	12300.0
+1992	Spain	Barcelona	Croatia	0	1	2	Europe	Southern Europe	4494749	10600.0
+1992	Spain	Barcelona	Israel	0	1	1	Asia	Western Asia	6352117	19800.0
+1992	Spain	Barcelona	Iran	0	1	2	Asia	Southern Asia	68688433	7000.0
+1992	Spain	Barcelona	Namibia	0	2	0	Africa	Sub-Saharan Africa	2044147	7200.0
+1992	Spain	Barcelona	Austria	0	2	0	Europe	Western Europe	8192880	30000.0
+1992	Spain	Barcelona	Belgium	0	1	2	Europe	Western Europe	10379067	29100.0
+1992	Spain	Barcelona	South Africa	0	2	0	Africa	Sub-Saharan Africa	44187637	10700.0
+1996	United States	Atlanta	South Africa	3	1	1	Africa	Sub-Saharan Africa	44187637	10700.0
+1996	United States	Atlanta	New Zealand	3	2	1	Oceania	Australia and New Zealand	4076140	21600.0
+1996	United States	Atlanta	Sweden	2	4	2	Europe	Northern Europe	9016596	26800.0
+1996	United States	Atlanta	Ireland	3	0	1	Europe	Northern Europe	4062235	29600.0
+1996	United States	Atlanta	Brazil	3	3	9	Americas	Latin America and the Caribbean	188078227	7600.0
+1996	United States	Atlanta	Bulgaria	3	7	5	Europe	Eastern Europe	7385367	7600.0
+1996	United States	Atlanta	Canada	3	11	8	Americas	Northern America	33098932	29800.0
+1996	United States	Atlanta	Kazakhstan	3	4	4	Asia	Central Asia	15233244	6300.0
+1996	United States	Atlanta	Japan	3	6	5	Asia	Eastern Asia	127463611	28200.0
+1996	United States	Atlanta	Norway	2	2	3	Europe	Northern Europe	4610820	37800.0
+1996	United States	Atlanta	Belarus	1	6	8	Europe	Eastern Europe	10293011	6100.0
+1996	United States	Atlanta	Jamaica	1	3	2	Americas	Latin America and the Caribbean	2758124	3900.0
+1996	United States	Atlanta	Kenya	1	4	3	Africa	Sub-Saharan Africa	34707817	1000.0
+1996	United States	Atlanta	Ethiopia	2	0	1	Africa	Sub-Saharan Africa	74777981	700.0
+1996	United States	Atlanta	Nigeria	2	1	3	Africa	Sub-Saharan Africa	131859731	900.0
+1996	United States	Atlanta	Belgium	2	2	2	Europe	Western Europe	10379067	29100.0
+1996	United States	Atlanta	Algeria	2	0	1	Africa	Northern Africa	32930091	6000.0
+1996	United States	Atlanta	Turkey	4	1	1	Asia	Western Asia	70413958	6700.0
+1996	United States	Atlanta	Australia	9	9	23	Oceania	Australia and New Zealand	20264082	29000.0
+1996	United States	Atlanta	Italy	13	10	12	Europe	Southern Europe	58133509	26700.0
+1996	United States	Atlanta	Ukraine	9	2	12	Europe	Eastern Europe	46710816	5400.0
+1996	United States	Atlanta	Cuba	9	8	8	Americas	Latin America and the Caribbean	11382820	2900.0
+1996	United States	Atlanta	France	15	7	15	Europe	Western Europe	60876136	27600.0
+1996	United States	Atlanta	Russia	26	21	16	Europe	Eastern Europe	142893540	8900.0
+1996	United States	Atlanta	United States	44	32	25	Americas	Northern America	298444215	37800.0
+1996	United States	Atlanta	China	16	22	12	Asia	Eastern Asia	1313973713	5000.0
+1996	United States	Atlanta	Germany	20	18	27	Europe	Western Europe	82422299	27600.0
+1996	United States	Atlanta	Czech Republic	4	3	4	Europe	Eastern Europe	10235455	15700.0
+1996	United States	Atlanta	Greece	4	4	0	Europe	Southern Europe	10688058	20000.0
+1996	United States	Atlanta	Denmark	4	1	1	Europe	Northern Europe	5450661	31100.0
+1996	United States	Atlanta	Switzerland	4	3	0	Europe	Western Europe	7523934	32700.0
+1996	United States	Atlanta	Netherlands	4	5	10	Europe	Western Europe	16491461	28600.0
+1996	United States	Atlanta	Hungary	7	4	10	Europe	Eastern Europe	9981334	13900.0
+1996	United States	Atlanta	Poland	7	5	5	Europe	Eastern Europe	38536869	11100.0
+1996	United States	Atlanta	Romania	4	7	9	Europe	Eastern Europe	22303552	7000.0
+1996	United States	Atlanta	Spain	5	6	6	Europe	Southern Europe	40397842	22000.0
+1996	United States	Atlanta	Finland	1	2	1	Europe	Northern Europe	5231372	27400.0
+1996	United States	Atlanta	Zambia	0	1	0	Africa	Sub-Saharan Africa	11502010	800.0
+1996	United States	Atlanta	Tonga	0	1	0	Oceania	Polynesia	114689	2200.0
+1996	United States	Atlanta	Morocco	0	0	2	Africa	Northern Africa	33241259	4000.0
+1996	United States	Atlanta	Georgia	0	0	2	Asia	Western Asia	4661473	2500.0
+1996	United States	Atlanta	Philippines	0	1	0	Asia	South-eastern Asia	89468677	4600.0
+1996	United States	Atlanta	Azerbaijan	0	1	0	Asia	Western Asia	7961619	3400.0
+1996	United States	Atlanta	Latvia	0	1	0	Europe	Northern Europe	2274735	10200.0
+1996	United States	Atlanta	Puerto Rico	0	0	1	Americas	Latin America and the Caribbean	3927188	16800.0
+1996	United States	Atlanta	Mozambique	0	0	1	Africa	Sub-Saharan Africa	19686505	1200.0
+1996	United States	Atlanta	Uganda	0	0	1	Africa	Sub-Saharan Africa	28195754	1400.0
+1996	United States	Atlanta	Tunisia	0	0	1	Africa	Northern Africa	10175014	6900.0
+1996	United States	Atlanta	Mongolia	0	0	1	Asia	Eastern Asia	2832224	1800.0
+1996	United States	Atlanta	Israel	0	0	1	Asia	Western Asia	6352117	19800.0
+1996	United States	Atlanta	India	0	0	1	Asia	Southern Asia	1095351995	2900.0
+1996	United States	Atlanta	Mexico	0	0	1	Americas	Latin America and the Caribbean	107449525	9000.0
+1996	United States	Atlanta	Lithuania	0	0	1	Europe	Northern Europe	3585906	11400.0
+1996	United States	Atlanta	Uzbekistan	0	1	1	Asia	Central Asia	27307134	1700.0
+1996	United States	Atlanta	Portugal	1	0	1	Europe	Southern Europe	10605870	18000.0
+1996	United States	Atlanta	Croatia	1	1	0	Europe	Southern Europe	4494749	10600.0
+1996	United States	Atlanta	Burundi	1	0	0	Africa	Sub-Saharan Africa	8090068	600.0
+1996	United States	Atlanta	Thailand	1	0	1	Asia	South-eastern Asia	64631595	7400.0
+1996	United States	Atlanta	Armenia	1	1	0	Asia	Western Asia	2976372	3500.0
+1996	United States	Atlanta	Indonesia	1	1	2	Asia	South-eastern Asia	245452739	3200.0
+1996	United States	Atlanta	Slovakia	1	1	1	Europe	Eastern Europe	5439448	13300.0
+1996	United States	Atlanta	Iran	1	1	1	Asia	Southern Asia	68688433	7000.0
+1996	United States	Atlanta	Costa Rica	1	0	0	Americas	Latin America and the Caribbean	4075261	9100.0
+1996	United States	Atlanta	Austria	0	1	2	Europe	Western Europe	8192880	30000.0
+1996	United States	Atlanta	Slovenia	0	2	0	Europe	Southern Europe	2010347	19000.0
+1996	United States	Atlanta	Moldova	0	1	1	Europe	Eastern Europe	4466706	1800.0
+1996	United States	Atlanta	Malaysia	0	1	1	Asia	South-eastern Asia	24385858	9000.0
+1996	United States	Atlanta	Namibia	0	2	0	Africa	Sub-Saharan Africa	2044147	7200.0
+1996	United States	Atlanta	Hong Kong	1	0	0	Asia	Eastern Asia	6940432	28800.0
+1996	United States	Atlanta	Ecuador	1	0	0	Americas	Latin America and the Caribbean	13547510	3300.0
+1996	United States	Atlanta	Argentina	0	2	1	Americas	Latin America and the Caribbean	39921833	11200.0
+1996	United States	Atlanta	Syria	1	0	0	Asia	Western Asia	18881361	3300.0
+2000	Australia	Sydney	Spain	3	3	5	Europe	Southern Europe	40397842	22000.0
+2000	Australia	Sydney	Canada	3	3	8	Americas	Northern America	33098932	29800.0
+2000	Australia	Sydney	Iran	3	0	1	Asia	Southern Asia	68688433	7000.0
+2000	Australia	Sydney	Turkey	3	0	2	Asia	Western Asia	70413958	6700.0
+2000	Australia	Sydney	Belarus	3	3	11	Europe	Eastern Europe	10293011	6100.0
+2000	Australia	Sydney	Ethiopia	4	1	3	Africa	Sub-Saharan Africa	74777981	700.0
+2000	Australia	Sydney	Norway	4	3	3	Europe	Northern Europe	4610820	37800.0
+2000	Australia	Sydney	Kazakhstan	3	4	0	Asia	Central Asia	15233244	6300.0
+2000	Australia	Sydney	Ukraine	3	10	10	Europe	Eastern Europe	46710816	5400.0
+2000	Australia	Sydney	Azerbaijan	2	0	1	Asia	Western Asia	7961619	3400.0
+2000	Australia	Sydney	Lithuania	2	0	3	Europe	Northern Europe	3585906	11400.0
+2000	Australia	Sydney	Slovenia	2	0	0	Europe	Southern Europe	2010347	19000.0
+2000	Australia	Sydney	Austria	2	1	0	Europe	Western Europe	8192880	30000.0
+2000	Australia	Sydney	Kenya	2	3	2	Africa	Sub-Saharan Africa	34707817	1000.0
+2000	Australia	Sydney	Czech Republic	2	3	3	Europe	Eastern Europe	10235455	15700.0
+2000	Australia	Sydney	Finland	2	1	1	Europe	Northern Europe	5231372	27400.0
+2000	Australia	Sydney	Denmark	2	3	1	Europe	Northern Europe	5450661	31100.0
+2000	Australia	Sydney	Italy	13	8	13	Europe	Southern Europe	58133509	26700.0
+2000	Australia	Sydney	France	13	14	11	Europe	Western Europe	60876136	27600.0
+2000	Australia	Sydney	Cuba	11	11	7	Americas	Latin America and the Caribbean	11382820	2900.0
+2000	Australia	Sydney	Netherlands	12	9	4	Europe	Western Europe	16491461	28600.0
+2000	Australia	Sydney	Germany	13	17	26	Europe	Western Europe	82422299	27600.0
+2000	Australia	Sydney	Russia	32	28	29	Europe	Eastern Europe	142893540	8900.0
+2000	Australia	Sydney	United States	37	24	32	Americas	Northern America	298444215	37800.0
+2000	Australia	Sydney	Australia	16	25	17	Oceania	Australia and New Zealand	20264082	29000.0
+2000	Australia	Sydney	China	28	16	14	Asia	Eastern Asia	1313973713	5000.0
+2000	Australia	Sydney	Bulgaria	5	6	2	Europe	Eastern Europe	7385367	7600.0
+2000	Australia	Sydney	Japan	5	8	5	Asia	Eastern Asia	127463611	28200.0
+2000	Australia	Sydney	Sweden	4	5	3	Europe	Northern Europe	9016596	26800.0
+2000	Australia	Sydney	Greece	4	6	3	Europe	Southern Europe	10688058	20000.0
+2000	Australia	Sydney	Poland	6	5	3	Europe	Eastern Europe	38536869	11100.0
+2000	Australia	Sydney	Romania	11	6	9	Europe	Eastern Europe	22303552	7000.0
+2000	Australia	Sydney	Hungary	8	6	3	Europe	Eastern Europe	9981334	13900.0
+2000	Australia	Sydney	Moldova	0	1	1	Europe	Eastern Europe	4466706	1800.0
+2000	Australia	Sydney	Saudi Arabia	0	1	1	Asia	Western Asia	27019731	11800.0
+2000	Australia	Sydney	Morocco	0	1	4	Africa	Northern Africa	33241259	4000.0
+2000	Australia	Sydney	South Africa	0	2	3	Africa	Sub-Saharan Africa	44187637	10700.0
+2000	Australia	Sydney	Belgium	0	2	3	Europe	Western Europe	10379067	29100.0
+2000	Australia	Sydney	Argentina	0	2	2	Americas	Latin America and the Caribbean	39921833	11200.0
+2000	Australia	Sydney	Portugal	0	0	2	Europe	Southern Europe	10605870	18000.0
+2000	Australia	Sydney	Costa Rica	0	0	2	Americas	Latin America and the Caribbean	4075261	9100.0
+2000	Australia	Sydney	Barbados	0	0	1	Americas	Latin America and the Caribbean	279912	15700.0
+2000	Australia	Sydney	Armenia	0	0	1	Asia	Western Asia	2976372	3500.0
+2000	Australia	Sydney	Georgia	0	0	6	Asia	Western Asia	4661473	2500.0
+2000	Australia	Sydney	Sri Lanka	0	1	0	Asia	Southern Asia	20222240	3700.0
+2000	Australia	Sydney	Ireland	0	1	0	Europe	Northern Europe	4062235	29600.0
+2000	Australia	Sydney	Vietnam	0	1	0	Asia	South-eastern Asia	84402966	2500.0
+2000	Australia	Sydney	Uruguay	0	1	0	Americas	Latin America and the Caribbean	3431932	12800.0
+2000	Australia	Sydney	Uzbekistan	1	1	2	Asia	Central Asia	27307134	1700.0
+2000	Australia	Sydney	Algeria	1	1	3	Africa	Northern Africa	32930091	6000.0
+2000	Australia	Sydney	Latvia	1	1	1	Europe	Northern Europe	2274735	10200.0
+2000	Australia	Sydney	Nigeria	1	2	0	Africa	Sub-Saharan Africa	131859731	900.0
+2000	Australia	Sydney	Indonesia	1	3	2	Asia	South-eastern Asia	245452739	3200.0
+2000	Australia	Sydney	Switzerland	1	6	2	Europe	Western Europe	7523934	32700.0
+2000	Australia	Sydney	Mexico	1	2	3	Americas	Latin America and the Caribbean	107449525	9000.0
+2000	Australia	Sydney	Slovakia	1	3	1	Europe	Eastern Europe	5439448	13300.0
+2000	Australia	Sydney	Mozambique	1	0	0	Africa	Sub-Saharan Africa	19686505	1200.0
+2000	Australia	Sydney	Colombia	1	0	0	Americas	Latin America and the Caribbean	43593035	6300.0
+2000	Australia	Sydney	Jamaica	0	6	3	Americas	Latin America and the Caribbean	2758124	3900.0
+2000	Australia	Sydney	Brazil	0	6	6	Americas	Latin America and the Caribbean	188078227	7600.0
+2000	Australia	Sydney	Cameroon	1	0	0	Africa	Sub-Saharan Africa	17340702	1800.0
+2000	Australia	Sydney	Estonia	1	0	2	Europe	Northern Europe	1324333	12300.0
+2000	Australia	Sydney	New Zealand	1	0	3	Oceania	Australia and New Zealand	4076140	21600.0
+2000	Australia	Sydney	Croatia	1	0	1	Europe	Southern Europe	4494749	10600.0
+2000	Australia	Sydney	Thailand	1	0	2	Asia	South-eastern Asia	64631595	7400.0
+2000	Australia	Sydney	Israel	0	0	1	Asia	Western Asia	6352117	19800.0
+2000	Australia	Sydney	Kuwait	0	0	1	Asia	Western Asia	2418393	19000.0
+2000	Australia	Sydney	Iceland	0	0	1	Europe	Northern Europe	299388	30900.0
+2000	Australia	Sydney	India	0	0	1	Asia	Southern Asia	1095351995	2900.0
+2000	Australia	Sydney	Qatar	0	0	1	Asia	Western Asia	885359	21500.0
+2000	Australia	Sydney	Chile	0	0	1	Americas	Latin America and the Caribbean	16134219	9900.0
+2000	Australia	Sydney	Kyrgyzstan	0	0	1	Asia	Central Asia	5213898	1600.0
+2000	Australia	Sydney	Macedonia	0	0	1	Europe	Southern Europe	2050554	6700.0
+2004	Greece	Athens	Canada	3	6	3	Americas	Northern America	33098932	29800.0
+2004	Greece	Athens	Spain	3	11	6	Europe	Southern Europe	40397842	22000.0
+2004	Greece	Athens	Poland	3	2	5	Europe	Eastern Europe	38536869	11100.0
+2004	Greece	Athens	Turkey	3	3	5	Asia	Western Asia	70413958	6700.0
+2004	Greece	Athens	Norway	5	0	1	Europe	Northern Europe	4610820	37800.0
+2004	Greece	Athens	Georgia	2	2	0	Asia	Western Asia	4661473	2500.0
+2004	Greece	Athens	Sweden	4	2	1	Europe	Northern Europe	9016596	26800.0
+2004	Greece	Athens	Netherlands	4	9	9	Europe	Western Europe	16491461	28600.0
+2004	Greece	Athens	Iran	2	2	2	Asia	Southern Asia	68688433	7000.0
+2004	Greece	Athens	Ethiopia	2	3	2	Africa	Sub-Saharan Africa	74777981	700.0
+2004	Greece	Athens	Slovakia	2	2	2	Europe	Eastern Europe	5439448	13300.0
+2004	Greece	Athens	Thailand	3	1	4	Asia	South-eastern Asia	64631595	7400.0
+2004	Greece	Athens	New Zealand	3	2	0	Oceania	Australia and New Zealand	4076140	21600.0
+2004	Greece	Athens	Austria	2	4	1	Europe	Western Europe	8192880	30000.0
+2004	Greece	Athens	Belarus	2	5	6	Europe	Eastern Europe	10293011	6100.0
+2004	Greece	Athens	Brazil	5	2	3	Americas	Latin America and the Caribbean	188078227	7600.0
+2004	Greece	Athens	Japan	16	9	12	Asia	Eastern Asia	127463611	28200.0
+2004	Greece	Athens	Australia	17	16	17	Oceania	Australia and New Zealand	20264082	29000.0
+2004	Greece	Athens	France	11	9	13	Europe	Western Europe	60876136	27600.0
+2004	Greece	Athens	Germany	13	16	20	Europe	Western Europe	82422299	27600.0
+2004	Greece	Athens	United States	36	39	26	Americas	Northern America	298444215	37800.0
+2004	Greece	Athens	Belgium	1	0	2	Europe	Western Europe	10379067	29100.0
+2004	Greece	Athens	Russia	28	26	36	Europe	Eastern Europe	142893540	8900.0
+2004	Greece	Athens	China	32	17	14	Asia	Eastern Asia	1313973713	5000.0
+2004	Greece	Athens	Ukraine	8	5	9	Europe	Eastern Europe	46710816	5400.0
+2004	Greece	Athens	Hungary	8	6	3	Europe	Eastern Europe	9981334	13900.0
+2004	Greece	Athens	Greece	6	6	4	Europe	Southern Europe	10688058	20000.0
+2004	Greece	Athens	Romania	8	5	6	Europe	Eastern Europe	22303552	7000.0
+2004	Greece	Athens	Italy	10	11	11	Europe	Southern Europe	58133509	26700.0
+2004	Greece	Athens	Cuba	9	7	11	Americas	Latin America and the Caribbean	11382820	2900.0
+2004	Greece	Athens	Bulgaria	2	1	9	Europe	Eastern Europe	7385367	7600.0
+2004	Greece	Athens	Finland	0	2	0	Europe	Northern Europe	5231372	27400.0
+2004	Greece	Athens	Portugal	0	2	1	Europe	Southern Europe	10605870	18000.0
+2004	Greece	Athens	Estonia	0	1	2	Europe	Northern Europe	1324333	12300.0
+2004	Greece	Athens	Slovenia	0	1	3	Europe	Southern Europe	2010347	19000.0
+2004	Greece	Athens	United Arab Emirates	1	0	0	Asia	Western Asia	2602713	23200.0
+2004	Greece	Athens	Dominican Republic	1	0	0	Americas	Latin America and the Caribbean	9183984	6000.0
+2004	Greece	Athens	Mexico	0	3	1	Americas	Latin America and the Caribbean	107449525	9000.0
+2004	Greece	Athens	Latvia	0	4	0	Europe	Northern Europe	2274735	10200.0
+2004	Greece	Athens	Nigeria	0	0	2	Africa	Sub-Saharan Africa	131859731	900.0
+2004	Greece	Athens	Venezuela	0	0	2	Americas	Latin America and the Caribbean	25730435	4800.0
+2004	Greece	Athens	Colombia	0	0	2	Americas	Latin America and the Caribbean	43593035	6300.0
+2004	Greece	Athens	India	0	1	0	Asia	Southern Asia	1095351995	2900.0
+2004	Greece	Athens	Paraguay	0	1	0	Americas	Latin America and the Caribbean	6506464	4700.0
+2004	Greece	Athens	Hong Kong	0	1	0	Asia	Eastern Asia	6940432	28800.0
+2004	Greece	Athens	Syria	0	0	1	Asia	Western Asia	18881361	3300.0
+2004	Greece	Athens	Eritrea	0	0	1	Africa	Sub-Saharan Africa	4786994	700.0
+2004	Greece	Athens	Mongolia	0	0	1	Asia	Eastern Asia	2832224	1800.0
+2004	Greece	Athens	Kazakhstan	1	4	3	Asia	Central Asia	15233244	6300.0
+2004	Greece	Athens	Chile	2	0	1	Americas	Latin America and the Caribbean	16134219	9900.0
+2004	Greece	Athens	Kenya	1	4	2	Africa	Sub-Saharan Africa	34707817	1000.0
+2004	Greece	Athens	South Africa	1	3	2	Africa	Sub-Saharan Africa	44187637	10700.0
+2004	Greece	Athens	Czech Republic	1	3	5	Europe	Eastern Europe	10235455	15700.0
+2004	Greece	Athens	Jamaica	2	1	2	Americas	Latin America and the Caribbean	2758124	3900.0
+2004	Greece	Athens	Denmark	2	1	5	Europe	Northern Europe	5450661	31100.0
+2004	Greece	Athens	Uzbekistan	2	1	2	Asia	Central Asia	27307134	1700.0
+2004	Greece	Athens	Argentina	2	0	4	Americas	Latin America and the Caribbean	39921833	11200.0
+2004	Greece	Athens	Morocco	2	1	0	Africa	Northern Africa	33241259	4000.0
+2004	Greece	Athens	Azerbaijan	1	0	4	Asia	Western Asia	7961619	3400.0
+2004	Greece	Athens	Zimbabwe	1	1	1	Africa	Sub-Saharan Africa	12236805	1900.0
+2004	Greece	Athens	Cameroon	1	0	0	Africa	Sub-Saharan Africa	17340702	1800.0
+2004	Greece	Athens	Israel	1	0	1	Asia	Western Asia	6352117	19800.0
+2004	Greece	Athens	Lithuania	1	2	0	Europe	Northern Europe	3585906	11400.0
+2004	Greece	Athens	Croatia	1	2	2	Europe	Southern Europe	4494749	10600.0
+2004	Greece	Athens	Egypt	1	1	3	Africa	Northern Africa	78887007	4000.0
+2004	Greece	Athens	Indonesia	1	1	2	Asia	South-eastern Asia	245452739	3200.0
+2004	Greece	Athens	Switzerland	1	1	3	Europe	Western Europe	7523934	32700.0
+2008	China	Beijing	Kazakhstan	2	3	4	Asia	Central Asia	15233244	6300.0
+2008	China	Beijing	Georgia	3	2	2	Asia	Western Asia	4661473	2500.0
+2008	China	Beijing	Denmark	2	2	3	Europe	Northern Europe	5450661	31100.0
+2008	China	Beijing	Thailand	2	2	2	Asia	South-eastern Asia	64631595	7400.0
+2008	China	Beijing	Belarus	3	4	7	Europe	Eastern Europe	10293011	6100.0
+2008	China	Beijing	Brazil	3	4	10	Americas	Latin America and the Caribbean	188078227	7600.0
+2008	China	Beijing	Czech Republic	3	3	1	Europe	Eastern Europe	10235455	15700.0
+2008	China	Beijing	New Zealand	3	2	4	Oceania	Australia and New Zealand	4076140	21600.0
+2008	China	Beijing	Slovakia	3	3	0	Europe	Eastern Europe	5439448	13300.0
+2008	China	Beijing	Mongolia	2	2	0	Asia	Eastern Asia	2832224	1800.0
+2008	China	Beijing	Azerbaijan	1	1	4	Asia	Western Asia	7961619	3400.0
+2008	China	Beijing	Slovenia	1	2	2	Europe	Southern Europe	2010347	19000.0
+2008	China	Beijing	Indonesia	1	1	4	Asia	South-eastern Asia	245452739	3200.0
+2008	China	Beijing	Turkey	1	1	3	Asia	Western Asia	70413958	6700.0
+2008	China	Beijing	Bulgaria	1	1	3	Europe	Eastern Europe	7385367	7600.0
+2008	China	Beijing	Argentina	2	0	4	Americas	Latin America and the Caribbean	39921833	11200.0
+2008	China	Beijing	Switzerland	2	1	4	Europe	Western Europe	7523934	32700.0
+2008	China	Beijing	Mexico	2	0	2	Americas	Latin America and the Caribbean	107449525	9000.0
+2008	China	Beijing	Zimbabwe	1	3	0	Africa	Sub-Saharan Africa	12236805	1900.0
+2008	China	Beijing	Belgium	2	0	0	Europe	Western Europe	10379067	29100.0
+2008	China	Beijing	Norway	3	5	1	Europe	Northern Europe	4610820	37800.0
+2008	China	Beijing	Australia	14	15	17	Oceania	Australia and New Zealand	20264082	29000.0
+2008	China	Beijing	Japan	9	8	8	Asia	Eastern Asia	127463611	28200.0
+2008	China	Beijing	France	7	16	20	Europe	Western Europe	60876136	27600.0
+2008	China	Beijing	Italy	8	9	10	Europe	Southern Europe	58133509	26700.0
+2008	China	Beijing	United States	36	39	37	Americas	Northern America	298444215	37800.0
+2008	China	Beijing	China	48	22	30	Asia	Eastern Asia	1313973713	5000.0
+2008	China	Beijing	Russia	24	13	23	Europe	Eastern Europe	142893540	8900.0
+2008	China	Beijing	Germany	16	11	14	Europe	Western Europe	82422299	27600.0
+2008	China	Beijing	Netherlands	7	5	4	Europe	Western Europe	16491461	28600.0
+2008	China	Beijing	Romania	4	1	4	Europe	Eastern Europe	22303552	7000.0
+2008	China	Beijing	Ethiopia	4	2	1	Africa	Sub-Saharan Africa	74777981	700.0
+2008	China	Beijing	Cuba	3	10	17	Americas	Latin America and the Caribbean	11382820	2900.0
+2008	China	Beijing	Hungary	3	5	2	Europe	Eastern Europe	9981334	13900.0
+2008	China	Beijing	Canada	3	9	8	Americas	Northern America	33098932	29800.0
+2008	China	Beijing	Kenya	6	4	6	Africa	Sub-Saharan Africa	34707817	1000.0
+2008	China	Beijing	Ukraine	7	4	11	Europe	Eastern Europe	46710816	5400.0
+2008	China	Beijing	Spain	5	11	3	Europe	Southern Europe	40397842	22000.0
+2008	China	Beijing	Poland	4	5	2	Europe	Eastern Europe	38536869	11100.0
+2008	China	Beijing	Jamaica	5	4	2	Americas	Latin America and the Caribbean	2758124	3900.0
+2008	China	Beijing	Ecuador	0	1	0	Americas	Latin America and the Caribbean	13547510	3300.0
+2008	China	Beijing	Chile	0	1	0	Americas	Latin America and the Caribbean	16134219	9900.0
+2008	China	Beijing	Iceland	0	1	0	Europe	Northern Europe	299388	30900.0
+2008	China	Beijing	Samoa	0	1	0	Oceania	Polynesia	176908	5600.0
+2008	China	Beijing	Malaysia	0	1	0	Asia	South-eastern Asia	24385858	9000.0
+2008	China	Beijing	Algeria	0	1	1	Africa	Northern Africa	32930091	6000.0
+2008	China	Beijing	Serbia	0	1	2	Europe	Southern Europe	9396411	2200.0
+2008	China	Beijing	Tajikistan	0	1	1	Asia	Central Asia	7320815	1000.0
+2008	China	Beijing	Morocco	0	1	1	Africa	Northern Africa	33241259	4000.0
+2008	China	Beijing	Singapore	0	1	0	Asia	South-eastern Asia	4492150	23700.0
+2008	China	Beijing	Mauritius	0	0	1	Africa	Sub-Saharan Africa	1240827	11400.0
+2008	China	Beijing	Israel	0	0	1	Asia	Western Asia	6352117	19800.0
+2008	China	Beijing	Moldova	0	0	1	Europe	Eastern Europe	4466706	1800.0
+2008	China	Beijing	Venezuela	0	0	1	Americas	Latin America and the Caribbean	25730435	4800.0
+2008	China	Beijing	Togo	0	0	1	Africa	Sub-Saharan Africa	5548702	1500.0
+2008	China	Beijing	Sudan	0	1	0	Africa	Northern Africa	41236378	1900.0
+2008	China	Beijing	South Africa	0	1	0	Africa	Sub-Saharan Africa	44187637	10700.0
+2008	China	Beijing	Vietnam	0	1	0	Asia	South-eastern Asia	84402966	2500.0
+2008	China	Beijing	Afghanistan	0	0	1	Asia	Southern Asia	31056997	700.0
+2008	China	Beijing	Egypt	0	0	2	Africa	Northern Africa	78887007	4000.0
+2008	China	Beijing	Kyrgyzstan	0	1	2	Asia	Central Asia	5213898	1600.0
+2008	China	Beijing	India	1	0	2	Asia	Southern Asia	1095351995	2900.0
+2008	China	Beijing	Iran	1	0	1	Asia	Southern Asia	68688433	7000.0
+2008	China	Beijing	Panama	1	0	0	Americas	Latin America and the Caribbean	3191319	6300.0
+2008	China	Beijing	Cameroon	1	0	0	Africa	Sub-Saharan Africa	17340702	1800.0
+2008	China	Beijing	Latvia	1	1	1	Europe	Northern Europe	2274735	10200.0
+2008	China	Beijing	Finland	1	1	2	Europe	Northern Europe	5231372	27400.0
+2008	China	Beijing	Dominican Republic	1	1	0	Americas	Latin America and the Caribbean	9183984	6000.0
+2008	China	Beijing	Portugal	1	1	0	Europe	Southern Europe	10605870	18000.0
+2008	China	Beijing	Estonia	1	1	0	Europe	Northern Europe	1324333	12300.0
+2008	China	Beijing	Tunisia	1	0	0	Africa	Northern Africa	10175014	6900.0
+2008	China	Beijing	Armenia	0	1	4	Asia	Western Asia	2976372	3500.0
+2008	China	Beijing	Greece	0	2	1	Europe	Southern Europe	10688058	20000.0
+2008	China	Beijing	Uzbekistan	0	1	3	Asia	Central Asia	27307134	1700.0
+2008	China	Beijing	Ireland	0	1	2	Europe	Northern Europe	4062235	29600.0
+2008	China	Beijing	Austria	0	1	2	Europe	Western Europe	8192880	30000.0
+2008	China	Beijing	Lithuania	0	3	2	Europe	Northern Europe	3585906	11400.0
+2008	China	Beijing	Sweden	0	4	1	Europe	Northern Europe	9016596	26800.0
+2008	China	Beijing	Nigeria	0	3	2	Africa	Sub-Saharan Africa	131859731	900.0
+2008	China	Beijing	Colombia	0	2	1	Americas	Latin America and the Caribbean	43593035	6300.0
+2008	China	Beijing	Croatia	0	2	3	Europe	Southern Europe	4494749	10600.0
+2012	Great Britain	London	Kenya	2	4	7	Africa	Sub-Saharan Africa	34707817	1000.0
+2012	Great Britain	London	Belarus	2	5	3	Europe	Eastern Europe	10293011	6100.0
+2012	Great Britain	London	Denmark	2	4	3	Europe	Northern Europe	5450661	31100.0
+2012	Great Britain	London	Azerbaijan	2	2	5	Asia	Western Asia	7961619	3400.0
+2012	Great Britain	London	Romania	2	4	1	Europe	Eastern Europe	22303552	7000.0
+2012	Great Britain	London	Ethiopia	3	2	3	Africa	Sub-Saharan Africa	74777981	700.0
+2012	Great Britain	London	Poland	3	2	6	Europe	Eastern Europe	38536869	11100.0
+2012	Great Britain	London	Kazakhstan	3	1	7	Asia	Central Asia	15233244	6300.0
+2012	Great Britain	London	Canada	2	6	10	Americas	Northern America	33098932	29800.0
+2012	Great Britain	London	Croatia	3	1	2	Europe	Southern Europe	4494749	10600.0
+2012	Great Britain	London	Switzerland	2	2	0	Europe	Western Europe	7523934	32700.0
+2012	Great Britain	London	Georgia	1	2	3	Asia	Western Asia	4661473	2500.0
+2012	Great Britain	London	Mexico	1	3	4	Americas	Latin America and the Caribbean	107449525	9000.0
+2012	Great Britain	London	Ireland	1	1	4	Europe	Northern Europe	4062235	29600.0
+2012	Great Britain	London	Serbia	1	1	2	Europe	Southern Europe	9396411	2200.0
+2012	Great Britain	London	Argentina	1	1	2	Americas	Latin America and the Caribbean	39921833	11200.0
+2012	Great Britain	London	Lithuania	2	0	3	Europe	Northern Europe	3585906	11400.0
+2012	Great Britain	London	Norway	2	1	1	Europe	Northern Europe	4610820	37800.0
+2012	Great Britain	London	Tunisia	2	0	1	Africa	Northern Africa	10175014	6900.0
+2012	Great Britain	London	Colombia	1	3	5	Americas	Latin America and the Caribbean	43593035	6300.0
+2012	Great Britain	London	Sweden	1	4	3	Europe	Northern Europe	9016596	26800.0
+2012	Great Britain	London	Brazil	3	5	9	Americas	Latin America and the Caribbean	188078227	7600.0
+2012	Great Britain	London	France	11	11	13	Europe	Western Europe	60876136	27600.0
+2012	Great Britain	London	Germany	11	20	13	Europe	Western Europe	82422299	27600.0
+2012	Great Britain	London	Australia	8	15	12	Oceania	Australia and New Zealand	20264082	29000.0
+2012	Great Britain	London	Hungary	8	4	6	Europe	Eastern Europe	9981334	13900.0
+2012	Great Britain	London	Italy	8	9	11	Europe	Southern Europe	58133509	26700.0
+2012	Great Britain	London	China	38	31	22	Asia	Eastern Asia	1313973713	5000.0
+2012	Great Britain	London	United States	46	28	30	Americas	Northern America	298444215	37800.0
+2012	Great Britain	London	Russia	20	20	28	Europe	Eastern Europe	142893540	8900.0
+2012	Great Britain	London	Japan	7	14	17	Asia	Eastern Asia	127463611	28200.0
+2012	Great Britain	London	Jamaica	4	5	3	Americas	Latin America and the Caribbean	2758124	3900.0
+2012	Great Britain	London	Spain	4	10	5	Europe	Southern Europe	40397842	22000.0
+2012	Great Britain	London	Czech Republic	4	3	4	Europe	Eastern Europe	10235455	15700.0
+2012	Great Britain	London	South Africa	4	1	1	Africa	Sub-Saharan Africa	44187637	10700.0
+2012	Great Britain	London	Netherlands	6	6	8	Europe	Western Europe	16491461	28600.0
+2012	Great Britain	London	Iran	7	5	1	Asia	Southern Asia	68688433	7000.0
+2012	Great Britain	London	New Zealand	6	2	5	Oceania	Australia and New Zealand	4076140	21600.0
+2012	Great Britain	London	Cuba	5	3	7	Americas	Latin America and the Caribbean	11382820	2900.0
+2012	Great Britain	London	Ukraine	5	4	10	Europe	Eastern Europe	46710816	5400.0
+2012	Great Britain	London	Guatemala	0	1	0	Americas	Latin America and the Caribbean	12293545	4100.0
+2012	Great Britain	London	Gabon	0	1	0	Africa	Sub-Saharan Africa	1424906	5500.0
+2012	Great Britain	London	Uzbekistan	0	0	3	Asia	Central Asia	27307134	1700.0
+2012	Great Britain	London	Portugal	0	1	0	Europe	Southern Europe	10605870	18000.0
+2012	Great Britain	London	Malaysia	0	1	1	Asia	South-eastern Asia	24385858	9000.0
+2012	Great Britain	London	Estonia	0	1	1	Europe	Northern Europe	1324333	12300.0
+2012	Great Britain	London	Puerto Rico	0	1	1	Americas	Latin America and the Caribbean	3927188	16800.0
+2012	Great Britain	London	Cyprus	0	1	0	Asia	Western Asia	784301	19200.0
+2012	Great Britain	London	Botswana	0	1	0	Africa	Sub-Saharan Africa	1639833	9000.0
+2012	Great Britain	London	Greece	0	0	2	Europe	Southern Europe	10688058	20000.0
+2012	Great Britain	London	Morocco	0	0	1	Africa	Northern Africa	33241259	4000.0
+2012	Great Britain	London	Kuwait	0	0	1	Asia	Western Asia	2418393	19000.0
+2012	Great Britain	London	Saudi Arabia	0	0	1	Asia	Western Asia	27019731	11800.0
+2012	Great Britain	London	Vietnam	0	0	1	Asia	South-eastern Asia	84402966	2500.0
+2012	Great Britain	London	Tajikistan	0	0	1	Asia	Central Asia	7320815	1000.0
+2012	Great Britain	London	Singapore	0	0	2	Asia	South-eastern Asia	4492150	23700.0
+2012	Great Britain	London	Qatar	0	0	2	Asia	Western Asia	885359	21500.0
+2012	Great Britain	London	Afghanistan	0	0	1	Asia	Southern Asia	31056997	700.0
+2012	Great Britain	London	Hong Kong	0	0	1	Asia	Eastern Asia	6940432	28800.0
+2012	Great Britain	London	Cameroon	0	0	1	Africa	Sub-Saharan Africa	17340702	1800.0
+2012	Great Britain	London	Armenia	0	1	1	Asia	Western Asia	2976372	3500.0
+2012	Great Britain	London	Algeria	1	0	0	Africa	Northern Africa	32930091	6000.0
+2012	Great Britain	London	Latvia	1	0	1	Europe	Northern Europe	2274735	10200.0
+2012	Great Britain	London	Grenada	1	0	0	Americas	Latin America and the Caribbean	89703	5000.0
+2012	Great Britain	London	Bahrain	1	0	0	Asia	Western Asia	698585	16900.0
+2012	Great Britain	London	Slovenia	1	1	2	Europe	Southern Europe	2010347	19000.0
+2012	Great Britain	London	Turkey	1	1	1	Asia	Western Asia	70413958	6700.0
+2012	Great Britain	London	Dominican Republic	1	1	0	Americas	Latin America and the Caribbean	9183984	6000.0
+2012	Great Britain	London	Uganda	1	0	0	Africa	Sub-Saharan Africa	28195754	1400.0
+2012	Great Britain	London	Finland	0	2	1	Europe	Northern Europe	5231372	27400.0
+2012	Great Britain	London	Bulgaria	0	2	1	Europe	Eastern Europe	7385367	7600.0
+2012	Great Britain	London	Indonesia	0	2	1	Asia	South-eastern Asia	245452739	3200.0
+2012	Great Britain	London	Belgium	0	1	2	Europe	Western Europe	10379067	29100.0
+2012	Great Britain	London	Slovakia	0	1	3	Europe	Eastern Europe	5439448	13300.0
+2012	Great Britain	London	Egypt	0	3	1	Africa	Northern Africa	78887007	4000.0
+2012	Great Britain	London	Venezuela	1	0	0	Americas	Latin America and the Caribbean	25730435	4800.0
+2012	Great Britain	London	India	0	2	4	Asia	Southern Asia	1095351995	2900.0
+2012	Great Britain	London	Thailand	0	2	2	Asia	South-eastern Asia	64631595	7400.0
+2012	Great Britain	London	Mongolia	0	2	3	Asia	Eastern Asia	2832224	1800.0
+2016	Brazil	Rio de Janeiro	Denmark	2	6	7	Europe	Northern Europe	5450661	31100.0
+2016	Brazil	Rio de Janeiro	Argentina	3	1	0	Americas	Latin America and the Caribbean	39921833	11200.0
+2016	Brazil	Rio de Janeiro	Sweden	2	6	3	Europe	Northern Europe	9016596	26800.0
+2016	Brazil	Rio de Janeiro	Ukraine	2	5	4	Europe	Eastern Europe	46710816	5400.0
+2016	Brazil	Rio de Janeiro	South Africa	2	6	2	Africa	Sub-Saharan Africa	44187637	10700.0
+2016	Brazil	Rio de Janeiro	Colombia	3	2	3	Americas	Latin America and the Caribbean	43593035	6300.0
+2016	Brazil	Rio de Janeiro	Kazakhstan	3	5	10	Asia	Central Asia	15233244	6300.0
+2016	Brazil	Rio de Janeiro	Switzerland	3	2	2	Europe	Western Europe	7523934	32700.0
+2016	Brazil	Rio de Janeiro	Greece	3	1	2	Europe	Southern Europe	10688058	20000.0
+2016	Brazil	Rio de Janeiro	Iran	3	1	4	Asia	Southern Asia	68688433	7000.0
+2016	Brazil	Rio de Janeiro	Serbia	2	4	2	Europe	Southern Europe	9396411	2200.0
+2016	Brazil	Rio de Janeiro	Azerbaijan	1	7	10	Asia	Western Asia	7961619	3400.0
+2016	Brazil	Rio de Janeiro	Georgia	2	1	4	Asia	Western Asia	4661473	2500.0
+2016	Brazil	Rio de Janeiro	Belarus	1	4	4	Europe	Eastern Europe	10293011	6100.0
+2016	Brazil	Rio de Janeiro	Armenia	1	3	0	Asia	Western Asia	2976372	3500.0
+2016	Brazil	Rio de Janeiro	Turkey	1	3	4	Asia	Western Asia	70413958	6700.0
+2016	Brazil	Rio de Janeiro	Poland	2	3	6	Europe	Eastern Europe	38536869	11100.0
+2016	Brazil	Rio de Janeiro	Belgium	2	2	2	Europe	Western Europe	10379067	29100.0
+2016	Brazil	Rio de Janeiro	Slovakia	2	2	0	Europe	Eastern Europe	5439448	13300.0
+2016	Brazil	Rio de Janeiro	Thailand	2	2	2	Asia	South-eastern Asia	64631595	7400.0
+2016	Brazil	Rio de Janeiro	Uzbekistan	4	2	7	Asia	Central Asia	27307134	1700.0
+2016	Brazil	Rio de Janeiro	Japan	12	8	21	Asia	Eastern Asia	127463611	28200.0
+2016	Brazil	Rio de Janeiro	Germany	17	10	15	Europe	Western Europe	82422299	27600.0
+2016	Brazil	Rio de Janeiro	France	10	18	14	Europe	Western Europe	60876136	27600.0
+2016	Brazil	Rio de Janeiro	Italy	8	12	8	Europe	Southern Europe	58133509	26700.0
+2016	Brazil	Rio de Janeiro	United States	46	37	38	Americas	Northern America	298444215	37800.0
+2016	Brazil	Rio de Janeiro	United Arab Emirates	0	0	1	Asia	Western Asia	2602713	23200.0
+2016	Brazil	Rio de Janeiro	Russia	19	17	20	Europe	Eastern Europe	142893540	8900.0
+2016	Brazil	Rio de Janeiro	China	26	18	26	Asia	Eastern Asia	1313973713	5000.0
+2016	Brazil	Rio de Janeiro	Australia	8	11	10	Oceania	Australia and New Zealand	20264082	29000.0
+2016	Brazil	Rio de Janeiro	Croatia	5	3	2	Europe	Southern Europe	4494749	10600.0
+2016	Brazil	Rio de Janeiro	Jamaica	6	3	2	Americas	Latin America and the Caribbean	2758124	3900.0
+2016	Brazil	Rio de Janeiro	Cuba	5	2	4	Americas	Latin America and the Caribbean	11382820	2900.0
+2016	Brazil	Rio de Janeiro	Canada	4	3	15	Americas	Northern America	33098932	29800.0
+2016	Brazil	Rio de Janeiro	New Zealand	4	9	5	Oceania	Australia and New Zealand	4076140	21600.0
+2016	Brazil	Rio de Janeiro	Hungary	8	3	4	Europe	Eastern Europe	9981334	13900.0
+2016	Brazil	Rio de Janeiro	Netherlands	8	7	4	Europe	Western Europe	16491461	28600.0
+2016	Brazil	Rio de Janeiro	Brazil	7	6	6	Americas	Latin America and the Caribbean	188078227	7600.0
+2016	Brazil	Rio de Janeiro	Kenya	6	6	1	Africa	Sub-Saharan Africa	34707817	1000.0
+2016	Brazil	Rio de Janeiro	Spain	7	4	6	Europe	Southern Europe	40397842	22000.0
+2016	Brazil	Rio de Janeiro	Niger	0	1	0	Africa	Sub-Saharan Africa	12525094	800.0
+2016	Brazil	Rio de Janeiro	Grenada	0	1	0	Americas	Latin America and the Caribbean	89703	5000.0
+2016	Brazil	Rio de Janeiro	Philippines	0	1	0	Asia	South-eastern Asia	89468677	4600.0
+2016	Brazil	Rio de Janeiro	Norway	0	0	4	Europe	Northern Europe	4610820	37800.0
+2016	Brazil	Rio de Janeiro	Qatar	0	1	0	Asia	Western Asia	885359	21500.0
+2016	Brazil	Rio de Janeiro	Bulgaria	0	1	2	Europe	Eastern Europe	7385367	7600.0
+2016	Brazil	Rio de Janeiro	Lithuania	0	1	3	Europe	Northern Europe	3585906	11400.0
+2016	Brazil	Rio de Janeiro	India	0	1	1	Asia	Southern Asia	1095351995	2900.0
+2016	Brazil	Rio de Janeiro	Burundi	0	1	0	Africa	Sub-Saharan Africa	8090068	600.0
+2016	Brazil	Rio de Janeiro	Mongolia	0	1	1	Asia	Eastern Asia	2832224	1800.0
+2016	Brazil	Rio de Janeiro	Egypt	0	0	3	Africa	Northern Africa	78887007	4000.0
+2016	Brazil	Rio de Janeiro	Morocco	0	0	1	Africa	Northern Africa	33241259	4000.0
+2016	Brazil	Rio de Janeiro	Finland	0	0	1	Europe	Northern Europe	5231372	27400.0
+2016	Brazil	Rio de Janeiro	Nigeria	0	0	1	Africa	Sub-Saharan Africa	131859731	900.0
+2016	Brazil	Rio de Janeiro	Portugal	0	0	1	Europe	Southern Europe	10605870	18000.0
+2016	Brazil	Rio de Janeiro	Israel	0	0	2	Asia	Western Asia	6352117	19800.0
+2016	Brazil	Rio de Janeiro	Tunisia	0	0	3	Africa	Northern Africa	10175014	6900.0
+2016	Brazil	Rio de Janeiro	Austria	0	0	1	Europe	Western Europe	8192880	30000.0
+2016	Brazil	Rio de Janeiro	Estonia	0	0	1	Europe	Northern Europe	1324333	12300.0
+2016	Brazil	Rio de Janeiro	Dominican Republic	0	0	1	Americas	Latin America and the Caribbean	9183984	6000.0
+2016	Brazil	Rio de Janeiro	Ireland	0	2	0	Europe	Northern Europe	4062235	29600.0
+2016	Brazil	Rio de Janeiro	Vietnam	1	1	0	Asia	South-eastern Asia	84402966	2500.0
+2016	Brazil	Rio de Janeiro	Bahrain	1	1	0	Asia	Western Asia	698585	16900.0
+2016	Brazil	Rio de Janeiro	Ethiopia	1	2	5	Africa	Sub-Saharan Africa	74777981	700.0
+2016	Brazil	Rio de Janeiro	Czech Republic	1	2	7	Europe	Eastern Europe	10235455	15700.0
+2016	Brazil	Rio de Janeiro	Slovenia	1	2	1	Europe	Southern Europe	2010347	19000.0
+2016	Brazil	Rio de Janeiro	Romania	1	1	2	Europe	Eastern Europe	22303552	7000.0
+2016	Brazil	Rio de Janeiro	Indonesia	1	2	0	Asia	South-eastern Asia	245452739	3200.0
+2016	Brazil	Rio de Janeiro	Malaysia	0	4	1	Asia	South-eastern Asia	24385858	9000.0
+2016	Brazil	Rio de Janeiro	Tajikistan	1	0	0	Asia	Central Asia	7320815	1000.0
+2016	Brazil	Rio de Janeiro	Mexico	0	3	2	Americas	Latin America and the Caribbean	107449525	9000.0
+2016	Brazil	Rio de Janeiro	Algeria	0	2	0	Africa	Northern Africa	32930091	6000.0
+2016	Brazil	Rio de Janeiro	Venezuela	0	2	1	Americas	Latin America and the Caribbean	25730435	4800.0
+2016	Brazil	Rio de Janeiro	Jordan	1	0	0	Asia	Western Asia	5906760	4300.0
+2016	Brazil	Rio de Janeiro	Fiji	1	0	0	Oceania	Melanesia	905949	5800.0
+2016	Brazil	Rio de Janeiro	Singapore	1	0	0	Asia	South-eastern Asia	4492150	23700.0
+2016	Brazil	Rio de Janeiro	Puerto Rico	1	0	0	Americas	Latin America and the Caribbean	3927188	16800.0
+2020	Japan	Tokyo	Bulgaria	3	1	2	Europe	Eastern Europe	7385367	7600.0
+2020	Japan	Tokyo	Belgium	3	1	3	Europe	Western Europe	10379067	29100.0
+2020	Japan	Tokyo	Slovenia	3	1	1	Europe	Southern Europe	2010347	19000.0
+2020	Japan	Tokyo	Georgia	2	5	1	Asia	Western Asia	4661473	2500.0
+2020	Japan	Tokyo	Uzbekistan	3	0	2	Asia	Central Asia	27307134	1700.0
+2020	Japan	Tokyo	Denmark	3	4	4	Europe	Northern Europe	5450661	31100.0
+2020	Japan	Tokyo	Switzerland	3	4	6	Europe	Western Europe	7523934	32700.0
+2020	Japan	Tokyo	Croatia	3	3	2	Europe	Southern Europe	4494749	10600.0
+2020	Japan	Tokyo	Serbia	3	1	5	Europe	Southern Europe	9396411	2200.0
+2020	Japan	Tokyo	Iran	3	2	2	Asia	Southern Asia	68688433	7000.0
+2020	Japan	Tokyo	Qatar	2	0	1	Asia	Western Asia	885359	21500.0
+2020	Japan	Tokyo	Belarus	1	3	3	Europe	Eastern Europe	10293011	6100.0
+2020	Japan	Tokyo	Ukraine	1	6	12	Europe	Eastern Europe	46710816	5400.0
+2020	Japan	Tokyo	Israel	2	0	2	Asia	Western Asia	6352117	19800.0
+2020	Japan	Tokyo	Greece	2	1	1	Europe	Southern Europe	10688058	20000.0
+2020	Japan	Tokyo	Turkey	2	2	9	Asia	Western Asia	70413958	6700.0
+2020	Japan	Tokyo	Uganda	2	1	1	Africa	Sub-Saharan Africa	28195754	1400.0
+2020	Japan	Tokyo	Ireland	2	0	2	Europe	Northern Europe	4062235	29600.0
+2020	Japan	Tokyo	Ecuador	2	1	0	Americas	Latin America and the Caribbean	13547510	3300.0
+2020	Japan	Tokyo	Sweden	3	6	0	Europe	Northern Europe	9016596	26800.0
+2020	Japan	Tokyo	Netherlands	10	12	14	Europe	Western Europe	16491461	28600.0
+2020	Japan	Tokyo	Australia	17	7	22	Oceania	Australia and New Zealand	20264082	29000.0
+2020	Japan	Tokyo	France	10	12	11	Europe	Western Europe	60876136	27600.0
+2020	Japan	Tokyo	Italy	10	10	20	Europe	Southern Europe	58133509	26700.0
+2020	Japan	Tokyo	Germany	10	11	16	Europe	Western Europe	82422299	27600.0
+2020	Japan	Tokyo	United States	39	41	33	Americas	Northern America	298444215	37800.0
+2020	Japan	Tokyo	Dominican Republic	0	3	2	Americas	Latin America and the Caribbean	9183984	6000.0
+2020	Japan	Tokyo	China	38	32	18	Asia	Eastern Asia	1313973713	5000.0
+2020	Japan	Tokyo	Japan	27	14	17	Asia	Eastern Asia	127463611	28200.0
+2020	Japan	Tokyo	Canada	7	6	11	Americas	Northern America	33098932	29800.0
+2020	Japan	Tokyo	Kenya	4	4	2	Africa	Sub-Saharan Africa	34707817	1000.0
+2020	Japan	Tokyo	Czech Republic	4	4	3	Europe	Eastern Europe	10235455	15700.0
+2020	Japan	Tokyo	Norway	4	2	2	Europe	Northern Europe	4610820	37800.0
+2020	Japan	Tokyo	Spain	3	8	6	Europe	Southern Europe	40397842	22000.0
+2020	Japan	Tokyo	Jamaica	4	1	4	Americas	Latin America and the Caribbean	2758124	3900.0
+2020	Japan	Tokyo	Poland	4	5	5	Europe	Eastern Europe	38536869	11100.0
+2020	Japan	Tokyo	New Zealand	7	6	7	Oceania	Australia and New Zealand	4076140	21600.0
+2020	Japan	Tokyo	Brazil	7	6	8	Americas	Latin America and the Caribbean	188078227	7600.0
+2020	Japan	Tokyo	Cuba	7	3	5	Americas	Latin America and the Caribbean	11382820	2900.0
+2020	Japan	Tokyo	Hungary	6	7	7	Europe	Eastern Europe	9981334	13900.0
+2020	Japan	Tokyo	Romania	1	3	0	Europe	Eastern Europe	22303552	7000.0
+2020	Japan	Tokyo	Lithuania	0	1	0	Europe	Northern Europe	3585906	11400.0
+2020	Japan	Tokyo	Bahrain	0	1	0	Asia	Western Asia	698585	16900.0
+2020	Japan	Tokyo	Namibia	0	1	0	Africa	Sub-Saharan Africa	2044147	7200.0
+2020	Japan	Tokyo	Saudi Arabia	0	1	0	Asia	Western Asia	27019731	11800.0
+2020	Japan	Tokyo	Nigeria	0	1	1	Africa	Sub-Saharan Africa	131859731	900.0
+2020	Japan	Tokyo	Argentina	0	1	2	Americas	Latin America and the Caribbean	39921833	11200.0
+2020	Japan	Tokyo	Mongolia	0	1	3	Asia	Eastern Asia	2832224	1800.0
+2020	Japan	Tokyo	San Marino	0	1	2	Europe	Southern Europe	29251	34600.0
+2020	Japan	Tokyo	Malaysia	0	1	1	Asia	South-eastern Asia	24385858	9000.0
+2020	Japan	Tokyo	Jordan	0	1	1	Asia	Western Asia	5906760	4300.0
+2020	Japan	Tokyo	Turkmenistan	0	1	0	Asia	Central Asia	5042920	5800.0
+2020	Japan	Tokyo	Grenada	0	0	1	Americas	Latin America and the Caribbean	89703	5000.0
+2020	Japan	Tokyo	Kuwait	0	0	1	Asia	Western Asia	2418393	19000.0
+2020	Japan	Tokyo	Syria	0	0	1	Asia	Western Asia	18881361	3300.0
+2020	Japan	Tokyo	Moldova	0	0	1	Europe	Eastern Europe	4466706	1800.0
+2020	Japan	Tokyo	Ghana	0	0	1	Africa	Sub-Saharan Africa	22409572	2200.0
+2020	Japan	Tokyo	Mexico	0	0	4	Americas	Latin America and the Caribbean	107449525	9000.0
+2020	Japan	Tokyo	Kazakhstan	0	0	8	Asia	Central Asia	15233244	6300.0
+2020	Japan	Tokyo	Finland	0	0	2	Europe	Northern Europe	5231372	27400.0
+2020	Japan	Tokyo	Burkina Faso	0	0	1	Africa	Sub-Saharan Africa	13902972	1100.0
+2020	Japan	Tokyo	Botswana	0	0	1	Africa	Sub-Saharan Africa	1639833	9000.0
+2020	Japan	Tokyo	Egypt	1	1	4	Africa	Northern Africa	78887007	4000.0
+2020	Japan	Tokyo	Austria	1	1	5	Europe	Western Europe	8192880	30000.0
+2020	Japan	Tokyo	Indonesia	1	1	3	Asia	South-eastern Asia	245452739	3200.0
+2020	Japan	Tokyo	Portugal	1	1	2	Europe	Southern Europe	10605870	18000.0
+2020	Japan	Tokyo	Ethiopia	1	1	2	Africa	Sub-Saharan Africa	74777981	700.0
+2020	Japan	Tokyo	South Africa	1	2	0	Africa	Sub-Saharan Africa	44187637	10700.0
+2020	Japan	Tokyo	India	1	2	4	Asia	Southern Asia	1095351995	2900.0
+2020	Japan	Tokyo	Venezuela	1	3	0	Americas	Latin America and the Caribbean	25730435	4800.0
+2020	Japan	Tokyo	Hong Kong	1	2	3	Asia	Eastern Asia	6940432	28800.0
+2020	Japan	Tokyo	Slovakia	1	2	1	Europe	Eastern Europe	5439448	13300.0
+2020	Japan	Tokyo	Philippines	1	2	1	Asia	South-eastern Asia	89468677	4600.0
+2020	Japan	Tokyo	Tunisia	1	1	0	Africa	Northern Africa	10175014	6900.0
+2020	Japan	Tokyo	Colombia	0	4	1	Americas	Latin America and the Caribbean	43593035	6300.0
+2020	Japan	Tokyo	Puerto Rico	1	0	0	Americas	Latin America and the Caribbean	3927188	16800.0
+2020	Japan	Tokyo	Azerbaijan	0	3	4	Asia	Western Asia	7961619	3400.0
+2020	Japan	Tokyo	Kyrgyzstan	0	2	1	Asia	Central Asia	5213898	1600.0
+2020	Japan	Tokyo	Armenia	0	2	2	Asia	Western Asia	2976372	3500.0
+2020	Japan	Tokyo	Morocco	1	0	0	Africa	Northern Africa	33241259	4000.0
+2020	Japan	Tokyo	Fiji	1	0	1	Oceania	Melanesia	905949	5800.0
+2020	Japan	Tokyo	Estonia	1	0	1	Europe	Northern Europe	1324333	12300.0
+2020	Japan	Tokyo	Latvia	1	0	1	Europe	Northern Europe	2274735	10200.0
+2020	Japan	Tokyo	Bermuda	1	0	0	Americas	Northern America	65773	36000.0
+2020	Japan	Tokyo	Thailand	1	0	1	Asia	South-eastern Asia	64631595	7400.0
