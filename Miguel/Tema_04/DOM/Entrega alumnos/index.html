@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Desarrollo Web</title>
+    <script defer src="miscript.js"></script>
+    <link rel="stylesheet" href="miestilo.css">
+</head>
+
+<body>
+    <header>
+        <h1>WebDev Store</h1>
+        <div class="cart-container" id="iconoCarrito">
+            <span class="cart-icon">🛒</span>
+            <div class="cart-badge" id="cartBadge">0</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="product-grid" id="productGrid">
+            <!-- Productos generados dinámicamente -->
+        </div>
+    </main>
+
+    <!-- Sidebar Carrito -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h2>Mi Cesta</h2>
+            <span class="close-cart" id="closeCart">&times;</span>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Elementos del carrito -->
+
+        </div>
+        <div class="cart-footer">
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="totalValue">0.00€</span>
+            </div>
+            <button class="clear-btn" id="clearCart">Vaciar Cesta</button>
+            <button class="comprar-btn" id="comprarCarrito">Comprar</button>
+        </div>
+    </aside>
+    <!-- Template -->
+    <template id="plantillaTarjeta">
+        <article class="product-card">
+            <img class="product-image" src="" alt="Imagen del producto">
+            <div class="product-info">
+                <h3 class="product-title"></h3>
+                <p class="product-desc"></p>
+                <span class="product-price"></span>
+                <button class="add-btn" data-id="">Añadir al carrito</button>
+            </div>
+        </article>
+    </template>
+
+    <template id="elementoCarrito">
+        <div class="cart-item">
+            <img src="" alt="" class="cart-item-img">
+            <div class="cart-item-info">
+                <div class="cart-item-title"></div>
+                <div class="cart-item-price"></div>
+            </div>
+            <button class="remove-btn" data-id="">🗑️</button>
+        </div>
+    </template>
+
+</body>
+
+</html>
