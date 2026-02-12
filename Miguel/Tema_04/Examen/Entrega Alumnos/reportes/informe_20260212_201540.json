@@ -1,0 +1,22 @@
+{
+    "fecha_generacion": "2026-02-12T20:15:40.032954",
+    "fecha_generacion_legible": "jueves,12 de febrero de 2026",
+    "estadisticas_historicas": {
+        "temperatura_maxima_absoluta": 15.2,
+        "temperatura_minima_absoluta": 1.9,
+        "temperatura_media": 8.55,
+        "total_registros": 7,
+        "periodo": {
+            "desde": "15-01-2025",
+            "hasta": "21-01-2025"
+        }
+    },
+    "clima actual": {
+        "ciudad": "Madrid",
+        "temperatura": 9.53,
+        "sensacion_termica": 5.87,
+        "descripcion": "cielo claro",
+        "humedad": 75,
+        "timestamp": "2026-02-12T20:15:40.032034"
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "fecha_generacion": "2026-02-12T20:13:31.118427",
+    "fecha_generacion_legible": "jueves,12 de febrero de 2026",
+    "estadisticas_historicas": {
+        "temperatura_maxima_absoluta": 15.2,
+        "temperatura_minima_absoluta": 1.9,
+        "temperatura_media": 8.55,
+        "total_registros": 7,
+        "periodo": {
+            "desde": "15-01-2025",
+            "hasta": "21-01-2025"
+        }
+    },
+    "clima actual": null
+}
