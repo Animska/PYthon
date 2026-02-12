@@ -1,0 +1,71 @@
+{
+    "estadisticas_alumnos": [
+        {
+            "nombre": "Ana",
+            "apellidos": "Garcia Lopez",
+            "nota_media": 7.75
+        },
+        {
+            "nombre": "Carlos",
+            "apellidos": "Martinez Ruiz",
+            "nota_media": 5.75
+        },
+        {
+            "nombre": "Laura",
+            "apellidos": "Fernandez Diaz",
+            "nota_media": 8.75
+        },
+        {
+            "nombre": "Pedro",
+            "apellidos": "Sanchez Gomez",
+            "nota_media": 5.25
+        },
+        {
+            "nombre": "Maria",
+            "apellidos": "Lopez Torres",
+            "nota_media": 7.25
+        },
+        {
+            "nombre": "Juan",
+            "apellidos": "Rodriguez Perez",
+            "nota_media": 8.5
+        },
+        {
+            "nombre": "Sofia",
+            "apellidos": "Hernandez Vila",
+            "nota_media": 6.75
+        },
+        {
+            "nombre": "Diego",
+            "apellidos": "Moreno Castro",
+            "nota_media": 5.75
+        },
+        {
+            "nombre": "Elena",
+            "apellidos": "Jimenez Ramos",
+            "nota_media": 8.75
+        },
+        {
+            "nombre": "Pablo",
+            "apellidos": "Alvarez Munoz",
+            "nota_media": 6.5
+        }
+    ],
+    "estadisticas_cursos": [
+        {
+            "curso": "DAW",
+            "nota_media_curso": 6.88,
+            "num_alumnos": 4
+        },
+        {
+            "curso": "DAM",
+            "nota_media_curso": 7.58,
+            "num_alumnos": 3
+        },
+        {
+            "curso": "ASIR",
+            "nota_media_curso": 6.92,
+            "num_alumnos": 3
+        }
+    ]
+}
