@@ -7800,7 +7800,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
@@ -7823,6 +7823,7 @@ a.anchor-link {
             <span class="s2">"Year"</span><span class="p">:</span> <span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"year"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="s2">"Wins"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"wins"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
             <span class="s2">"Losses"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"losses"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+            <span class="s2">"OT Losses"</span><span class="p">:</span> <span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"ot-losses"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="s2">"Win %"</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"pct"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
             <span class="s2">"Goals For"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"gf"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
             <span class="s2">"Goals Against"</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">equipo_html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">"ga"</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">(</span><span class="n">strip</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
@@ -7866,7 +7867,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1">#- Almacena los datos de los equipos en un DataFrame y exporta a CSV (sin índices filas)</span>
@@ -7883,7 +7884,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7907,6 +7908,7 @@ a.anchor-link {
 <th>Year</th>
 <th>Wins</th>
 <th>Losses</th>
+<th>OT Losses</th>
 <th>Win %</th>
 <th>Goals For</th>
 <th>Goals Against</th>
@@ -7920,6 +7922,7 @@ a.anchor-link {
 <td>1990</td>
 <td>44</td>
 <td>24</td>
+<td></td>
 <td>0.550</td>
 <td>299</td>
 <td>264</td>
@@ -7931,6 +7934,7 @@ a.anchor-link {
 <td>1990</td>
 <td>31</td>
 <td>30</td>
+<td></td>
 <td>0.388</td>
 <td>292</td>
 <td>278</td>
@@ -7942,6 +7946,7 @@ a.anchor-link {
 <td>1990</td>
 <td>46</td>
 <td>26</td>
+<td></td>
 <td>0.575</td>
 <td>344</td>
 <td>263</td>
@@ -7953,6 +7958,7 @@ a.anchor-link {
 <td>1990</td>
 <td>49</td>
 <td>23</td>
+<td></td>
 <td>0.613</td>
 <td>284</td>
 <td>211</td>
@@ -7964,6 +7970,7 @@ a.anchor-link {
 <td>1990</td>
 <td>34</td>
 <td>38</td>
+<td></td>
 <td>0.425</td>
 <td>273</td>
 <td>298</td>
@@ -7981,7 +7988,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># - Crea un gráfico de línea con los datos de Boston Bruins.</span>
