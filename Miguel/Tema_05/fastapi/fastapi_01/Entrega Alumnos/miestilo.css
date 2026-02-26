@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 0 20px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.form-container input,
+.form-container select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.form-container input {
+    flex: 2;
+}
+
+.form-container select {
+    flex: 1;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.form-container button:hover {
+    background-color: #45a049;
+}
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filtro {
+    padding: 6px 14px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background-color 0.2s;
+}
+
+.filtro:hover {
+    background-color: #ccc;
+}
+
+.filtro.activo {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.lista-tareas {
+    list-style: none;
+}
+
+.tarea {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: white;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tarea.completada .tarea-desc {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.tarea-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.tarea-desc {
+    flex: 1;
+}
+
+.tarea-tipo {
+    font-size: 11px;
+    padding: 3px 8px;
+    background-color: #e8f5e9;
+    border-radius: 10px;
+    color: #2e7d32;
+}
+
+.tarea-fecha {
+    font-size: 11px;
+    color: #999;
+    margin-left: 10px;
+}
+
+.tarea-acciones {
+    display: flex;
+    gap: 6px;
+}
+
+.tarea-acciones button {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-completar {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-completar:hover {
+    background-color: #1976D2;
+}
+
+.btn-eliminar {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-eliminar:hover {
+    background-color: #d32f2f;
+}
+
+.sin-tareas {
+    text-align: center;
+    color: #999;
+    padding: 30px;
+}

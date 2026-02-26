@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Tareas</title>
+    <link rel="stylesheet" href="miestilo.css">
+    <script defer src="miscript.js"></script>
+</head>
+
+<body>
+    <h1>Gestor de Tareas</h1>
+
+    <div class="form-container">
+        <input type="text" id="inputTarea" placeholder="Descripción de la tarea...">
+        <select id="selectTipo">
+            <option value="Personal">Personal</option>
+            <option value="Trabajo">Trabajo</option>
+            <option value="Estudio">Estudio</option>
+            <option value="Hogar">Hogar</option>
+        </select>
+        <button id="btnAnadir">Añadir tarea</button>
+    </div>
+
+    <div class="filtros" id="filtros"></div>
+
+    <ul class="lista-tareas" id="listaTareas"></ul>
+
+    <template id="templateTarea">
+        <li class="tarea">
+            <div class="tarea-info">
+                <span class="tarea-desc"></span>
+                <span class="tarea-tipo"></span>
+                <span class="tarea-fecha"></span>
+            </div>
+            <div class="tarea-acciones">
+                <button class="btn-completar">Completar</button>
+                <button class="btn-eliminar">Eliminar</button>
+            </div>
+        </li>
+    </template>
+
+    <script src="miscript.js"></script>
+</body>
+
+</html>

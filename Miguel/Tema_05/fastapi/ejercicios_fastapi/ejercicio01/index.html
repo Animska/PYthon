@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App - FastAPI </title>
+    <link rel="stylesheet" href="micss.css">
+    <script defer src="miscript.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1> Weather App</h1>
+        <div class="input-group">
+            <input type="text" id="city" placeholder="Introduce una ciudad..." value="Madrid" />
+        </div>
+        <button id="btnConsultar">Consultar</button>
+        <div id="resultado"></div>
+    </div>
+    <!-- ===== TEMPLATES HTML ===== -->
+    <!-- Template para loading -->
+    <template id="loadingTemplate">
+        <div class="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 15px;">Consultando...</p>
+        </div>
+    </template>
+    <!-- Template para error -->
+    <template id="errorTemplate">
+        <div class="error">
+            <h3>Error</h3>
+            <p class="error-message" style="margin-top: 10px;"></p>
+        </div>
+    </template>
+    <!-- Template para resultado del tiempo -->
+    <template id="weatherTemplate">
+        <div class="weather-card">
+            <h2 class="city-name"></h2>
+            <div class="temperature"></div>
+            <p class="description" style="font-size: 18px; opacity: 0.9;"></p>
+            <div class="weather-details">
+                <div class="detail-item">
+                    <div class="detail-label">Sensación térmica</div>
+                    <div class="detail-value feels-like"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Humedad</div>
+                    <div class="detail-value humidity"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Viento</div>
+                    <div class="detail-value wind"></div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Icono</div>
+                    <div class="detail-value">
+                        <img class="weather-icon" alt="Weather icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>

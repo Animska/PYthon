@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio - Gestor de Tareas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #2e7d32;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        ul {
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .nota {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .seccion {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px 20px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Ejercicio: Gestor de Tareas</h1>
+
+    <h2>Descripcion</h2>
+    <p>
+        Vais a crear un gestor de tareas en JavaScript. La pagina HTML y el CSS ya estan hechos.
+        Vuestro trabajo es programar toda la logica en el archivo <code>miscript.js</code>.
+    </p>
+
+    <h2>Que teneis en el HTML</h2>
+
+    <h3>Formulario</h3>
+    <ul>
+        <li>Un <code>input text</code> con id <code>inputTarea</code> donde el usuario escribe la descripcion de la
+            tarea.</li>
+        <li>Un <code>select</code> con id <code>selectTipo</code> con los tipos: Personal, Trabajo, Estudio y Hogar.
+        </li>
+        <li>Un <code>button</code> con id <code>btnAnadir</code> para anadir la tarea.</li>
+    </ul>
+
+    <h3>Zona de filtros</h3>
+    <ul>
+        <li>Un <code>div</code> con id <code>filtros</code> donde tendreis que crear dinamicamente los botones de
+            filtro.</li>
+    </ul>
+
+    <h3>Lista de tareas</h3>
+    <ul>
+        <li>Un <code>ul</code> con id <code>listaTareas</code> donde se mostraran las tareas.</li>
+    </ul>
+
+    <h3>Template</h3>
+    <p>
+        Existe un <code>&lt;template id="templateTarea"&gt;</code> que contiene la estructura HTML de cada tarea.
+        Debeis clonarlo con <code>templateTarea.content.cloneNode(true)</code> y rellenar sus elementos
+        usando <code>querySelector</code> y <code>textContent</code>. Mirad el template en el HTML para ver
+        las clases disponibles y la estructura.
+    </p>
+
+    <h2>Que teneis que programar en miscript.js</h2>
+
+    <h3>1. Array de tareas</h3>
+    <p>Crear un array donde se guardaran las tareas. Cada tarea es un objeto con estas propiedades:</p>
+    <div class="seccion">
+        <ul>
+            <li><code>id</code> - Identificador unico (numerico, autoincremental).</li>
+            <li><code>descripcion</code> - El texto que ha escrito el usuario.</li>
+            <li><code>tipo</code> - El tipo seleccionado en el select.</li>
+            <li><code>completada</code> - Booleano que indica si esta completada o no (por defecto <code>false</code>).
+            </li>
+            <li><code>fechaCompletada</code> - La fecha en la que se completo (por defecto <code>null</code>, se rellena
+                al completar).</li>
+        </ul>
+    </div>
+
+    <h3>2. Anadir tarea</h3>
+    <ul>
+        <li>Al pulsar el boton "Anadir tarea", se crea el objeto tarea y se anade al array.</li>
+        <li>Si el input esta vacio, mostrar un <code>alert</code> y no anadir nada.</li>
+        <li>Despues de anadir, limpiar el input y volver a dibujar los filtros y las tareas.</li>
+    </ul>
+
+    <h3>3. Dibujar las tareas (usando el template)</h3>
+    <ul>
+        <li>Recorrer el array de tareas (teniendo en cuenta el filtro activo) y por cada una clonar el template.</li>
+        <li>Rellenar la descripcion, el tipo y la fecha (si existe) usando <code>querySelector</code> y
+            <code>textContent</code>.</li>
+        <li>Si la tarea NO tiene fecha de completada, eliminar el <code>span</code> de la fecha con
+            <code>.remove()</code>.</li>
+        <li>Si la tarea esta completada, anadir la clase <code>completada</code> al <code>li</code>.</li>
+        <li>El boton de completar debe mostrar "Completar" o "Deshacer" segun el estado de la tarea.</li>
+        <li>Asignar los eventos <code>click</code> a los botones de completar y eliminar.</li>
+    </ul>
+
+    <div class="nota">
+        <strong>Cuando no hay tareas:</strong> Si el array filtrado esta vacio, mostrar un <code>&lt;li&gt;</code>
+        con la clase <code>sin-tareas</code> y el texto "No hay tareas". Este elemento NO usa el template,
+        se crea directamente.
+    </div>
+
+    <h3>4. Completar tarea</h3>
+    <ul>
+        <li>Buscar la tarea en el array por su <code>id</code> (usar <code>.find()</code>).</li>
+        <li>Cambiar su propiedad <code>completada</code> al valor contrario (<code>!tarea.completada</code>).</li>
+        <li>Si queda completada, guardar la fecha actual con <code>new Date().toLocaleString("es-ES")</code>.</li>
+        <li>Si se deshace, poner <code>fechaCompletada</code> a <code>null</code>.</li>
+        <li>Volver a dibujar las tareas.</li>
+    </ul>
+
+    <h3>5. Eliminar tarea</h3>
+    <ul>
+        <li>Filtrar el array para quitar la tarea con ese <code>id</code> (usar <code>.filter()</code>).</li>
+        <li>Volver a dibujar filtros y tareas.</li>
+    </ul>
+
+    <h3>6. Filtros dinamicos</h3>
+    <ul>
+        <li>Obtener los tipos unicos que existen en el array de tareas (recorrer el array y usar
+            <code>.includes()</code> para no repetir).</li>
+        <li>Anadir "Todos" al inicio del array de tipos con <code>.unshift()</code>.</li>
+        <li>Por cada tipo, crear un <code>div</code> con la clase <code>filtro</code> dentro del contenedor de filtros.
+            Estos divs NO usan template, se crean con <code>document.createElement("div")</code>.</li>
+        <li>El filtro activo debe tener ademas la clase <code>activo</code>.</li>
+        <li>Al hacer click en un filtro, guardar el tipo seleccionado y volver a dibujar filtros y tareas.</li>
+        <li>Si el filtro activo es "Todos", mostrar todas las tareas. Si no, filtrar por tipo.</li>
+    </ul>
+
+    <div class="nota">
+        <strong>Importante:</strong> Si se eliminan todas las tareas de un tipo y ese tipo era el filtro activo,
+        hay que volver automaticamente a "Todos".
+    </div>
+
+    <h2>Resumen: que usa template y que no</h2>
+    <div class="seccion">
+        <p><strong>USA el template:</strong></p>
+        <ul>
+            <li>Cada tarea de la lista (clonar <code>templateTarea</code>, rellenar con <code>querySelector</code> y
+                <code>textContent</code>).</li>
+        </ul>
+        <p><strong>NO usa template (crear directamente):</strong></p>
+        <ul>
+            <li>El mensaje "No hay tareas" (un <code>&lt;li&gt;</code> con clase <code>sin-tareas</code>).</li>
+            <li>Los divs de filtro (un <code>div</code> con clase <code>filtro</code>, y clase <code>activo</code> si
+                esta seleccionado).</li>
+        </ul>
+    </div>
+
+    <h2>Funciones sugeridas</h2>
+    <div class="seccion">
+        <ul>
+            <li><code>anadirTarea()</code> - Crea el objeto y lo mete en el array.</li>
+            <li><code>completarTarea(id)</code> - Cambia el estado de completada y la fecha.</li>
+            <li><code>eliminarTarea(id)</code> - Elimina la tarea del array.</li>
+            <li><code>obtenerTipos()</code> - Devuelve un array con los tipos unicos de las tareas.</li>
+            <li><code>dibujarFiltros()</code> - Dibuja los divs de filtro en el contenedor.</li>
+            <li><code>dibujarTareas()</code> - Dibuja la lista de tareas clonando el template.</li>
+        </ul>
+    </div>
+</body>
+
+</html>
