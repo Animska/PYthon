@@ -18,3 +18,6 @@ document.addEventListener('click', function (evento){
 
 
 
+async function crearPlantas(params) {
+    
+}

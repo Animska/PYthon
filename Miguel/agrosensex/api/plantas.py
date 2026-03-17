@@ -4,6 +4,7 @@ import json
 from datetime import datetime
 from typing import Dict, Optional
 from pydantic import BaseModel
+from fastapi import HTTPException
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(BASE_DIR / "data")
@@ -62,7 +63,7 @@ def generar_planta_id(nombre: str) -> str:
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
     return f"{nombre_sin_espacios}_{timestamp}"
 
-def crear_planta(planta: PlantaCreate):
+def crear_planta(planta: PlantaCreate)->(Optional[Planta]):
     """Crea una nueva planta si no existe."""
     plantas = cargar_plantas()
     planta_id = generar_planta_id(planta.nombre)
@@ -79,7 +80,7 @@ def crear_planta(planta: PlantaCreate):
     
     plantas[planta_id] = nueva_planta
     guardar_plantas(plantas)
-    print(f"Planta creada exitosamente con ID: {planta_id}")
+    return nueva_planta.model_dump()
 
 def actualizar_planta(planta_id: str, planta_data: PlantaCreate):
     """Actualiza una planta existente."""
