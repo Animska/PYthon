@@ -1,3 +1,5 @@
+<script defer src="./js/mi_script_inventario.js"></script>
+
 <div class="cabecera-dashboard d-flex justify-content-between align-items-center">
     <div>
         <h2 class="mb-1">Inventario de Plantas</h2>
@@ -34,38 +36,39 @@
 </div>
 </div>
 <div id="grid-cartas" class="row">
-
-    <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="card h-100">
-          <img src="https://www.compo.de/dam/jcr:5e382c1a-8128-4670-9f96-a75044fe31b2/Kaktus%20Blumentopf.jpg?x=46&amp;y=41" 
-              class="card-img-top" style="height: 200px; object-fit: cover;" alt="Monstera">
-          
-        <div class="card-body p-3">
-            <h6 class="nombre-planta">Nombre Planta</h6>
-            <p class="nombre-cientifico">Nombre Cientifico</p>
-            <p><span class="badge rounded-pill badge-recinto py-1 px-2"><i class="bi bi-house-door-fill me-1"></i>Invernadero</span></p>
-            <p><span class="badge rounded-pill badge-riego py-1 px-2">Necesita riego</span></p>
-            <div class="d-flex medidas justify-content-around p-1">
-              <div class="cantidad justify-content-center d-flex flex-column">
-                <p>3</p>
-                <small>CANTIDAD</small>
+    <template id="template-card">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+          <div class="card h-100">
+            <img src="https://www.compo.de/dam/jcr:5e382c1a-8128-4670-9f96-a75044fe31b2/Kaktus%20Blumentopf.jpg?x=46&amp;y=41" 
+                class="card-img-top" style="height: 200px; object-fit: cover;" alt="Monstera">
+            
+          <div class="card-body p-3">
+              <h6 class="nombre-planta">Nombre Planta</h6>
+              <p class="nombre-cientifico">Nombre Cientifico</p>
+              <p><span class="badge rounded-pill badge-recinto py-1 px-2"><i class="bi bi-house-door-fill me-1"></i>Invernadero</span></p>
+              <p><span class="badge rounded-pill badge-riego py-1 px-2">Necesita riego</span></p>
+              <div class="d-flex medidas justify-content-around p-1">
+                <div class="cantidad justify-content-center d-flex flex-column">
+                  <p>3</p>
+                  <small>CANTIDAD</small>
+                </div>
+                <div class="temp justify-content-center d-flex flex-column">
+                    <p>23º</p>
+                    <small>TEMP</small>
+                </div>
+                <div class="humedad justify-content-center d-flex flex-column">
+                    <P>40%</P>
+                    <small>HUMEDAD</small>
+                </div>
               </div>
-              <div class="temp justify-content-center d-flex flex-column">
-                  <p>23º</p>
-                  <small>TEMP</small>
+              <div class="botones d-flex">
+                    <button type="button" class="btn btn-outline-primary flex-fill "><i class="bi bi-eye"></i>Ver</button>
+                    <button type="button" class="btn btn-outline-secondary mx-2"><i class="bi bi-pencil"></i></button>
+                    <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
               </div>
-              <div class="humedad justify-content-center d-flex flex-column">
-                  <P>40%</P>
-                  <small>HUMEDAD</small>
-              </div>
-            </div>
-            <div class="botones d-flex">
-                  <button type="button" class="btn btn-outline-primary flex-fill "><i class="bi bi-eye"></i>Ver</button>
-                  <button type="button" class="btn btn-outline-secondary mx-2"><i class="bi bi-pencil"></i></button>
-                  <button type="button" class="btn btn-outline-danger"><i class="bi bi-trash"></i></button>
-            </div>
-        </div>
-    </div>
-
+          </div>
+      </div>
+    </template>
 </div>
 
+<script src="./js/mi_script_inventario.js"></script>
