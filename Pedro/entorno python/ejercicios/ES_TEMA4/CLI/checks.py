@@ -52,6 +52,3 @@ def net_met():
             stats["open_ports"].append(conn.laddr.port)
         
     return stats
-
-
-print(net_met())
