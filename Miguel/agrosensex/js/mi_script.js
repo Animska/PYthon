@@ -4,17 +4,13 @@ async function loadHTML(url, element) {
         const respuesta = await fetch(url);
         if (!respuesta.ok) throw new Error("Error al cargar");
         element.innerHTML = await respuesta.text();
-        
-        // OPCIONAL: Si acabas de cargar inventario.html, dispara la función aquí
-        if (url === "inventario.html") {
-            consultarPlantas(); 
-        }
     } catch (error) {
         console.error("Error en loadHTML:", error);
     }
 }
 
 const contenido = document.querySelector("#contenido");
+
 loadHTML("dashboard.html", contenido);
 document.addEventListener('click', function (evento){
     const elementosValidos = ['dashboard', 'recintos', 'inventario', 'reportes', 'configuracion'];

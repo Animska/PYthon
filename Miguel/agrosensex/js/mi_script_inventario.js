@@ -2,6 +2,9 @@ const API_URL = "http://127.0.0.1:8000/plantas";
 const gridCartas = document.querySelector('#grid-cartas');
 const templateCartas = document.querySelector('#template-card');
 
+consultarPlantas()
+
+
 async function consultarPlantas() {
     try {
         const response = await fetch(API_URL, {
@@ -29,12 +32,13 @@ function rellenarPlantas(plantas) {
     plantas.forEach(planta => {
         // 1. Clone the template content
         const clone = templateCartas.content.cloneNode(true);
-        clone.querySelector('.card-img-top').setAttribute('src', planta.imagen_url);
-        clone.querySelector('.nombre-planta').textContent = planta
-        clone.querySelector('.nombre-cientifico').textContent = planta
-        clone.querySelector('.cantidad p').textContent = planta
-        clone.querySelector('.temp p').textContent = planta
-        clone.querySelector('.humedad p').textContent = planta
+        alert(clone)
+        // clone.querySelector('.card-img-top').setAttribute('src', planta.imagen_url);
+        // clone.querySelector('.nombre-planta').textContent = planta.
+        // clone.querySelector('.nombre-cientifico').textContent = planta.
+        // clone.querySelector('.cantidad p').textContent = planta.
+        // clone.querySelector('.temp p').textContent = planta.
+        // clone.querySelector('.humedad p').textContent = planta.
         
         // 3. Append to the grid
         gridCartas.appendChild(clone);
@@ -42,4 +46,4 @@ function rellenarPlantas(plantas) {
 }
 
 
-consultarPlantas();
+
