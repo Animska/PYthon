@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi SPA Profesional</title>
+    <link rel="stylesheet" href="css/miestilo.css">
+    <script defer src="js/miscript.js"></script>
+</head>
+
+<body>
+    <!-- HEADER: Se mantiene fijo, nunca cambia -->
+    <header>
+        <h1>Mi Empresa</h1>
+        <p>Soluciones digitales profesionales</p>
+    </header>
+
+    <!-- NAV: Barra de navegación, siempre visible -->
+    <nav>
+        <a href="/" class="nav-link" data-link>Inicio</a>
+        <a href="/servicios" class="nav-link" data-link>Servicios</a>
+        <a href="/sobre-nosotros" class="nav-link" data-link>Sobre Nosotros</a>
+        <a href="/contacto" class="nav-link" data-link>Contacto</a>
+    </nav>
+
+    <!-- MAIN: Contenedor dinámico donde se carga el contenido -->
+    <main id="app">
+        <!-- Aquí se inyectará el contenido de cada vista -->
+        <div class="loading">Cargando...</div>
+    </main>
+
+    <!-- FOOTER: Se mantiene fijo, nunca cambia -->
+    <footer>
+        <p>&copy; 2026 Mi Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+
+</body>
+
+</html>
