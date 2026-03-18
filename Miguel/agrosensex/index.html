@@ -14,8 +14,7 @@
     <!-- CSS Propio -->
     <link rel="stylesheet" href="./css/mi_css.css">
     <script defer src="./js/bootstrap.bundle.min.js"></script>
-    <script defer src="./js/mi_script.js"></script>
-    <script defer src="./js/mi_script_inventario.js"></script>
+    <script type="module" defer src="./js/mi_script.js"></script>
 </head>
 
 <body>
@@ -77,20 +76,20 @@
                     <form>
                         <div class="row g-3">
                             <div class="col-md-6">
-                                <label for="nombrePlanta" class="form-label">Nombre Planta*</label>
-                                <input type="text" class="form-control" id="nombrePlanta" placeholder="Ej: Tomate Cherry">
+                                <label for="nombre-lanta" class="form-label">Nombre Planta*</label>
+                                <input type="text" class="form-control" id="nombre-planta" placeholder="Ej: Tomate Cherry">
                             </div>
                             <div class="col-md-6">
                                 <label for="nombreCientifico" class="form-label">Nombre Cientifico</label>
-                                <input type="text" class="form-control" id="nombreCientifico" placeholder="Ej: Monstera Deliciosa">
+                                <input type="text" class="form-control" id="nombreCientifico-planta" placeholder="Ej: Monstera Deliciosa">
                             </div>
                             <div class="col-md-12">
                                 <label for="descripcion" class="form-label">Descripcion</label>
-                                <textarea name="descripcion" id="descripcion" class="form-control" rows="3" placeholder="Ej: Descripcion de la planta, cuidados espciales, etc."></textarea>
+                                <textarea name="descripcion" id="descripcion-planta" class="form-control" rows="3" placeholder="Ej: Descripcion de la planta, cuidados espciales, etc."></textarea>
                             </div>
                             <div class="col-md-6">
                                 <label for="recinto" class="form-label"><i class="bi bi-house"></i>Recintos</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select class="form-select" aria-label="Default select example" id="recinto-planta">
                                     <option selected>--Sin asignar--</option>
                                     <option value="1">Opcion 1</option>
                                     <option value="2">Opcion 2</option>
@@ -99,25 +98,25 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="cantidad" class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="cantidad" placeholder="1">
+                                <input type="number" class="form-control" id="cantidad-planta" placeholder="1">
                             </div>
                             <div class="col-md-6">
                                 <label for="fechaAdquisicion" class="form-label">Fecha de Adquisicion</label>
-                                <input type="date" class="form-control" id="fechaAdquisicion" value="2025-12-15">
+                                <input type="date" class="form-control" id="fechaAdquisicion-planta" value="2025-12-15">
                             </div>
                             <div class="col-md-6">
                                 <label for="ultimoRiego" class="form-label">Ultimo Riego</label>
-                                <input type="date" class="form-control" id="ultimoRiego" value="2025-12-15">
+                                <input type="date" class="form-control" id="ultimoRiego-planta" value="2025-12-15">
                             </div>
 
                             <div class="col-md-12">
                                 <label for="urlImagen" class="form-label">Url de Imagen (opcional)</label>
-                                <input type="text" class="form-control" id="urlImagen" placeholder="https://ejemplo.com/imagen.jpg">
+                                <input type="text" class="form-control" id="urlImagen-planta" placeholder="https://ejemplo.com/imagen.jpg">
                                 <small>Puedes dejar este campo vacio, se mostrará un icono por defecto</small>
                             </div>
                             <div class="col-md-12">
                                 <label for="notasAdicionales" class="form-label">Notas Adicionales</label>
-                                <textarea name="descripcion" id="descripcion" class="form-control" rows="3" placeholder="Notas, observaciones, etc."></textarea>
+                                <textarea name="descripcion" id="notas-planta" class="form-control" rows="3" placeholder="Notas, observaciones, etc."></textarea>
                             </div>
                         </div>
                     </form>
@@ -127,7 +126,7 @@
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         <i class="bi bi-x-circle me-1"></i>Cancelar
                     </button>
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-primary" id="btn-guardar-planta">
                         <i class="bi bi-save me-1"></i>Guardar
                     </button>
                 </div>

@@ -70,7 +70,7 @@ def crear_planta(planta: PlantaCreate)->(Optional[Planta]):
     
     if planta_id in plantas:
         print(f"La planta con ID '{planta_id}' ya existe.")
-        return
+        raise HTTPException(status_code=409, detail=f"La planta'{planta.nombre}' ya existe en tu colección.")
     
     # Crear objeto Planta completo
     nueva_planta = Planta(

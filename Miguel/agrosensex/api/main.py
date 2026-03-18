@@ -18,6 +18,12 @@ def get_plantas():
     plantas = cargar_plantas()
     return list(p.model_dump() for p in plantas.values())
 
+@app.post("/plantas")
+def post_plantas():
+    new_planta = ()
+    crear_planta()
+    
+
 
 if __name__ == '__main__':
     uvicorn.run('main:app', host='127.0.0.1', port=8000)
