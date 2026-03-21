@@ -47,30 +47,40 @@ function rellenarPlantas(plantas) {
     });
 }
 
-export async function crearPlantas(params) {
+export async function crearPlantas() {
+    // Capturamos los VALORES de los inputs usando los IDs de index.html
+    const formPlanta = document.querySelector('#modalNuevaPlanta')
+    const paramsPlanta = {
+        nombre: formPlanta.querySelector('#nombre-planta').value,
+        nombre_cientifico: formPlanta.querySelector('#nombreCientifico-planta').value,
+        descripcion: formPlanta.querySelector('#descripcion-planta').value,
+        recinto_id: formPlanta.querySelector('#recinto-planta').value,
+        cantidad: parseInt(document.querySelector('#cantidad-planta').value) || 0,
+        imagen_url: document.querySelector('#urlImagen-planta').value,
+        fecha_adquisicion: document.querySelector('#fechaAdquisicion-planta').value,
+        ultimo_riego: document.querySelector('#ultimoRiego-planta').value,
+        notas: document.querySelector('#notas-planta')?.value || "",
+        necesita_trasplante: false
+    };
+
     try {
         const response = await fetch(API_URL, {
             method: "POST",
-            headers: { 
-                "Content-Type": "application/json" 
-            },
-            // 1. Debes convertir el objeto params a una cadena JSON
-            body: JSON.stringify(params) 
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(paramsPlanta) // Enviamos el JSON limpio
         });
 
-        if (!response.ok) {
-            // 2. Es buena práctica lanzar el status para saber qué falló (ej: 404, 500)
-            throw new Error(`Error ${response.status}: No se pudo crear la planta`);
-        }
+        if (!response.ok) throw new Error("Error en el servidor");
 
         const data = await response.json();
         
-        // 3. Importante: Retorna los datos para poder usarlos fuera de la función
+        // Limpiar y cerrar modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalNuevaPlanta'));
+        modal.hide();
+        consultarPlantas(); // Refrescar la lista automáticamente
+        
         return data;
-
     } catch (error) {
-        console.error("Hubo un problema en la petición:", error);
-        // Opcional: re-lanzar el error si quieres manejarlo en la UI
-        throw error; 
+        console.error("Error en la petición:", error);
     }
 }

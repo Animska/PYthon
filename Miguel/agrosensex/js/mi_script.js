@@ -28,23 +28,9 @@ document.addEventListener('click', function (evento){
         loadHTML(`${evento.target.id}.html`, contenido);
     }
 })
-const formPlanta = document.querySelector('#modalNuevaPlanta')
 const botonGuardarPlanta = document.querySelector('#btn-guardar-planta');
-const paramsPlanta = {
-        nombre: formPlanta.querySelector('#nombre-planta'),
-        nombre_cientifico: formPlanta.querySelector('#nombreCientifico-planta'),
-        descripcion: formPlanta.querySelector('#descripcion-planta'),
-        recinto_id: formPlanta.querySelector('#recinto-planta'),
-        cantidad: formPlanta.querySelector('#cantidad-planta'),
-        imagen_url: formPlanta.querySelector('#fechaAdquisicion-planta'),
-        fecha_adquisicion: formPlanta.querySelector('#ultimoRiego-planta'),
-        ultimo_riego: formPlanta.querySelector('#urlImagen-planta'),
-        necesita_trasplante: false,
-        notas: formPlanta.querySelector('#notas')
-}
-
 botonGuardarPlanta.addEventListener('click', function (){
-    crearPlantas(paramsPlanta)
+    crearPlantas()
 })
 
 
