@@ -34,8 +34,14 @@ function rellenarPlantas(plantas) {
 
     plantas.forEach(planta => {
         const clone = templateCartas.content.cloneNode(true);
+
+        const btnEditar = clone.querySelector('.btn-editar-planta');
+        const btnEliminar = clone.querySelector('.btn-borrar-planta');
         
-        // Corregido: Acceder a las propiedades del objeto planta
+        // planta.id es el ID que viene de tu plantas.py
+        btnEditar.dataset.id = planta.id;
+        btnEliminar.dataset.id = planta.id;
+
         clone.querySelector('.card-img-top').setAttribute('src', planta.imagen_url || 'https://via.placeholder.com/150');
         clone.querySelector('.nombre-planta').textContent = planta.nombre; // Asegúrate de usar .nombre
         clone.querySelector('.nombre-cientifico').textContent = planta.nombre_cientifico;
@@ -50,6 +56,7 @@ function rellenarPlantas(plantas) {
 export async function crearPlantas() {
     // Capturamos los VALORES de los inputs usando los IDs de index.html
     const formPlanta = document.querySelector('#modalNuevaPlanta')
+
     const paramsPlanta = {
         nombre: formPlanta.querySelector('#nombre-planta').value,
         nombre_cientifico: formPlanta.querySelector('#nombreCientifico-planta').value,
@@ -84,3 +91,42 @@ export async function crearPlantas() {
         console.error("Error en la petición:", error);
     }
 }
+
+async function borrarPlanta(id) {
+    const urlFinal = `${API_URL}/${id}`; 
+    console.log("URL de borrado:", urlFinal); // Verifica esto en consola
+
+    try {
+        const response = await fetch(`${API_URL}/${id}`, {
+            method: "DELETE"
+        });
+
+        if (response.ok) {
+            alert("Planta eliminada correctamente");
+            consultarPlantas(); // Recarga la lista para actualizar la vista
+        } else {
+            const error = await response.json();
+            alert("Error: " + error.detail);
+        }
+    } catch (error) {
+        console.error("Error al eliminar:", error);
+    }
+}
+
+document.addEventListener('click', function (evento) {
+    // Detectar clic en eliminar
+    const botonEliminar = evento.target.closest('.btn-borrar-planta');
+    if (botonEliminar) {
+        const idPlanta = botonEliminar.dataset.id;
+        console.log("Se quiere eliminar la planta:", idPlanta);
+        borrarPlanta(idPlanta);
+    }
+
+    // Detectar clic en editar
+    const botonEditar = evento.target.closest('.btn-editar-planta');
+    if (botonEditar) {
+        const idPlanta = botonEditar.dataset.id;
+        console.log("Se quiere editar la planta:", idPlanta);
+        // Aquí abrirías el modal con los datos para el PUT
+    }
+});
