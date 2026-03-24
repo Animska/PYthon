@@ -1,6 +1,8 @@
 import { consultarPlantas } from './mi_script_inventario.js'
 import { crearPlantas } from './mi_script_inventario.js'
 
+
+
 // Modifica tu loadHTML para que devuelva la promesa
 async function loadHTML(url, element) {
     try {
@@ -9,7 +11,8 @@ async function loadHTML(url, element) {
         element.innerHTML = await respuesta.text();
         
         if (url === "inventario.html") {
-            consultarPlantas(); 
+            consultarPlantas();
+            
         }
     } catch (error) {
         console.error("Error en loadHTML:", error);
@@ -28,6 +31,7 @@ document.addEventListener('click', function (evento){
         loadHTML(`${evento.target.id}.html`, contenido);
     }
 })
+
 const botonGuardarPlanta = document.querySelector('#btn-guardar-planta');
 botonGuardarPlanta.addEventListener('click', function (){
     crearPlantas()

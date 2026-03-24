@@ -1,5 +1,8 @@
 const API_URL = "http://127.0.0.1:8000/plantas";
 
+const formPlanta = document.querySelector('#modalNuevaPlanta')
+let arrPlantas=[]
+
 export async function consultarPlantas() {
     try {
         const response = await fetch(API_URL, {
@@ -13,7 +16,8 @@ export async function consultarPlantas() {
 
         const data = await response.json();
         rellenarPlantas(data);
-
+        arrPlantas=data
+        
     } catch (error) {
         console.error("Hubo un problema:", error);
     }
@@ -55,8 +59,6 @@ function rellenarPlantas(plantas) {
 
 export async function crearPlantas() {
     // Capturamos los VALORES de los inputs usando los IDs de index.html
-    const formPlanta = document.querySelector('#modalNuevaPlanta')
-
     const paramsPlanta = {
         nombre: formPlanta.querySelector('#nombre-planta').value,
         nombre_cientifico: formPlanta.querySelector('#nombreCientifico-planta').value,
@@ -93,9 +95,6 @@ export async function crearPlantas() {
 }
 
 async function borrarPlanta(id) {
-    const urlFinal = `${API_URL}/${id}`; 
-    console.log("URL de borrado:", urlFinal); // Verifica esto en consola
-
     try {
         const response = await fetch(`${API_URL}/${id}`, {
             method: "DELETE"
@@ -113,12 +112,47 @@ async function borrarPlanta(id) {
     }
 }
 
+async function editarPlanta(id) {
+    const paramsPlanta = {
+        id: id,
+        nombre: formPlanta.querySelector('#nombre-planta').value,
+        nombre_cientifico: formPlanta.querySelector('#nombreCientifico-planta').value,
+        descripcion: formPlanta.querySelector('#descripcion-planta').value,
+        recinto_id: formPlanta.querySelector('#recinto-planta').value,
+        cantidad: parseInt(document.querySelector('#cantidad-planta').value) || 0,
+        imagen_url: document.querySelector('#urlImagen-planta').value,
+        fecha_adquisicion: document.querySelector('#fechaAdquisicion-planta').value,
+        ultimo_riego: document.querySelector('#ultimoRiego-planta').value,
+        notas: document.querySelector('#notas-planta')?.value || "",
+        necesita_trasplante: false
+    };
+
+    try {
+        const response = await fetch(API_URL, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(paramsPlanta)
+        });
+
+        if (!response.ok) throw new Error("Error en el servidor");
+        
+        // Limpiar y cerrar modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalNuevaPlanta'));
+        modal.hide();
+        consultarPlantas(); // Refrescar la lista automáticamente
+        
+    } catch (error) {
+        console.error("Error en la petición:", error);
+    }
+
+    
+}
+
 document.addEventListener('click', function (evento) {
     // Detectar clic en eliminar
     const botonEliminar = evento.target.closest('.btn-borrar-planta');
     if (botonEliminar) {
         const idPlanta = botonEliminar.dataset.id;
-        console.log("Se quiere eliminar la planta:", idPlanta);
         borrarPlanta(idPlanta);
     }
 
@@ -126,7 +160,18 @@ document.addEventListener('click', function (evento) {
     const botonEditar = evento.target.closest('.btn-editar-planta');
     if (botonEditar) {
         const idPlanta = botonEditar.dataset.id;
-        console.log("Se quiere editar la planta:", idPlanta);
-        // Aquí abrirías el modal con los datos para el PUT
+        const plantaPorId = arrPlantas.filter((planta) => planta.id == idPlanta)[0]
+        const formPlanta = document.querySelector('#modalNuevaPlanta')
+        formPlanta.querySelector('#nombre-planta').value = plantaPorId.nombre
+        formPlanta.querySelector('#nombreCientifico-planta').value = plantaPorId.nombre_cientifico
+        formPlanta.querySelector('#descripcion-planta').value = plantaPorId.descripcion,
+        formPlanta.querySelector('#recinto-planta').value = plantaPorId.recinto_id,
+        formPlanta.querySelector('#cantidad-planta').value = plantaPorId.cantidad,
+        formPlanta.querySelector('#urlImagen-planta').value = plantaPorId.imagen_url,
+        formPlanta.querySelector('#fechaAdquisicion-planta').value = plantaPorId.fecha_adquisicion,
+        formPlanta.querySelector('#ultimoRiego-planta').value = plantaPorId.ultimo_riego,
+        formPlanta.querySelector('#notas-planta').value = plantaPorId.notas
+
     }
 });
+

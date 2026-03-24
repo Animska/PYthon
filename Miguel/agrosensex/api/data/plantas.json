@@ -1,17 +1,62 @@
 {
-  "monstera_deliciosa_20260202213230": {
+  "monstera_deliciosa_20260324190001": {
     "nombre": "Monstera Deliciosa",
     "nombre_cientifico": "Monstera deliciosa",
-    "descripcion": "Planta tropical con hojas grandes y agujereadas.",
-    "recinto_id": "salon_principal",
-    "cantidad": 1,
-    "imagen_url": "https://www.compo.de/dam/jcr:5e382c1a-8128-4670-9f96-a75044fe31b2/Kaktus%20Blumentopf.jpg?x=46&amp;y=41",
-    "fecha_adquisicion": "2024-05-15",
-    "ultimo_riego": "2024-05-20",
+    "descripcion": "Planta tropical de hojas grandes con agujeros naturales.",
+    "recinto_id": "1",
+    "cantidad": 5,
+    "imagen_url": "https://images.plnts.com/optimize/q:80/w:3840/plain/https://webshop.plnts.com/media/catalog/product/cache/aa5d334f459227518b6c3cf7ea9d29ed/_/h/_hellomrfancyplants_ugc.jpg",
+    "fecha_adquisicion": "2026-01-10",
+    "ultimo_riego": "2026-03-20",
+    "necesita_trasplante": true,
+    "notas": "Vigilar manchas en las hojas.",
+    "created_at": "2026-03-24T19:00:01.123456",
+    "updated_at": "2026-03-24T19:00:01.123456",
+    "id": "monstera_deliciosa_20260324190001"
+  },
+  "cactus_san_pedro_20260324190515": {
+    "nombre": "Cactus San Pedro",
+    "nombre_cientifico": "Echinopsis pachanoi",
+    "descripcion": "Cactus columnar de crecimiento rápido.",
+    "recinto_id": "3",
+    "cantidad": 12,
+    "imagen_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAHzm52VGmQHWlJHp3wC7CknGdkV9nC2UKHw&s",
+    "fecha_adquisicion": "2025-05-20",
+    "ultimo_riego": "2026-03-01",
     "necesita_trasplante": false,
-    "notas": "Le gusta la luz indirecta y mucha humedad.",
-    "created_at": "2026-02-02T21:32:30.975148",
-    "updated_at": "2026-02-02T21:32:30.975154",
-    "id": "monstera_deliciosa_20260202213230"
+    "notas": "Poco riego en invierno.",
+    "created_at": "2026-03-24T19:05:15.987654",
+    "updated_at": "2026-03-24T19:05:15.987654",
+    "id": "cactus_san_pedro_20260324190515"
+  },
+  "lavanda_f_20260324191022": {
+    "nombre": "Lavanda Francesa",
+    "nombre_cientifico": "Lavandula dentata",
+    "descripcion": "Arbusto aromático con flores púrpuras.",
+    "recinto_id": "2",
+    "cantidad": 25,
+    "imagen_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEZ_UdoNsXA8HKeYBKebPZhgvL6rOCgtbjHA&s",
+    "fecha_adquisicion": "2026-02-14",
+    "ultimo_riego": "2026-03-22",
+    "necesita_trasplante": false,
+    "notas": "Requiere sol directo.",
+    "created_at": "2026-03-24T19:10:22.111222",
+    "updated_at": "2026-03-24T19:10:22.111222",
+    "id": "lavanda_f_20260324191022"
+  },
+  "helecho_espada_20260324191540": {
+    "nombre": "Helecho Espada",
+    "nombre_cientifico": "Nephrolepis exaltata",
+    "descripcion": "Helecho clásico de interior, muy frondoso.",
+    "recinto_id": "1",
+    "cantidad": 8,
+    "imagen_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/Polystichum_munitum_%28Jami_Dwyer%29_001.jpg",
+    "fecha_adquisicion": "2025-11-30",
+    "ultimo_riego": "2026-03-23",
+    "necesita_trasplante": true,
+    "notas": "Mantener humedad alta en el ambiente.",
+    "created_at": "2026-03-24T19:15:40.333444",
+    "updated_at": "2026-03-24T19:15:40.333444",
+    "id": "helecho_espada_20260324191540"
   }
 }
