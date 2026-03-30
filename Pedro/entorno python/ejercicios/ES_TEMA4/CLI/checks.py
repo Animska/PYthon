@@ -2,7 +2,7 @@ import psutil
 
 def cpu_met():
     return {
-        "CPU_usage" : psutil.cpu_percent(interval=1)
+        "CPU_usage" : psutil.cpu_percent(interval=None)
         }
 
 def disk_met(path="/"):
@@ -11,7 +11,7 @@ def disk_met(path="/"):
         "total_gb": round(disk.total / (1024**3), 2),
         "used_gb": round(disk.used / (1024**3), 2),
         "free_gb": round(disk.free / (1024**3), 2),
-        "percent": f"{disk.percent}%"
+        "percent": disk.percent
     }
 
 def memory_met():
@@ -33,11 +33,13 @@ def memory_met():
 def temperatures_met():
     temps = psutil.sensors_temperatures()
     if not temps:
-        return {"error": "No se detectaron sensores (Posible OS no compatible)"}
+        return {} # Es mejor devolver un dict vacío que un error aquí
     
     resumen_temps = {}
     for name, entries in temps.items():
-        resumen_temps[name] = [e.current for e in entries]
+        if entries:
+            # Tomamos solo la temperatura de la primera entrada (.current)
+            resumen_temps[name] = entries[0].current 
     return resumen_temps
 
 def net_met():
@@ -52,3 +54,6 @@ def net_met():
             stats["open_ports"].append(conn.laddr.port)
         
     return stats
+
+
+print(disk_met())
