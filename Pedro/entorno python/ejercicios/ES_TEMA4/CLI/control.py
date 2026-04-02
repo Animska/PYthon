@@ -3,7 +3,7 @@ from pathlib import Path
 import datetime
 import requests
 
-# CONSTANTES GLOBALES (Sustituye con tus datos reales)
+# CONSTANTES de telegram
 TELEGRAM_TOKEN = ""
 TELEGRAM_CHAT_ID = ""
 
@@ -13,7 +13,7 @@ def enviar_telegram(mensaje):
     payload = {
         'chat_id': TELEGRAM_CHAT_ID,
         'text': mensaje,
-        'parse_mode': 'Markdown' # Permite usar negritas con *texto*
+        'parse_mode': 'Markdown'
     }
     try:
         response = requests.post(url, data=payload)

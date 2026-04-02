@@ -52,7 +52,6 @@ def create_bar(percent, color="bright_blue"):
     return prog
 
 def get_cpu_panel(cpu_data):
-    # En btop el CPU suele ser prominente
     table = Table.grid(expand=True)
     table.add_row(" [bold cyan]CPU USAGE[/]")
     table.add_row(create_bar(cpu_data["CPU_usage"]))
@@ -89,10 +88,8 @@ def get_temps(temp_data):
     table = Table.grid(expand=True)
     table.add_row(" [dark_orange]TEMPERATURES[/] ")
 
-    # Si el diccionario tiene datos y no es el mensaje de error
     if temp_data and "error" not in temp_data:
         for sensor, temperatura in temp_data.items():
-            # Ahora 'temperatura' es un número, no una lista
             table.add_row(f" [bold dark_orange]{sensor}:[/] [bold white]{temperatura}ºC[/]")
     else:
         # Si hay error o está vacío
@@ -103,30 +100,21 @@ def get_temps(temp_data):
 
 def make_layout():
     layout = Layout()
-    # btop++ divide secciones lateralmente o verticalmente
     layout.split_column(
         Layout(name="header", size=3),
         Layout(name="main", ratio=1),
         Layout(name="footer", size=1)
     )
-    # Dividimos el main en 2 columnas: Izquierda (CPU) y Derecha (Mem y Sys)
-    layout["main"].split_row(
-        Layout(name="left", ratio=1),
-        Layout(name="right", ratio=1)
-    )
-    # La derecha la dividimos en dos paneles verticales
-    layout["right"].split_column(
+    layout["main"].split_column(
+        Layout(name="cpu"),
+        Layout(name="memory"),
         Layout(name="system"),
         Layout(name="temps")
-    )
-
-    layout["left"].split_column(
-        Layout(name="cpu"),
-        Layout(name="memory")
+        
     )
     return layout
 
-def main(screen):
+def main():
     layout = make_layout()
     datetime_ultimo_log = datetime.now()
     args = parse_arguments()

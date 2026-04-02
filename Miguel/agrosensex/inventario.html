@@ -3,7 +3,7 @@
         <h2 class="mb-1">Inventario de Plantas</h2>
         <small class="text-body-secondary">Gestiona tu colección de Plantas</small>
     </div>
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevaPlanta">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalNuevaPlanta" data-set="guardar">
         <i class="bi bi-plus-circle me-2"></i>
         Añadir Planta
     </button>
@@ -22,11 +22,11 @@
     
     <!-- Últimas 6 columnas: Button Group -->
     <div class="col-6 d-flex justify-content-end">
-      <div class="btn-group" role="group" aria-label="Filtros de búsqueda">
-        <button type="button" class="btn btn-outline-secondary active" data-filter="todas">
+      <div class="btn-group" id="filtros" role="group">
+        <button type="button" class="btn btn-filtro btn-outline-secondary active" data-filter="todas">
           Todas
         </button>
-        <button type="button" class="btn btn-outline-secondary" data-filter="sin-ubicacion">
+        <button type="button" class="btn btn-filtro btn-outline-secondary" data-filter="sin-ubicacion">
           Sin ubicación
         </button>
       </div>
@@ -38,36 +38,43 @@
 </div>
 
 <template id="template-card">
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-          <div class="card h-100">
-            <img src="https://www.compo.de/dam/jcr:5e382c1a-8128-4670-9f96-a75044fe31b2/Kaktus%20Blumentopf.jpg?x=46&amp;y=41" 
-                class="card-img-top" style="height: 200px; object-fit: cover;" alt="Imagen de la planta">
-            
-          <div class="card-body p-3">
-              <h6 class="nombre-planta">Nombre Planta</h6>
-              <p class="nombre-cientifico">Nombre Cientifico</p>
-              <p><span class="badge rounded-pill badge-recinto py-1 px-2"><i class="bi bi-house-door-fill me-1"></i>Invernadero</span></p>
-              <p><span class="badge rounded-pill badge-riego py-1 px-2">Necesita riego</span></p>
-              <div class="d-flex medidas justify-content-around p-1">
-                <div class="cantidad justify-content-center d-flex flex-column">
-                  <p>3</p>
-                  <small>CANTIDAD</small>
-                </div>
-                <div class="temp justify-content-center d-flex flex-column">
-                    <p>23º</p>
-                    <small>TEMP</small>
-                </div>
-                <div class="humedad justify-content-center d-flex flex-column">
-                    <P>40%</P>
-                    <small>HUMEDAD</small>
-                </div>
-              </div>
-              <div class="botones d-flex">
-                    <button type="button" class="btn btn-outline-primary flex-fill "><i class="bi bi-eye"></i>Ver</button>
-                    <button type="button" class="btn btn-outline-secondary mx-2 btn-editar-planta" data-bs-toggle="modal" data-bs-target="#modalNuevaPlanta"><i class="bi bi-pencil"></i></button>
-                    <button type="button" class="btn btn-outline-danger btn-borrar-planta"><i class="bi bi-trash"></i></button>
-              </div>
-          </div>
+  <div class="col-12 col-md-6 col-lg-4 col-xl-3 my-3">
+    <div class="card h-100 shadow-sm">
+      <div class="d-flex align-items-center justify-content-center cardImagen" style="height: 200px; overflow: hidden;">
+        <img src="" 
+             class="card-img-top" style="height: 100%; width: 100%; object-fit: cover;" alt="Imagen de la planta">
+        <i class="bi bi-flower1 d-none" style="font-size: 4rem;"></i>
       </div>
-    </template>
+
+      <div class="card-body p-3">
+        <h6 class="nombre-planta fw-bold mb-1">Nombre Planta</h6>
+        <p class="nombre-cientifico text-muted small mb-2">Nombre Cientifico</p>
+        
+        <p class="mb-1"><span class="badge rounded-pill badge-recinto py-1 px-2"><i class="bi bi-house-door-fill me-1"></i>Invernadero</span></p>
+        <p class="mb-3"><span class="badge rounded-pill badge-riego py-1 px-2">Necesita riego</span></p>
+        
+        <div class="d-flex medidas justify-content-around p-2 bg-light rounded mb-3 text-center">
+          <div class="cantidad">
+            <p class="m-0 fw-bold">3</p>
+            <small class="text-uppercase" style="font-size: 0.65rem;">CANTIDAD</small>
+          </div>
+          <div class="temp border-start border-end px-3">
+            <p class="m-0 fw-bold">23º</p>
+            <small class="text-uppercase" style="font-size: 0.65rem;">TEMP</small>
+          </div>
+          <div class="humedad">
+            <P class="m-0 fw-bold">40%</P>
+            <small class="text-uppercase" style="font-size: 0.65rem;">HUMEDAD</small>
+          </div>
+        </div>
+
+        <div class="botones d-flex">
+          <button type="button" class="btn btn-outline-primary flex-fill btn-sm"><i class="bi bi-eye me-1"></i>Ver</button>
+          <button type="button" class="btn btn-outline-secondary mx-2 btn-editar-planta btn-sm" data-bs-toggle="modal" data-bs-target="#modalNuevaPlanta" data-set="editar"><i class="bi bi-pencil"></i></button>
+          <button type="button" class="btn btn-outline-danger btn-borrar-planta btn-sm"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
     

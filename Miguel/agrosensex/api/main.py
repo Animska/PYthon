@@ -1,6 +1,9 @@
+import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from dotenv import load_dotenv
+import httpx
 # Asegúrate de importar PlantaCreate y crear_planta
 from plantas import PlantaCreate, cargar_plantas, crear_planta, actualizar_planta, eliminar_planta
 
@@ -13,6 +16,7 @@ app.add_middleware(
     allow_headers=['*'],
 )
 
+#--------------------------------------------Plantas------------------------------------------
 @app.get("/plantas")
 def get_plantas():
     plantas = cargar_plantas()
@@ -54,6 +58,51 @@ def delete_planta(planta_id: str):
         return {"message": f"Planta con ID {planta_id} eliminada exitosamente"}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+#--------------------------------------------Sensores------------------------------------------
+load_dotenv()
+HOME_ASSISTANT_URL = os.getenv("HOME_ASSISTANT_URL")
+HOME_ASSISTANT_TOKEN = os.getenv("HOME_ASSISTANT_TOKEN")
+HEADERS = {
+    "Authorization": f"Bearer {HOME_ASSISTANT_TOKEN}",
+    "Content-Type": "application/json",
+}
+
+@app.get("/sensores")
+async def obtener_sensores():
+    """
+    Endpoint que consulta los sensores y devuelve los que contienen 'agsex_' 
+    en su friendly_name (dentro de attributes)
+    """
+    try:
+        async with httpx.AsyncClient(timeout=10.0) as client:
+            response = await client.get(
+                f"{HOME_ASSISTANT_URL}/api/states",
+                headers=HEADERS
+            )
+            response.raise_for_status()
+            
+            todos_los_sensores = response.json()
+            
+            sensores_agsex = []
+            for sensor in todos_los_sensores:
+                # 1. Accedemos al diccionario de atributos
+                attrs = sensor.get("attributes", {})
+                
+                # 2. Obtenemos el friendly_name (si no existe, usamos string vacío)
+                friendly_name = attrs.get("friendly_name", "").lower()
+                
+                # 3. Filtramos por el prefijo solicitado
+                if "agsex_" in friendly_name:
+                    sensores_agsex.append(sensor)
+
+            return sensores_agsex
+
+    except httpx.HTTPStatusError as e:
+        raise HTTPException(status_code=e.response.status_code, detail="Error en Home Assistant")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 if __name__ == '__main__':
     uvicorn.run('main:app', host='127.0.0.1', port=8000, reload=True)

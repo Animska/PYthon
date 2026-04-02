@@ -37,8 +37,9 @@ def cargar_plantas() -> Dict[str, Planta]:
             # Convertir dicts a objetos Planta
             plantas = {}
             for planta_id, planta_data in data.items():
-                planta_data['id'] = planta_id
-                plantas[planta_id] = Planta(**planta_data)
+                for planta_id, planta_data in data.items():
+    # Es más seguro dejar que el ID del diccionario mande y no sobrescribirlo antes de crear el objeto
+                    plantas[planta_id] = Planta(**planta_data)
             return plantas
     except (json.JSONDecodeError, KeyError) as e:
         print(f"Error cargando plantas: {e}")
@@ -90,14 +91,23 @@ def actualizar_planta(planta_id: str, planta_data: PlantaCreate):
         print(f"No se encontró la planta con ID: {planta_id}")
         return
     
-    # Actualizar campos de PlantaCreate y updated_at
+    # 1. Obtenemos los datos actuales
     planta_actual = plantas[planta_id]
+    
+    # 2. Obtenemos los nuevos datos enviados desde el frontend
     update_data = planta_data.model_dump(exclude_unset=True)
     update_data['updated_at'] = datetime.now().isoformat()
     
+    # 3. Mezclamos los datos antiguos con los nuevos
+    datos_mezclados = {**planta_actual.model_dump(), **update_data}
+    
+    # 4. ¡ESTO ES LO IMPORTANTE!: Quitamos el ID del diccionario antes de crear la nueva instancia
+    datos_mezclados.pop('id', None) 
+    
+    # 5. Ahora creamos el objeto sin conflictos
     updated_planta = Planta(
         id=planta_id,
-        **{**planta_actual.model_dump(), **update_data}
+        **datos_mezclados
     )
     
     plantas[planta_id] = updated_planta

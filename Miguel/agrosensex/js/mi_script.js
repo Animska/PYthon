@@ -1,23 +1,35 @@
 import { consultarPlantas } from './mi_script_inventario.js'
-import { crearPlantas } from './mi_script_inventario.js'
+import { rellenarTablaDashboard } from './mi_script_dashboard.js';
 
+// Usaremos esta variable para no pedir los datos al servidor cada vez que cambiemos de pestaña
+let datosPlantas = [];
 
-
-// Modifica tu loadHTML para que devuelva la promesa
 async function loadHTML(url, element) {
     try {
         const respuesta = await fetch(url);
-        if (!respuesta.ok) throw new Error("Error al cargar");
+        if (!respuesta.ok) throw new Error("Error al cargar " + url);
+        
+        // Esperamos a que el HTML se descargue y se inserte en el DOM
         element.innerHTML = await respuesta.text();
         
         if (url === "inventario.html") {
-            consultarPlantas();
+            // Esperamos a que las plantas lleguen antes de seguir
+            datosPlantas = await consultarPlantas();
             
+        } else if (url === "dashboard.html" || url === "dashboard.html") {
+            // 1. Obtenemos los datos (usando await)
+            datosPlantas = await consultarPlantas();
+            
+            // 2. Ahora que tenemos los datos reales, rellenamos la tabla
+            rellenarTablaDashboard(datosPlantas);
         }
+
     } catch (error) {
         console.error("Error en loadHTML:", error);
     }
 }
+
+
 
 const contenido = document.querySelector("#contenido");
 loadHTML("dashboard.html", contenido);
@@ -32,9 +44,5 @@ document.addEventListener('click', function (evento){
     }
 })
 
-const botonGuardarPlanta = document.querySelector('#btn-guardar-planta');
-botonGuardarPlanta.addEventListener('click', function (){
-    crearPlantas()
-})
 
 

@@ -5,15 +5,15 @@
     </div>
 </div>
 <div class="container-fluid">
-    <div class="row g-4">
+    <div class="row g-4" id="tarjetas-dashboard">
         <!-- Tarjeta 1: Total Plantas -->
         <div class="col-md-3">
             <div class="tarjeta-estadisticas">
                 <div class="d-flex justify-content-between">
-                    <h6 class="text-body-secondary mb-2">Total Plantas</h6>
+                    <h6 class="text-body-secondary mb-2" >Total Plantas</h6>
                     <i class="bi bi-flower1 icono"></i>
                 </div>
-                <h2 class="mb-0">0</h2>
+                <h2 class="mb-0" id="numPlantas">0</h2>
             </div>
         </div>
 
@@ -21,10 +21,10 @@
         <div class="col-md-3">
             <div class="tarjeta-estadisticas">
                 <div class="d-flex justify-content-between">
-                    <h6 class="text-body-secondary mb-2">Recintos</h6>
+                    <h6 class="text-body-secondary mb-2" >Recintos</h6>
                     <i class="bi bi-house-door icono"></i>
                 </div>
-                <h2 class="mb-0">0</h2>
+                <h2 class="mb-0" id="numRecintos">0</h2>
             </div>
         </div>
 
@@ -32,10 +32,10 @@
         <div class="col-md-3">
             <div class="tarjeta-estadisticas">
                 <div class="d-flex justify-content-between">
-                    <h6 class="text-body-secondary mb-2">Sensores Activos</h6>
+                    <h6 class="text-body-secondary mb-2" >Sensores Activos</h6>
                     <i class="bi bi-cpu icono"></i>
                 </div>
-                <h2 class="mb-0">0</h2>
+                <h2 class="mb-0" id="numSensores">0</h2>
             </div>
         </div>
 
@@ -46,9 +46,52 @@
                     <h6 class="text-body-secondary mb-2">Necesitan Atención</h6>
                     <i class="bi bi-exclamation-triangle icono"></i>
                 </div>
-                <h2 class="mb-0">0</h2>
+                <h2 class="mb-0" id="numAtencion">0</h2>
             </div>
         </div>
     </div>  
 </div>
+
+<div class="card shadow-sm p-4 mt-4" id="tabla-plantas">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="fw-bold">Vista General de Plantas</h5>
+    <div class="input-group w-25">
+      <input type="text" class="form-control" placeholder="Buscar planta...">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Nombre de Planta</th>
+          <th>Ubicación</th>
+          <th>Temperatura</th>
+          <th>Humedad</th>
+          <th>Luz</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-dashboard-cuerpo">
+        </tbody>
+    </table>
+  </div>
+</div>
+
+<template id="template-fila-dashboard">
+  <tr>
+    <td>
+      <div class="fw-bold nombre-planta"></div>
+      <small class="text-muted nombre-cientifico fst-italic"></small>
+    </td>
+    <td class="ubicacion-planta text-muted"></td>
+    <td class="temp-planta">18ºC</td> <td class="hum-planta">45%</td>   <td class="luz-planta text-muted">N/A</td>
+    <td><span class="badge badge-estado">OK</span></td>
+    <td>
+      <button class="btn btn-sm btn-outline-primary"><i class="bi bi-eye me-1"></i>Ver</button>
+    </td>
+  </tr>
+</template>
 

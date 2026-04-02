@@ -1,0 +1,21 @@
+[2026-03-31 13:20:36]
+	[ram_total_gb]: 30.5
+	[ram_usage_percent]: 13.6
+	[swap_usage_percent]: 0.0
+	[pressure_warning]: False
+	[swap_ratio]: 0.0
+
+[2026-03-31 13:21:06]
+	[ram_total_gb]: 30.5
+	[ram_usage_percent]: 13.4
+	[swap_usage_percent]: 0.0
+	[pressure_warning]: False
+	[swap_ratio]: 0.0
+
+[2026-03-31 13:23:54]
+	[ram_total_gb]: 30.5
+	[ram_usage_percent]: 14.2
+	[swap_usage_percent]: 0.0
+	[pressure_warning]: False
+	[swap_ratio]: 0.0
+

@@ -58,5 +58,20 @@
     "created_at": "2026-03-24T19:15:40.333444",
     "updated_at": "2026-03-24T19:15:40.333444",
     "id": "helecho_espada_20260324191540"
+  },
+  "monster_mango_loco_20260402155002": {
+    "nombre": "Monster Mango Loco",
+    "nombre_cientifico": "Monsterius Mangiloquitus",
+    "descripcion": "monter mango loco",
+    "recinto_id": "--Sin asignar--",
+    "cantidad": 8,
+    "imagen_url": "https://nutritienda-cdn.sirv.com/catalog/big/97416-monster-energy-monster-mango-loco-1udx500ml-v2.jpg?scale.width=560",
+    "fecha_adquisicion": "2025-12-15",
+    "ultimo_riego": "2025-12-15",
+    "necesita_trasplante": false,
+    "notas": "",
+    "created_at": "2026-04-02T13:55:58.661394",
+    "updated_at": "2026-04-02T15:50:19.440796",
+    "id": "monster_mango_loco_20260402155002"
   }
 }

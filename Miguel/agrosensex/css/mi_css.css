@@ -115,6 +115,9 @@ body {
     background-color: var(--sidebar-bg);
 }
 
+.modal .bi-flower1{
+    color: var(--dark-green);
+}
 
 .card:hover {
         transform: translateY(-5px);
@@ -138,7 +141,7 @@ body {
 
 .card .badge{
     font-size: 0.85rem;
-    color: darkgreen;
+    color: var(--dark-green);
     background-color: lightgreen;
 }
 
@@ -161,7 +164,27 @@ body {
     margin:auto
 }
 
-card .medidas small{
+.card .medidas small{
     color:#6c757d;
     font-size: 0.75rem;
+}
+
+.card .bi-flower1{
+    color: var(--dark-green);
+}
+
+.card .cardImagen{
+    background-color: var(--light-green);
+}
+
+#tabla-plantas:hover{
+    transform: translate(0,0);
+}
+
+#tarjetas-dashboard .tarjeta-estadisticas:hover{
+    transform: translate(0,0);
+}
+
+#tabla-plantas .badge{
+    color: white;
 }

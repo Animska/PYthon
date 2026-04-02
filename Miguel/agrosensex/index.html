@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <!-- CSS Propio -->
     <link rel="stylesheet" href="./css/mi_css.css">
+    <link rel="icon" type="image/svg+xml" href="flower1.svg">
     <script defer src="./js/bootstrap.bundle.min.js"></script>
     <script type="module" defer src="./js/mi_script.js"></script>
 </head>
@@ -48,9 +49,14 @@
             </nav>
         </div>
 
+        
+
         <!-- CONTENIDO PRINCIPAL -->
         <div class="contenido-principal flex-grow-1">
-            <div id="contenido"></div>
+            <div id="contenido">
+
+                
+            </div>
         </div>
     </div>
     <!-- MODAL-->
@@ -59,7 +65,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalNuevaPlantaLabel">
-                        <i class="bi bi-flower1 me-2 text-success"></i><span>Nueva Planta</span>
+                        <i class="bi bi-flower1 me-2"></i><span>Nueva Planta</span>
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -82,7 +88,7 @@
                             <div class="col-md-6">
                                 <label for="recinto-planta" class="form-label"><i class="bi bi-house"></i>Recintos</label>
                                 <select class="form-select" aria-label="Default select example" id="recinto-planta">
-                                    <option selected>--Sin asignar--</option>
+                                    <option selected value="">--Sin asignar--</option>
                                     <option value="1">Opcion 1</option>
                                     <option value="2">Opcion 2</option>
                                     <option value="3">Opcion 3</option>
