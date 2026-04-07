@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/plantas";
+const API_URL = "api/plantas";
 
 const formPlanta = document.querySelector('#modalNuevaPlanta')
 let arrPlantas=[]
@@ -187,7 +187,7 @@ const modalElement = document.querySelector('#modalNuevaPlanta');
 const botonGuardarModal = document.querySelector('#btn-guardar-planta');
 
 // 1. Gestionar qué se muestra cuando se abre el modal
-modalElement.addEventListener('show.bs.modal', function (event) {
+modalElement.addEventListener('show.bs.modal', async function (event) {
     const botonDisparador = event.relatedTarget; // El botón que abrimos (Añadir o Editar)
     const modo = botonDisparador.dataset.set; // "guardar" o "editar"
     const idPlanta = botonDisparador.dataset.id;
@@ -197,7 +197,9 @@ modalElement.addEventListener('show.bs.modal', function (event) {
     modalElement.dataset.idActual = idPlanta || "";
 
     if (modo === 'editar') {
+        arrPlantas = await consultarPlantas();
         const plantaPorId = arrPlantas.find(p => p.id == idPlanta);
+        
         if (plantaPorId) {
             modalElement.querySelector('#nombre-planta').value = plantaPorId.nombre;
             modalElement.querySelector('#nombreCientifico-planta').value = plantaPorId.nombre_cientifico;
