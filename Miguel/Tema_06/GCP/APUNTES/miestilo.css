@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4f8;
+  color: #202124;
+}
+header {
+  background: #1a73e8;
+  color: white;
+  padding: 24px 40px;
+}
+header p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+main {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.tab {
+  padding: 10px 20px;
+  background: white;
+  border: 2px solid #dadce0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.2s;
+}
+.tab.activa,
+.tab:hover {
+  background: #1a73e8;
+  color: white;
+  border-color: #1a73e8;
+}
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+select,
+input[type="number"] {
+  flex: 1;
+  min-width: 160px;
+  padding: 10px 14px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 15px;
+}
+button#btnConvertir {
+  padding: 10px 24px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+button#btnConvertir:hover {
+  background: #1558b0;
+}
+.resultado {
+  margin-top: 24px;
+  background: #e8f0fe;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.resultado.oculto {
+  display: none;
+}
+.flecha {
+  font-size: 24px;
+  color: #1a73e8;
+}
+.valor-grande {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a73e8;
+}
+.formula {
+  width: 100%;
+  font-size: 13px;
+  color: #5f6368;
+  margin-top: 8px;
+}

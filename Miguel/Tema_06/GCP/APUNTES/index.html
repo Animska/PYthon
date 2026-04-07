@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor de Unidades — GCP</title>
+    <link rel="stylesheet" href="miestilo.css" />
+    <script defer src="miscript.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Conversor de Unidades</h1>
+      <p>Desplegado en Google Cloud Platform</p>
+    </header>
+    <main>
+      <!-- Pestañas de categoría -->
+      <div class="tabs">
+        <button class="tab activa" data-cat="temperatura">
+          🌡 Temperatura
+        </button>
+        <button class="tab" data-cat="longitud">📏 Longitud</button>
+        <button class="tab" data-cat="peso">⚖ Peso</button>
+      </div>
+      <section class="card">
+        <!-- Selector del tipo de conversión (se rellena con JS) -->
+        <div class="input-group">
+          <select id="selectTipo"></select>
+          <input type="number" id="inputValor" placeholder="Valor" step="any" />
+          <button id="btnConvertir">Convertir</button>
+        </div>
+        <!-- Resultado -->
+        <div id="resultado" class="resultado oculto">
+          <span id="resValorEntrada"></span> <span class="flecha">→</span>
+          <span id="resValorSalida" class="valor-grande"></span>
+          <p id="resFormula" class="formula"></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
