@@ -1,0 +1,122 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block extra_css %}
+<style>
+    /* Esto no hace nada */
+    .test-debug { color: red; }
+    /* === 1. HERO SECTION === */
+    .hero-section {
+        background: linear-gradient(to right, rgba(0,0,0,0.95) 25%, rgba(0,0,0,0) 80%), 
+                    url("{% static 'shop/img/hero_legos.png' %}") no-repeat center center;
+        background-size: cover;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        color: white;
+    }
+
+    .hero-title {
+        font-family: 'Bungee', cursive;
+        font-size: 4rem;
+        /* Colores fijos para seguridad */
+        text-shadow: 4px 4px 0px #0056b3; /* Azul Lego */
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+
+    .hero-lead {
+        font-size: 1.6rem;
+        max-width: 800px;
+        margin: 0 auto 3rem auto;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+    }
+
+    /* === 2. SECTION CARDS === */
+    .feature-card {
+        border: 3px solid #111;
+        background-color: white;
+        transition: transform 0.3s ease;
+        border-radius: 0;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 10px 10px 0px #f9d71c; /* Amarillo Lego */
+    }
+
+    .btn-lego {
+        font-family: 'Bungee', cursive;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        border: 3px solid #111;
+        text-transform: uppercase;
+        border-radius: 0;
+    }
+
+    /* === 3. SECTION VENDER === */
+    .venta-section {
+        /* Imagen background */
+        background: linear-gradient(rgba(0, 86, 179, 0.6), rgba(32, 63, 97, 0.6)), /* Tinte azul */
+                    url("{% static 'shop/img/vender_legos.png' %}") no-repeat center center fixed; /* Efecto Parallax con 'fixed' */
+        
+        background-size: cover;
+        color: white;
+        border-top: 5px solid #ff0000; /* Borde rojo arriba */
+        border-bottom: 5px solid #ff0000; /* Borde rojo abajo */
+        min-height: 60vh;
+    }    
+</style>
+{% endblock %}
+
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="col-md-7">
+            <h1 class="hero-title">TU PRÓXIMO <br> GRAN SET</h1>
+            <p class="lead mb-5 fs-3">Colecciona, monta y presume de las joyas que solo tú posees.</p>
+            <a href="#" class="btn btn-warning btn-lego btn-lg">Explorar el catálogo</a>
+        </div>
+    </div>
+</section>
+
+<section class="container my-4 py-5">
+    <div class="row text-center g-4">
+        <div class="col-md-4">
+            <div class="feature-card p-5 h-100">
+                <div class="display-4 text-primary mb-3"><i class="bi bi-shield-check"></i></div>
+                <h3 class="fw-bold">Compra Segura</h3>
+                <p class="lead">Vendedores verificados para colecciones perfectas.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card p-5 h-100">
+                <div class="display-4 text-danger mb-3"><i class="bi bi-box-seam"></i></div>
+                <h3 class="fw-bold">Sets Únicos</h3>
+                <p class="lead">Star Wars, Harry Potter y Creator difíciles de encontrar.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="feature-card p-5 h-100">
+                <div class="display-4 text-warning mb-3"><i class="bi bi-star"></i></div>
+                <h3 class="fw-bold">Comunidad</h3>
+                <p class="lead">Únete a miles de AFOLs (Adult Fan of LEGO).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="venta-section py-5 mt-4 d-flex align-items-center">
+    <div class="container text-center py-5">
+        <h2 class="display-4 fw-bold mb-4" style="font-family: 'Bungee', cursive;">¿Te sobran piezas?</h2>
+        <p class="fs-4 mb-1 max-width-700 mx-auto fw-semibold">Convierte tus montañas desordenadas y sets viejos en dinero real</p>
+        <p class="fs-4 mb-5 max-width-700 mx-auto fw-semibold">¡Únete al mercado!</p>
+        
+        {% if user.is_authenticated %}
+            <a href="#" class="btn btn-light btn-lego btn-lg fw-bold">Subir mis Sets</a>
+        {% else %}
+            <a href="#" class="btn btn-light btn-lego btn-lg fw-bold">Regístrate para Vender</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

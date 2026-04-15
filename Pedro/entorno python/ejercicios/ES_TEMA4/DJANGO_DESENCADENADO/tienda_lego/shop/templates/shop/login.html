@@ -1,0 +1,43 @@
+{% extends "shop/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm" style="border: 4px solid var(--lego-black); border-radius: 0;">
+                <div class="card-header text-center" style="background-color: var(--lego-yellow); border-bottom: 4px solid var(--lego-black);">
+                    <h2 style="font-family: 'Bungee', cursive;">ENTRAR</h2>
+                </div>
+                <div class="card-body p-4">
+                    
+                    {% if error_messages %}
+                    <div class="alert alert-danger p-2 text-center" style="border: 2px solid #842029; border-radius: 0; font-size: 0.9rem;">
+                        <strong>¡Error!</strong> {{ error_messages }}
+                    </div>
+                    {% endif %}
+
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label class="fw-bold">Usuario</label>
+                            <input type="text" name="username" class="form-control" placeholder="Tu nombre de usuario" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="fw-bold">Contraseña</label>
+                            <input type="password" name="password" class="form-control" placeholder="********" required>
+                        </div>
+
+                        <button type="submit" class="btn-lego-red w-100 mt-2">CONECTAR PIEZAS</button>
+                    </form>
+                    
+                    <div class="text-center mt-4">
+                        <small>¿Aún no tienes cuenta? <a href="{% url 'registro' %}" class="text-primary fw-bold text-decoration-none">Regístrate</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
