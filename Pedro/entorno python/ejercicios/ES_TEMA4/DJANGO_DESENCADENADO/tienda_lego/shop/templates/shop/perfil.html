@@ -128,7 +128,7 @@
 
                 <!-- CUERPO DEL PERFIL / FORMULARIO -->
                 <div class="card-body p-4 p-md-5">
-                    <form method="post" id="profileForm">
+                    <form method="post" action="{% url 'perfil' %}" id="profileForm">
                         {% csrf_token %}
                         
                         <div class="row g-4">
@@ -141,7 +141,12 @@
 
                             <div class="col-md-6">
                                 <label class="form-label" for="email">Email de Contacto</label>
-                                <input type="email" name="email" id="email" class="form-control" value="{{ user.email }}" placeholder="Tu correo electrónico">
+                                <input type="email" name="email" id="email" class="form-control {% if u_form.email.errors %}is-invalid{% endif %}" value="{{ u_form.email.value|default:user.email }}" placeholder="Tu correo electrónico">
+                                {% if u_form.email.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ u_form.email.errors|join:", " }}
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <!-- Nuevos Datos -->
@@ -152,19 +157,29 @@
 
                             <div class="col-md-12">
                                 <label class="form-label" for="nombre_completo">Nombre Completo</label>
-                                <input type="text" name="nombre_completo" id="nombre_completo" class="form-control" value="{{ user.profile.nombre_completo|default:'' }}" placeholder="Ej: Emmet Brickowski">
+                                <input type="text" name="nombre_completo" id="nombre_completo" class="form-control {% if p_form.nombre_completo.errors %}is-invalid{% endif %}" value="{{ p_form.nombre_completo.value|default:user.profile.nombre_completo|default:'' }}" placeholder="Ej: Emmet Brickowski">
+                                {% if p_form.nombre_completo.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ p_form.nombre_completo.errors|join:", " }}
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <div class="col-md-12">
                                 <label class="form-label" for="direccion">Dirección de Entrega</label>
-                                <textarea name="direccion" id="direccion" class="form-control" rows="3" placeholder="Calle de los Ladrillos, Bloque 4... ">{{ user.profile.direccion|default:'' }}</textarea>
+                                <textarea name="direccion" id="direccion" class="form-control {% if p_form.direccion.errors %}is-invalid{% endif %}" rows="3" placeholder="Calle de los Ladrillos, Bloque 4... ">{{ p_form.direccion.value|default:user.profile.direccion|default:'' }}</textarea>
+                                {% if p_form.direccion.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {{ p_form.direccion.errors|join:", " }}
+                                    </div>
+                                {% endif %}
                             </div>
 
                             <!-- Petición de Vendedor -->
                             {% if not user.profile.es_vendedor %}
                             <div class="col-12 mt-4">
                                 <div class="lego-checkbox-container" onclick="document.getElementById('peticion_vendedor').click()">
-                                    <input type="checkbox" name="peticion_vendedor" id="peticion_vendedor" class="lego-checkbox">
+                                    <input type="checkbox" name="peticion_vendedor" id="peticion_vendedor" class="lego-checkbox" {% if p_form.peticion_vendedor.value %}checked{% endif %}>
                                     <div>
                                         <h6 class="mb-0 fw-bold">¿QUIERES VENDER TUS PIEZAS?</h6>
                                         <p class="mb-0 small text-muted">Solicita el estado de vendedor. Un administrador revisará tu perfil.</p>

@@ -48,6 +48,7 @@ class Product(models.Model):
         choices=ESTADO_CHOICES,
         default='NUEVO'
     )
+    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
 
     def __str__(self):
         return self.nombre
