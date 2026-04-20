@@ -1,0 +1,285 @@
+/* static/css/style.css */
+
+:root {
+    --primary-color: #0b5ed7; /* Azul Bootstrap adaptado */
+    --primary-color-dark: #0a4ebd;
+    --bg-color: #f6f8fb;
+    --text-main: #1f2937;
+    --text-muted: #6b7280;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --border-radius: 16px;
+    --border-radius-sm: 8px;
+    --glass-border: 1px solid rgba(255,255,255, 0.4);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/* Base Styles & Utilities */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.08);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-dark);
+    border-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(11, 94, 215, 0.3);
+}
+
+.form-control, .form-select {
+    border-radius: var(--border-radius-sm);
+    padding: 0.6rem 1rem;
+    border-color: #e5e7eb;
+}
+
+.form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(11, 94, 215, 0.15);
+    border-color: var(--primary-color);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Layout Specifics */
+#app {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main Container (For Dashboards) */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    gap: 1.5rem;
+    padding: 1.5rem;
+}
+
+.sidebar {
+    width: 250px;
+    height: calc(100vh - 3rem);
+    position: sticky;
+    top: 1.5rem;
+}
+
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Login Specifc */
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top right, #e0e8f5, transparent 50%),
+                radial-gradient(circle at bottom left, #f0f4fd, transparent 50%);
+}
+
+.login-card {
+    max-width: 450px;
+    width: 100%;
+}
+
+.role-selector-btn {
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: var(--text-muted);
+    border-radius: var(--border-radius-sm);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.role-selector-btn:hover, .role-selector-btn.active {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Cards & Quick Stats */
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(11, 94, 215, 0.1);
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* Calendar Grid Mockup */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 100px repeat(5, 1fr);
+    gap: 0px;
+    border-top: 1px solid #e5e7eb;
+    border-left: 1px solid #e5e7eb;
+    background-color: white;
+}
+
+.calendar-header-cell {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: var(--bg-color);
+}
+
+.calendar-time-cell {
+    padding: 0.5rem;
+    text-align: right;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.calendar-cell {
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+    min-height: 60px;
+    position: relative;
+    padding: 2px;
+}
+
+.calendar-event {
+    background: rgba(11, 94, 215, 0.1);
+    border-left: 4px solid var(--primary-color);
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--primary-color-dark);
+    margin-bottom: 2px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.calendar-event:hover {
+    background: rgba(11, 94, 215, 0.2);
+    transform: translateX(2px);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Utilities */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.transition-hover {
+    transition: var(--transition);
+}
+
+.transition-hover:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.rounded-4 {
+    border-radius: 1.25rem !important;
+}
+
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Animations extra */
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Extra alignment for Master Layout */
+#view-container {
+    padding-bottom: 2rem;
+}
+
+/* Custom Scrollbar for Premium feel */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #e5e7eb;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d1d5db;
+}

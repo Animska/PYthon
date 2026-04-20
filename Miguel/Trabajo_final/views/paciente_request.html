@@ -1,0 +1,99 @@
+<!-- views/paciente_request.html -->
+<div class="glass-card p-5 h-100 fade-in d-flex flex-column">
+    <div class="d-flex align-items-center mb-4">
+        <button class="btn btn-light text-secondary me-3 shadow-none border" id="btn-back-to-dashboard">
+            <i class="bi bi-arrow-left"></i>
+        </button>
+        <div>
+            <h3 class="fw-bold text-primary mb-1">Flujo de Solicitud de Consulta</h3>
+            <p class="text-muted mb-0">Configura la próxima sesión del paciente con Clinical Atelier.</p>
+        </div>
+    </div>
+
+    <form id="consultation-form" class="row gx-5 mt-3 flex-grow-1">
+        <div class="col-md-7">
+            <h6 class="fw-bold mb-3 text-uppercase small text-muted">1. Motivo de la Visita</h6>
+            <div class="d-flex gap-3 mb-4">
+                <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer border-primary bg-primary bg-opacity-10 transition">
+                    <input type="radio" name="visitType" class="d-none" checked>
+                    <i class="bi bi-person-check fs-4 text-primary d-block mb-1"></i>
+                    <span class="fw-semibold text-primary">Examen General</span>
+                </label>
+                <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer text-muted transition hover-bg-light">
+                    <input type="radio" name="visitType" class="d-none">
+                    <i class="bi bi-bandaid fs-4 d-block mb-1"></i>
+                    <span class="fw-medium">Tratamiento</span>
+                </label>
+                <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer text-muted transition hover-bg-light">
+                    <input type="radio" name="visitType" class="d-none">
+                    <i class="bi bi-heart-pulse fs-4 d-block mb-1"></i>
+                    <span class="fw-medium">Operación</span>
+                </label>
+            </div>
+
+            <h6 class="fw-bold mb-3 text-uppercase small text-muted">2. Horario y Ubicación Preferidos</h6>
+            <div class="row g-3 mb-4">
+                <div class="col-md-6">
+                    <label class="form-label small fw-medium text-muted">Seleccionar Fecha</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-calendar-event text-muted"></i></span>
+                        <input type="date" class="form-control border-start-0" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label small fw-medium text-muted">Franja Horaria</label>
+                    <select class="form-select" required>
+                        <option>Mañana (08:00 - 12:00)</option>
+                        <option>Tarde (13:00 - 17:00)</option>
+                    </select>
+                </div>
+            </div>
+
+            <h6 class="fw-bold mb-3 text-uppercase small text-muted">3. Síntomas / Notas</h6>
+            <div class="mb-4">
+                <textarea class="form-control" rows="5" placeholder="Por favor, describe cualquier síntoma o preocupación adicional..." required></textarea>
+            </div>
+
+            <div class="form-check form-switch bg-warning bg-opacity-10 border border-warning rounded-3 p-3 d-flex gap-3 align-items-center mb-4 ps-5">
+                <input class="form-check-input ms-0 me-3 mt-0" type="checkbox" id="flexSwitchCheckDefault" style="width: 2.5em; height: 1.25em;">
+                <div>
+                    <h6 class="mb-0 fw-bold text-dark">Marcar como Prioridad Alta</h6>
+                    <span class="small text-muted">Usa esto SOLO para casos clínicos urgentes.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 d-flex flex-column">
+            <div class="bg-light p-4 rounded-4 border flex-grow-1">
+                <div class="text-end mb-3">
+                    <span class="badge bg-white text-muted border px-2 py-1">Paso 3 de 3</span>
+                </div>
+                
+                <div class="text-center mb-4">
+                    <!-- Avatar eliminado -->
+                    <h5 class="fw-bold mb-0">Eleanor Vance</h5>
+                    <span class="small text-muted mb-2 d-block">Especialista en Neurología</span>
+                    <hr class="w-25 mx-auto">
+                </div>
+
+                <div class="d-flex justify-content-between small mb-2">
+                     <span class="text-muted">Última Visita</span>
+                     <span class="fw-bold text-dark">12 de Oct, 2023</span>
+                </div>
+                <div class="d-flex justify-content-between small mb-4">
+                     <span class="text-muted">Clínica Principal</span>
+                     <span class="fw-bold text-dark">Edificio Central, Planta 2</span>
+                </div>
+
+                <div class="alert alert-primary bg-primary bg-opacity-10 border-0 p-3 mb-4">
+                    <h6 class="fw-bold small mb-1">Recomendación del Sistema</h6>
+                    <p class="small mb-0 text-muted">Basado en tu historial, la Dra. Vance recomienda un Examen Especial antes de tu sesión de movilidad.</p>
+                </div>
+                
+                <div class="mt-auto">
+                     <button type="submit" class="btn btn-primary w-100 py-3 fw-bold shadow-sm">ENVIAR Solicitud de Consulta <i class="bi bi-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
