@@ -26,6 +26,9 @@
     <script defer src="static/js/admin.js"></script>
     <script defer src="static/js/app.js"></script>
     
+    <!-- FullCalendar 6 -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
@@ -101,7 +104,7 @@
         <!-- 2. Layout de Aplicación (Master Layout) -->
         <div id="layout-app" class="dashboard-layout fade-in d-none">
             <!-- Sidebar Común -->
-            <aside class="sidebar glass-card d-flex flex-column pt-4 pb-4">
+            <aside class="sidebar glass-card d-flex flex-column pt-4 pb-4 vw-20">
                 <div class="px-4 d-flex align-items-center mb-5 text-primary">
                     <div>
                         <h3 class="mb-0 fw-bold">Clinica y Funeraria Rodriguez</h3>
@@ -146,14 +149,13 @@
                 </header>
 
                 <!-- Área donde se cargan las vistas -->
-                <div id="view-container" class="mt-2 h-100 overflow-auto"></div>
+                <div id="view-container" class="mt-2 vh-100 overflow-auto"></div>
             </main>
         </div>
     </div>
 
     <!-- Modal Registro Paciente -->
     <div class="modal fade" id="patientRegisterModal" tabindex="-1" aria-hidden="true">
-        <!-- ... (contenido existente del modal de registro) ... -->
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content border-0 shadow-lg rounded-4">
                 <div class="modal-header border-0 pb-0">
@@ -246,6 +248,21 @@
                             <button type="submit" class="btn btn-primary px-4">Guardar Cambios</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Editar Informe Clínico (Médico) -->
+    <div class="modal fade" id="reportModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Actualizar Informe Clínico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4" id="modal-report-body">
+                    <!-- Se inyectará el contenido dinámicamente -->
                 </div>
             </div>
         </div>

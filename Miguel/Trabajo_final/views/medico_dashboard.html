@@ -59,6 +59,9 @@
             </div>
         </div>
         <div class="d-flex gap-2">
+            <button class="btn btn-outline-primary border rounded-pill px-3 py-2 fw-bold shadow-sm d-flex align-items-center gap-2 t-btn-editar-informe">
+                <i class="bi bi-pencil-square"></i> Editar Informe
+            </button>
             <button class="btn btn-light border rounded-circle p-2 text-primary shadow-sm"><i class="bi bi-telephone fs-5 px-1"></i></button>
             <button class="btn btn-light border rounded-circle p-2 text-primary shadow-sm"><i class="bi bi-chat-dots fs-5 px-1"></i></button>
         </div>
@@ -112,6 +115,77 @@
              <button class="btn btn-primary px-4 py-2 fw-bold shadow-sm">Firmar y Finalizar Chequeo <i class="bi bi-check2-circle ms-2"></i></button>
          </div>
     </div>
+</template>
+
+<!-- Template para el Formulario de Informe (Migrado de medico_informes.html) -->
+<template id="template-formulario-informe">
+    <div class="d-flex justify-content-between align-items-start border-bottom pb-4 mb-4">
+        <div class="d-flex gap-4 align-items-center">
+            <div>
+                <h2 class="fw-bold mb-1 t-nombre-paciente"></h2>
+                <div class="d-flex gap-3">
+                    <span class="badge bg-light text-muted border px-2 py-1 t-info-genero-edad"></span>
+                    <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1 t-info-sangre"></span>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-3 py-2 rounded-pill">
+                <i class="bi bi-check-circle-fill me-1"></i> Expediente Activo
+            </span>
+        </div>
+    </div>
+
+    <!-- Apartado de Alergias (Solo lectura) -->
+    <div class="mb-4">
+       <h6 class="fw-bold text-uppercase small text-muted mb-3"><i class="bi bi-exclamation-triangle me-2 text-danger"></i> Alergias Conocidas</h6>
+       <div class="bg-danger bg-opacity-10 p-3 rounded-4 border border-danger border-opacity-25">
+           <p class="text-danger small mb-0 fw-bold t-alergias-paciente"></p>
+       </div>
+    </div>
+
+    <form id="form-actualizar-informe">
+        <h6 class="fw-bold text-uppercase small text-muted mb-3">Actualización de Vitales</h6>
+        <div class="row g-3 mb-4">
+            <div class="col-md-3">
+                <div class="p-3 border rounded-4 bg-light shadow-sm">
+                    <label class="small text-muted fw-bold mb-1 d-block">ALTURA (cm)</label>
+                    <input type="number" class="form-control form-control-sm border-0 bg-transparent fw-bold fs-5 p-0 t-input-altura" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-4 bg-light shadow-sm">
+                    <label class="small text-muted fw-bold mb-1 d-block">PESO (kg)</label>
+                    <input type="number" class="form-control form-control-sm border-0 bg-transparent fw-bold fs-5 p-0 t-input-peso" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-4 bg-light shadow-sm">
+                    <label class="small text-muted fw-bold mb-1 d-block">RESPIRACIÓN (rpm)</label>
+                    <input type="number" class="form-control form-control-sm border-0 bg-transparent fw-bold fs-5 p-0 t-input-respiracion" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 border rounded-4 bg-primary bg-opacity-10 text-primary shadow-sm border-primary border-opacity-25">
+                    <label class="small fw-bold mb-1 d-block">PRESIÓN ART.</label>
+                    <input type="text" class="form-control form-control-sm border-0 bg-transparent text-primary fw-bold fs-5 p-0 t-input-presion" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+             <div class="d-flex justify-content-between align-items-center mb-3">
+                 <h6 class="fw-bold mb-0"><i class="bi bi-pencil-square me-2 text-primary"></i> Observaciones Clínicas</h6>
+             </div>
+             <div class="bg-light p-2 rounded-4 border">
+                 <textarea class="form-control border-0 bg-transparent t-textarea-observaciones" rows="5" placeholder="Escribe aquí las observaciones clínicas..."></textarea>
+             </div>
+             <div class="d-flex justify-content-end gap-3 mt-4">
+                 <button type="button" class="btn btn-outline-secondary px-4 py-2 fw-bold" data-bs-dismiss="modal">Cancelar</button>
+                 <button type="submit" class="btn btn-primary px-4 py-2 fw-bold shadow-sm">Guardar Cambios <i class="bi bi-save ms-2"></i></button>
+             </div>
+        </div>
+    </form>
 </template>
 
 

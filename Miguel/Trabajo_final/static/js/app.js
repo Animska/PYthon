@@ -11,7 +11,6 @@ const AppState = {
         'view-patient-request': 'views/paciente_request.html',
         'view-patient-calendar': 'views/paciente_calendar.html',
         'view-doctor-dashboard': 'views/medico_dashboard.html',
-        'view-doctor-reports': 'views/medico_informes.html',
         'view-admin-calendar': 'views/admin_calendar.html',
         'view-admin-manage-doctors': 'views/admin_manage_doctors.html'
     },
@@ -80,7 +79,6 @@ async function navegar_a(viewId) {
             'view-patient-request': 'Solicitud de Consulta',
             'view-patient-calendar': 'Mi Calendario',
             'view-doctor-dashboard': 'Agenda Diaria',
-            'view-doctor-reports': 'Gestión de Informes',
             'view-admin-calendar': 'Calendario Global',
             'view-admin-manage-doctors': 'Gestión de Personal'
         };
@@ -130,7 +128,6 @@ function inicializar_sidebar() {
     } else if (role === 'doctor') {
         menuHtml = `
             <a href="#" class="nav-link" data-view="view-doctor-dashboard"><i class="bi bi-calendar2-check me-2"></i> Agenda de Hoy</a>
-            <a href="#" class="nav-link text-muted" data-view="view-doctor-reports"><i class="bi bi-journal-medical me-2"></i> Informes</a>
         `;
     } else if (role === 'admin') {
         menuHtml = `

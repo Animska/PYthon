@@ -5,77 +5,12 @@
             <h3 class="fw-bold mb-1">Mi Calendario de Salud</h3>
             <p class="text-muted mb-0">Visualiza y gestiona todas tus próximas consultas médicas y revisiones.</p>
         </div>
-        <div class="col-md-4 text-end">
-            <div class="btn-group shadow-sm">
-                <button class="btn btn-white border px-3 small fw-bold active">Semana</button>
-                <button class="btn btn-white border px-3 small fw-bold">Mes</button>
-            </div>
-        </div>
     </div>
 
     <div class="row h-100 g-4">
         <div class="col-md-12 d-flex flex-column">
-            <div class="glass-card flex-grow-1 d-flex flex-column overflow-hidden">
-                <div class="bg-light p-3 border-bottom d-flex align-items-center px-4">
-                    <h5 class="fw-bold mb-0 me-4">Octubre 2023</h5>
-                    <div class="ms-auto d-flex gap-2">
-                        <span class="badge bg-white border text-muted px-3 py-2 rounded-pill"><i class="bi bi-circle-fill text-primary me-2" style="font-size:0.5rem"></i> Consulta</span>
-                        <span class="badge bg-white border text-muted px-3 py-2 rounded-pill"><i class="bi bi-circle-fill text-warning me-2" style="font-size:0.5rem"></i> Revisión</span>
-                        <span class="badge bg-white border text-muted px-3 py-2 rounded-pill"><i class="bi bi-circle-fill text-danger me-2" style="font-size:0.5rem"></i> Cirugía</span>
-                    </div>
-                </div>
-
-                <div class="calendar-grid flex-grow-1 overflow-auto bg-white">
-                    <div class="calendar-header-cell text-muted small fw-bold">HORA</div>
-                    <div class="calendar-header-cell">LUNES</div>
-                    <div class="calendar-header-cell">MARTES</div>
-                    <div class="calendar-header-cell">MIÉRCOLES</div>
-                    <div class="calendar-header-cell">JUEVES</div>
-                    <div class="calendar-header-cell">VIERNES</div>
-
-                    <div class="calendar-time-cell">09:00 AM</div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-
-                    <div class="calendar-time-cell">10:00 AM</div>
-                    <div class="calendar-cell">
-                        <div class="calendar-event border-primary bg-primary bg-opacity-10 text-primary">
-                            Seguimiento Neurológico - Dra. Vance
-                        </div>
-                    </div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-
-                    <div class="calendar-time-cell">11:00 AM</div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-
-                    <div class="calendar-time-cell">12:00 PM</div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-
-                    <div class="calendar-time-cell">02:00 PM</div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell"></div>
-                    <div class="calendar-cell">
-                        <div class="calendar-event border-warning bg-warning bg-opacity-10 text-warning">
-                            Fisioterapia - Sala 3
-                        </div>
-                    </div>
-                </div>
+            <div class="glass-card flex-grow-1 p-4 shadow-sm bg-white">
+                <div id="calendar-paciente" class="h-100"></div>
             </div>
         </div>
     </div>

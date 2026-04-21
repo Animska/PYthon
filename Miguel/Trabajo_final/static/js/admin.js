@@ -54,6 +54,62 @@ function adjuntar_eventos_admin(viewId) {
             };
         }
     }
+
+    if (viewId === 'view-admin-calendar') {
+        inicializar_calendario_admin();
+    }
+}
+
+function inicializar_calendario_admin() {
+    const calendarEl = document.getElementById('calendar-admin');
+    if (!calendarEl) return;
+
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridWeek',
+        headerToolbar: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'dayGridMonth,timeGridWeek'
+        },
+        locale: 'es',
+        slotMinTime: '08:00:00',
+        slotMaxTime: '20:00:00',
+        allDaySlot: false,
+        height: 'auto',
+        slotLabelFormat: {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false
+        },
+        events: [
+            {
+                title: 'Ronda de Cardiología',
+                start: '2026-04-26T08:00:00',
+                end: '2026-04-26T10:00:00',
+                backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                borderColor: '#ffc107',
+                textColor: '#ffc107'
+            },
+            {
+                title: 'Thompson (Consul)',
+                start: '202-10-24T10:00:00',
+                end: '2023-10-24T11:30:00',
+                backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                borderColor: '#28a745',
+                textColor: '#28a745'
+            },
+            {
+                title: 'Quirófano #2 - Apén.',
+                start: '2023-10-26T10:30:00',
+                end: '2023-10-26T14:00:00',
+                backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                borderColor: '#dc3545',
+                textColor: '#dc3545'
+            }
+        ]
+    });
+
+    calendar.render();
 }
 
 // --- Funciones de Gestión de Médicos ---

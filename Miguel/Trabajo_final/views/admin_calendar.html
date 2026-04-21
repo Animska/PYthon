@@ -5,47 +5,12 @@
              <h3 class="fw-bold mb-1">Revisión de Citas</h3>
              <p class="text-muted mb-0">Gestiona las solicitudes de consulta entrantes y organiza la agenda quirúrgica diaria.</p>
          </div>
-         <div class="col-md-4 text-end">
-             <div class="btn-group shadow-sm">
-                 <button class="btn btn-white border px-3 small fw-bold active">Vista Semanal</button>
-                 <button class="btn btn-white border px-3 small fw-bold">Vista Mensual</button>
-             </div>
-         </div>
     </div>
 
     <div class="row h-100 g-4">
         <div class="col-md-9 d-flex flex-column">
-            <div class="glass-card flex-grow-1 d-flex flex-column overflow-hidden">
-                <div class="bg-light p-3 border-bottom d-flex align-items-center px-4">
-                     <h5 class="fw-bold mb-0 me-4">24-28 de Octubre, 2023</h5>
-                     <div class="ms-auto d-flex gap-2">
-                        <span class="badge bg-white border text-muted px-3 py-2 rounded-pill"><i class="bi bi-circle-fill text-primary me-2" style="font-size:0.5rem"></i> General</span>
-                        <span class="badge bg-white border text-muted px-3 py-2 rounded-pill"><i class="bi bi-circle-fill text-danger me-2" style="font-size:0.5rem"></i> Cirugía</span>
-                     </div>
-                </div>
-
-                <div class="calendar-grid flex-grow-1 overflow-auto bg-white">
-                     <div class="calendar-header-cell text-muted small fw-bold">HORA</div>
-                     <div class="calendar-header-cell">LUN 24</div>
-                     <div class="calendar-header-cell">MAR 25</div>
-                     <div class="calendar-header-cell">MIÉ 26</div>
-                     <div class="calendar-header-cell">JUE 27</div>
-                     <div class="calendar-header-cell">VIE 28</div>
-
-                     <div class="calendar-time-cell">08:00 AM</div>
-                     <div class="calendar-cell"></div>
-                     <div class="calendar-cell"></div>
-                     <div class="calendar-cell"><div class="calendar-event bg-warning bg-opacity-10 border-warning text-warning-emphasis">Ronda de Cardiología</div></div>
-                     <div class="calendar-cell"></div>
-                     <div class="calendar-cell"></div>
-
-                     <div class="calendar-time-cell">10:00 AM</div>
-                     <div class="calendar-cell"><div class="calendar-event border-success bg-success bg-opacity-10 text-success">Thompson (Consul)</div></div>
-                     <div class="calendar-cell"></div>
-                     <div class="calendar-cell"><div class="calendar-event border-danger bg-danger bg-opacity-10 text-danger">Quirófano #2 - Apén.</div></div>
-                     <div class="calendar-cell"></div>
-                     <div class="calendar-cell"></div>
-                </div>
+            <div class="glass-card flex-grow-1 p-4 shadow-sm bg-white ">
+                <div id="calendar-admin" class="h-100 "></div>
             </div>
         </div>
 
