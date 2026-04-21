@@ -69,6 +69,14 @@ function adjuntar_eventos_medico(viewId) {
         if (citasMock.length > 0) {
             mostrar_detalle_paciente(citasMock[0].id);
         }
+    } else if (viewId === 'view-doctor-reports') {
+        renderizar_lista_pacientes_informes();
+        configurar_busqueda_informes();
+        
+        // Mostrar el primero por defecto si existe
+        if (citasMock.length > 0) {
+            mostrar_formulario_informe(citasMock[0].id);
+        }
     }
 }
 
@@ -170,6 +178,134 @@ function mostrar_detalle_paciente(id) {
 
     // Gestionar visibilidad de los estados del panel
     document.getElementById('detalle-paciente-vacio').classList.add('d-none');
+    contenedor.classList.remove('d-none');
+}
+
+// --- Lógica de Informes ---
+
+function renderizar_lista_pacientes_informes(filtro = '') {
+    const contenedor = document.getElementById('contenedor-pacientes-informes');
+    if (!contenedor) return;
+
+    const pacientesFiltrados = citasMock.filter(c => 
+        c.paciente.toLowerCase().includes(filtro.toLowerCase())
+    );
+
+    if (pacientesFiltrados.length === 0) {
+        contenedor.innerHTML = '<div class="text-center p-4 text-muted small">No se encontraron pacientes</div>';
+        return;
+    }
+
+    contenedor.innerHTML = pacientesFiltrados.map(cita => {
+        const isActive = cita.id === citaSeleccionadaId;
+        const borderClass = isActive ? 'border-primary border-start border-4 shadow-sm' : 'border-light cursor-pointer transition-hover';
+        
+        return `
+            <div class="border rounded-4 p-3 bg-white ${borderClass} paciente-item" data-id="${cita.id}">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2">
+                        <i class="bi bi-person"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">${cita.paciente}</h6>
+                        <p class="small text-muted mb-0">${cita.genero}, ${cita.edad} años</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // Adjuntar eventos de clic
+    contenedor.querySelectorAll('.paciente-item').forEach(item => {
+        item.onclick = () => {
+            const id = parseInt(item.dataset.id);
+            mostrar_formulario_informe(id);
+        };
+    });
+}
+
+function configurar_busqueda_informes() {
+    const inputBusqueda = document.getElementById('buscar-paciente-informe');
+    if (inputBusqueda) {
+        inputBusqueda.oninput = (e) => {
+            renderizar_lista_pacientes_informes(e.target.value);
+        };
+    }
+}
+
+function mostrar_formulario_informe(id) {
+    const cita = citasMock.find(c => c.id === id);
+    if (!cita) return;
+
+    citaSeleccionadaId = id;
+    
+    // Actualizar clases de la lista para feedback visual
+    document.querySelectorAll('.paciente-item').forEach(item => {
+        const itemId = parseInt(item.dataset.id);
+        if (itemId === id) {
+            item.classList.add('border-primary', 'border-start', 'border-4', 'shadow-sm');
+            item.classList.remove('border-light', 'cursor-pointer', 'transition-hover');
+        } else {
+            item.classList.remove('border-primary', 'border-start', 'border-4', 'shadow-sm');
+            item.classList.add('border-light', 'cursor-pointer', 'transition-hover');
+        }
+    });
+
+    const contenedor = document.getElementById('detalle-informe-contenido');
+    const template = document.getElementById('template-formulario-informe');
+    
+    if (!contenedor || !template) return;
+
+    // Limpiar contenido anterior
+    contenedor.innerHTML = '';
+    
+    // Clonar el template
+    const clone = template.content.cloneNode(true);
+    
+    // Rellenar los datos
+    clone.querySelector('.t-nombre-paciente').textContent = cita.paciente;
+    clone.querySelector('.t-info-genero-edad').innerHTML = 
+        `<i class="bi bi-gender-${cita.genero === 'Hombre' ? 'male' : 'female'} me-1"></i> ${cita.genero}, ${cita.edad}`;
+    clone.querySelector('.t-info-sangre').innerHTML = 
+        `<i class="bi bi-droplet me-1"></i> ${cita.sangre}`;
+    clone.querySelector('.t-alergias-paciente').textContent = cita.alergias;
+    
+    // Rellenar inputs
+    clone.querySelector('.t-input-altura').value = cita.vitals.altura;
+    clone.querySelector('.t-input-peso').value = cita.vitals.peso;
+    clone.querySelector('.t-input-respiracion').value = cita.vitals.respiracion;
+    clone.querySelector('.t-input-presion').value = cita.vitals.presion;
+    
+    clone.querySelector('.t-textarea-observaciones').value = cita.observaciones;
+
+    // Manejar envío del formulario
+    const form = clone.querySelector('#form-actualizar-informe');
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        
+        // Actualizar datos en citasMock
+        cita.vitals.altura = parseInt(form.querySelector('.t-input-altura').value);
+        cita.vitals.peso = parseInt(form.querySelector('.t-input-peso').value);
+        cita.vitals.respiracion = parseInt(form.querySelector('.t-input-respiracion').value);
+        cita.vitals.presion = form.querySelector('.t-input-presion').value;
+        cita.observaciones = form.querySelector('.t-textarea-observaciones').value;
+        
+        alert(`Informe de ${cita.paciente} actualizado con éxito.`);
+        
+        // Si hay un botón de cancelar, podríamos resetear o similar, 
+        // pero aquí solo confirmamos el guardado.
+    };
+
+    // Manejar botón cancelar
+    clone.querySelector('#btn-cancelar-edicion').onclick = () => {
+        mostrar_formulario_informe(id); // Recargar datos originales
+    };
+
+    // Inyectar el fragmento en el DOM
+    contenedor.appendChild(clone);
+
+    // Gestionar visibilidad
+    document.getElementById('detalle-informe-vacio').classList.add('d-none');
     contenedor.classList.remove('d-none');
 }
 
