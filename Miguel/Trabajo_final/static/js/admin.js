@@ -5,13 +5,23 @@
 function adjuntar_eventos_admin(viewId) {
     if (viewId === 'view-admin-manage-doctors') {
         renderizar_tabla_medicos();
+        cargar_especialidades_filtro();
 
-        // Buscador
+        // Filtros combinados
+        const aplicarFiltros = () => {
+            const texto = document.getElementById('doctor-search')?.value || '';
+            const especialidad = document.getElementById('doctor-specialty-filter')?.value || '';
+            renderizar_tabla_medicos(texto, especialidad);
+        };
+
         const searchInput = document.getElementById('doctor-search');
         if (searchInput) {
-            searchInput.oninput = (e) => {
-                renderizar_tabla_medicos(e.target.value);
-            };
+            searchInput.oninput = aplicarFiltros;
+        }
+
+        const specialtyFilter = document.getElementById('doctor-specialty-filter');
+        if (specialtyFilter) {
+            specialtyFilter.onchange = aplicarFiltros;
         }
 
         // Botón Añadir
@@ -30,33 +40,57 @@ function adjuntar_eventos_admin(viewId) {
         // Submit Formulario (Add/Edit)
         const docForm = document.getElementById('doctor-form');
         if (docForm) {
-            docForm.onsubmit = (e) => {
+            docForm.onsubmit = async (e) => {
                 e.preventDefault();
                 const editIndex = document.getElementById('edit-index').value;
-                const nuevoMedico = {
+
+                const data = {
                     nombre: document.getElementById('doctor-name').value,
                     especialidad: document.getElementById('doctor-specialty').value,
                     email: document.getElementById('doctor-email').value,
                     estado: document.getElementById('doctor-status').value,
-                    fecha: new Date().toISOString().split('T')[0]
+                    password: document.getElementById('doctor-password').value
                 };
 
-                if (editIndex === "") {
-                    nuevoMedico.id = AppState.medicos.length + 1;
-                    AppState.medicos.push(nuevoMedico);
-                } else {
-                    nuevoMedico.id = AppState.medicos[editIndex].id;
-                    AppState.medicos[editIndex] = nuevoMedico;
-                }
+                console.log("Datos a enviar:", data);
 
-                bootstrap.Modal.getInstance(document.getElementById('doctorModal')).hide();
-                renderizar_tabla_medicos();
+                if (editIndex === "") {
+                    try {
+                        const response = await fetch('/api/doctors', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+
+                        const result = await response.json();
+
+                        if (response.ok) {
+                            alert("¡Médico añadido con éxito!");
+                            const modalEl = document.getElementById('doctorModal');
+                            const modal = bootstrap.Modal.getInstance(modalEl);
+                            if (modal) modal.hide();
+
+                            // Limpiar formulario y recargar tabla
+                            docForm.reset();
+                            renderizar_tabla_medicos();
+                            cargar_especialidades_filtro();
+                        } else {
+                            alert(`Error del servidor: ${result.detail || 'Desconocido'}`);
+                        }
+                    } catch (error) {
+                        console.error("Error en la petición POST /api/doctors:", error);
+                        alert("Error de conexión al intentar añadir el médico.");
+                    }
+                } else {
+                    alert("Edición no implementada aún.");
+                }
             };
         }
     }
 
     if (viewId === 'view-admin-calendar') {
         inicializar_calendario_admin();
+        cargar_solicitudes_pendientes();
     }
 }
 
@@ -64,7 +98,14 @@ function inicializar_calendario_admin() {
     const calendarEl = document.getElementById('calendar-admin');
     if (!calendarEl) return;
 
+    const duraciones = {
+        'Examen General': 1,
+        'Tratamiento': 2,
+        'Operacion': 4
+    };
+
     const calendar = new FullCalendar.Calendar(calendarEl, {
+        themeSystem: 'bootstrap5',
         initialView: 'timeGridWeek',
         headerToolbar: {
             left: 'prev,next today',
@@ -74,6 +115,8 @@ function inicializar_calendario_admin() {
         locale: 'es',
         slotMinTime: '08:00:00',
         slotMaxTime: '20:00:00',
+        slotDuration: '00:30:00',
+        slotLabelInterval: '01:00:00',
         allDaySlot: false,
         height: 'auto',
         slotLabelFormat: {
@@ -81,93 +124,287 @@ function inicializar_calendario_admin() {
             minute: '2-digit',
             hour12: false
         },
-        events: [
-            {
-                title: 'Ronda de Cardiología',
-                start: '2026-04-26T08:00:00',
-                end: '2026-04-26T10:00:00',
-                backgroundColor: 'rgba(255, 193, 7, 0.1)',
-                borderColor: '#ffc107',
-                textColor: '#ffc107'
-            },
-            {
-                title: 'Thompson (Consul)',
-                start: '202-10-24T10:00:00',
-                end: '2023-10-24T11:30:00',
-                backgroundColor: 'rgba(40, 167, 69, 0.1)',
-                borderColor: '#28a745',
-                textColor: '#28a745'
-            },
-            {
-                title: 'Quirófano #2 - Apén.',
-                start: '2023-10-26T10:30:00',
-                end: '2023-10-26T14:00:00',
-                backgroundColor: 'rgba(220, 53, 69, 0.1)',
-                borderColor: '#dc3545',
-                textColor: '#dc3545'
+        events: async function(info, successCallback, failureCallback) {
+            try {
+                const response = await fetch('/api/appointments');
+                const data = await response.json();
+                
+                const events = data.map(c => {
+                    const start = new Date(c.fecha_hora);
+                    const duracionHoras = duraciones[c.motivo] || 1;
+                    const end = new Date(start.getTime() + duracionHoras * 60 * 60 * 1000);
+                    
+                    return {
+                        id: c.id,
+                        title: `${c.paciente_nombre} - ${c.medico_nombre}`,
+                        start: start,
+                        end: end,
+                        backgroundColor: c.prioridad_alta ? 'rgba(220, 53, 69, 0.1)' : 'rgba(11, 94, 215, 0.1)',
+                        borderColor: c.prioridad_alta ? '#dc3545' : '#0b5ed7',
+                        textColor: c.prioridad_alta ? '#dc3545' : '#0b5ed7',
+                        description: c.motivo
+                    };
+                });
+                successCallback(events);
+            } catch (error) {
+                console.error("Error cargando eventos:", error);
+                failureCallback(error);
             }
-        ]
+        },
+        eventDidMount: function(info) {
+            // Añadir tooltip o info extra si se desea
+            if (info.event.extendedProps.description) {
+                info.el.title = info.event.extendedProps.description;
+            }
+        }
     });
 
     calendar.render();
+    
+    // Guardar referencia en el window para poder recargar
+    window.adminCalendar = calendar;
+}
+
+async function cargar_solicitudes_pendientes() {
+    const contenedor = document.getElementById('contenedor-solicitudes');
+    const template = document.getElementById('template-solicitud-cita');
+    if (!contenedor || !template) return;
+
+    try {
+        const response = await fetch('/api/appointments/pending');
+        if (!response.ok) throw new Error("Error cargando solicitudes");
+        const solicitudes = await response.json();
+
+        contenedor.innerHTML = '';
+
+        if (solicitudes.length === 0) {
+            contenedor.innerHTML = '<div class="text-center p-4 text-muted small">No hay solicitudes pendientes</div>';
+            return;
+        }
+
+        solicitudes.forEach(s => {
+            const clone = template.content.cloneNode(true);
+
+            clone.querySelector('.t-paciente-nombre').textContent = s.paciente_nombre;
+            clone.querySelector('.t-motivo').textContent = s.motivo;
+            clone.querySelector('.t-fecha-hora').textContent = new Date(s.fecha_hora).toLocaleString('es-ES', {
+                day: '2-digit',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+
+            const prioridadTexto = clone.querySelector('.t-prioridad-texto');
+            if (s.prioridad_alta) {
+                clone.querySelector('.t-prioridad-badge').classList.remove('d-none');
+                prioridadTexto.textContent = 'Prioridad Alta';
+                prioridadTexto.classList.add('bg-danger', 'bg-opacity-10', 'text-danger');
+            } else {
+                prioridadTexto.textContent = 'Prioridad Normal';
+                prioridadTexto.classList.add('bg-light', 'text-muted');
+            }
+
+            if (s.sintomas) {
+                clone.querySelector('.t-contenedor-sintomas').classList.remove('d-none');
+                clone.querySelector('.t-sintomas').textContent = s.sintomas;
+            }
+
+            clone.querySelector('.t-btn-aprobar').onclick = () => abrir_seleccion_medico(s.id);
+            clone.querySelector('.t-btn-rechazar').onclick = () => procesar_rechazo(s.id);
+
+            contenedor.appendChild(clone);
+        });
+
+    } catch (error) {
+        console.error("Error al cargar solicitudes:", error);
+        contenedor.innerHTML = '<div class="alert alert-danger small">Error al cargar solicitudes</div>';
+    }
+}
+
+// --- Funciones de Gestión de Solicitudes ---
+
+async function abrir_seleccion_medico(appointmentId) {
+    const modalEl = document.getElementById('modalSeleccionarMedico');
+    const container = document.getElementById('lista-medicos-seleccion');
+    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+    
+    container.innerHTML = '<div class="text-center p-3"><div class="spinner-border spinner-border-sm text-primary" role="status"></div></div>';
+    modal.show();
+
+    try {
+        const response = await fetch('/api/doctors');
+        const medicos = await response.json();
+        
+        container.innerHTML = '';
+        medicos.forEach(m => {
+            const btn = document.createElement('button');
+            btn.className = 'list-group-item list-group-item-action d-flex justify-content-between align-items-center py-3 border-0 rounded-3 mb-2 bg-light bg-opacity-50';
+            btn.innerHTML = `
+                <div>
+                    <div class="fw-bold">${m.nombre}</div>
+                    <div class="text-muted small">${m.especialidad}</div>
+                </div>
+                <i class="bi bi-chevron-right text-primary"></i>
+            `;
+            btn.onclick = async () => {
+                await procesar_aprobacion(appointmentId, m.id);
+                // Cerrar el modal explícitamente usando la instancia
+                const inst = bootstrap.Modal.getInstance(modalEl);
+                if (inst) inst.hide();
+            };
+            container.appendChild(btn);
+        });
+    } catch (error) {
+        container.innerHTML = '<div class="alert alert-danger small">Error al cargar médicos</div>';
+    }
+}
+
+async function procesar_aprobacion(appointmentId, medicoId) {
+    try {
+        const response = await fetch(`/api/appointments/${appointmentId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ estado: 'Aceptada', medico_id: medicoId })
+        });
+
+        if (response.ok) {
+            cargar_solicitudes_pendientes();
+            // Recargar calendario
+            if (window.adminCalendar) {
+                window.adminCalendar.refetchEvents();
+            }
+        } else {
+            alert("Error al aprobar la cita");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
+async function procesar_rechazo(appointmentId) {
+    if (!confirm("¿Estás seguro de que deseas rechazar esta solicitud?")) return;
+    
+    try {
+        const response = await fetch(`/api/appointments/${appointmentId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ estado: 'Rechazada' })
+        });
+
+        if (response.ok) {
+            cargar_solicitudes_pendientes();
+            if (window.adminCalendar) {
+                window.adminCalendar.refetchEvents();
+            }
+        } else {
+            alert("Error al rechazar la cita");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
 }
 
 // --- Funciones de Gestión de Médicos ---
-function renderizar_tabla_medicos(filtro = '') {
+async function renderizar_tabla_medicos(filtroTexto = '', filtroEspecialidad = '') {
     const tbody = document.getElementById('doctors-table-body');
     const template = document.getElementById('doctor-row-template');
     if (!tbody || !template) return;
 
     tbody.innerHTML = '';
 
-    const medicosFiltrados = AppState.medicos.filter(m =>
-        m.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
-        m.especialidad.toLowerCase().includes(filtro.toLowerCase())
-    );
+    try {
+        const response = await fetch('/api/doctors');
+        if (!response.ok) return;
 
-    medicosFiltrados.forEach(m => {
-        const originalIndex = AppState.medicos.findIndex(med => med.id === m.id);
-        const clone = template.content.cloneNode(true);
+        const medicos = await response.json();
 
-        clone.querySelector('.row-name').textContent = m.nombre;
-        clone.querySelector('.row-specialty').textContent = m.especialidad;
-        clone.querySelector('.row-email').textContent = m.email;
-        clone.querySelector('.row-date').textContent = m.fecha;
+        const medicosFiltrados = medicos.filter(m => {
+            const matchesTexto = m.nombre.toLowerCase().includes(filtroTexto.toLowerCase()) ||
+                m.especialidad.toLowerCase().includes(filtroTexto.toLowerCase()) ||
+                m.email.toLowerCase().includes(filtroTexto.toLowerCase());
 
-        const statusBadge = clone.querySelector('.row-status');
-        statusBadge.textContent = m.estado;
-        statusBadge.className = `badge rounded-pill row-status ${m.estado === 'Activo' ? 'bg-success-subtle text-success' :
-            m.estado === 'De Baja' ? 'bg-warning-subtle text-warning' :
-                'bg-danger-subtle text-danger'
-            }`;
+            const matchesEspecialidad = filtroEspecialidad === '' || m.especialidad === filtroEspecialidad;
 
-        clone.querySelector('.btn-edit').onclick = () => window.editar_medico(originalIndex);
-        clone.querySelector('.btn-delete').onclick = () => window.eliminar_medico(originalIndex);
+            return matchesTexto && matchesEspecialidad;
+        });
 
-        tbody.appendChild(clone);
-    });
+        medicosFiltrados.forEach(m => {
+            const clone = template.content.cloneNode(true);
 
-    const totalEl = document.getElementById('stat-total-doctors');
-    if (totalEl) totalEl.textContent = AppState.medicos.length;
+            clone.querySelector('.row-name').textContent = m.nombre;
+            clone.querySelector('.row-specialty').textContent = m.especialidad;
+            clone.querySelector('.row-email').textContent = m.email;
+            clone.querySelector('.row-date').textContent = m.fecha;
+
+            const statusBadge = clone.querySelector('.row-status');
+            statusBadge.textContent = m.estado;
+            statusBadge.className = `badge rounded-pill row-status ${m.estado === 'Activo' ? 'bg-success-subtle text-success' :
+                m.estado === 'De Baja' ? 'bg-warning-subtle text-warning' :
+                    'bg-danger-subtle text-danger'
+                }`;
+
+            clone.querySelector('.btn-edit').onclick = () => alert("Edición pendiente");
+            clone.querySelector('.btn-delete').onclick = () => alert("Eliminación pendiente");
+
+            tbody.appendChild(clone);
+        });
+
+        const totalEl = document.getElementById('stat-total-doctors');
+        if (totalEl) totalEl.textContent = medicos.length;
+
+        const activeEl = document.getElementById('stat-active-doctors');
+        if (activeEl) {
+            activeEl.textContent = medicos.filter(m => m.estado === 'Activo').length;
+        }
+
+        const leaveEl = document.getElementById('stat-leave-doctors');
+        if (leaveEl) {
+            leaveEl.textContent = medicos.filter(m => m.estado === 'De Baja').length;
+        }
+
+        const specEl = document.getElementById('stat-specialties');
+        if (specEl) {
+            const specs = [...new Set(medicos.map(m => m.especialidad))];
+            specEl.textContent = specs.length;
+        }
+
+        // Actualizar contador de "Mostrando X de Y"
+        const showingCountEl = document.getElementById('showing-count');
+        if (showingCountEl) {
+            showingCountEl.textContent = `Mostrando ${medicosFiltrados.length} de ${medicos.length} miembros del personal médico`;
+        }
+
+    } catch (error) {
+        console.error("Error al cargar médicos:", error);
+    }
 }
 
-window.editar_medico = (index) => {
-    const m = AppState.medicos[index];
-    const modalEl = document.getElementById('doctorModal');
-    document.body.appendChild(modalEl);
+async function cargar_especialidades_filtro() {
+    const filterSelect = document.getElementById('doctor-specialty-filter');
+    if (!filterSelect) return;
 
-    document.getElementById('doctor-name').value = m.nombre;
-    document.getElementById('doctor-specialty').value = m.especialidad;
-    document.getElementById('doctor-email').value = m.email;
-    document.getElementById('doctor-status').value = m.estado;
-    document.getElementById('edit-index').value = index;
-    document.getElementById('modalTitle').textContent = "Editar Perfil Médico";
-    new bootstrap.Modal(modalEl).show();
-};
+    try {
+        const response = await fetch('/api/doctors');
+        if (!response.ok) return;
+        const medicos = await response.json();
 
-window.eliminar_medico = (index) => {
-    if (confirm(`¿Estás seguro de que deseas eliminar a ${AppState.medicos[index].nombre}?`)) {
-        AppState.medicos.splice(index, 1);
-        renderizar_tabla_medicos();
+        const especialidades = [...new Set(medicos.map(m => m.especialidad))].sort();
+
+        // Guardar valor actual para no perderlo
+        const currentVal = filterSelect.value;
+
+        // Limpiar excepto la primera opción
+        filterSelect.innerHTML = '<option value="">Todas las Especialidades</option>';
+
+        especialidades.forEach(esp => {
+            const option = document.createElement('option');
+            option.value = esp;
+            option.textContent = esp;
+            filterSelect.appendChild(option);
+        });
+
+        filterSelect.value = currentVal;
+    } catch (error) {
+        console.error("Error al cargar especialidades para el filtro:", error);
     }
-};
+}

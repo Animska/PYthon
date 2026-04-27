@@ -3,6 +3,7 @@
 :root {
     --primary-color: #0b5ed7;
     /* Azul Bootstrap adaptado */
+    --primary-color-light: #73b4ff;
     --primary-color-dark: #0a4ebd;
     --bg-color: #f6f8fb;
     --text-main: #1f2937;
@@ -22,6 +23,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
 }
 
 h1,
@@ -104,13 +106,15 @@ h6 {
 /* Main Container (For Dashboards) */
 .dashboard-layout {
     display: flex;
-    min-height: 100vh;
+    height: 100vh;
     gap: 1.5rem;
     padding: 1.5rem;
 }
 
 .sidebar {
     width: 250px;
+    min-width: 250px;
+    flex-shrink: 0;
     height: calc(100vh - 3rem);
     position: sticky;
     top: 1.5rem;
@@ -356,4 +360,60 @@ h6 {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.75rem;
+}
+
+/* Modificaciones personalizadas solicitadas para el calendario (Adaptado al estilo de la página) */
+
+/* Bordes redondeados del calendario */
+.fc {
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    background-color: var(--card-bg);
+}
+
+.fc .fc-scrollgrid {
+    border: none !important;
+}
+
+.fc .fc-scrollgrid-section-header>* {
+    border-top: none !important;
+}
+
+.fc .fc-scrollgrid-section>* {
+    border-left: none !important;
+    border-right: none !important;
+}
+
+
+/* 1. Días (Cabeceras) con el estilo de la página */
+.fc .fc-col-header-cell {
+    background-color: var(--primary-color-light) !important;
+    border-bottom: 1px solid var(--fc-border-color) !important;
+    color: white !important;
+
+}
+
+.fc .fc-col-header-cell-cushion {
+    color: var(--text-main);
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+    padding: 12px 0;
+}
+
+/* 2. y 3. Partes de horas más anchas, centradas y con el color atenuado de la página */
+.fc .fc-timegrid-axis-cushion,
+.fc .fc-timegrid-slot-label-cushion,
+.fc-timegrid-slot-minor {
+    width: 100px !important;
+    /* Más ancha */
+    min-width: 100px !important;
+    text-align: center !important;
+    /* Horas centradas */
+    justify-content: center !important;
+    display: flex !important;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background-color: var(--primary-color-light) !important;
 }

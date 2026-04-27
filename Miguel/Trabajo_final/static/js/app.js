@@ -151,15 +151,44 @@ function inicializar_sidebar() {
     // Evento para el modal de perfil
     const btnProfile = document.getElementById('btn-open-profile');
     if (btnProfile) {
-        btnProfile.onclick = (e) => {
+        btnProfile.onclick = async (e) => {
             e.preventDefault();
+            
+            // Cargar datos reales si es un paciente
+            if (AppState.rolActual === 'patient') {
+                try {
+                    const response = await fetch(`/api/profile/${AppState.usuarioActual.id}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        // Rellenar modal
+                        document.getElementById('profile-name').value = data.nombre || '';
+                        document.getElementById('profile-email').value = data.email || '';
+                        document.getElementById('profile-phone').value = data.telefono || '';
+                        document.getElementById('profile-dni').value = data.dni || '';
+                        document.getElementById('profile-address').value = data.direccion || '';
+                        document.getElementById('profile-blood').value = data.grupo_sanguineo || 'O+';
+                        document.getElementById('profile-allergies').value = data.alergias || '';
+                    }
+                } catch (error) {
+                    console.error("Error al cargar perfil:", error);
+                }
+            }
+
             const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
             profileModal.show();
         };
     }
 
     // Logout global
-    document.getElementById('btn-global-logout').onclick = () => mostrar_layout('auth');
+    document.getElementById('btn-global-logout').onclick = () => {
+        const loginForm = document.getElementById('login-form');
+        if (loginForm) loginForm.reset();
+        
+        const errorMsgEl = document.getElementById('login-error-msg');
+        if (errorMsgEl) errorMsgEl.classList.add('d-none');
+        
+        mostrar_layout('auth');
+    };
 }
 
 // --- Configuración de Login ---
@@ -173,11 +202,56 @@ function configurar_login() {
         });
     });
 
-    document.getElementById('login-form').onsubmit = (e) => {
+    // Toggle Mostrar Contraseña
+    const togglePass = document.getElementById('toggle-login-password');
+    const passInput = document.getElementById('login-password');
+    if (togglePass && passInput) {
+        togglePass.addEventListener('click', () => {
+            const isPassword = passInput.type === 'password';
+            passInput.type = isPassword ? 'text' : 'password';
+            
+            // Cambiar icono
+            const icon = togglePass.querySelector('i');
+            icon.classList.toggle('bi-eye');
+            icon.classList.toggle('bi-eye-slash');
+        });
+    }
+
+    document.getElementById('login-form').onsubmit = async (e) => {
         e.preventDefault();
-        // Simular login exitoso
-        actualizar_interfaz_usuario();
-        mostrar_layout('app');
+        
+        const email = document.getElementById('login-email').value;
+        const password = document.getElementById('login-password').value;
+        const role = AppState.rolActual;
+        const errorMsgEl = document.getElementById('login-error-msg');
+        
+        // Ocultar mensaje previo
+        errorMsgEl.classList.add('d-none');
+
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email, password, role })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                AppState.usuarioActual = data.user_data;
+                actualizar_interfaz_usuario();
+                mostrar_layout('app');
+            } else {
+                const errorData = await response.json();
+                errorMsgEl.textContent = `Error: ${errorData.detail || 'Credenciales incorrectas'}`;
+                errorMsgEl.classList.remove('d-none');
+            }
+        } catch (error) {
+            console.error('Error durante el inicio de sesión:', error);
+            errorMsgEl.textContent = 'Error de conexión con el servidor.';
+            errorMsgEl.classList.remove('d-none');
+        }
     };
 
     // Eventos de Registro de Paciente
@@ -194,13 +268,36 @@ function configurar_login() {
     }
 
     if (registerForm) {
-        registerForm.onsubmit = (e) => {
+        registerForm.onsubmit = async (e) => {
             e.preventDefault();
-            // Simulación de registro
+            
             const nombre = document.getElementById('reg-name').value;
-            alert(`¡Bienvenido, ${nombre}! Tu cuenta de paciente ha sido creada con éxito. Ahora puedes iniciar sesión.`);
-            bootstrap.Modal.getInstance(registerModalEl).hide();
-            registerForm.reset();
+            const dni = document.getElementById('reg-dni').value;
+            const telefono = document.getElementById('reg-phone').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ nombre, dni, telefono, email, password })
+                });
+
+                if (response.ok) {
+                    alert(`¡Bienvenido, ${nombre}! Tu cuenta de paciente ha sido creada con éxito. Ahora puedes iniciar sesión.`);
+                    bootstrap.Modal.getInstance(registerModalEl).hide();
+                    registerForm.reset();
+                } else {
+                    const errorData = await response.json();
+                    alert(`Error al registrar: ${errorData.detail || 'Por favor verifica los datos.'}`);
+                }
+            } catch (error) {
+                console.error('Error durante el registro:', error);
+                alert('Error de conexión con el servidor al registrar.');
+            }
         };
     }
 }
@@ -209,31 +306,58 @@ function actualizar_interfaz_usuario() {
     const name = document.getElementById('global-user-name');
     const roleLab = document.getElementById('global-user-role');
 
-    if (AppState.rolActual === 'doctor') {
-        name.textContent = "Dra. Eleanor Vance";
-        roleLab.textContent = "Neuróloga Senior";
-    } else if (AppState.rolActual === 'admin') {
-        name.textContent = "Control de Admin";
-        roleLab.textContent = "Administrador Clínico";
+    if (AppState.usuarioActual) {
+        name.textContent = AppState.usuarioActual.nombre || AppState.usuarioActual.email;
+        
+        const rolesMap = {
+            'patient': 'Paciente',
+            'doctor': AppState.usuarioActual.especialidad ? `Médico - ${AppState.usuarioActual.especialidad}` : 'Médico',
+            'admin': 'Administrador'
+        };
+        roleLab.textContent = rolesMap[AppState.usuarioActual.rol] || 'Usuario';
     } else {
-        name.textContent = "Alex Thompson";
-        roleLab.textContent = "Paciente";
+        name.textContent = "Usuario Desconocido";
+        roleLab.textContent = "Sin Rol";
     }
 }
 
 function configurar_perfil() {
     const profileForm = document.getElementById('profile-form');
     if (profileForm) {
-        profileForm.onsubmit = (e) => {
+        profileForm.onsubmit = async (e) => {
             e.preventDefault();
-            const nuevoNombre = document.getElementById('profile-name').value;
-            // Simular guardado
-            alert("¡Perfil actualizado con éxito!");
-            // Actualizar nombre en la interfaz global si es el paciente
-            if (AppState.rolActual === 'patient') {
-                document.getElementById('global-user-name').textContent = nuevoNombre;
+            
+            const data = {
+                nombre: document.getElementById('profile-name').value,
+                email: document.getElementById('profile-email').value,
+                telefono: document.getElementById('profile-phone').value,
+                direccion: document.getElementById('profile-address').value,
+                grupo_sanguineo: document.getElementById('profile-blood').value,
+                alergias: document.getElementById('profile-allergies').value
+            };
+
+            try {
+                const response = await fetch(`/api/profile/${AppState.usuarioActual.id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    alert("¡Perfil actualizado con éxito!");
+                    // Actualizar nombre en la interfaz global
+                    document.getElementById('global-user-name').textContent = data.nombre;
+                    // Cerrar modal
+                    const modalEl = document.getElementById('profileModal');
+                    const modal = bootstrap.Modal.getInstance(modalEl);
+                    if (modal) modal.hide();
+                } else {
+                    alert("Error al actualizar el perfil.");
+                }
+            } catch (error) {
+                console.error("Error al actualizar perfil:", error);
+                alert("Error de conexión al guardar el perfil.");
             }
-            bootstrap.Modal.getInstance(document.getElementById('profileModal')).hide();
         };
     }
 }

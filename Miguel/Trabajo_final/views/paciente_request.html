@@ -15,17 +15,17 @@
             <h6 class="fw-bold mb-3 text-uppercase small text-muted">1. Motivo de la Visita</h6>
             <div class="d-flex gap-3 mb-4">
                 <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer border-primary bg-primary bg-opacity-10 transition">
-                    <input type="radio" name="visitType" class="d-none" checked>
+                    <input type="radio" name="visitType" value="Examen General" class="d-none" checked>
                     <i class="bi bi-person-check fs-4 text-primary d-block mb-1"></i>
                     <span class="fw-semibold text-primary">Examen General</span>
                 </label>
                 <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer text-muted transition hover-bg-light">
-                    <input type="radio" name="visitType" class="d-none">
+                    <input type="radio" name="visitType" value="Tratamiento" class="d-none">
                     <i class="bi bi-bandaid fs-4 d-block mb-1"></i>
                     <span class="fw-medium">Tratamiento</span>
                 </label>
                 <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer text-muted transition hover-bg-light">
-                    <input type="radio" name="visitType" class="d-none">
+                    <input type="radio" name="visitType" value="Operación" class="d-none">
                     <i class="bi bi-heart-pulse fs-4 d-block mb-1"></i>
                     <span class="fw-medium">Operación</span>
                 </label>
@@ -37,25 +37,25 @@
                     <label class="form-label small fw-medium text-muted">Seleccionar Fecha</label>
                     <div class="input-group">
                         <span class="input-group-text bg-light border-end-0"><i class="bi bi-calendar-event text-muted"></i></span>
-                        <input type="date" class="form-control border-start-0" required>
+                        <input type="date" id="appointment-date" class="form-control border-start-0" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label class="form-label small fw-medium text-muted">Franja Horaria</label>
-                    <select class="form-select" required>
-                        <option>Mañana (08:00 - 12:00)</option>
-                        <option>Tarde (13:00 - 17:00)</option>
+                    <select id="appointment-time" class="form-select" required>
+                        <option value="08:00:00">Mañana (08:00 - 12:00)</option>
+                        <option value="13:00:00">Tarde (13:00 - 17:00)</option>
                     </select>
                 </div>
             </div>
 
             <h6 class="fw-bold mb-3 text-uppercase small text-muted">3. Síntomas / Notas</h6>
             <div class="mb-4">
-                <textarea class="form-control" rows="5" placeholder="Por favor, describe cualquier síntoma o preocupación adicional..." required></textarea>
+                <textarea id="appointment-symptoms" class="form-control" rows="5" placeholder="Por favor, describe cualquier síntoma o preocupación adicional..." required></textarea>
             </div>
 
             <div class="form-check form-switch bg-warning bg-opacity-10 border border-warning rounded-3 p-3 d-flex gap-3 align-items-center mb-4 ps-5">
-                <input class="form-check-input ms-0 me-3 mt-0" type="checkbox" id="flexSwitchCheckDefault" style="width: 2.5em; height: 1.25em;">
+                <input class="form-check-input ms-0 me-3 mt-0" type="checkbox" id="appointment-priority" style="width: 2.5em; height: 1.25em;">
                 <div>
                     <h6 class="mb-0 fw-bold text-dark">Marcar como Prioridad Alta</h6>
                     <span class="small text-muted">Usa esto SOLO para casos clínicos urgentes.</span>

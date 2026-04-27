@@ -28,6 +28,7 @@
     
     <!-- FullCalendar 6 -->
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.11/index.global.min.js'></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -62,13 +63,15 @@
                             Admin</button>
                     </div>
 
+                    <h3 id="login-error-msg" class="text-danger d-none mb-3 fs-5"></h3>
+
                     <form id="login-form">
                         <div class="mb-3 text-start">
                             <label class="form-label small fw-semibold text-muted">Correo electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-envelope text-muted"></i></span>
-                                <input type="email" class="form-control border-start-0 ps-0"
-                                    placeholder="user@clinical.com" value="user@clinical.com" required>
+                                <input type="email" id="login-email" class="form-control border-start-0 ps-0"
+                                    placeholder="user@clinical.com" value="" required>
                             </div>
                         </div>
 
@@ -80,9 +83,9 @@
                             </div>
                             <div class="input-group">
                                 <span class="input-group-text bg-white"><i class="bi bi-lock text-muted"></i></span>
-                                <input type="password" class="form-control border-start-0 ps-0 border-end-0"
-                                    placeholder="••••••••" value="••••••••" required>
-                                <span class="input-group-text bg-white"><i
+                                <input type="password" id="login-password" class="form-control border-start-0 ps-0 border-end-0"
+                                    placeholder="••••••••" value="" required>
+                                <span class="input-group-text bg-white" id="toggle-login-password" style="cursor: pointer"><i
                                         class="bi bi-eye-slash text-muted"></i></span>
                             </div>
                         </div>
@@ -102,9 +105,9 @@
         </div>
 
         <!-- 2. Layout de Aplicación (Master Layout) -->
-        <div id="layout-app" class="dashboard-layout fade-in d-none">
+        <div id="layout-app" class="dashboard-layout fade-in d-none ">
             <!-- Sidebar Común -->
-            <aside class="sidebar glass-card d-flex flex-column pt-4 pb-4 vw-20">
+            <aside class="sidebar glass-card d-flex flex-column pt-4 pb-4">
                 <div class="px-4 d-flex align-items-center mb-5 text-primary">
                     <div>
                         <h3 class="mb-0 fw-bold">Clinica y Funeraria Rodriguez</h3>
@@ -149,7 +152,7 @@
                 </header>
 
                 <!-- Área donde se cargan las vistas -->
-                <div id="view-container" class="mt-2 vh-100 overflow-auto"></div>
+                <div id="view-container" class="mt-2 flex-grow-1"></div>
             </main>
         </div>
     </div>
@@ -263,6 +266,23 @@
                 </div>
                 <div class="modal-body p-4" id="modal-report-body">
                     <!-- Se inyectará el contenido dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Selección de Médico -->
+    <div class="modal fade" id="modalSeleccionarMedico" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold">Asignar Médico</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <p class="text-muted small mb-4">Selecciona el profesional médico que atenderá esta consulta.</p>
+                    <div class="list-group list-group-flush" id="lista-medicos-seleccion">
+                        <!-- Los médicos se cargarán dinámicamente aquí -->
+                    </div>
                 </div>
             </div>
         </div>
