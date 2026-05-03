@@ -33,6 +33,7 @@ function adjuntar_eventos_admin(viewId) {
                 document.getElementById('doctor-form').reset();
                 document.getElementById('edit-index').value = "";
                 document.getElementById('modalTitle').textContent = "Añadir Nuevo Médico";
+                document.getElementById('doctor-password').required = true;
                 new bootstrap.Modal(modalEl).show();
             };
         }
@@ -54,35 +55,34 @@ function adjuntar_eventos_admin(viewId) {
 
                 console.log("Datos a enviar:", data);
 
-                if (editIndex === "") {
-                    try {
-                        const response = await fetch('/api/doctors', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data)
-                        });
+                try {
+                    const url = editIndex === "" ? '/api/doctors' : `/api/doctors/${editIndex}`;
+                    const method = editIndex === "" ? 'POST' : 'PUT';
 
-                        const result = await response.json();
+                    const response = await fetch(url, {
+                        method: method,
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(data)
+                    });
 
-                        if (response.ok) {
-                            alert("¡Médico añadido con éxito!");
-                            const modalEl = document.getElementById('doctorModal');
-                            const modal = bootstrap.Modal.getInstance(modalEl);
-                            if (modal) modal.hide();
+                    const result = await response.json();
 
-                            // Limpiar formulario y recargar tabla
-                            docForm.reset();
-                            renderizar_tabla_medicos();
-                            cargar_especialidades_filtro();
-                        } else {
-                            alert(`Error del servidor: ${result.detail || 'Desconocido'}`);
-                        }
-                    } catch (error) {
-                        console.error("Error en la petición POST /api/doctors:", error);
-                        alert("Error de conexión al intentar añadir el médico.");
+                    if (response.ok) {
+                        alert(editIndex === "" ? "¡Médico añadido con éxito!" : "¡Médico actualizado con éxito!");
+                        const modalEl = document.getElementById('doctorModal');
+                        const modal = bootstrap.Modal.getInstance(modalEl);
+                        if (modal) modal.hide();
+
+                        // Limpiar formulario y recargar tabla
+                        docForm.reset();
+                        renderizar_tabla_medicos();
+                        cargar_especialidades_filtro();
+                    } else {
+                        alert(`Error del servidor: ${result.detail || 'Desconocido'}`);
                     }
-                } else {
-                    alert("Edición no implementada aún.");
+                } catch (error) {
+                    console.error(`Error en la petición ${editIndex === "" ? 'POST' : 'PUT'} /api/doctors:`, error);
+                    alert("Error de conexión al intentar procesar la solicitud.");
                 }
             };
         }
@@ -119,21 +119,24 @@ function inicializar_calendario_admin() {
         slotLabelInterval: '01:00:00',
         allDaySlot: false,
         height: 'auto',
+        datesSet: function (info) {
+            actualizar_indice_ocupacion(info.start, info.end);
+        },
         slotLabelFormat: {
             hour: '2-digit',
             minute: '2-digit',
             hour12: false
         },
-        events: async function(info, successCallback, failureCallback) {
+        events: async function (info, successCallback, failureCallback) {
             try {
                 const response = await fetch('/api/appointments');
                 const data = await response.json();
-                
+
                 const events = data.map(c => {
                     const start = new Date(c.fecha_hora);
                     const duracionHoras = duraciones[c.motivo] || 1;
                     const end = new Date(start.getTime() + duracionHoras * 60 * 60 * 1000);
-                    
+
                     return {
                         id: c.id,
                         title: `${c.paciente_nombre} - ${c.medico_nombre}`,
@@ -151,7 +154,7 @@ function inicializar_calendario_admin() {
                 failureCallback(error);
             }
         },
-        eventDidMount: function(info) {
+        eventDidMount: function (info) {
             // Añadir tooltip o info extra si se desea
             if (info.event.extendedProps.description) {
                 info.el.title = info.event.extendedProps.description;
@@ -160,7 +163,7 @@ function inicializar_calendario_admin() {
     });
 
     calendar.render();
-    
+
     // Guardar referencia en el window para poder recargar
     window.adminCalendar = calendar;
 }
@@ -227,14 +230,14 @@ async function abrir_seleccion_medico(appointmentId) {
     const modalEl = document.getElementById('modalSeleccionarMedico');
     const container = document.getElementById('lista-medicos-seleccion');
     const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
-    
+
     container.innerHTML = '<div class="text-center p-3"><div class="spinner-border spinner-border-sm text-primary" role="status"></div></div>';
     modal.show();
 
     try {
         const response = await fetch('/api/doctors');
         const medicos = await response.json();
-        
+
         container.innerHTML = '';
         medicos.forEach(m => {
             const btn = document.createElement('button');
@@ -283,7 +286,7 @@ async function procesar_aprobacion(appointmentId, medicoId) {
 
 async function procesar_rechazo(appointmentId) {
     if (!confirm("¿Estás seguro de que deseas rechazar esta solicitud?")) return;
-    
+
     try {
         const response = await fetch(`/api/appointments/${appointmentId}`, {
             method: 'PATCH',
@@ -343,8 +346,8 @@ async function renderizar_tabla_medicos(filtroTexto = '', filtroEspecialidad = '
                     'bg-danger-subtle text-danger'
                 }`;
 
-            clone.querySelector('.btn-edit').onclick = () => alert("Edición pendiente");
-            clone.querySelector('.btn-delete').onclick = () => alert("Eliminación pendiente");
+            clone.querySelector('.btn-edit').onclick = () => preparar_edicion_medico(m);
+            clone.querySelector('.btn-delete').onclick = () => eliminar_medico(m.id);
 
             tbody.appendChild(clone);
         });
@@ -406,5 +409,111 @@ async function cargar_especialidades_filtro() {
         filterSelect.value = currentVal;
     } catch (error) {
         console.error("Error al cargar especialidades para el filtro:", error);
+    }
+}
+
+function preparar_edicion_medico(m) {
+    const modalEl = document.getElementById('doctorModal');
+    document.body.appendChild(modalEl);
+    document.getElementById('doctor-form').reset();
+
+    document.getElementById('edit-index').value = m.id;
+    document.getElementById('modalTitle').textContent = "Editar Médico: " + m.nombre;
+
+    document.getElementById('doctor-name').value = m.nombre;
+    document.getElementById('doctor-specialty').value = m.especialidad;
+    document.getElementById('doctor-status').value = m.estado;
+    document.getElementById('doctor-email').value = m.email;
+    document.getElementById('doctor-password').value = ""; // Opcional en edición
+    document.getElementById('doctor-password').required = false;
+
+    new bootstrap.Modal(modalEl).show();
+}
+
+async function eliminar_medico(id) {
+    if (!confirm("¿Estás seguro de que deseas eliminar a este médico? Esta acción no se puede deshacer.")) return;
+
+    try {
+        const response = await fetch(`/api/doctors/${id}`, {
+            method: 'DELETE'
+        });
+
+        if (response.ok) {
+            alert("Médico eliminado correctamente.");
+            renderizar_tabla_medicos();
+            cargar_especialidades_filtro();
+        } else {
+            const err = await response.json();
+            alert("Error al eliminar médico: " + (err.detail || "Error desconocido"));
+        }
+    } catch (error) {
+        console.error("Error al eliminar médico:", error);
+        alert("Error de conexión.");
+    }
+}
+
+async function actualizar_indice_ocupacion(start, end) {
+    const percEl = document.getElementById('occupancy-percentage');
+    const barEl = document.getElementById('occupancy-bar');
+    if (!percEl || !barEl) return;
+
+    try {
+        const responseDocs = await fetch('/api/doctors');
+        const medicos = await responseDocs.json();
+        const numMedicos = medicos.filter(m => m.estado === 'Activo').length || 1;
+
+        const responseApps = await fetch('/api/appointments');
+        const citas = await responseApps.json();
+
+        const duraciones = {
+            'Examen General': 1,
+            'Tratamiento': 2,
+            'Operacion': 4
+        };
+
+        let horasOcupadas = 0;
+        citas.forEach(c => {
+            if (c.estado !== 'Rechazada' && c.estado !== 'Cancelado') {
+                const fechaCita = new Date(c.fecha_hora);
+                if (fechaCita >= start && fechaCita < end) {
+                    horasOcupadas += duraciones[c.motivo] || 1;
+                }
+            }
+        });
+
+        // Calculamos los días laborables en el rango mostrado
+        let diasLaborables = 0;
+        let curr = new Date(start);
+        while (curr < end) {
+            if (curr.getDay() !== 0 && curr.getDay() !== 6) { // No Sáb/Dom
+                diasLaborables++;
+            }
+            curr.setDate(curr.getDate() + 1);
+        }
+
+        // Si la vista es de mes, FullCalendar a veces incluye días de meses adyacentes.
+        // Pero para el cálculo semanal (timeGridWeek), diasLaborables será 5 o 7.
+        // Ajustamos la capacidad: 12h al día (8-20h)
+        const capacidadTotal = diasLaborables * 12 * numMedicos;
+        const porcentaje = capacidadTotal > 0 ? Math.min(Math.round((horasOcupadas / capacidadTotal) * 100), 100) : 0;
+
+        percEl.textContent = `${porcentaje}%`;
+        barEl.style.width = `${porcentaje}%`;
+
+        // Cambiar color según ocupación
+        barEl.className = 'progress-bar';
+        if (porcentaje > 80) {
+            barEl.classList.add('bg-danger');
+            percEl.className = 'fw-bold text-danger mb-1';
+        } else if (porcentaje > 50) {
+            barEl.classList.add('bg-warning');
+            percEl.className = 'fw-bold text-warning mb-1';
+        } else {
+            barEl.classList.add('bg-primary');
+            percEl.className = 'fw-bold text-primary mb-1';
+        }
+
+    } catch (error) {
+        console.error("Error al calcular ocupación:", error);
     }
 }

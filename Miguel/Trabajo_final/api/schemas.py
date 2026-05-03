@@ -52,9 +52,16 @@ class DoctorResponse(BaseModel):
     estado: str
     fecha: str # Usaremos string para simplificar el envío desde la BD
 
+class DoctorUpdate(BaseModel):
+    nombre: str
+    especialidad: str
+    email: str
+    password: Optional[str] = None
+    estado: str
+
 class AppointmentCreate(BaseModel):
     paciente_id: int
-    medico_id: int
+    medico_id: Optional[int] = None
     fecha_hora: str
     motivo: str
     sintomas: Optional[str] = None
@@ -63,3 +70,24 @@ class AppointmentCreate(BaseModel):
 class AppointmentUpdate(BaseModel):
     estado: str
     medico_id: Optional[int] = None
+
+class PatientReportCreate(BaseModel):
+    cita_id: int
+    paciente_id: Optional[int] = None
+    vitals_altura: int
+    vitals_peso: int
+    vitals_respiracion: int
+    vitals_presion: str
+    observaciones: str
+
+class PatientReportResponse(BaseModel):
+    id: int
+    paciente_id: int
+    cita_id: Optional[int] = None
+    vitals_altura: int
+    vitals_peso: int
+    vitals_respiracion: int
+    vitals_presion: str
+    observaciones: str
+    fecha_cita: str
+    medico_nombre: str

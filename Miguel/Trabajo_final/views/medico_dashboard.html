@@ -2,8 +2,16 @@
 <div class="fade-in h-100">
     <div class="row align-items-center mb-4">
         <div class="col-md-10">
-            <h3 class="fw-bold mb-0" id="fecha-actual">Lunes, 24 de Octubre</h3>
-            <p class="text-muted mb-0" id="resumen-citas">Tienes 8 citas programadas para hoy. 2 se han completado, 1 está en progreso y 5 listas para registro.</p>
+            <div class="d-flex align-items-center gap-3 mb-1">
+                <button class="btn btn-light border shadow-sm rounded-circle" id="btn-prev-day">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+                <h3 class="fw-bold mb-0 text-capitalize" id="fecha-actual">Cargando fecha...</h3>
+                <button class="btn btn-light border shadow-sm rounded-circle" id="btn-next-day">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+            <p class="text-muted mb-0" id="resumen-citas">Tienes 0 citas programadas para hoy.</p>
         </div>
     </div>
 
@@ -46,6 +54,18 @@
     </div>
 </div>
 
+<!-- Template para Ítem de Agenda -->
+<template id="template-item-agenda">
+    <div class="border rounded-4 p-3 bg-white transition-hover agenda-item">
+        <div class="d-flex justify-content-between mb-2">
+            <span class="badge rounded-pill px-3 py-1 fw-bold item-hora"></span>
+            <span class="small text-muted fw-bold item-viendo d-none">Viendo</span>
+        </div>
+        <h6 class="mb-1 fw-bold item-paciente"></h6>
+        <p class="small text-muted mb-0 item-motivo"></p>
+    </div>
+</template>
+
 <!-- Template para el Informe del Paciente -->
 <template id="template-informe-paciente">
     <div class="d-flex justify-content-between align-items-start border-bottom pb-4 mb-4">
@@ -53,7 +73,6 @@
             <div>
                 <h2 class="fw-bold mb-1 t-nombre-paciente"></h2>
                 <div class="d-flex gap-3">
-                    <span class="badge bg-light text-muted border px-2 py-1 t-info-genero-edad"></span>
                     <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1 t-info-sangre"></span>
                 </div>
             </div>
@@ -62,8 +81,6 @@
             <button class="btn btn-outline-primary border rounded-pill px-3 py-2 fw-bold shadow-sm d-flex align-items-center gap-2 t-btn-editar-informe">
                 <i class="bi bi-pencil-square"></i> Editar Informe
             </button>
-            <button class="btn btn-light border rounded-circle p-2 text-primary shadow-sm"><i class="bi bi-telephone fs-5 px-1"></i></button>
-            <button class="btn btn-light border rounded-circle p-2 text-primary shadow-sm"><i class="bi bi-chat-dots fs-5 px-1"></i></button>
         </div>
     </div>
 
@@ -111,20 +128,19 @@
              <p class="text-muted small mb-0 t-observaciones-paciente"></p>
          </div>
          <div class="d-flex justify-content-end gap-3 mt-4">
-             <button class="btn btn-outline-secondary px-4 py-2 fw-bold">Guardar como Borrador</button>
-             <button class="btn btn-primary px-4 py-2 fw-bold shadow-sm">Firmar y Finalizar Chequeo <i class="bi bi-check2-circle ms-2"></i></button>
+             <button class="btn btn-danger px-4 py-2 fw-bold shadow-sm t-btn-cancelar-cita">Cancelar Cita</button>
+             <button class="btn btn-primary px-4 py-2 fw-bold shadow-sm t-btn-finalizar-chequeo">Firmar y Finalizar Chequeo <i class="bi bi-check2-circle ms-2"></i></button>
          </div>
     </div>
 </template>
 
-<!-- Template para el Formulario de Informe (Migrado de medico_informes.html) -->
+<!-- Template para el Formulario de Informe -->
 <template id="template-formulario-informe">
     <div class="d-flex justify-content-between align-items-start border-bottom pb-4 mb-4">
         <div class="d-flex gap-4 align-items-center">
             <div>
                 <h2 class="fw-bold mb-1 t-nombre-paciente"></h2>
                 <div class="d-flex gap-3">
-                    <span class="badge bg-light text-muted border px-2 py-1 t-info-genero-edad"></span>
                     <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1 t-info-sangre"></span>
                 </div>
             </div>
@@ -187,5 +203,3 @@
         </div>
     </form>
 </template>
-
-

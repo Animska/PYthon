@@ -2,90 +2,80 @@
  * medico.js - Lógica específica para el rol de Médico
  */
 
-// Datos Mock de Citas y Pacientes
-const citasMock = [
-    {
-        id: 1,
-        paciente: "Alex Thompson",
-        hora: "10:00 AM",
-        motivo: "Seguimiento Neurológico",
-        estado: "Activo",
-        genero: "Hombre",
-        edad: 32,
-        sangre: "O+ Positivo",
-        alergias: "Polen, Penicilina",
-        vitals: { altura: 182, peso: 78, respiracion: 16, presion: "120/80" },
-        observaciones: "El paciente muestra una mejora significativa en la movilidad después de la sesión de fisioterapia. La medicación Lisinopril 10mg se está tolerando bien."
-    },
-    {
-        id: 2,
-        paciente: "Sarah Jenkins",
-        hora: "11:30 AM",
-        motivo: "Consulta de Migraña",
-        estado: "Pendiente",
-        genero: "Mujer",
-        edad: 28,
-        sangre: "A- Negativo",
-        alergias: "Nueces, Aspirina",
-        vitals: { altura: 165, peso: 55, respiracion: 18, presion: "110/70" },
-        observaciones: "Migrañas recurrentes en la zona frontal. Se recomienda llevar un diario de cefaleas y reducir el consumo de cafeína."
-    },
-    {
-        id: 3,
-        paciente: "Marcus Holloway",
-        hora: "12:15 PM",
-        motivo: "Chequeo Post-operatorio",
-        estado: "Pendiente",
-        genero: "Hombre",
-        edad: 45,
-        sangre: "B+ Positivo",
-        alergias: "Ninguna conocida",
-        vitals: { altura: 178, peso: 82, respiracion: 14, presion: "130/85" },
-        observaciones: "Recuperación favorable tras la cirugía de rodilla. La inflamación ha disminuido un 40%."
-    },
-    {
-        id: 4,
-        paciente: "Elena Rodríguez",
-        hora: "01:00 PM",
-        motivo: "Control de Diabetes",
-        estado: "Completado",
-        genero: "Mujer",
-        edad: 52,
-        sangre: "O- Negativo",
-        alergias: "Látex",
-        vitals: { altura: 160, peso: 68, respiracion: 16, presion: "125/82" },
-        observaciones: "Niveles de glucosa estables. Se ajusta la dosis de insulina basal según los nuevos resultados de laboratorio."
-    }
-];
-
-let citaSeleccionadaId = 1;
+let citaSeleccionadaId = null;
+let fechaSeleccionada = new Date();
+let citasActuales = [];
 
 function adjuntar_eventos_medico(viewId) {
     if (viewId === 'view-doctor-dashboard') {
-        renderizar_agenda();
+        const btnPrev = document.getElementById('btn-prev-day');
+        const btnNext = document.getElementById('btn-next-day');
+
+        if (btnPrev) {
+            btnPrev.onclick = () => {
+                fechaSeleccionada.setDate(fechaSeleccionada.getDate() - 1);
+                cargar_dashboard_medico();
+            };
+        }
+
+        if (btnNext) {
+            btnNext.onclick = () => {
+                fechaSeleccionada.setDate(fechaSeleccionada.getDate() + 1);
+                cargar_dashboard_medico();
+            };
+        }
+
         configurar_busqueda();
-        
-        // Mostrar el primero por defecto si existe
-        if (citasMock.length > 0) {
-            mostrar_detalle_paciente(citasMock[0].id);
+        cargar_dashboard_medico();
+    }
+}
+
+async function cargar_dashboard_medico() {
+    const medicoId = AppState.usuarioActual.medico_id;
+    const fechaStr = fechaSeleccionada.toISOString().split('T')[0];
+    
+    // Actualizar texto de fecha en la UI
+    const options = { weekday: 'long', day: 'numeric', month: 'long' };
+    const fechaTexto = fechaSeleccionada.toLocaleDateString('es-ES', options);
+    const fechaEl = document.getElementById('fecha-actual');
+    if (fechaEl) fechaEl.innerText = fechaTexto;
+
+    const contenedor = document.getElementById('contenedor-agenda');
+    const resumenEl = document.getElementById('resumen-citas');
+
+    try {
+        const response = await fetch(`/api/appointments/doctor/${medicoId}?fecha=${fechaStr}`);
+        citasActuales = await response.json();
+
+        if (resumenEl) {
+            resumenEl.innerText = `Tienes ${citasActuales.length} citas programadas para hoy.`;
         }
-    } else if (viewId === 'view-doctor-reports') {
-        renderizar_lista_pacientes_informes();
-        configurar_busqueda_informes();
-        
-        // Mostrar el primero por defecto si existe
-        if (citasMock.length > 0) {
-            mostrar_formulario_informe(citasMock[0].id);
+
+        renderizar_agenda();
+
+        // Mostrar el primero por defecto si hay citas y no hay ninguna seleccionada
+        if (citasActuales.length > 0 && !citaSeleccionadaId) {
+            mostrar_detalle_paciente(citasActuales[0].id);
+        } else if (citasActuales.length === 0) {
+            const detalleVacio = document.getElementById('detalle-paciente-vacio');
+            const detalleContenido = document.getElementById('detalle-paciente-contenido');
+            if (detalleVacio) detalleVacio.classList.remove('d-none');
+            if (detalleContenido) detalleContenido.classList.add('d-none');
+            citaSeleccionadaId = null;
         }
+    } catch (error) {
+        console.error("Error al cargar agenda del médico:", error);
+        if (contenedor) contenedor.innerHTML = '<div class="alert alert-danger">Error al cargar la agenda.</div>';
     }
 }
 
 function renderizar_agenda(filtro = '') {
     const contenedor = document.getElementById('contenedor-agenda');
-    if (!contenedor) return;
+    const template = document.getElementById('template-item-agenda');
+    if (!contenedor || !template) return;
 
-    const citasFiltradas = citasMock.filter(c => 
-        c.paciente.toLowerCase().includes(filtro.toLowerCase()) || 
+    const citasFiltradas = citasActuales.filter(c => 
+        c.paciente_nombre.toLowerCase().includes(filtro.toLowerCase()) || 
         c.motivo.toLowerCase().includes(filtro.toLowerCase())
     );
 
@@ -94,29 +84,35 @@ function renderizar_agenda(filtro = '') {
         return;
     }
 
-    contenedor.innerHTML = citasFiltradas.map(cita => {
+    contenedor.innerHTML = '';
+    citasFiltradas.forEach(cita => {
         const isActive = cita.id === citaSeleccionadaId;
-        const statusBadgeClass = cita.estado === 'Activo' ? 'bg-primary bg-opacity-10 text-primary' : 'bg-light text-muted';
-        const borderClass = isActive ? 'border-primary border-start border-4 shadow-sm' : 'border-light cursor-pointer transition-hover';
+        const hora = new Date(cita.fecha_hora).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
         
-        return `
-            <div class="border rounded-4 p-3 bg-white ${borderClass} agenda-item" data-id="${cita.id}">
-                <div class="d-flex justify-content-between mb-2">
-                    <span class="badge ${statusBadgeClass} rounded-pill px-3 py-1 fw-bold">${cita.hora}</span>
-                    ${isActive ? '<span class="small text-muted fw-bold">Activo</span>' : ''}
-                </div>
-                <h6 class="mb-1 fw-bold">${cita.paciente}</h6>
-                <p class="small text-muted mb-0">${cita.motivo}</p>
-            </div>
-        `;
-    }).join('');
+        const clone = template.content.cloneNode(true);
+        const itemDiv = clone.querySelector('.agenda-item');
+        
+        itemDiv.dataset.id = cita.id;
+        clone.querySelector('.item-hora').innerText = hora;
+        clone.querySelector('.item-paciente').innerText = cita.paciente_nombre;
+        clone.querySelector('.item-motivo').innerText = cita.motivo;
+        
+        const badge = clone.querySelector('.item-hora');
+        if (cita.estado === 'Aceptada') badge.classList.add('bg-primary', 'bg-opacity-10', 'text-primary');
+        else if (cita.estado === 'Completado') badge.classList.add('bg-success', 'bg-opacity-10', 'text-success');
+        else if (cita.estado === 'Cancelado') badge.classList.add('bg-danger', 'bg-opacity-10', 'text-danger');
+        else badge.classList.add('bg-light', 'text-muted');
 
-    // Adjuntar eventos de clic
-    contenedor.querySelectorAll('.agenda-item').forEach(item => {
-        item.onclick = () => {
-            const id = parseInt(item.dataset.id);
-            mostrar_detalle_paciente(id);
-        };
+        if (isActive) {
+            itemDiv.classList.add('border-primary', 'border-start', 'border-4', 'shadow-sm');
+            clone.querySelector('.item-viendo').classList.remove('d-none');
+        } else {
+            itemDiv.classList.add('border-light', 'cursor-pointer');
+        }
+
+        itemDiv.onclick = () => mostrar_detalle_paciente(cita.id);
+        
+        contenedor.appendChild(clone);
     });
 }
 
@@ -130,65 +126,111 @@ function configurar_busqueda() {
 }
 
 function mostrar_detalle_paciente(id) {
-    const cita = citasMock.find(c => c.id === id);
+    const cita = citasActuales.find(c => c.id === id);
     if (!cita) return;
 
     citaSeleccionadaId = id;
     
-    // Actualizar clases de la agenda para feedback visual
-    document.querySelectorAll('.agenda-item').forEach(item => {
-        const itemId = parseInt(item.dataset.id);
-        if (itemId === id) {
-            item.classList.add('border-primary', 'border-start', 'border-4', 'shadow-sm');
-            item.classList.remove('border-light', 'cursor-pointer', 'transition-hover');
-        } else {
-            item.classList.remove('border-primary', 'border-start', 'border-4', 'shadow-sm');
-            item.classList.add('border-light', 'cursor-pointer', 'transition-hover');
-        }
-    });
+    // Volver a renderizar la agenda para actualizar el estado "Viendo"
+    renderizar_agenda(document.getElementById('buscar-paciente')?.value || '');
 
     const contenedor = document.getElementById('detalle-paciente-contenido');
     const template = document.getElementById('template-informe-paciente');
     
     if (!contenedor || !template) return;
 
-    // Limpiar contenido anterior
     contenedor.innerHTML = '';
-    
-    // Clonar el template
     const clone = template.content.cloneNode(true);
     
-    // Rellenar los datos en el fragmento clonado usando las clases de plantilla
-    clone.querySelector('.t-nombre-paciente').textContent = cita.paciente;
-    clone.querySelector('.t-info-genero-edad').innerHTML = 
-        `<i class="bi bi-gender-${cita.genero === 'Hombre' ? 'male' : 'female'} me-1"></i> ${cita.genero}, ${cita.edad}`;
-    clone.querySelector('.t-info-sangre').innerHTML = 
-        `<i class="bi bi-droplet me-1"></i> ${cita.sangre}`;
-    clone.querySelector('.t-alergias-paciente').textContent = cita.alergias;
-    
-    clone.querySelector('.t-vital-altura').textContent = cita.vitals.altura;
-    clone.querySelector('.t-vital-peso').textContent = cita.vitals.peso;
-    clone.querySelector('.t-vital-respiracion').textContent = cita.vitals.respiracion;
-    clone.querySelector('.t-vital-presion').textContent = cita.vitals.presion;
-    
-    clone.querySelector('.t-observaciones-paciente').textContent = cita.observaciones;
+    // Helper para asignar texto de forma segura
+    const setTexto = (selector, texto) => {
+        const el = clone.querySelector(selector);
+        if (el) el.textContent = texto;
+    };
 
-    // Inyectar el fragmento en el DOM
-    contenedor.appendChild(clone);
+    const setHtml = (selector, html) => {
+        const el = clone.querySelector(selector);
+        if (el) el.innerHTML = html;
+    };
 
-    // Adjuntar evento al botón de editar informe
-    const btnEditar = contenedor.querySelector('.t-btn-editar-informe');
+    setTexto('.t-nombre-paciente', cita.paciente_nombre);
+    setHtml('.t-info-sangre', `<i class="bi bi-droplet me-1"></i> ${cita.grupo_sanguineo || 'N/A'}`);
+    setTexto('.t-alergias-paciente', cita.alergias || 'Ninguna conocida');
+    
+    setTexto('.t-vital-altura', cita.vitals_altura || '--');
+    setTexto('.t-vital-peso', cita.vitals_peso || '--');
+    setTexto('.t-vital-respiracion', cita.vitals_respiracion || '--');
+    setTexto('.t-vital-presion', cita.vitals_presion || '--/--');
+    
+    setTexto('.t-observaciones-paciente', cita.observaciones || 'Sin observaciones previas.');
+
+    // Adjuntar eventos a los botones del detalle
+    const btnCancelar = clone.querySelector('.t-btn-cancelar-cita');
+    if (btnCancelar) {
+        btnCancelar.onclick = () => cancelar_cita_medico(id);
+    }
+
+    const btnFinalizar = clone.querySelector('.t-btn-finalizar-chequeo');
+    if (btnFinalizar) {
+        // Ahora simplemente marca como completado sin abrir modal
+        btnFinalizar.onclick = () => finalizar_chequeo_directo(id);
+    }
+
+    const btnEditar = clone.querySelector('.t-btn-editar-informe');
     if (btnEditar) {
         btnEditar.onclick = () => abrir_modal_informe(id);
     }
 
-    // Gestionar visibilidad de los estados del panel
+    contenedor.appendChild(clone);
+
     document.getElementById('detalle-paciente-vacio').classList.add('d-none');
     contenedor.classList.remove('d-none');
 }
 
+async function cancelar_cita_medico(citaId) {
+    if (!confirm("¿Estás seguro de que deseas cancelar esta cita?")) return;
+
+    try {
+        const response = await fetch(`/api/appointments/${citaId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ estado: 'Cancelado' })
+        });
+
+        if (response.ok) {
+            alert("Cita cancelada correctamente.");
+            cargar_dashboard_medico();
+        } else {
+            alert("Error al cancelar la cita.");
+        }
+    } catch (error) {
+        console.error("Error al cancelar cita:", error);
+    }
+}
+
+async function finalizar_chequeo_directo(citaId) {
+    if (!confirm("¿Deseas dar por finalizado el chequeo y marcar la cita como completada?")) return;
+
+    try {
+        const response = await fetch(`/api/appointments/${citaId}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ estado: 'Completado' })
+        });
+
+        if (response.ok) {
+            alert("Cita marcada como completada.");
+            cargar_dashboard_medico();
+        } else {
+            alert("Error al finalizar la cita.");
+        }
+    } catch (error) {
+        console.error("Error al finalizar cita:", error);
+    }
+}
+
 function abrir_modal_informe(id) {
-    const cita = citasMock.find(c => c.id === id);
+    const cita = citasActuales.find(c => c.id === id);
     if (!cita) return;
 
     const modalBody = document.getElementById('modal-report-body');
@@ -196,66 +238,76 @@ function abrir_modal_informe(id) {
     
     if (!modalBody || !template) return;
 
-    // Limpiar contenido anterior
     modalBody.innerHTML = '';
-    
-    // Clonar el template
     const clone = template.content.cloneNode(true);
     
-    // Rellenar los datos
-    clone.querySelector('.t-nombre-paciente').textContent = cita.paciente;
-    clone.querySelector('.t-info-genero-edad').innerHTML = 
-        `<i class="bi bi-gender-${cita.genero === 'Hombre' ? 'male' : 'female'} me-1"></i> ${cita.genero}, ${cita.edad}`;
-    clone.querySelector('.t-info-sangre').innerHTML = 
-        `<i class="bi bi-droplet me-1"></i> ${cita.sangre}`;
-    clone.querySelector('.t-alergias-paciente').textContent = cita.alergias;
-    
-    // Rellenar inputs
-    clone.querySelector('.t-input-altura').value = cita.vitals.altura;
-    clone.querySelector('.t-input-peso').value = cita.vitals.peso;
-    clone.querySelector('.t-input-respiracion').value = cita.vitals.respiracion;
-    clone.querySelector('.t-input-presion').value = cita.vitals.presion;
-    
-    clone.querySelector('.t-textarea-observaciones').value = cita.observaciones;
-
-    // Manejar envío del formulario
-    const form = clone.querySelector('#form-actualizar-informe');
-    form.onsubmit = (e) => {
-        e.preventDefault();
-        
-        // Actualizar datos en citasMock
-        cita.vitals.altura = parseInt(form.querySelector('.t-input-altura').value);
-        cita.vitals.peso = parseInt(form.querySelector('.t-input-peso').value);
-        cita.vitals.respiracion = parseInt(form.querySelector('.t-input-respiracion').value);
-        cita.vitals.presion = form.querySelector('.t-input-presion').value;
-        cita.observaciones = form.querySelector('.t-textarea-observaciones').value;
-        
-        // Cerrar modal
-        const modalEl = document.getElementById('reportModal');
-        const modal = bootstrap.Modal.getInstance(modalEl);
-        if (modal) modal.hide();
-
-        // Refrescar detalle en el dashboard
-        mostrar_detalle_paciente(id);
-        
-        alert(`Informe de ${cita.paciente} actualizado con éxito.`);
+    const setVal = (selector, val) => {
+        const el = clone.querySelector(selector);
+        if (el) el.value = val;
     };
 
-    // Inyectar el fragmento en el modal
-    modalBody.appendChild(clone);
+    clone.querySelector('.t-nombre-paciente').textContent = cita.paciente_nombre;
+    const infoSangre = clone.querySelector('.t-info-sangre');
+    if (infoSangre) infoSangre.innerHTML = `<i class="bi bi-droplet me-1"></i> ${cita.grupo_sanguineo || 'N/A'}`;
+    
+    const alergias = clone.querySelector('.t-alergias-paciente');
+    if (alergias) alergias.textContent = cita.alergias || 'Ninguna conocida';
+    
+    setVal('.t-input-altura', cita.vitals_altura || '');
+    setVal('.t-input-peso', cita.vitals_peso || '');
+    setVal('.t-input-respiracion', cita.vitals_respiracion || '');
+    setVal('.t-input-presion', cita.vitals_presion || '');
+    setVal('.t-textarea-observaciones', cita.observaciones || '');
 
-    // Mostrar modal (Reutilizando instancia de Bootstrap si existe para evitar problemas de backdrop)
+    const form = clone.querySelector('#form-actualizar-informe');
+    form.onsubmit = async (e) => {
+        e.preventDefault();
+        
+        const reportData = {
+            cita_id: id,
+            vitals_altura: parseInt(form.querySelector('.t-input-altura').value),
+            vitals_peso: parseInt(form.querySelector('.t-input-peso').value),
+            vitals_respiracion: parseInt(form.querySelector('.t-input-respiracion').value),
+            vitals_presion: form.querySelector('.t-input-presion').value,
+            observaciones: form.querySelector('.t-textarea-observaciones').value
+        };
+
+        try {
+            // 1. Guardar el informe
+            const resReport = await fetch('/api/reports', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(reportData)
+            });
+
+            if (resReport.ok) {
+                // 2. Cambiar estado de la cita a Completado
+                await fetch(`/api/appointments/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ estado: 'Completado' })
+                });
+
+                alert("¡Chequeo finalizado e informe guardado con éxito!");
+                
+                const modalEl = document.getElementById('reportModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
+
+                cargar_dashboard_medico();
+            } else {
+                alert("Error al guardar el informe.");
+            }
+        } catch (error) {
+            console.error("Error al finalizar chequeo:", error);
+            alert("Error de conexión al finalizar el chequeo.");
+        }
+    };
+
+    modalBody.appendChild(clone);
     const modalEl = document.getElementById('reportModal');
+    document.body.appendChild(modalEl);
     let modal = bootstrap.Modal.getInstance(modalEl);
-    if (!modal) {
-        modal = new bootstrap.Modal(modalEl);
-    }
+    if (!modal) modal = new bootstrap.Modal(modalEl);
     modal.show();
 }
-
-
-// --- Lógica de Informes (OBSOLETO: Ahora integrado en Dashboard vía Modal) ---
-// Se han eliminado las funciones renderizar_lista_pacientes_informes, configurar_busqueda_informes y mostrar_formulario_informe
-// ya que la funcionalidad ahora reside en abrir_modal_informe dentro de la vista del dashboard.
-
-

@@ -10,17 +10,12 @@ const AppState = {
         'view-patient-dashboard': 'views/paciente_dashboard.html',
         'view-patient-request': 'views/paciente_request.html',
         'view-patient-calendar': 'views/paciente_calendar.html',
+        'view-patient-history': 'views/paciente_history.html',
         'view-doctor-dashboard': 'views/medico_dashboard.html',
         'view-admin-calendar': 'views/admin_calendar.html',
         'view-admin-manage-doctors': 'views/admin_manage_doctors.html'
-    },
-    // Datos Mock de Médicos
-    medicos: [
-        { id: 1, nombre: 'Dra. Eleanor Vance', especialidad: 'Neurología', email: 'e.vance@clinical.com', estado: 'Activo', fecha: '2023-01-15' },
-        { id: 2, nombre: 'Dr. Marcus Holloway', especialidad: 'Cardiología', email: 'm.holloway@clinical.com', estado: 'Activo', fecha: '2023-03-10' },
-        { id: 3, nombre: 'Dra. Sarah Jenkins', especialidad: 'Pediatría', email: 's.jenkins@clinical.com', estado: 'De Baja', fecha: '2022-11-20' },
-        { id: 4, nombre: 'Dr. Robert Chen', especialidad: 'Medicina General', email: 'r.chen@clinical.com', estado: 'Activo', fecha: '2023-05-04' }
-    ]
+    }
+
 };
 
 // --- Inicialización ---
@@ -78,6 +73,7 @@ async function navegar_a(viewId) {
             'view-patient-dashboard': 'Panel de Control',
             'view-patient-request': 'Solicitud de Consulta',
             'view-patient-calendar': 'Mi Calendario',
+            'view-patient-history': 'Historial Médico',
             'view-doctor-dashboard': 'Agenda Diaria',
             'view-admin-calendar': 'Calendario Global',
             'view-admin-manage-doctors': 'Gestión de Personal'
@@ -122,6 +118,7 @@ function inicializar_sidebar() {
             <a href="#" class="nav-link" data-view="view-patient-dashboard"><i class="bi bi-grid-1x2 me-2"></i> Dashboard</a>
             <a href="#" class="nav-link" data-view="view-patient-request"><i class="bi bi-plus-circle me-2"></i> Nueva Cita</a>
             <a href="#" class="nav-link" data-view="view-patient-calendar"><i class="bi bi-calendar4-event me-2"></i> Mi Calendario</a>
+            <a href="#" class="nav-link" data-view="view-patient-history"><i class="bi bi-clock-history me-2"></i> Historial Médico</a>
             <hr>
             <a href="#" class="nav-link text-muted" id="btn-open-profile"><i class="bi bi-person-gear me-2"></i> Ajustes de Perfil</a>
         `;
@@ -153,7 +150,7 @@ function inicializar_sidebar() {
     if (btnProfile) {
         btnProfile.onclick = async (e) => {
             e.preventDefault();
-            
+
             // Cargar datos reales si es un paciente
             if (AppState.rolActual === 'patient') {
                 try {
@@ -174,7 +171,9 @@ function inicializar_sidebar() {
                 }
             }
 
-            const profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+            const modalEl = document.getElementById('profileModal');
+            document.body.appendChild(modalEl);
+            const profileModal = new bootstrap.Modal(modalEl);
             profileModal.show();
         };
     }
@@ -183,10 +182,10 @@ function inicializar_sidebar() {
     document.getElementById('btn-global-logout').onclick = () => {
         const loginForm = document.getElementById('login-form');
         if (loginForm) loginForm.reset();
-        
+
         const errorMsgEl = document.getElementById('login-error-msg');
         if (errorMsgEl) errorMsgEl.classList.add('d-none');
-        
+
         mostrar_layout('auth');
     };
 }
@@ -209,7 +208,7 @@ function configurar_login() {
         togglePass.addEventListener('click', () => {
             const isPassword = passInput.type === 'password';
             passInput.type = isPassword ? 'text' : 'password';
-            
+
             // Cambiar icono
             const icon = togglePass.querySelector('i');
             icon.classList.toggle('bi-eye');
@@ -219,12 +218,12 @@ function configurar_login() {
 
     document.getElementById('login-form').onsubmit = async (e) => {
         e.preventDefault();
-        
+
         const email = document.getElementById('login-email').value;
         const password = document.getElementById('login-password').value;
         const role = AppState.rolActual;
         const errorMsgEl = document.getElementById('login-error-msg');
-        
+
         // Ocultar mensaje previo
         errorMsgEl.classList.add('d-none');
 
@@ -260,6 +259,7 @@ function configurar_login() {
     const registerForm = document.getElementById('register-patient-form');
 
     if (btnOpenRegister && registerModalEl) {
+        document.body.appendChild(registerModalEl);
         const modal = new bootstrap.Modal(registerModalEl);
         btnOpenRegister.onclick = (e) => {
             e.preventDefault();
@@ -270,7 +270,7 @@ function configurar_login() {
     if (registerForm) {
         registerForm.onsubmit = async (e) => {
             e.preventDefault();
-            
+
             const nombre = document.getElementById('reg-name').value;
             const dni = document.getElementById('reg-dni').value;
             const telefono = document.getElementById('reg-phone').value;
@@ -308,7 +308,7 @@ function actualizar_interfaz_usuario() {
 
     if (AppState.usuarioActual) {
         name.textContent = AppState.usuarioActual.nombre || AppState.usuarioActual.email;
-        
+
         const rolesMap = {
             'patient': 'Paciente',
             'doctor': AppState.usuarioActual.especialidad ? `Médico - ${AppState.usuarioActual.especialidad}` : 'Médico',
@@ -326,7 +326,7 @@ function configurar_perfil() {
     if (profileForm) {
         profileForm.onsubmit = async (e) => {
             e.preventDefault();
-            
+
             const data = {
                 nombre: document.getElementById('profile-name').value,
                 email: document.getElementById('profile-email').value,

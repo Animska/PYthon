@@ -5,8 +5,8 @@
             <i class="bi bi-arrow-left"></i>
         </button>
         <div>
-            <h3 class="fw-bold text-primary mb-1">Flujo de Solicitud de Consulta</h3>
-            <p class="text-muted mb-0">Configura la próxima sesión del paciente con Clinical Atelier.</p>
+            <h3 class="fw-bold text-primary mb-1">Solicitud de Consulta</h3>
+            <p class="text-muted mb-0">Configura la próxima sesión del paciente con nosotros.</p>
         </div>
     </div>
 
@@ -18,16 +18,19 @@
                     <input type="radio" name="visitType" value="Examen General" class="d-none" checked>
                     <i class="bi bi-person-check fs-4 text-primary d-block mb-1"></i>
                     <span class="fw-semibold text-primary">Examen General</span>
+                    <span class="text-muted small d-block">Duración: 30 Minutos</span>
                 </label>
                 <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer text-muted transition hover-bg-light">
                     <input type="radio" name="visitType" value="Tratamiento" class="d-none">
                     <i class="bi bi-bandaid fs-4 d-block mb-1"></i>
                     <span class="fw-medium">Tratamiento</span>
+                    <span class="text-muted small d-block">Duración: 1 Hora</span>
                 </label>
                 <label class="border rounded-3 p-3 flex-fill text-center cursor-pointer text-muted transition hover-bg-light">
                     <input type="radio" name="visitType" value="Operación" class="d-none">
                     <i class="bi bi-heart-pulse fs-4 d-block mb-1"></i>
                     <span class="fw-medium">Operación</span>
+                    <span class="text-muted small d-block">Duración: 2 Horas</span>
                 </label>
             </div>
 
@@ -43,8 +46,7 @@
                 <div class="col-md-6">
                     <label class="form-label small fw-medium text-muted">Franja Horaria</label>
                     <select id="appointment-time" class="form-select" required>
-                        <option value="08:00:00">Mañana (08:00 - 12:00)</option>
-                        <option value="13:00:00">Tarde (13:00 - 17:00)</option>
+                        <option value="" disabled selected>Selecciona una fecha primero</option>
                     </select>
                 </div>
             </div>
@@ -65,34 +67,7 @@
 
         <div class="col-md-5 d-flex flex-column">
             <div class="bg-light p-4 rounded-4 border flex-grow-1">
-                <div class="text-end mb-3">
-                    <span class="badge bg-white text-muted border px-2 py-1">Paso 3 de 3</span>
-                </div>
-                
-                <div class="text-center mb-4">
-                    <!-- Avatar eliminado -->
-                    <h5 class="fw-bold mb-0">Eleanor Vance</h5>
-                    <span class="small text-muted mb-2 d-block">Especialista en Neurología</span>
-                    <hr class="w-25 mx-auto">
-                </div>
-
-                <div class="d-flex justify-content-between small mb-2">
-                     <span class="text-muted">Última Visita</span>
-                     <span class="fw-bold text-dark">12 de Oct, 2023</span>
-                </div>
-                <div class="d-flex justify-content-between small mb-4">
-                     <span class="text-muted">Clínica Principal</span>
-                     <span class="fw-bold text-dark">Edificio Central, Planta 2</span>
-                </div>
-
-                <div class="alert alert-primary bg-primary bg-opacity-10 border-0 p-3 mb-4">
-                    <h6 class="fw-bold small mb-1">Recomendación del Sistema</h6>
-                    <p class="small mb-0 text-muted">Basado en tu historial, la Dra. Vance recomienda un Examen Especial antes de tu sesión de movilidad.</p>
-                </div>
-                
-                <div class="mt-auto">
-                     <button type="submit" class="btn btn-primary w-100 py-3 fw-bold shadow-sm">ENVIAR Solicitud de Consulta <i class="bi bi-arrow-right ms-2"></i></button>
-                </div>
+                <h2>Aqui va a haber un chat de IA puta madre</h2>
             </div>
         </div>
     </form>
