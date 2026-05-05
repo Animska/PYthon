@@ -1,7 +1,10 @@
 import logging
+import os
 import mysql.connector
 from mysql.connector import Error
-from .config import settings
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configuración de logging
 logging.basicConfig(level=logging.INFO)
@@ -11,10 +14,10 @@ def get_server_connection():
     """Establece conexión al servidor MySQL sin especificar la base de datos."""
     try:
         connection = mysql.connector.connect(
-            host=settings.db_host,
-            user=settings.db_user,
-            password=settings.db_password,
-            port=settings.db_port
+            host=os.getenv("DB_HOST"),
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            port=int(os.getenv("DB_PORT", 3306))
         )
         if connection.is_connected():
             return connection
@@ -28,8 +31,9 @@ def initialize_database():
     if connection:
         try:
             cursor = connection.cursor()
-            cursor.execute(f"CREATE DATABASE IF NOT EXISTS {settings.db_name}")
-            logger.info(f"Base de datos '{settings.db_name}' verificada/creada exitosamente.")
+            db_name = os.getenv("DB_NAME")
+            cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
+            logger.info(f"Base de datos '{db_name}' verificada/creada exitosamente.")
             cursor.close()
         except Error as e:
             logger.error(f"Error al inicializar la base de datos: {e}")
@@ -37,17 +41,46 @@ def initialize_database():
             connection.close()
 
 def get_db_connection():
-    """Devuelve una conexión a la base de datos de la clínica."""
+    db_name = os.getenv("DB_NAME")
     try:
         connection = mysql.connector.connect(
-            host=settings.db_host,
-            database=settings.db_name,
-            user=settings.db_user,
-            password=settings.db_password,
-            port=settings.db_port
+            host=os.getenv("DB_HOST"),
+            database=db_name,
+            user=os.getenv("DB_USER"),
+            password=os.getenv("DB_PASSWORD"),
+            port=int(os.getenv("DB_PORT", 3306))
         )
         if connection.is_connected():
             return connection
     except Error as e:
-        logger.error(f"Error al conectar a la base de datos '{settings.db_name}': {e}")
+        logger.error(f"Error al conectar la base de datos '{db_name}': {e}")
         return None
+
+from contextlib import contextmanager
+
+@contextmanager
+def get_db_cursor(dictionary=False, commit_on_success=False):
+    """
+    Gestor de contexto para manejar la conexión y el cursor de la BD automáticamente.
+    Maneja el commit, rollback y cierre de recursos.
+    """
+    connection = get_db_connection()
+    if not connection:
+        yield None
+        return
+
+    cursor = connection.cursor(dictionary=dictionary)
+    try:
+        if commit_on_success:
+            connection.start_transaction()
+        yield cursor
+        if commit_on_success:
+            connection.commit()
+    except Exception as e:
+        if commit_on_success:
+            connection.rollback()
+        raise e
+    finally:
+        if connection.is_connected():
+            cursor.close()
+            connection.close()

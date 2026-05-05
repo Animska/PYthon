@@ -7,14 +7,15 @@
          </div>
     </div>
 
-    <div class="row g-4 overflow-hidden" style="min-height: 0;">
-        <div class="col-md-9 d-flex flex-column">
-            <div class="glass-card p-4 shadow-sm bg-white ">
-                <div id="calendar-admin"></div>
+    <div class="row g-4">
+        <div class="col-12 col-lg-9 d-flex flex-column">
+            <div class="glass-card p-4 shadow-sm bg-white overflow-auto">
+                <div id="calendar-admin" style="min-width: 600px;"></div>
             </div>
+            <p class="text-muted small mt-2 d-lg-none"><i class="bi bi-info-circle me-1"></i> Desliza para ver el calendario completo</p>
         </div>
 
-        <div class="col-md-3 d-flex flex-column h-50">
+        <div class="col-12 col-lg-3 d-flex flex-column">
             <div class="glass-card p-4 h-100 d-flex flex-column shadow-sm overflow-y">
                 <h6 class="fw-bold mb-4 border-bottom pb-2">Solicitudes Entrantes</h6>
                 <div class="d-flex flex-column gap-3 flex-grow-1 overflow-auto p-4" id="contenedor-solicitudes" style="min-height: 0;">

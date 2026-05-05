@@ -86,46 +86,67 @@ function adjuntar_eventos_paciente(viewId) {
                 timeSelect.innerHTML = '<option value="" disabled selected>Cargando horas...</option>';
                 
                 try {
-                    const response = await fetch(`/api/appointments/available_slots?fecha=${dateVal}&motivo=${encodeURIComponent(motivo)}`);
-                    if (response.ok) {
-                        const data = await response.json();
-                        const slots = data.available_slots;
+                    const data = await apiFetch(`/api/appointments/available_slots?fecha=${dateVal}&motivo=${encodeURIComponent(motivo)}`, {}, false);
+                    const slots = data.available_slots;
                         
-                        if (slots && slots.length > 0) {
-                            timeSelect.innerHTML = '<option value="" disabled selected>Selecciona una hora</option>';
+                    if (slots && slots.length > 0) {
+                        timeSelect.innerHTML = '<option value="" disabled selected>Selecciona una hora</option>';
+                        
+                        // Mapeo de duraciones para mostrar en el frontend
+                        const duraciones = {
+                            "Examen General": 30,
+                            "Tratamiento": 60,
+                            "Operación": 120
+                        };
+                        const duracion = duraciones[motivo] || 30;
+
+                        slots.forEach(slot => {
+                            // Calcular hora de fin para mostrar el rango
+                            const [h, m] = slot.split(':').map(Number);
+                            const dateObj = new Date();
+                            dateObj.setHours(h, m, 0);
+                            const finObj = new Date(dateObj.getTime() + duracion * 60000);
                             
-                            // Mapeo de duraciones para mostrar en el frontend
-                            const duraciones = {
-                                "Examen General": 30,
-                                "Tratamiento": 60,
-                                "Operación": 120
-                            };
-                            const duracion = duraciones[motivo] || 30;
+                            const horaInicio = slot.substring(0, 5);
+                            const horaFin = finObj.toTimeString().substring(0, 5);
 
-                            slots.forEach(slot => {
-                                // Calcular hora de fin para mostrar el rango
-                                const [h, m] = slot.split(':').map(Number);
-                                const dateObj = new Date();
-                                dateObj.setHours(h, m, 0);
-                                const finObj = new Date(dateObj.getTime() + duracion * 60000);
-                                
-                                const horaInicio = slot.substring(0, 5);
-                                const horaFin = finObj.toTimeString().substring(0, 5);
+                            const option = document.createElement('option');
+                            option.value = slot;
+                            option.textContent = `${horaInicio} - ${horaFin}`;
+                            timeSelect.appendChild(option);
+                        });
 
-                                const option = document.createElement('option');
-                                option.value = slot;
-                                option.textContent = `${horaInicio} - ${horaFin}`;
-                                timeSelect.appendChild(option);
-                            });
-                        } else {
-                            timeSelect.innerHTML = '<option value="" disabled selected>No hay huecos disponibles</option>';
-                        }
+                        // Obtener recomendación de la IA
+                        obtenerRecomendacionIA(slots, dateVal, motivo);
                     } else {
-                        timeSelect.innerHTML = '<option value="" disabled selected>Error al cargar horas</option>';
+                        timeSelect.innerHTML = '<option value="" disabled selected>No hay huecos disponibles</option>';
                     }
                 } catch (error) {
                     console.error("Error al obtener huecos:", error);
-                    timeSelect.innerHTML = '<option value="" disabled selected>Error de conexión</option>';
+                }
+            }
+
+            async function obtenerRecomendacionIA(slots, fecha, motivo) {
+                const aiTextEl = document.getElementById('ai-response-text');
+                const aiContainer = document.getElementById('ai-container');
+                const aiRecommendationText = document.getElementById('ai-response-text');
+                const sintomas = document.getElementById('appointment-symptoms').value;
+                if (!aiTextEl) return;
+
+                aiTextEl.innerHTML = '<div class="d-flex align-items-center"><div class="spinner-border spinner-border-sm text-primary me-2"></div> <span class="text-primary fw-medium">Consultando con nuestro asistente...</span></div>';
+
+                try {
+                    const data = await apiFetch('/api/ai/recommend', {
+                        method: 'POST',
+                        body: JSON.stringify({ slots, fecha, motivo, sintomas })
+                    }, false);
+                    
+                    if (aiContainer) aiContainer.classList.remove('d-none');
+                    aiRecommendationText.innerHTML = `<p class="mb-0 fade-in">${data.recommendation}</p>`;
+                } catch (error) {
+                    if (aiContainer) aiContainer.classList.add('d-none');
+                    console.error("Error al obtener recomendación IA:", error);
+                    aiTextEl.innerHTML = '<p class="mb-0 text-muted italic">Elige la hora que mejor te venga para tu consulta.</p>';
                 }
             }
 
@@ -149,24 +170,15 @@ function adjuntar_eventos_paciente(viewId) {
                 };
 
                 try {
-                    const response = await fetch('/api/appointments', {
+                    await apiFetch('/api/appointments', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
                         body: JSON.stringify(data)
                     });
 
-                    if (response.ok) {
-                        alert("¡Solicitud enviada con éxito!");
-                        navegar_a('view-patient-dashboard');
-                    } else {
-                        const err = await response.json();
-                        alert("Error al enviar la solicitud: " + (err.detail || "Error desconocido"));
-                    }
+                    alert("¡Solicitud enviada con éxito!");
+                    navegar_a('view-patient-dashboard');
                 } catch (error) {
                     console.error("Error enviando cita:", error);
-                    alert("Error de conexión al enviar la solicitud.");
                 }
             };
         }
@@ -194,8 +206,7 @@ async function cargar_dashboard_paciente() {
     if (nombreElement) nombreElement.innerText = AppState.usuarioActual.nombre;
 
     try {
-        const response = await fetch(`/api/appointments/patient/${pacienteId}`);
-        const citas = await response.json();
+        const citas = await apiFetch(`/api/appointments/patient/${pacienteId}`, {}, false);
 
         if (resumenElement) {
             resumenElement.innerText = `Tienes ${citas.length} citas programadas para este mes.`;
@@ -252,34 +263,36 @@ async function cargar_dashboard_paciente() {
     const containerHistorial = document.getElementById('container-historial-paciente');
     const pacienteId_report = AppState.usuarioActual.paciente_id;
     try {
-        const response = await fetch(`/api/reports/patient/${pacienteId_report}/latest`);
-        if (response.ok) {
-            const informe = await response.json();
-            if (containerHistorial) {
-                containerHistorial.innerHTML = `
-                    <div class="border rounded-3 p-3 bg-white mb-2 d-flex align-items-center shadow-sm">
-                        <div class="flex-grow-1">
-                            <h6 class="mb-0 small fw-bold">${informe.medico_nombre}</h6>
-                            <p class="small text-muted mb-0">Informe médico &bull; ${informe.fecha_cita}</p>
-                        </div>
-                        <button class="btn btn-sm btn-link text-primary text-decoration-none fw-semibold" id="btn-ver-informe-dash">
-                            Ver Informe
-                        </button>
+        const informe = await apiFetch(`/api/reports/patient/${pacienteId_report}/latest`, {}, false);
+        if (informe && containerHistorial) {
+            containerHistorial.innerHTML = `
+                <div class="border rounded-3 p-3 bg-white mb-2 d-flex align-items-center shadow-sm">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0 small fw-bold">${informe.medico_nombre}</h6>
+                        <p class="small text-muted mb-0">Informe médico &bull; ${informe.fecha_cita}</p>
                     </div>
-                `;
-                document.getElementById('btn-ver-informe-dash').onclick = () => mostrar_detalle_informe(informe);
-            }
-        } else {
-            if (containerHistorial) {
-                containerHistorial.innerHTML = `
-                    <div class="text-center py-3 text-muted border rounded-3 bg-light small">
-                        No hay informes médicos disponibles todavía.
-                    </div>
-                `;
-            }
+                    <button class="btn btn-sm btn-link text-primary text-decoration-none fw-semibold" id="btn-ver-informe-dash">
+                        Ver Informe
+                    </button>
+                </div>
+            `;
+            document.getElementById('btn-ver-informe-dash').onclick = () => mostrar_detalle_informe(informe);
+        } else if (containerHistorial) {
+            containerHistorial.innerHTML = `
+                <div class="text-center py-3 text-muted border rounded-3 bg-light small">
+                    No hay informes médicos disponibles todavía.
+                </div>
+            `;
         }
     } catch (error) {
-        console.error("Error al cargar informe:", error);
+        // Si es 404 (lanzado por apiFetch si el status es 404), simplemente mostramos que no hay informes
+        if (containerHistorial) {
+            containerHistorial.innerHTML = `
+                <div class="text-center py-3 text-muted border rounded-3 bg-light small">
+                    No hay informes médicos disponibles todavía.
+                </div>
+            `;
+        }
     }
 }
 
@@ -306,8 +319,7 @@ async function cargar_historial_paciente() {
     const templateRow = document.getElementById('tmpl-history-row');
 
     try {
-        const response = await fetch(`/api/appointments/patient/${pacienteId}/history`);
-        const citas = await response.json();
+        const citas = await apiFetch(`/api/appointments/patient/${pacienteId}/history`, {}, false);
 
         if (tableBody) {
             if (citas.length === 0) {
@@ -354,21 +366,13 @@ async function cancelar_cita(citaId) {
     if (!confirm("¿Estás seguro de que deseas cancelar esta cita?")) return;
 
     try {
-        const response = await fetch(`/api/appointments/${citaId}`, {
+        await apiFetch(`/api/appointments/${citaId}`, {
             method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json'
-            },
             body: JSON.stringify({ estado: 'Cancelado' })
         });
 
-        if (response.ok) {
-            alert("Cita cancelada correctamente.");
-            cargar_dashboard_paciente(); // Recargar el dashboard
-        } else {
-            const err = await response.json();
-            alert("Error al cancelar la cita: " + (err.detail || "Error desconocido"));
-        }
+        alert("Cita cancelada correctamente.");
+        cargar_dashboard_paciente(); // Recargar el dashboard
     } catch (error) {
         console.error("Error al cancelar cita:", error);
         alert("Error de conexión al cancelar la cita.");
@@ -402,8 +406,7 @@ function inicializar_calendario_paciente() {
         events: async function (info, successCallback, failureCallback) {
             try {
                 const pacienteId = AppState.usuarioActual.paciente_id;
-                const response = await fetch(`/api/appointments/patient/${pacienteId}`);
-                const citas = await response.json();
+                const citas = await apiFetch(`/api/appointments/patient/${pacienteId}`, {}, false);
 
                 const events = citas.map(cita => ({
                     title: `${cita.motivo} - ${cita.medico_nombre}`,

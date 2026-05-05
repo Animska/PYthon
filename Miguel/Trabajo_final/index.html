@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinica y Funeraria Rodriguez - Nuestros Pacientes, sus Muertos</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="static/favicon.png">
+
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -105,33 +108,46 @@
 
         <!-- 2. Layout de Aplicación (Master Layout) -->
         <div id="layout-app" class="dashboard-layout fade-in d-none ">
-            <!-- Sidebar Común -->
-            <aside class="sidebar glass-card d-flex flex-column pt-4 pb-4">
-                <div class="px-4 d-flex align-items-center mb-5 text-primary">
-                    <div>
-                        <h3 class="mb-0 fw-bold">Clinica y Funeraria Rodriguez</h3>
-                        <p class="text-secondary">Nuestros Pacientes. Sus Muertos</p>
+            <!-- Sidebar responsive (Offcanvas en móvil, Sidebar fija en escritorio) -->
+            <aside class="sidebar-container">
+                <div class="offcanvas-lg offcanvas-start sidebar glass-card" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+                    <div class="offcanvas-header px-4 pt-4 d-lg-none">
+                        <h5 class="offcanvas-title fw-bold text-primary" id="sidebarMenuLabel">Menú</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
                     </div>
-                </div>
+                    <div class="sidebar-content d-flex flex-column h-100 pt-4 pb-4">
+                        <div class="px-4 d-flex align-items-center mb-5 text-primary">
+                            <div>
+                                <h3 class="mb-0 fw-bold fs-5">Clinica y Funeraria Rodriguez</h3>
+                                <p class="text-secondary small mb-0">Nuestros Pacientes. Sus Muertos</p>
+                            </div>
+                        </div>
 
-                <nav id="sidebar-nav" class="nav flex-column px-3 gap-2 flex-grow-1">
-                    <!-- Links dinámicos se inyectan aquí -->
-                </nav>
+                        <nav id="sidebar-nav" class="nav flex-column px-3 gap-2 flex-grow-1">
+                            <!-- Links dinámicos se inyectan aquí -->
+                        </nav>
 
-                <div class="mt-auto px-3">
-                    <button class="btn btn-light text-danger w-100" id="btn-global-logout">
-                        <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
-                    </button>
+                        <div class="mt-auto px-3">
+                            <button class="btn btn-light text-danger w-100" id="btn-global-logout">
+                                <i class="bi bi-box-arrow-right me-2"></i> Cerrar sesión
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </aside>
 
             <!-- Contenido Principal -->
             <main class="main-content">
                 <!-- Topbar Común -->
-                <header
-                    class="d-flex justify-content-between align-items-center bg-white px-4 py-3 rounded-4 shadow-sm">
-                    <div id="page-title-container">
-                        <h5 class="mb-0 fw-semibold text-muted" id="current-view-title">Dashboard</h5>
+                <header class="d-flex justify-content-between align-items-center bg-white px-4 py-3 rounded-4 shadow-sm">
+                    <div class="d-flex align-items-center gap-3">
+                        <!-- Botón Hamburguesa para Móvil -->
+                        <button class="btn btn-light d-lg-none shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                            <i class="bi bi-list fs-4"></i>
+                        </button>
+                        <div id="page-title-container" class="d-none d-sm-block">
+                            <h5 class="mb-0 fw-semibold text-muted" id="current-view-title">Dashboard</h5>
+                        </div>
                     </div>
                     <div class="d-flex align-items-center gap-3">
                         <div class="d-flex align-items-center gap-2 border-start ps-3">
@@ -273,7 +289,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <p class="text-muted small mb-4">Selecciona el profesional médico que atenderá esta consulta.</p>
+                    <p class="text-muted small mb-3">Selecciona el profesional médico que atenderá esta consulta.</p>
+                    
+                    <div class="bg-primary bg-opacity-10 p-3 rounded-4 border border-primary border-opacity-25 mb-4 d-none shadow-sm" id="ai-doctor-recommendation-container">
+                        <h6 class="fw-bold small text-primary mb-2"><i class="bi bi-robot me-1"></i> Sugerencia del Asistente</h6>
+                        <div id="ai-doctor-recommendation-text" class="small text-dark">
+                            <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+                            <span class="text-primary fw-medium">Analizando síntomas y especialistas...</span>
+                        </div>
+                    </div>
+
                     <div class="list-group list-group-flush" id="lista-medicos-seleccion">
                         <!-- Los médicos se cargarán dinámicamente aquí -->
                     </div>

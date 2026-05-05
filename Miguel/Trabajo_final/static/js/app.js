@@ -18,10 +18,52 @@ const AppState = {
 
 };
 
+// --- Utilidades ---
+/**
+ * Wrapper genérico para fetch que maneja try/catch, JSON y errores.
+ * @param {string} url - El endpoint de la API.
+ * @param {object} options - Opciones de fetch (method, body, etc).
+ * @param {boolean} showAlert - Si debe mostrar un alert en caso de error.
+ * @returns {Promise<any>} Los datos parseados o lanza un error.
+ */
+async function apiFetch(url, options = {}, showAlert = true) {
+    try {
+        const response = await fetch(url, {
+            headers: {
+                'Content-Type': 'application/json',
+                ...(options.headers || {})
+            },
+            ...options
+        });
+
+        const data = await response.json().catch(() => null);
+
+        if (!response.ok) {
+            const errorMsg = data?.detail || `Error HTTP: ${response.status}`;
+            throw new Error(errorMsg);
+        }
+
+        return data;
+    } catch (error) {
+        if (showAlert) {
+            console.error(`[apiFetch Error] ${url}:`, error);
+            alert(error.message || "Error de conexión con el servidor.");
+        }
+        throw error;
+    }
+}
+
 // --- Inicialización ---
 document.addEventListener('DOMContentLoaded', () => {
     configurar_login();
     mostrar_layout('auth');
+
+    // Gestión de botones atrás/adelante del navegador
+    window.addEventListener('popstate', (event) => {
+        if (AppState.layoutActivo === 'app' && event.state && event.state.viewId) {
+            navegar_a(event.state.viewId, false);
+        }
+    });
 });
 
 // --- Gestión de Layouts ---
@@ -46,7 +88,7 @@ function mostrar_layout(layout) {
 }
 
 // --- Router Dinámico (Carga Externa) ---
-async function navegar_a(viewId) {
+async function navegar_a(viewId, addToHistory = true) {
     const container = document.getElementById('view-container');
     const titleEl = document.getElementById('current-view-title');
     const path = AppState.vistas[viewId];
@@ -93,6 +135,11 @@ async function navegar_a(viewId) {
 
         // 6. Re-adjuntar eventos específicos de la vista
         adjuntar_eventos_vista(viewId);
+
+        // 7. Guardar en historial si es necesario
+        if (addToHistory) {
+            history.pushState({ viewId }, "", "");
+        }
 
     } catch (error) {
         console.error("Error cargando vista:", error);
@@ -142,6 +189,13 @@ function inicializar_sidebar() {
             nav.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
             link.classList.add('active');
             navegar_a(link.dataset.view);
+
+            // Cerrar sidebar en móviles (Bootstrap Offcanvas)
+            const sidebarEl = document.getElementById('sidebarMenu');
+            if (sidebarEl && window.innerWidth < 992) {
+                const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(sidebarEl);
+                if (bsOffcanvas) bsOffcanvas.hide();
+            }
         });
     });
 
@@ -151,21 +205,25 @@ function inicializar_sidebar() {
         btnProfile.onclick = async (e) => {
             e.preventDefault();
 
+            // Cerrar sidebar en móviles
+            const sidebarEl = document.getElementById('sidebarMenu');
+            if (sidebarEl && window.innerWidth < 992) {
+                const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(sidebarEl);
+                if (bsOffcanvas) bsOffcanvas.hide();
+            }
+
             // Cargar datos reales si es un paciente
             if (AppState.rolActual === 'patient') {
                 try {
-                    const response = await fetch(`/api/profile/${AppState.usuarioActual.id}`);
-                    if (response.ok) {
-                        const data = await response.json();
-                        // Rellenar modal
-                        document.getElementById('profile-name').value = data.nombre || '';
-                        document.getElementById('profile-email').value = data.email || '';
-                        document.getElementById('profile-phone').value = data.telefono || '';
-                        document.getElementById('profile-dni').value = data.dni || '';
-                        document.getElementById('profile-address').value = data.direccion || '';
-                        document.getElementById('profile-blood').value = data.grupo_sanguineo || 'O+';
-                        document.getElementById('profile-allergies').value = data.alergias || '';
-                    }
+                    const data = await apiFetch(`/api/profile/${AppState.usuarioActual.id}`, {}, false);
+                    // Rellenar modal
+                    document.getElementById('profile-name').value = data.nombre || '';
+                    document.getElementById('profile-email').value = data.email || '';
+                    document.getElementById('profile-phone').value = data.telefono || '';
+                    document.getElementById('profile-dni').value = data.dni || '';
+                    document.getElementById('profile-address').value = data.direccion || '';
+                    document.getElementById('profile-blood').value = data.grupo_sanguineo || 'O+';
+                    document.getElementById('profile-allergies').value = data.alergias || '';
                 } catch (error) {
                     console.error("Error al cargar perfil:", error);
                 }
@@ -228,27 +286,16 @@ function configurar_login() {
         errorMsgEl.classList.add('d-none');
 
         try {
-            const response = await fetch('/api/login', {
+            const data = await apiFetch('/api/login', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
                 body: JSON.stringify({ email, password, role })
-            });
+            }, false);
 
-            if (response.ok) {
-                const data = await response.json();
-                AppState.usuarioActual = data.user_data;
-                actualizar_interfaz_usuario();
-                mostrar_layout('app');
-            } else {
-                const errorData = await response.json();
-                errorMsgEl.textContent = `Error: ${errorData.detail || 'Credenciales incorrectas'}`;
-                errorMsgEl.classList.remove('d-none');
-            }
+            AppState.usuarioActual = data.user_data;
+            actualizar_interfaz_usuario();
+            mostrar_layout('app');
         } catch (error) {
-            console.error('Error durante el inicio de sesión:', error);
-            errorMsgEl.textContent = 'Error de conexión con el servidor.';
+            errorMsgEl.textContent = error.message.includes('HTTP') ? 'Error de conexión' : `Error: ${error.message}`;
             errorMsgEl.classList.remove('d-none');
         }
     };
@@ -278,25 +325,17 @@ function configurar_login() {
             const password = document.getElementById('reg-password').value;
 
             try {
-                const response = await fetch('/api/register', {
+                await apiFetch('/api/register', {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
                     body: JSON.stringify({ nombre, dni, telefono, email, password })
                 });
 
-                if (response.ok) {
-                    alert(`¡Bienvenido, ${nombre}! Tu cuenta de paciente ha sido creada con éxito. Ahora puedes iniciar sesión.`);
-                    bootstrap.Modal.getInstance(registerModalEl).hide();
-                    registerForm.reset();
-                } else {
-                    const errorData = await response.json();
-                    alert(`Error al registrar: ${errorData.detail || 'Por favor verifica los datos.'}`);
-                }
+                alert(`¡Bienvenido, ${nombre}! Tu cuenta de paciente ha sido creada con éxito. Ahora puedes iniciar sesión.`);
+                bootstrap.Modal.getInstance(registerModalEl).hide();
+                registerForm.reset();
             } catch (error) {
+                // apiFetch ya muestra un alert por defecto
                 console.error('Error durante el registro:', error);
-                alert('Error de conexión con el servidor al registrar.');
             }
         };
     }
@@ -337,26 +376,20 @@ function configurar_perfil() {
             };
 
             try {
-                const response = await fetch(`/api/profile/${AppState.usuarioActual.id}`, {
+                await apiFetch(`/api/profile/${AppState.usuarioActual.id}`, {
                     method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(data)
                 });
 
-                if (response.ok) {
-                    alert("¡Perfil actualizado con éxito!");
-                    // Actualizar nombre en la interfaz global
-                    document.getElementById('global-user-name').textContent = data.nombre;
-                    // Cerrar modal
-                    const modalEl = document.getElementById('profileModal');
-                    const modal = bootstrap.Modal.getInstance(modalEl);
-                    if (modal) modal.hide();
-                } else {
-                    alert("Error al actualizar el perfil.");
-                }
+                alert("¡Perfil actualizado con éxito!");
+                // Actualizar nombre en la interfaz global
+                document.getElementById('global-user-name').textContent = data.nombre;
+                // Cerrar modal
+                const modalEl = document.getElementById('profileModal');
+                const modal = bootstrap.Modal.getInstance(modalEl);
+                if (modal) modal.hide();
             } catch (error) {
                 console.error("Error al actualizar perfil:", error);
-                alert("Error de conexión al guardar el perfil.");
             }
         };
     }

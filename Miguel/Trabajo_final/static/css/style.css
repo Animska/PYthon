@@ -109,15 +109,21 @@ h6 {
     height: 100vh;
     gap: 1.5rem;
     padding: 1.5rem;
+    overflow: hidden; /* Evita scroll doble */
+}
+
+.sidebar-container {
+    width: 280px;
+    min-width: 280px;
+    flex-shrink: 0;
+    height: 100%;
 }
 
 .sidebar {
-    width: 250px;
-    min-width: 250px;
-    flex-shrink: 0;
-    height: calc(100vh - 3rem);
-    position: sticky;
-    top: 1.5rem;
+    height: 100%;
+    border: var(--glass-border);
+    display: flex;
+    flex-direction: column;
 }
 
 .main-content {
@@ -125,6 +131,37 @@ h6 {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    overflow-y: auto; /* Scroll solo en el contenido principal */
+    padding-right: 5px;
+}
+
+/* Responsive Layout Adjustments */
+@media (max-width: 991.98px) {
+    .dashboard-layout {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .sidebar-container {
+        width: 0;
+        min-width: 0;
+    }
+
+    .sidebar {
+        width: 280px;
+        height: 100vh;
+        position: fixed;
+        z-index: 1050;
+    }
+
+    .main-content {
+        overflow-y: visible;
+        height: auto;
+    }
 }
 
 /* Login Specifc */

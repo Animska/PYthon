@@ -1,7 +1,7 @@
 <!-- views/medico_dashboard.html -->
 <div class="fade-in h-100">
-    <div class="row align-items-center mb-4">
-        <div class="col-md-10">
+    <div class="row align-items-center mb-4 g-3">
+        <div class="col-12 col-lg-10">
             <div class="d-flex align-items-center gap-3 mb-1">
                 <button class="btn btn-light border shadow-sm rounded-circle" id="btn-prev-day">
                     <i class="bi bi-chevron-left"></i>
@@ -15,9 +15,9 @@
         </div>
     </div>
 
-    <div class="row h-100 g-4">
+    <div class="row g-4">
         <!-- Schedule Sidebar -->
-        <div class="col-md-4">
+        <div class="col-12 col-lg-4">
             <div class="glass-card p-3 h-100 d-flex flex-column">
                 <div class="d-flex justify-content-between align-items-center mb-4 px-2">
                     <h6 class="fw-bold mb-0">Agenda</h6>
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Active Patient Detail -->
-        <div class="col-md-8">
+        <div class="col-12 col-lg-8">
              <div class="glass-card p-5 h-100 d-flex flex-column shadow-lg" id="detalle-paciente-vacio">
                 <div class="d-flex flex-column align-items-center justify-content-center h-100 text-muted">
                     <i class="bi bi-person-bounding-box fs-1 mb-3 opacity-25"></i>
@@ -93,29 +93,29 @@
     </div>
 
     <h6 class="fw-bold text-uppercase small text-muted mb-3">Seguimiento de Vitales y Biometría</h6>
-    <div class="row g-3 mb-5">
-        <div class="col-md-3">
-            <div class="p-3 border rounded-4 bg-light text-center shadow-sm">
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded-4 bg-light text-center shadow-sm h-100">
                 <p class="small text-muted fw-bold mb-1">ALTURA</p>
                 <h4 class="fw-bold mb-0"><span class="t-vital-altura"></span> <small class="text-muted fw-normal fs-6">cm</small></h4>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="p-3 border rounded-4 bg-light text-center shadow-sm">
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded-4 bg-light text-center shadow-sm h-100">
                 <p class="small text-muted fw-bold mb-1">PESO</p>
                 <h4 class="fw-bold mb-0"><span class="t-vital-peso"></span> <small class="text-muted fw-normal fs-6">kg</small></h4>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="p-3 border rounded-4 bg-light text-center shadow-sm">
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded-4 bg-light text-center shadow-sm h-100">
                 <p class="small text-muted fw-bold mb-1">RESPIRACIÓN</p>
                 <h4 class="fw-bold mb-0"><span class="t-vital-respiracion"></span> <small class="text-muted fw-normal fs-6">rpm</small></h4>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="p-3 border rounded-4 bg-primary bg-opacity-10 text-primary text-center shadow-sm border-primary border-opacity-25">
-                <p class="small fw-bold mb-1">PRESIÓN ARTERIAL</p>
-                <h4 class="fw-bold mb-0 t-vital-presion"></h4>
+        <div class="col-6 col-md-3">
+            <div class="p-3 border rounded-4 bg-primary bg-opacity-10 text-primary text-center shadow-sm border-primary border-opacity-25 h-100">
+                <p class="small fw-bold mb-1">PRESIÓN ART.</p>
+                <h4 class="fw-bold mb-0 t-vital-presion" style="font-size: 1.1rem;"></h4>
             </div>
         </div>
     </div>
@@ -163,26 +163,26 @@
     <form id="form-actualizar-informe">
         <h6 class="fw-bold text-uppercase small text-muted mb-3">Actualización de Vitales</h6>
         <div class="row g-3 mb-4">
-            <div class="col-md-3">
-                <div class="p-3 border rounded-4 bg-light shadow-sm">
+            <div class="col-6 col-md-3">
+                <div class="p-3 border rounded-4 bg-light shadow-sm h-100">
                     <label class="small text-muted fw-bold mb-1 d-block">ALTURA (cm)</label>
                     <input type="number" class="form-control form-control-sm border-0 bg-transparent fw-bold fs-5 p-0 t-input-altura" required>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="p-3 border rounded-4 bg-light shadow-sm">
+            <div class="col-6 col-md-3">
+                <div class="p-3 border rounded-4 bg-light shadow-sm h-100">
                     <label class="small text-muted fw-bold mb-1 d-block">PESO (kg)</label>
                     <input type="number" class="form-control form-control-sm border-0 bg-transparent fw-bold fs-5 p-0 t-input-peso" required>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="p-3 border rounded-4 bg-light shadow-sm">
+            <div class="col-6 col-md-3">
+                <div class="p-3 border rounded-4 bg-light shadow-sm h-100">
                     <label class="small text-muted fw-bold mb-1 d-block">RESPIRACIÓN (rpm)</label>
                     <input type="number" class="form-control form-control-sm border-0 bg-transparent fw-bold fs-5 p-0 t-input-respiracion" required>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="p-3 border rounded-4 bg-primary bg-opacity-10 text-primary shadow-sm border-primary border-opacity-25">
+            <div class="col-6 col-md-3">
+                <div class="p-3 border rounded-4 bg-primary bg-opacity-10 text-primary shadow-sm border-primary border-opacity-25 h-100">
                     <label class="small fw-bold mb-1 d-block">PRESIÓN ART.</label>
                     <input type="text" class="form-control form-control-sm border-0 bg-transparent text-primary fw-bold fs-5 p-0 t-input-presion" required>
                 </div>
@@ -192,6 +192,9 @@
         <div class="mt-4">
              <div class="d-flex justify-content-between align-items-center mb-3">
                  <h6 class="fw-bold mb-0"><i class="bi bi-pencil-square me-2 text-primary"></i> Observaciones Clínicas</h6>
+                 <button type="button" class="btn btn-sm btn-outline-primary border-0 rounded-pill px-3 shadow-sm" id="btn-ai-suggest">
+                     <i class="bi bi-magic me-1"></i> Sugerencia IA
+                 </button>
              </div>
              <div class="bg-light p-2 rounded-4 border">
                  <textarea class="form-control border-0 bg-transparent t-textarea-observaciones" rows="5" placeholder="Escribe aquí las observaciones clínicas..."></textarea>

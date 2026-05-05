@@ -2,6 +2,8 @@
  * admin.js - Lógica específica para el rol de Administrador
  */
 
+let solicitudesPendientes = [];
+
 function adjuntar_eventos_admin(viewId) {
     if (viewId === 'view-admin-manage-doctors') {
         renderizar_tabla_medicos();
@@ -53,36 +55,25 @@ function adjuntar_eventos_admin(viewId) {
                     password: document.getElementById('doctor-password').value
                 };
 
-                console.log("Datos a enviar:", data);
-
                 try {
                     const url = editIndex === "" ? '/api/doctors' : `/api/doctors/${editIndex}`;
                     const method = editIndex === "" ? 'POST' : 'PUT';
 
-                    const response = await fetch(url, {
+                    await apiFetch(url, {
                         method: method,
-                        headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(data)
                     });
 
-                    const result = await response.json();
+                    alert(editIndex === "" ? "¡Médico añadido con éxito!" : "¡Médico actualizado con éxito!");
+                    const modalEl = document.getElementById('doctorModal');
+                    const modal = bootstrap.Modal.getInstance(modalEl);
+                    if (modal) modal.hide();
 
-                    if (response.ok) {
-                        alert(editIndex === "" ? "¡Médico añadido con éxito!" : "¡Médico actualizado con éxito!");
-                        const modalEl = document.getElementById('doctorModal');
-                        const modal = bootstrap.Modal.getInstance(modalEl);
-                        if (modal) modal.hide();
-
-                        // Limpiar formulario y recargar tabla
-                        docForm.reset();
-                        renderizar_tabla_medicos();
-                        cargar_especialidades_filtro();
-                    } else {
-                        alert(`Error del servidor: ${result.detail || 'Desconocido'}`);
-                    }
+                    docForm.reset();
+                    renderizar_tabla_medicos();
+                    cargar_especialidades_filtro();
                 } catch (error) {
-                    console.error(`Error en la petición ${editIndex === "" ? 'POST' : 'PUT'} /api/doctors:`, error);
-                    alert("Error de conexión al intentar procesar la solicitud.");
+                    console.error("Error al procesar médico:", error);
                 }
             };
         }
@@ -129,8 +120,7 @@ function inicializar_calendario_admin() {
         },
         events: async function (info, successCallback, failureCallback) {
             try {
-                const response = await fetch('/api/appointments');
-                const data = await response.json();
+                const data = await apiFetch('/api/appointments', {}, false);
 
                 const events = data.map(c => {
                     const start = new Date(c.fecha_hora);
@@ -174,9 +164,8 @@ async function cargar_solicitudes_pendientes() {
     if (!contenedor || !template) return;
 
     try {
-        const response = await fetch('/api/appointments/pending');
-        if (!response.ok) throw new Error("Error cargando solicitudes");
-        const solicitudes = await response.json();
+        const solicitudes = await apiFetch('/api/appointments/pending', {}, false);
+        solicitudesPendientes = solicitudes;
 
         contenedor.innerHTML = '';
 
@@ -219,7 +208,6 @@ async function cargar_solicitudes_pendientes() {
         });
 
     } catch (error) {
-        console.error("Error al cargar solicitudes:", error);
         contenedor.innerHTML = '<div class="alert alert-danger small">Error al cargar solicitudes</div>';
     }
 }
@@ -235,8 +223,7 @@ async function abrir_seleccion_medico(appointmentId) {
     modal.show();
 
     try {
-        const response = await fetch('/api/doctors');
-        const medicos = await response.json();
+        const medicos = await apiFetch('/api/doctors', {}, false);
 
         container.innerHTML = '';
         medicos.forEach(m => {
@@ -260,27 +247,56 @@ async function abrir_seleccion_medico(appointmentId) {
     } catch (error) {
         container.innerHTML = '<div class="alert alert-danger small">Error al cargar médicos</div>';
     }
+
+    // Llamar a la IA para recomendación
+    const solicitud = solicitudesPendientes.find(s => s.id === appointmentId);
+    if (solicitud) {
+        obtenerRecomendacionMedicoIA(solicitud);
+    }
+}
+
+async function obtenerRecomendacionMedicoIA(solicitud) {
+    const aiContainer = document.getElementById('ai-doctor-recommendation-container');
+    const aiText = document.getElementById('ai-doctor-recommendation-text');
+    if (!aiContainer || !aiText) return;
+
+    aiContainer.classList.remove('d-none');
+    aiText.innerHTML = '<div class="spinner-border spinner-border-sm text-primary me-2"></div> Analizando síntomas...';
+
+    try {
+        // Obtener médicos actuales para enviárselos a la IA
+        const medicos = await apiFetch('/api/doctors', {}, false);
+        const medicosSimplificados = medicos.filter(m => m.estado === 'Activo').map(m => ({ nombre: m.nombre, especialidad: m.especialidad }));
+
+        const data = await apiFetch('/api/ai/recommend-doctor', {
+            method: 'POST',
+            body: JSON.stringify({
+                sintomas: solicitud.sintomas || "No especificados",
+                motivo: solicitud.motivo,
+                doctores: medicosSimplificados
+            })
+        }, false);
+
+        aiText.innerHTML = `<p class="mb-0 fade-in">${data.recommendation}</p>`;
+    } catch (error) {
+        aiContainer.classList.add('d-none');
+    }
 }
 
 async function procesar_aprobacion(appointmentId, medicoId) {
     try {
-        const response = await fetch(`/api/appointments/${appointmentId}`, {
+        await apiFetch(`/api/appointments/${appointmentId}`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ estado: 'Aceptada', medico_id: medicoId })
         });
 
-        if (response.ok) {
-            cargar_solicitudes_pendientes();
-            // Recargar calendario
-            if (window.adminCalendar) {
-                window.adminCalendar.refetchEvents();
-            }
-        } else {
-            alert("Error al aprobar la cita");
+        cargar_solicitudes_pendientes();
+        // Recargar calendario
+        if (window.adminCalendar) {
+            window.adminCalendar.refetchEvents();
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error al aprobar cita:", error);
     }
 }
 
@@ -288,22 +304,17 @@ async function procesar_rechazo(appointmentId) {
     if (!confirm("¿Estás seguro de que deseas rechazar esta solicitud?")) return;
 
     try {
-        const response = await fetch(`/api/appointments/${appointmentId}`, {
+        await apiFetch(`/api/appointments/${appointmentId}`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ estado: 'Rechazada' })
         });
 
-        if (response.ok) {
-            cargar_solicitudes_pendientes();
-            if (window.adminCalendar) {
-                window.adminCalendar.refetchEvents();
-            }
-        } else {
-            alert("Error al rechazar la cita");
+        cargar_solicitudes_pendientes();
+        if (window.adminCalendar) {
+            window.adminCalendar.refetchEvents();
         }
     } catch (error) {
-        console.error("Error:", error);
+        console.error("Error al rechazar cita:", error);
     }
 }
 
@@ -316,10 +327,7 @@ async function renderizar_tabla_medicos(filtroTexto = '', filtroEspecialidad = '
     tbody.innerHTML = '';
 
     try {
-        const response = await fetch('/api/doctors');
-        if (!response.ok) return;
-
-        const medicos = await response.json();
+        const medicos = await apiFetch('/api/doctors', {}, false);
 
         const medicosFiltrados = medicos.filter(m => {
             const matchesTexto = m.nombre.toLowerCase().includes(filtroTexto.toLowerCase()) ||
@@ -387,9 +395,7 @@ async function cargar_especialidades_filtro() {
     if (!filterSelect) return;
 
     try {
-        const response = await fetch('/api/doctors');
-        if (!response.ok) return;
-        const medicos = await response.json();
+        const medicos = await apiFetch('/api/doctors', {}, false);
 
         const especialidades = [...new Set(medicos.map(m => m.especialidad))].sort();
 
@@ -406,9 +412,13 @@ async function cargar_especialidades_filtro() {
             filterSelect.appendChild(option);
         });
 
-        filterSelect.value = currentVal;
+        // Restaurar valor si aún existe
+        if (especialidades.includes(currentVal)) {
+            filterSelect.value = currentVal;
+        }
+
     } catch (error) {
-        console.error("Error al cargar especialidades para el filtro:", error);
+        console.error("Error al cargar especialidades:", error);
     }
 }
 
@@ -434,21 +444,15 @@ async function eliminar_medico(id) {
     if (!confirm("¿Estás seguro de que deseas eliminar a este médico? Esta acción no se puede deshacer.")) return;
 
     try {
-        const response = await fetch(`/api/doctors/${id}`, {
+        await apiFetch(`/api/doctors/${id}`, {
             method: 'DELETE'
         });
 
-        if (response.ok) {
-            alert("Médico eliminado correctamente.");
-            renderizar_tabla_medicos();
-            cargar_especialidades_filtro();
-        } else {
-            const err = await response.json();
-            alert("Error al eliminar médico: " + (err.detail || "Error desconocido"));
-        }
+        alert("Médico eliminado correctamente.");
+        renderizar_tabla_medicos();
+        cargar_especialidades_filtro();
     } catch (error) {
         console.error("Error al eliminar médico:", error);
-        alert("Error de conexión.");
     }
 }
 
@@ -458,12 +462,10 @@ async function actualizar_indice_ocupacion(start, end) {
     if (!percEl || !barEl) return;
 
     try {
-        const responseDocs = await fetch('/api/doctors');
-        const medicos = await responseDocs.json();
+        const medicos = await apiFetch('/api/doctors', {}, false);
         const numMedicos = medicos.filter(m => m.estado === 'Activo').length || 1;
 
-        const responseApps = await fetch('/api/appointments');
-        const citas = await responseApps.json();
+        const citas = await apiFetch('/api/appointments', {}, false);
 
         const duraciones = {
             'Examen General': 1,

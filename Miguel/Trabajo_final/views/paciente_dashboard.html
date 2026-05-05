@@ -1,19 +1,19 @@
 <!-- views/paciente_dashboard.html -->
 <div class="fade-in">
-    <div class="row align-items-center mb-4">
-        <div class="col-md-8">
+    <div class="row align-items-center mb-4 g-3">
+        <div class="col-12 col-md-8">
             <h3 class="fw-bold mb-1">Bienvenido de nuevo, <span id="nombre-paciente-dashboard">Paciente</span></h3>
-            <p class="text-muted" id="resumen-citas-paciente">Cargando tus próximas citas...</p>
+            <p class="text-muted mb-0" id="resumen-citas-paciente">Cargando tus próximas citas...</p>
         </div>
-        <div class="col-md-4 text-end">
-            <button class="btn btn-primary shadow-sm" id="btn-nav-request">
+        <div class="col-12 col-md-4 text-md-end">
+            <button class="btn btn-primary shadow-sm w-100 w-md-auto" id="btn-nav-request">
                 <i class="bi bi-plus-lg me-1"></i> Nueva Cita
             </button>
         </div>
     </div>
 
     <div class="row g-4">
-        <div class="col-md-8 d-flex flex-column gap-3">
+        <div class="col-12 col-lg-8 d-flex flex-column gap-3">
             <div class="glass-card p-4 flex-grow-1">
                 <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3">
                     <h6 class="fw-semibold mb-0">Citas Activas</h6>

@@ -33,7 +33,7 @@ function adjuntar_eventos_medico(viewId) {
 async function cargar_dashboard_medico() {
     const medicoId = AppState.usuarioActual.medico_id;
     const fechaStr = fechaSeleccionada.toISOString().split('T')[0];
-    
+
     // Actualizar texto de fecha en la UI
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
     const fechaTexto = fechaSeleccionada.toLocaleDateString('es-ES', options);
@@ -44,8 +44,7 @@ async function cargar_dashboard_medico() {
     const resumenEl = document.getElementById('resumen-citas');
 
     try {
-        const response = await fetch(`/api/appointments/doctor/${medicoId}?fecha=${fechaStr}`);
-        citasActuales = await response.json();
+        citasActuales = await apiFetch(`/api/appointments/doctor/${medicoId}?fecha=${fechaStr}`, {}, false);
 
         if (resumenEl) {
             resumenEl.innerText = `Tienes ${citasActuales.length} citas programadas para hoy.`;
@@ -64,7 +63,6 @@ async function cargar_dashboard_medico() {
             citaSeleccionadaId = null;
         }
     } catch (error) {
-        console.error("Error al cargar agenda del médico:", error);
         if (contenedor) contenedor.innerHTML = '<div class="alert alert-danger">Error al cargar la agenda.</div>';
     }
 }
@@ -74,8 +72,8 @@ function renderizar_agenda(filtro = '') {
     const template = document.getElementById('template-item-agenda');
     if (!contenedor || !template) return;
 
-    const citasFiltradas = citasActuales.filter(c => 
-        c.paciente_nombre.toLowerCase().includes(filtro.toLowerCase()) || 
+    const citasFiltradas = citasActuales.filter(c =>
+        c.paciente_nombre.toLowerCase().includes(filtro.toLowerCase()) ||
         c.motivo.toLowerCase().includes(filtro.toLowerCase())
     );
 
@@ -88,15 +86,15 @@ function renderizar_agenda(filtro = '') {
     citasFiltradas.forEach(cita => {
         const isActive = cita.id === citaSeleccionadaId;
         const hora = new Date(cita.fecha_hora).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-        
+
         const clone = template.content.cloneNode(true);
         const itemDiv = clone.querySelector('.agenda-item');
-        
+
         itemDiv.dataset.id = cita.id;
         clone.querySelector('.item-hora').innerText = hora;
         clone.querySelector('.item-paciente').innerText = cita.paciente_nombre;
         clone.querySelector('.item-motivo').innerText = cita.motivo;
-        
+
         const badge = clone.querySelector('.item-hora');
         if (cita.estado === 'Aceptada') badge.classList.add('bg-primary', 'bg-opacity-10', 'text-primary');
         else if (cita.estado === 'Completado') badge.classList.add('bg-success', 'bg-opacity-10', 'text-success');
@@ -111,7 +109,7 @@ function renderizar_agenda(filtro = '') {
         }
 
         itemDiv.onclick = () => mostrar_detalle_paciente(cita.id);
-        
+
         contenedor.appendChild(clone);
     });
 }
@@ -130,18 +128,18 @@ function mostrar_detalle_paciente(id) {
     if (!cita) return;
 
     citaSeleccionadaId = id;
-    
+
     // Volver a renderizar la agenda para actualizar el estado "Viendo"
     renderizar_agenda(document.getElementById('buscar-paciente')?.value || '');
 
     const contenedor = document.getElementById('detalle-paciente-contenido');
     const template = document.getElementById('template-informe-paciente');
-    
+
     if (!contenedor || !template) return;
 
     contenedor.innerHTML = '';
     const clone = template.content.cloneNode(true);
-    
+
     // Helper para asignar texto de forma segura
     const setTexto = (selector, texto) => {
         const el = clone.querySelector(selector);
@@ -156,12 +154,12 @@ function mostrar_detalle_paciente(id) {
     setTexto('.t-nombre-paciente', cita.paciente_nombre);
     setHtml('.t-info-sangre', `<i class="bi bi-droplet me-1"></i> ${cita.grupo_sanguineo || 'N/A'}`);
     setTexto('.t-alergias-paciente', cita.alergias || 'Ninguna conocida');
-    
+
     setTexto('.t-vital-altura', cita.vitals_altura || '--');
     setTexto('.t-vital-peso', cita.vitals_peso || '--');
     setTexto('.t-vital-respiracion', cita.vitals_respiracion || '--');
     setTexto('.t-vital-presion', cita.vitals_presion || '--/--');
-    
+
     setTexto('.t-observaciones-paciente', cita.observaciones || 'Sin observaciones previas.');
 
     // Adjuntar eventos a los botones del detalle
@@ -191,39 +189,32 @@ async function cancelar_cita_medico(citaId) {
     if (!confirm("¿Estás seguro de que deseas cancelar esta cita?")) return;
 
     try {
-        const response = await fetch(`/api/appointments/${citaId}`, {
+        await apiFetch(`/api/appointments/${citaId}`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ estado: 'Cancelado' })
         });
 
-        if (response.ok) {
-            alert("Cita cancelada correctamente.");
-            cargar_dashboard_medico();
-        } else {
-            alert("Error al cancelar la cita.");
-        }
+        alert("Cita cancelada correctamente.");
+        cargar_dashboard_medico();
     } catch (error) {
         console.error("Error al cancelar cita:", error);
     }
 }
 
-async function finalizar_chequeo_directo(citaId) {
+async function finalizar_chequeo_directo(citaId, asistio = true) {
     if (!confirm("¿Deseas dar por finalizado el chequeo y marcar la cita como completada?")) return;
 
     try {
-        const response = await fetch(`/api/appointments/${citaId}`, {
+        const url = `/api/appointments/${citaId}`;
+        const body = { estado: asistio ? 'Completado' : 'No asistió' };
+
+        await apiFetch(url, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ estado: 'Completado' })
+            body: JSON.stringify(body)
         });
 
-        if (response.ok) {
-            alert("Cita marcada como completada.");
-            cargar_dashboard_medico();
-        } else {
-            alert("Error al finalizar la cita.");
-        }
+        alert("Cita marcada como completada.");
+        cargar_dashboard_medico();
     } catch (error) {
         console.error("Error al finalizar cita:", error);
     }
@@ -235,12 +226,12 @@ function abrir_modal_informe(id) {
 
     const modalBody = document.getElementById('modal-report-body');
     const template = document.getElementById('template-formulario-informe');
-    
+
     if (!modalBody || !template) return;
 
     modalBody.innerHTML = '';
     const clone = template.content.cloneNode(true);
-    
+
     const setVal = (selector, val) => {
         const el = clone.querySelector(selector);
         if (el) el.value = val;
@@ -249,20 +240,59 @@ function abrir_modal_informe(id) {
     clone.querySelector('.t-nombre-paciente').textContent = cita.paciente_nombre;
     const infoSangre = clone.querySelector('.t-info-sangre');
     if (infoSangre) infoSangre.innerHTML = `<i class="bi bi-droplet me-1"></i> ${cita.grupo_sanguineo || 'N/A'}`;
-    
+
     const alergias = clone.querySelector('.t-alergias-paciente');
     if (alergias) alergias.textContent = cita.alergias || 'Ninguna conocida';
-    
+
     setVal('.t-input-altura', cita.vitals_altura || '');
     setVal('.t-input-peso', cita.vitals_peso || '');
     setVal('.t-input-respiracion', cita.vitals_respiracion || '');
     setVal('.t-input-presion', cita.vitals_presion || '');
     setVal('.t-textarea-observaciones', cita.observaciones || '');
-
     const form = clone.querySelector('#form-actualizar-informe');
+
+    // --- Lógica de Sugerencia IA ---
+    const btnAi = clone.querySelector('#btn-ai-suggest');
+    if (btnAi) {
+        btnAi.onclick = async () => {
+            const altura = form.querySelector('.t-input-altura').value;
+            const peso = form.querySelector('.t-input-peso').value;
+            const respiracion = form.querySelector('.t-input-respiracion').value;
+            const presion = form.querySelector('.t-input-presion').value;
+            const textarea = form.querySelector('.t-textarea-observaciones');
+
+            if (!altura || !peso || !respiracion || !presion) {
+                alert("Por favor, rellena los vitales primero para que la IA pueda analizarlos.");
+                return;
+            }
+
+            btnAi.innerHTML = '<i class="spinner-border spinner-border-sm me-1"></i> Analizando...';
+            btnAi.disabled = true;
+
+            try {
+                const data = await apiFetch('/api/ai/suggest-report', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        altura: parseFloat(altura),
+                        peso: parseFloat(peso),
+                        respiracion: parseInt(respiracion),
+                        presion: presion,
+                        especialidad: AppState.usuarioActual.especialidad || 'Medicina General'
+                    })
+                }, false);
+                textarea.value = data.suggestion;
+            } catch (error) {
+                console.error("Error al obtener sugerencia IA:", error);
+            } finally {
+                btnAi.innerHTML = '<i class="bi bi-magic me-1"></i> Sugerencia IA';
+                btnAi.disabled = false;
+            }
+        };
+    }
+
     form.onsubmit = async (e) => {
         e.preventDefault();
-        
+
         const reportData = {
             cita_id: id,
             vitals_altura: parseInt(form.querySelector('.t-input-altura').value),
@@ -273,31 +303,20 @@ function abrir_modal_informe(id) {
         };
 
         try {
-            // 1. Guardar el informe
-            const resReport = await fetch('/api/reports', {
+            await apiFetch('/api/reports', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(reportData)
             });
 
-            if (resReport.ok) {
-                // 2. Cambiar estado de la cita a Completado
-                await fetch(`/api/appointments/${id}`, {
-                    method: 'PATCH',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ estado: 'Completado' })
-                });
+            alert("¡Informe guardado y chequeo finalizado con éxito!");
+            
+            // Cerrar modal
+            const modalEl = document.getElementById('reportModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
 
-                alert("¡Chequeo finalizado e informe guardado con éxito!");
-                
-                const modalEl = document.getElementById('reportModal');
-                const modal = bootstrap.Modal.getInstance(modalEl);
-                if (modal) modal.hide();
-
-                cargar_dashboard_medico();
-            } else {
-                alert("Error al guardar el informe.");
-            }
+            // Recargar dashboard
+            cargar_dashboard_medico();
         } catch (error) {
             console.error("Error al finalizar chequeo:", error);
             alert("Error de conexión al finalizar el chequeo.");

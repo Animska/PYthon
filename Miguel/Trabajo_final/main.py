@@ -5,6 +5,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from mysql.connector import Error as MySQLError
 import os
 import uvicorn
+from google import genai
+from dotenv import load_dotenv
+from pydantic import BaseModel
+from pydantic import BaseModel
+
+load_dotenv()
 
 from api.database import initialize_database, get_db_connection
 from api.schemas import (
@@ -23,6 +29,12 @@ from api.repository import (
 
 # Inicializar Base de Datos al arrancar el script
 initialize_database()
+
+# Configurar Gemini (Nueva SDK google-genai)
+ai_client = None
+gemini_key = os.getenv("GEMINI_API_KEY")
+if gemini_key:
+    ai_client = genai.Client(api_key=gemini_key)
 
 app = FastAPI(title="Clinica Rodriguez API")
 
@@ -189,6 +201,117 @@ async def get_latest_report(paciente_id: int):
     if not report:
         raise HTTPException(status_code=404, detail="No se encontró ningún informe para este paciente")
     return report
+
+# --- IA Endpoints ---
+
+class AIRecommendRequest(BaseModel):
+    slots: list[str]
+    fecha: str
+    motivo: str
+
+@app.post("/api/ai/recommend")
+async def recommend_slot(request: AIRecommendRequest):
+    """Genera una recomendación de horario usando Gemini."""
+    if not ai_client:
+        return {"recommendation": "¡Hola! Veo que tienes varios huecos disponibles. Te recomiendo elegir el que mejor se adapte a tu rutina. (Nota: Configura GEMINI_API_KEY para recomendaciones personalizadas)."}
+    
+    if not request.slots:
+        return {"recommendation": "Lo siento, no parece haber huecos libres para este día."}
+
+    try:
+        prompt = f"""
+        Actúa como un asistente virtual extremadamente amable y profesional de la 'Clínica Rodríguez'.
+        Tu objetivo es ayudar al paciente a elegir la mejor hora para su cita.
+        
+        Datos de la solicitud:
+        - Motivo: {request.motivo}
+        - Fecha: {request.fecha}
+        - Horas disponibles: {', '.join(request.slots)}
+        
+        Instrucciones:
+        1. Saluda cordialmente.
+        2. Recomienda una o dos de las horas disponibles.
+        3. Si el motivo es 'Operación', prioriza las primeras horas de la mañana.
+        4. Sé muy breve (máximo 50 palabras).
+        5. Usa un tono que transmita confianza y cuidado.
+        6. NO uses markdown complejo, solo texto plano o negritas simples.
+        """
+        response = ai_client.models.generate_content(
+            model='gemini-3.1-flash-lite-preview',
+            contents=prompt
+        )
+        return {"recommendation": response.text.strip()}
+    except Exception as e:
+        import logging
+        logging.error(f"Error en Gemini: {str(e)}")
+        return {"recommendation": f"Te recomiendo el hueco de las {request.slots[0]}, es una excelente hora para tu consulta de {request.motivo}."}
+
+class AISuggestReportRequest(BaseModel):
+    altura: float
+    peso: float
+    respiracion: int
+    presion: str
+    especialidad: str
+
+@app.post("/api/ai/suggest-report")
+async def suggest_report(request: AISuggestReportRequest):
+    """Genera una sugerencia de observación clínica basada en vitales."""
+    if not ai_client:
+        return {"suggestion": "Signos vitales estables. Paciente en condiciones generales normales para su edad y complexión. Se recomienda mantener hábitos saludables."}
+    
+    try:
+        prompt = f"""
+        Actúa como un médico experto en {request.especialidad}.
+        Redacta una observación clínica breve (máximo 60 palabras) basada en estos datos:
+        - Altura: {request.altura} cm
+        - Peso: {request.peso} kg
+        - Respiración: {request.respiracion} rpm
+        - Presión Arterial: {request.presion}
+        
+        El tono debe ser estrictamente profesional, médico y sintético.
+        Incluye una breve mención al IMC si es relevante.
+        """
+        response = ai_client.models.generate_content(
+            model='gemini-3.1-flash-lite-preview',
+            contents=prompt
+        )
+        return {"suggestion": response.text.strip()}
+    except Exception as e:
+        return {"suggestion": "Paciente presenta constantes vitales dentro de la normalidad. Se recomienda seguimiento en la próxima consulta."}
+
+class AIDoctorRequest(BaseModel):
+    sintomas: str
+    motivo: str
+    doctores: list[dict]
+
+@app.post("/api/ai/recommend-doctor")
+async def recommend_doctor(request: AIDoctorRequest):
+    """Recomienda un médico basándose en síntomas y especialidades."""
+    if not ai_client:
+        return {"recommendation": "Sugerencia: Revisa las especialidades disponibles para asignar al profesional más adecuado."}
+    
+    try:
+        docs_str = "\n".join([f"- {d['nombre']} ({d['especialidad']})" for d in request.doctores])
+        prompt = f"""
+        Actúa como un jefe de planta médico en la Clínica Rodríguez.
+        Basándote en los síntomas del paciente y el motivo de consulta, recomienda al doctor más apto.
+        
+        Datos:
+        - Motivo: {request.motivo}
+        - Síntomas: {request.sintomas}
+        
+        Plantilla médica disponible:
+        {docs_str}
+        
+        Responde con una recomendación profesional muy breve (máximo 40 palabras).
+        """
+        response = ai_client.models.generate_content(
+            model='gemini-3.1-flash-lite-preview',
+            contents=prompt
+        )
+        return {"recommendation": response.text.strip()}
+    except Exception as e:
+        return {"recommendation": "Sugerencia: Se recomienda asignar al médico cuya especialidad coincida con el motivo de consulta."}
 
 # Montar las carpetas estáticas y vistas
 app.mount("/static", StaticFiles(directory="static"), name="static")
